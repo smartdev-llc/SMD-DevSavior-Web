@@ -23,9 +23,29 @@
               "src/assets"
             ],
             "styles": [
+              "./libs/css/bootstrap-theme.css",
+              "./libs/css/bootstrap.css",
+              "./libs/css/owl.carousel.css",
+              "./libs/css/owl.template.css",
+              "./libs/css/animate.css",
+              "./libs/css/select2-bootstrap.css",
+              "./libs/css/select2.css",
+              "./libs/css/site-responsive.css",
+              "./libs/css/font-awesome.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./libs/js/jquery-1.9.1.min.js",
+              "./libs/js/bootstrap.min.js",
+              "./libs/js/select2.min.js",
+              "./libs/js/waypoints.min.js",
+              "./libs/js/jquery.counterup.min.js",
+              "./libs/js/owl.carousel.js",
+              "./libs/js/parallax.js",
+              "./libs/js/tinymce.min.js",
+              "./libs/js/webjs.js",
+              "./libs/js/npm.js"
+            ]
           },
           "configurations": {
             "production": {
