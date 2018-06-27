@@ -30,9 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   isCheckoutRoute() {
     if (!this.currentUrl) {

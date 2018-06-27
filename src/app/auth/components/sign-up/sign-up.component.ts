@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
         tap(_ => _, (user) => {
           const errors = user.error.errors || {};
           keys.forEach(val => {
-            if (errors[val]) { this.pushErrorFor(val, errors[val][0]); };
+            if (errors[val]) { this.pushErrorFor(val, errors[val][0]); }
           });
         })).subscribe();
     } else {
@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
         if (!ctrl.valid) {
           this.pushErrorFor(val, null);
           ctrl.markAsTouched();
-        };
+        }
       });
     }
   }
@@ -76,7 +76,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
       'email': [email, Validators.compose([Validators.required, Validators.email])],
       'password': [password, Validators.compose([Validators.required, Validators.minLength(6)])],
       'password_confirmation': [password_confirmation, Validators.compose([Validators.required, Validators.minLength(6)])],
-      'mobile': [mobile, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]{10}')])],
+      'mobile': [
+        mobile,
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10),
+          Validators.pattern('[0-9]{10}')
+        ])
+      ],
       'gender': [gender, Validators.required]
     }, { validator: this.matchingPasswords('password', 'password_confirmation') }
     );
@@ -96,15 +104,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
     return (group: FormGroup): { [key: string]: any } => {
-      let password = group.controls[passwordKey];
-      let confirmPassword = group.controls[confirmPasswordKey];
+      const password = group.controls[passwordKey];
+      const confirmPassword = group.controls[confirmPasswordKey];
 
       if (password.value !== confirmPassword.value) {
         return {
           mismatchedPasswords: true
         };
       }
-    }
+    };
   }
 
   socialLogin(provider: string) {

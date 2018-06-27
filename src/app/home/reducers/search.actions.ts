@@ -6,12 +6,12 @@ export class SearchActions {
   static REMOVE_FILTER = 'REMOVE_FILTER';
   static GET_PRODUCTS_BY_KEYWORD = 'GET_PRODUCTS_BY_KEYWORD';
   static GET_PRODUCTS_BY_KEYWORD_SUCCESS = 'GET_PRODUCTS_BY_KEYWORD_SUCCESS';
-  static GET_PRODUCTS_BY_TAXON = 'GET_PRODUCTS_BY_TAXON'
-  static GET_CHILD_TAXONS = 'GET_CHILD_TAXONS'
-  static GET_CHILD_TAXONS_SUCCESS = 'GET_CHILD_TAXONS_SUCCESS'
-  static CLEAR_SELECTED_CATAGEORY = 'CLEAR_SELECTED_CATAGEORY'
-  static GET_TAXONOMIES_BY_NAME = 'GET_TAXONOMIES_BY_NAME'
-  static GET_TAXONOMIES_BY_NAME_SUCCESS = 'GET_TAXONOMIES_BY_NAME_SUCCESS'
+  static GET_PRODUCTS_BY_TAXON = 'GET_PRODUCTS_BY_TAXON';
+  static GET_CHILD_TAXONS = 'GET_CHILD_TAXONS';
+  static GET_CHILD_TAXONS_SUCCESS = 'GET_CHILD_TAXONS_SUCCESS';
+  static CLEAR_SELECTED_CATAGEORY = 'CLEAR_SELECTED_CATAGEORY';
+  static GET_TAXONOMIES_BY_NAME = 'GET_TAXONOMIES_BY_NAME';
+  static GET_TAXONOMIES_BY_NAME_SUCCESS = 'GET_TAXONOMIES_BY_NAME_SUCCESS';
 
   category: any;
   /**
@@ -53,56 +53,56 @@ export class SearchActions {
     return {
       type: SearchActions.GET_PRODUCTS_BY_KEYWORD,
       payload: keyword
-    }
+    };
   }
 
   getProducsByKeywordSuccess(products: any) {
     return {
       type: SearchActions.GET_PRODUCTS_BY_KEYWORD_SUCCESS,
       payload: products
-    }
+    };
   }
 
   getProducsByTaxon(taxonId: any) {
     return {
       type: SearchActions.GET_PRODUCTS_BY_TAXON,
       payload: taxonId
-    }
+    };
   }
 
   getChildTaxons(taxonomiesId: any, taxonId: any) {
     return {
       type: SearchActions.GET_CHILD_TAXONS,
       payload: { taxonomiesId, taxonId }
-    }
+    };
   }
 
   getChildTaxonsSuccess(taxonList: any) {
     return {
       type: SearchActions.GET_CHILD_TAXONS_SUCCESS,
       payload: taxonList
-    }
+    };
   }
 
   clearCategeoryLevel() {
     return {
       type: SearchActions.CLEAR_SELECTED_CATAGEORY
-    }
+    };
   }
 
   getTaxonomiesByName(taxonomyName: string, categoryName: string) {
-    this.category = categoryName
+    this.category = categoryName;
     return {
       type: SearchActions.GET_TAXONOMIES_BY_NAME,
       payload: taxonomyName
-    }
+    };
   }
 
   getTaxonomiesByNameSuccess(taxonomiList: any) {
-    const category = this.category
+    const category = this.category;
     return {
       type: SearchActions.GET_TAXONOMIES_BY_NAME_SUCCESS,
       payload: { taxonomiList, category }
-    }
+    };
   }
 }

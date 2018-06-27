@@ -20,11 +20,11 @@ export function reducer(state = initialState, { type, payload }: any): SearchSta
       if (filterAlreadyPresent) {
         return state;
       } else {
-        const _selectedFilters = state.selectedFilters.concat([payload]);
-        const _selectedTaxonIds = state.selectedTaxonIds.concat(payload.id);
+        const getFilters = state.selectedFilters.concat([payload]);
+        const getTaxonIds = state.selectedTaxonIds.concat(payload.id);
         return state.merge({
-          selectedFilters: _selectedFilters,
-          selectedTaxonIds: _selectedTaxonIds,
+          selectedFilters: getFilters,
+          selectedTaxonIds: getTaxonIds,
         }) as SearchState;
       }
 
@@ -36,12 +36,12 @@ export function reducer(state = initialState, { type, payload }: any): SearchSta
           removeIndex = index;
         }
       });
-      const _selectedFilters = state.selectedFilters.remove(removeIndex);
+      const selectedFilters = state.selectedFilters.remove(removeIndex);
       const taxonRemoveIndex = state.selectedTaxonIds.findIndex(filterId => payload.id === filterId);
-      const _selectedTaxonIds = state.selectedTaxonIds.remove(taxonRemoveIndex);
+      const selectedTaxonIds = state.selectedTaxonIds.remove(taxonRemoveIndex);
       return state.merge({
-        selectedFilters: _selectedFilters,
-        selectedTaxonIds: _selectedTaxonIds
+        selectedFilters: selectedFilters,
+        selectedTaxonIds: selectedTaxonIds
       }) as SearchState;
 
     case SearchActions.GET_PRODUCTS_BY_KEYWORD_SUCCESS:
@@ -49,15 +49,15 @@ export function reducer(state = initialState, { type, payload }: any): SearchSta
       }) as SearchState;
 
     case SearchActions.GET_CHILD_TAXONS_SUCCESS:
-      const selectedCategory = { 'id': payload.taxonList.id, 'name': payload.taxonList.name }
-      let _categeoryLevel = state.categeoryLevel
+      const selectedCategory = { 'id': payload.taxonList.id, 'name': payload.taxonList.name };
+      let _categeoryLevel = state.categeoryLevel;
       state.categeoryLevel.forEach((categeory, i) => {
         if (categeory.id === selectedCategory.id) {
-          isUpdated = true
-          updatedCategory = _categeoryLevel.slice(0, i + 1)
-          _categeoryLevel = updatedCategory
+          isUpdated = true;
+          updatedCategory = _categeoryLevel.slice(0, i + 1);
+          _categeoryLevel = updatedCategory;
         } else {
-          isUpdated = false
+          isUpdated = false;
         }
       });
       if (isUpdated !== true) {
@@ -80,4 +80,4 @@ export function reducer(state = initialState, { type, payload }: any): SearchSta
     default:
       return state;
   }
-};
+}
