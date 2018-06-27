@@ -4,7 +4,6 @@ import { Pipe } from '@angular/core';
 @Pipe({ name: 'humanize' })
 
 export class HumanizePipe {
-
   /**
    *
    *
@@ -20,5 +19,4 @@ export class HumanizePipe {
     }
     return updated_val;
   }
-
-};
+}

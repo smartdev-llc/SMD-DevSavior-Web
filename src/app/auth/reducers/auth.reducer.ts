@@ -15,4 +15,4 @@ export function reducer(state = initialState, { type, payload }: any): AuthState
       default:
         return state;
     }
-  };
+}

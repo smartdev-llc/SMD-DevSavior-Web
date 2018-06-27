@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         if (!ctrl.valid) {
           this.pushErrorFor(val, null);
           ctrl.markAsTouched();
-        };
+        }
       });
     }
   }

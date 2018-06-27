@@ -54,11 +54,11 @@ export class HomeComponent implements OnInit {
     this.store.dispatch(this.searchActions.getChildTaxons('5', category.id));
     // ToDo: Here Brands are hardcoded For now.
     this.store.dispatch(this.searchActions.getTaxonomiesByName('Brands', category.name));
-    this.brands$ = this.store.select(taxonomiByName)
-    this.isFilterOn = true
+    this.brands$ = this.store.select(taxonomiByName);
+    this.isFilterOn = true;
   }
   showAll() {
-    this.isFilterOn = false
+    this.isFilterOn = false;
   }
 
   isOpenChangeaccourdian() {

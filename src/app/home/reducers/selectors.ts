@@ -14,7 +14,7 @@ export const getSearchState = createSelector(
 /******************* Individual selectors ******************/
 function fetchSelectedFilters(state: SearchState) {
   return state.selectedFilters.toJS();
-};
+}
 
 function fetchSelectedTaxonIds(state: SearchState) {
   return state.selectedTaxonIds.toJS();

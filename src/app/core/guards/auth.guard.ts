@@ -7,7 +7,7 @@ import { getAuthStatus } from '../../auth/reducers/selectors';
 
 
 @Injectable()
-export class CanActivateViaAuthGuard implements CanActivate, OnDestroy{
+export class CanActivateViaAuthGuard implements CanActivate, OnDestroy {
   isAuthenticated: boolean;
   subscription: Subscription;
 
