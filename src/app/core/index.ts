@@ -9,7 +9,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { AuthService } from './services/auth.service';
 import { AuthActions } from '../auth/actions/auth.actions';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-// import { ProductDummyService } from './services/product-dummy.service';
+import { HumanizePipe } from './pipes/humanize.pipe';
 
 import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from '../auth/effects/auth.effects';
@@ -17,9 +17,7 @@ import { CanActivateViaAuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
-    // components
-    // DummyService,
-    // pipes
+    HumanizePipe
   ],
   exports: [
     // components
