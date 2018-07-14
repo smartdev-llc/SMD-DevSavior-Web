@@ -35,10 +35,10 @@
               "src/styles.css"
             ],
             "scripts": [
-              "./libs/js/jquery-1.9.1.min.js",
+              "./libs/js/jquery-2.2.4.min.js",
               "./libs/js/bootstrap.min.js",
               "./libs/js/select2.min.js",
-              "./libs/js/waypoints.min.js",
+              "./libs/js/jquery.waypoints.min.js",
               "./libs/js/jquery.counterup.min.js",
               "./libs/js/owl.carousel.js",
               "./libs/js/parallax.js",
