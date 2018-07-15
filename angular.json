@@ -23,16 +23,17 @@
               "src/assets"
             ],
             "styles": [
-              "./libs/css/bootstrap-theme.css",
-              "./libs/css/bootstrap.css",
+              "./libs/css/bootstrap-theme.min.css",
+              "./libs/css/bootstrap.min.css",
               "./libs/css/owl.carousel.css",
               "./libs/css/owl.template.css",
               "./libs/css/animate.css",
               "./libs/css/select2-bootstrap.css",
               "./libs/css/select2.css",
-              "./libs/css/site-responsive.css",
               "./libs/css/font-awesome.min.css",
-              "src/styles.css"
+              "./libs/css/custom_fonts.css",
+              "src/styles.css",
+              "./libs/css/site-responsive.css"
             ],
             "scripts": [
               "./libs/js/jquery-2.2.4.min.js",
