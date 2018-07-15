@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { SearchActions } from './reducers/search.actions';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { LayoutModule } from '../layout/index';
 // Components
 import { HomeComponent } from './home.component';
 // Breadcrumb components
@@ -20,13 +21,7 @@ import { reducers } from './reducers/index';
   imports: [
     RouterModule.forChild(routes),
     NgxInputStarRatingModule,
-
-    /**
-     * StoreModule.forFeature is used for composing state
-     * from feature modules. These modules can be loaded
-     * eagerly or lazily and will be dynamically added to
-     * the existing state.
-     */
+    LayoutModule,
     StoreModule.forFeature('home', reducers)
   ],
   providers: [
