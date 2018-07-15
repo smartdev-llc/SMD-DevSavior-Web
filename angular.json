@@ -23,7 +23,6 @@
               "src/assets"
             ],
             "styles": [
-              "./libs/css/bootstrap-theme.min.css",
               "./libs/css/bootstrap.min.css",
               "./libs/css/owl.carousel.css",
               "./libs/css/owl.template.css",
