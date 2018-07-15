@@ -23,22 +23,22 @@
               "src/assets"
             ],
             "styles": [
-              "./libs/css/bootstrap-theme.css",
-              "./libs/css/bootstrap.css",
+              "./libs/css/bootstrap.min.css",
               "./libs/css/owl.carousel.css",
               "./libs/css/owl.template.css",
               "./libs/css/animate.css",
               "./libs/css/select2-bootstrap.css",
               "./libs/css/select2.css",
-              "./libs/css/site-responsive.css",
               "./libs/css/font-awesome.min.css",
-              "src/styles.css"
+              "./libs/css/custom_fonts.css",
+              "src/styles.css",
+              "./libs/css/site-responsive.css"
             ],
             "scripts": [
-              "./libs/js/jquery-1.9.1.min.js",
+              "./libs/js/jquery-2.2.4.min.js",
               "./libs/js/bootstrap.min.js",
               "./libs/js/select2.min.js",
-              "./libs/js/waypoints.min.js",
+              "./libs/js/jquery.waypoints.min.js",
               "./libs/js/jquery.counterup.min.js",
               "./libs/js/owl.carousel.js",
               "./libs/js/parallax.js",
