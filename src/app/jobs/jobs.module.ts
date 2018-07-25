@@ -1,27 +1,27 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
-import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 // Components
-import { HomeComponent } from './home.component';
-import  { JobsFiltersComponent } from './jobs-filters/jobs-filters.component'
+import { JobsComponent } from './components/list-jobs/jobs.component';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
 // Breadcrumb components
 // Routes
-import { HomeRoutes as routes } from './home.routes';
+import { JobsRoutes as routes } from './jobs.routes';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    JobsFiltersComponent
+    JobsComponent,
+    JobDetailComponent,
+    PostJobComponent
   ],
   exports: [
   ],
   imports: [
     RouterModule.forChild(routes),
     NgxInputStarRatingModule,
-    LayoutModule,
     SharedModule
   ]
 })
-export class HomeModule { }
+export class JobsModule { }
