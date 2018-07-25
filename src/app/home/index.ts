@@ -4,7 +4,7 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { LayoutModule } from '../layout/index';
 // Components
 import { HomeComponent } from './home.component';
-import  { JobsFiltersComponent } from'./jobs-filters/jobs-filters.component'
+import  { JobsFiltersComponent } from './jobs-filters/jobs-filters.component'
 // Breadcrumb components
 // Routes
 import { HomeRoutes as routes } from './home.routes';
