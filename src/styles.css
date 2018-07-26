@@ -2047,6 +2047,7 @@ ul.alphabet li {
 }
 .form-group input,
 .form-group textarea {
+  outline: none;
  width: 100%;
  background: #fff;
  box-shadow: none;
