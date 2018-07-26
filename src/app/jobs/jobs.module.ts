@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 // Components
 import { JobsComponent } from './components/list-jobs/jobs.component';
@@ -21,6 +22,7 @@ import { JobsRoutes as routes } from './jobs.routes';
   imports: [
     RouterModule.forChild(routes),
     NgxInputStarRatingModule,
+    LayoutModule,
     SharedModule
   ]
 })
