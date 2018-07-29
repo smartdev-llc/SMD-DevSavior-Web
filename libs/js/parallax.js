@@ -113,7 +113,7 @@
       return this;
     }
 
-    this.$mirror = $('<div />').prependTo('body');
+    this.$mirror = $('<div />').prependTo('app-home-header');
 
     var slider = this.$element.find('>.parallax-slider');
     var sliderExisted = false;

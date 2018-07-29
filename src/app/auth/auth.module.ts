@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LayoutModule } from '../layout/index';
+import { SharedModule } from '../shared/shared.module';
 
-import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { StLoginComponent } from './components/st-login/st-login.component';
+import { StRegisterComponent } from './components/st-register/st-register.component';
 
 import { AuthRoutes as routes } from './auth.routes';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    LayoutModule,
+    SharedModule
   ],
   declarations: [
-    LoginComponent,
-    SignUpComponent
+    StLoginComponent,
+    StRegisterComponent
   ]
 })
 export class AuthModule { }
