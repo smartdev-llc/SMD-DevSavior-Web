@@ -18,7 +18,7 @@ import { CoreModule } from './core/index';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { JobsModule } from './jobs/jobs.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     HomeModule,
     LayoutModule,
-    CoreModule
+    CoreModule,
+    JobsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
