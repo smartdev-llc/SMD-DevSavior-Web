@@ -5,9 +5,14 @@ import { CanActivateViaAuthGuard } from './core/guards/auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: './home/index#HomeModule' },
+    loadChildren: './home/index#HomeModule'
+  },
   {
-    path: 'auth',
+    path: '',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: '',
+    loadChildren: './jobs/jobs.module#JobsModule'
   }
 ];

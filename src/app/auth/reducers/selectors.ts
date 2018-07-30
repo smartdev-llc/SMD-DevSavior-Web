@@ -1,4 +1,4 @@
-import { AppState } from './../../interfaces';
+import { AppState } from '../../interfaces';
 import { createSelector } from 'reselect';
 import { AuthState } from './auth.state';
 

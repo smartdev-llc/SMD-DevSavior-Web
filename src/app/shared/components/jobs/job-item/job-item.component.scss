@@ -86,29 +86,6 @@
     border-radius: 33px;
     text-transform: none;
  }
- #load_more {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    color: #333;
-    padding: 12px 47px;
-    font-family: OpenSansBold;
-    position: relative;
-    text-transform: uppercase;
-  margin:  55px auto 28px;
-     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-     border: 2px solid #12cd6a;
-     border-radius: 26px;
- }
- #load_more:hover {
-    background: #12cd6a  !important;
-     color: #fff;
- }
- #load_more .glyphicon {
-    position: absolute;
-    right: 17px;
-    top: 14px;
- }
 
  @media only screen and (min-width:768px) and (max-width: 1200px) {
     .filter-result .desig h3 {

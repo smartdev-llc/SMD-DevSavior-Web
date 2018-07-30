@@ -1,4 +1,4 @@
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import * as fromAuth from './auth/reducers/auth.reducer';
 
 /**
