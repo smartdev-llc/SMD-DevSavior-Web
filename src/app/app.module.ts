@@ -1,5 +1,5 @@
 import { EffectsModule } from '@ngrx/effects';
-import { environment } from '../environments/environment';
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,9 +12,9 @@ import { AppComponent } from './app.component';
 // Routes
 import { routes } from './app.routes';
 // Modules
-import { HomeModule } from './home';
-import { LayoutModule } from './layout';
-import { CoreModule } from './core';
+import { HomeModule } from './home/index';
+import { LayoutModule } from './layout/index';
+import { CoreModule } from './core/index';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
