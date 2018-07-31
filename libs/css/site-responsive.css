@@ -55,25 +55,6 @@
   .jobs_filters .form-group {
     margin-bottom: 0;
   }
-  .tab_filters h4 {
-    display: none;
-  }
-  .tab_filters h5 {
-    margin: 0;
-    border: none;
-    text-align: center;
-    float: none;
-    padding-right: 0;
-    padding-bottom: 40px;
-  }
-  .tab_filters ul {
-    text-align: center;
-  }
-  .tab_filters ul.nav li {
-    display: initial;
-    float: none;
-    display: inline-block;
-  }
   .container-fluid.bluesection:before {
     background-repeat: repeat-x;
     width: 100%;
@@ -232,9 +213,7 @@
   .page-title .main-container {
     padding: 0 0 32px;
   }
-  .filter-result .desig h3 {
-    font-size: 16px;
-  }
+
 }
 
 @media (min-width: 992px) {
@@ -260,13 +239,8 @@
 }
 
 @media (max-width: 991px) {
-  .tab_filters ul.nav li {
-    width: 26%;
-    margin: 10px 1%;
-  }
-  .jobs-result {
-    margin-top: 20px;
-  }
+
+
   .countjobs ul li {
     padding: 0px 5%;
   }
@@ -501,9 +475,7 @@
     float: none;
     text-align: center;
   }
-  .tab_filters ul.nav li {
-    width: 45%;
-  }
+ 
   .how_work ul li ul li {
     width: 100%;
     margin: 0;
@@ -602,54 +574,22 @@
     text-align: center;
     margin-bottom: 10px;
   }
-  .tab_filters ul.nav li {
-    width: 100%;
-  }
   .slogan h1 {
     font-size: 30px;
   }
   .slogan h3 {
     font-size: 14px;
   }
-  .filter-result .location {
-    margin-top: 25px;
-  }
-  .filter-result .location p {
-    font-size: 20px;
-    margin-left: 87px;
-  }
+ 
   .jobs_filters {
     padding: 35px 0 31px;
-  }
-  .filter-result .location p, .data-job {
-    text-align: left;
-    font-size: 13px;
-  }
-  .filter-result .desig h3 {
-    font-size: 14px;
-  }
-  .filter-result .desig h4 {
-    color: #919199;
-    font-size: 13px;
-  }
-  .filter-result {
-    padding: 18px 0;
-    border: 1px solid #e4e4e4;
-  }
-  .data-job {
-    float: left;
-    width: 100%;
-    margin-left: 86px;
   }
   .page-title .white-heading {
     text-align: center;
     font-size: 38px;
     margin-top: 25px;
   }
-  .data-job h3 {
-    width: 100%;
-    text-align: left;
-  }
+ 
   .job-footer ul {
     margin-top: 24px;
   }
@@ -725,42 +665,6 @@
     width: 100%;
     text-align: center;
     margin: 0 auto 13px;
-  }
-  .jobs-result {
-    text-align: center;
-  }
-  .jobs-result .desig, .filter-result .location {
-    width: 100%;
-  }
-  .filter-result .location p, .data-job {
-    text-align: center;
-    font-size: 13px;
-  }
-  .filter-result .desig h3 {
-    font-size: 14px;
-  }
-  .filter-result .desig h4 {
-    color: #919199;
-    font-size: 13px;
-  }
-  .filter-result {
-    padding: 18px 0;
-    border: 1px solid #e4e4e4;
-  }
-  .data-job {
-    float: left;
-    width: 100%;
-    margin-left: 0px;
-  }
-  .filter-result .location p {
-    margin-left: 0px;
-  }
-  .data-job h3 {
-    width: 100%;
-    text-align: center;
-    font-size: 17px;
-    line-height: 14px;
-    margin: 0 0 12px;
   }
   .job-footer ul {
     margin-top: 24px;
