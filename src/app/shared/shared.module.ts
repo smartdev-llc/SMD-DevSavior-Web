@@ -4,15 +4,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // components
-import { JobItemComponent } from './components/job-item/job-item.component';
+import { JobListComponent } from './components/jobs/jobs-list/job-list.component';
+import { JobItemComponent } from './components/jobs/job-item/job-item.component';
+import { LoadmoreButtonComponent } from './components/loadmore-button/loadmore-button.component';
 
 @NgModule({
   declarations: [
-    JobItemComponent
+    JobItemComponent,
+    JobListComponent,
+    LoadmoreButtonComponent
   ],
   exports: [
     CommonModule,
-    JobItemComponent
+    JobListComponent,
+    LoadmoreButtonComponent
   ],
   imports: [
     CommonModule,
