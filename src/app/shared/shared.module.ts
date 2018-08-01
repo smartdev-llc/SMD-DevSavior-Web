@@ -16,6 +16,7 @@ import { LoadmoreButtonComponent } from './components/loadmore-button/loadmore-b
   ],
   exports: [
     CommonModule,
+    JobItemComponent,
     JobListComponent,
     LoadmoreButtonComponent
   ],
