@@ -14,9 +14,10 @@ import { HomeRoutes as routes } from './home.routes';
 @NgModule({
   declarations: [
     HomeComponent,
-    JobsFiltersComponent
+    JobsFiltersComponent,
   ],
   exports: [
+    JobsFiltersComponent
   ],
   imports: [
     RouterModule.forChild(routes),
