@@ -1,0 +1,82 @@
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .filter-result .desig h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .filter-result .location p {
+    font-size: 20px;
+    margin-left: 87px;
+  }
+  .filter-result {
+    padding: 18px 0;
+    border: 1px solid #e4e4e4;
+  }
+  .filter-result .desig h3 {
+    font-size: 14px;
+  }
+  .filter-result .desig h4 {
+    color: #919199;
+    font-size: 13px;
+  }
+  .filter-result .location {
+    margin-top: 25px;
+  }
+  .filter-result .location p {
+    font-size: 20px;
+    margin-left: 87px;
+  }
+  .filter-result .location p, .data-job {
+    text-align: left;
+    font-size: 13px;
+  }
+  .data-job {
+    float: left;
+    width: 100%;
+    margin-left: 86px;
+  }
+  .data-job h3 {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-result .location p {
+    margin-left: 0px;
+  }
+  .filter-result {
+    padding: 18px 0;
+    border: 1px solid #e4e4e4;
+  }
+  .filter-result .desig h3 {
+    font-size: 14px;
+  }
+  .filter-result .desig h4 {
+    color: #919199;
+    font-size: 13px;
+  }
+
+  .data-job {
+    float: left;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .data-job h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    line-height: 14px;
+    margin: 0 0 12px;
+  }
+  .jobs-result .desig, .filter-result .location {
+    width: 100%;
+  }
+  .filter-result .location p, .data-job {
+    text-align: center;
+    font-size: 13px;
+  }
+}
+

@@ -10,15 +10,15 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container">
           <div class="logo">
-            <a href="index.html">
+            <a routerLink="/">
               <img src="assets/images/logo2.png" alt="Photo" />
             </a>
           </div>
           <div class="logins">
-            <a href="post-a-job.html" class="post_job">
+            <a routerLink="/post-job" class="post_job">
               <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
             </a>
-            <a href="login_register.html" class="login">
+            <a routerLink="/st-login" class="login">
               <i class="fa fa-user"></i>
             </a>
           </div>
@@ -35,23 +35,23 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
 
 
                   <span class="sr-only">(current)</span>
                 </a>
                 <div class="mobile-menu add-job">
-                  <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
+                  <a routerLink="/post-job">POST A JOB, IT’S FREE!</a>
                 </div>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="browse-jobs.html">Browse Jobs</a>
+                    <a routerLink="/browse-jobs">Browse Jobs</a>
                   </li>
                   <li>
-                    <a href="browse-jobs-alternative.html">Browse jobs alternative</a>
+                    <a routerLink="/browse-jobs-alternative">Browse jobs alternative</a>
                   </li>
                 </ul>
               </li>
@@ -91,7 +91,7 @@
                 <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
               </li>
               <li class="mobile-menu">
-                <a href="login_register.html">Register User</a>
+                <a routerLink="/st-login">Login User</a>
               </li>
             </ul>
           </div>
