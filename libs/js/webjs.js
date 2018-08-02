@@ -1,9 +1,6 @@
 (function($) {
   "use strict";
   $(document).ready(function() {
-    $(window).on('load', function() {
-      $("#loadessr").fadeOut();
-    });
     var slider_testi = $('#testio');
     var slider_job = $('#jobs-slider');
     var slider_recom = $('#recommended-job');

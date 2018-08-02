@@ -5,12 +5,12 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container">
           <div class="logo">
-            <a href="index.html">
+            <a routerLink="/">
               <img src="assets/images/logo2.png" alt=""/>
             </a>
           </div>
           <div class="logins">
-            <a href="post-a-job.html" class="post_job">
+            <a routerLink="/post-job" class="post_job">
               <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
             </a>
             <a routerLink="/st-login" class="login">
@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
                   <span class="sr-only">(current)</span>
                 </a>
                 <div class="mobile-menu add-job">
@@ -81,7 +81,7 @@
                 <a href="contact-us.html">Contact</a>
               </li>
               <li class="mobile-menu">
-                <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
+                <a routerLink="/post-job">POST A JOB, IT’S FREE!</a>
               </li>
               <li class="mobile-menu">
                 <a routerLink="/st-login">Login User</a>
