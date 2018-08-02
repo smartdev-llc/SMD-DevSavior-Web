@@ -1,135 +1,51 @@
-<app-header></app-header>
+<div class="title-image joblist">
+  <app-header></app-header>
 
-<jobs-filters></jobs-filters>
-
-<div class="container main-container-home">
-  <div class="jobs-result">
-    <div class="col-lg-12">
-      <h3 class="recom">Recent Jobs</h3>
-
+  <!-- Page Title-->
+  <div class="container-fluid blue-banner page-title bg-image">
+    <div class="row section-title">
+      <div class="container main-container">
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <h3 class="image-heading">Web designer</h3>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="favourite">Save Job<i class="fa fa-star-o"></i><span>Posted on March 2016</span></div>
+        </div>
+      </div>
     </div>
-    <!--Search Result 01-->
-    <div class="col-lg-12">
-      <div class="filter-result 01">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt=""/>
-          </div>
-          <div class="desig">
-            <a href="job-style-one.html"><h3>Senior UX Designer</h3></a>
-            <h4>Photoshop, CSS, Java Script, Sketch</h4>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-          <div class="pull-right location">
-            <p>Loss Angeles</p>
-          </div>
-          <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-contract ">Contract</span>
-          </div>
-
+    <div class="row section-jobcategories">
+      <div class="container main-container">
+        <div class="col-lg-12">
+          <ul class="top_filters">
+            <li><input name="freelance" type="checkbox"><label>Freelance</label></li>
+            <li><input name="Partytime" type="checkbox"><label>Partytime</label></li>
+            <li><input name="Contract" type="checkbox"><label>Contract</label></li>
+            <li><input name="Intership" type="checkbox"><label>Intership</label></li>
+          </ul>
         </div>
       </div>
-      <!--jobs result-->
-      <div class="filter-result 02">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt=""/>
-          </div>
-          <div class="desig">
-            <a href="job_detail2.html"><h3>Full Stack Web Developer</h3></a>
-            <h4>C# / ASP.NET / MVC</h4>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-          <div class="pull-right location">
-            <p>Loss Angeles</p>
-          </div>
-          <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-parttime ">Party time</span>
-          </div>
-
-        </div>
-      </div>
-      <!--jobs result-->
-      <div class="filter-result 03">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt=""/>
-          </div>
-          <div class="desig">
-            <a href="job-style-one.html"><h3>Full Stack Web Developer</h3></a>
-            <h4>C# / ASP.NET / MVC</h4>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-          <div class="pull-right location">
-            <p>Loss Angeles</p>
-          </div>
-          <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-internship ">Internship</span>
-          </div>
-
-        </div>
-      </div>
-      <!--jobs result-->
-      <div class="filter-result 04">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt=""/>
-          </div>
-          <div class="desig">
-            <a href="job_detail2.html"><h3>Web Developer / PHP & Drupal Ninja!</h3></a>
-            <h4>PHP, MySQL, Linux, Wordpress</h4>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-          <div class="pull-right location">
-            <p>Loss Angeles</p>
-          </div>
-          <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-fulltime ">Full Time</span>
-          </div>
-
-        </div>
-      </div>
-      <!--jobs result-->
-      <div class="filter-result 02">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt=""/>
-          </div>
-          <div class="desig">
-            <a href="job-style-one.html"><h3>Front-End UI Web Developer - ReactJS</h3></a>
-            <h4>PHP, MySQL, Linux, Wordpress</h4>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-          <div class="pull-right location">
-            <p>Loss Angeles</p>
-          </div>
-          <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-partytime">Party Time</span>
-          </div>
-
-        </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="col-lg-12">
-        <button class="btn btn-default dropdown-toggle" type="button" id="load_more" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"> Show more Jobs <span
-          class="glyphicon glyphicon-menu-down"></span>
-        </button>
-      </div>
-
     </div>
-    <!--Search Result 01-->
   </div>
-</div>
+  <!-- Page Title-->
 
-<app-footer></app-footer>
+  <!-- Job Categories Filters -->
+  <jobs-filters></jobs-filters>
+  <!-- Job Categories Filters -->
+
+  <!-- Job Results -->
+  <div class="container main-container-home">
+    <div class="jobs-result">
+      <div class="col-lg-12">
+        <h3 class="recom">Recent Jobs</h3>
+      </div>
+      <div class="col-lg-12">
+        <job-item></job-item>
+        <job-item></job-item>
+      </div>
+    </div>
+
+  </div>
+  <!-- Job Results -->
+
+  <app-footer></app-footer>
+</div>
