@@ -8,7 +8,48 @@
   margin-top: 4px
 }
 .deximJobs_tabs .sidebar {
-  margin-top: 0 
+  margin-top: 0
+}
+.btn-social {
+  color: #fff;
+  font-family: Montserrat-SemiBold;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  padding: 15px;
+  height: 50px;
+  width: 74%;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+}
+.btn-social i {
+  float: left;
+  font-size: 25px;
+  margin-top: -3px;
+}
+.btn-fb {
+  background-color: #4c699e;
+  border-color: #47618d;
+}
+.btn-gg {
+  background-color: #da573b;
+  border-color: #be5238;
+}
+.btn-google {
+  color: #555555;
+  background-color: #fff;
+}
+.tab-group, .btn-social {
 }
 @media (max-width: 480px) {
   .deximJobs_tabs .contact_us .lost_password {

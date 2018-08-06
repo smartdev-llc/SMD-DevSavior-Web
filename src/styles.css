@@ -2280,7 +2280,7 @@ ul.alphabet li {
 .form-group label {
   text-align: right;
   float: left;
-  width: 100px;
+  width: 60px;
   margin-right: 22px;
   margin-bottom: 0;
   font-family: LatoRegular;
@@ -2435,9 +2435,6 @@ ul.social li a {
 
 .deximJobs_tabs .contact_us label {
   color: #fff;
-  width: 130px;
-  margin-left: -51px;
-  padding: 2% 0;
 }
 
 .deximJobs_tabs .contact_us input {
@@ -2781,7 +2778,7 @@ body ul.select2-results li {
   padding-top: 28px;
 }
 
-.contact_us span {
+.cbox span {
   font-size: 20px;
   color: #333;
   font-weight: bold;
