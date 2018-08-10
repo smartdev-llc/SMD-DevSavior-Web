@@ -24,20 +24,9 @@
 
 
 @media (min-width: 1281px) {
- 
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
-  .deximJobs_tabs .sidebar{
-    @include margin-sidebar
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {

@@ -53,7 +53,6 @@
   background-color: #fff;
 }
 .tab-group, .btn-social {
-
 }
 
 @mixin btn-social-resize {
@@ -69,7 +68,6 @@
   margin-top: 20px
 }
 
-
 @media (min-width: 1281px) {
   .btn-social{
     margin-top: 10px;
@@ -79,18 +77,6 @@
   .btn-social{
     margin-top: 10px;
   } 
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
-  .deximJobs_tabs .sidebar{
-    @include margin-sidebar
-  };
-  .btn-social {
-    @include btn-social-resize;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
