@@ -1,5 +1,8 @@
 .white-text p {
-  font-size: 26px
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px
 }
 .deximJobs_tabs .tab-content {
   margin-top: 4px
@@ -11,36 +14,55 @@
   outline: none
 }
 
+@mixin padding-for-lost_password{
+  padding: 0 0 0 10px
+}
 
-@media (max-width: 480px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
-  };
-  .deximJobs_tabs .sidebar {
-    margin-top: 20px
-  }
+@mixin margin-sidebar{
+  margin-top: 20px
 }
-@media (max-width: 580px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
-  };
-  .deximJobs_tabs .sidebar {
-    margin-top: 20px
-  }
+
+
+@media (min-width: 1281px) {
+ 
 }
-@media (max-width: 660px) {
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
   .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
+    @include padding-for-lost_password
   };
   .deximJobs_tabs .sidebar{
-    margin-top: 20px
+    @include margin-sidebar
   }
 }
-@media (max-width: 767px) {
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
+    @include padding-for-lost_password
   };
   .deximJobs_tabs .sidebar{
-    margin-top: 20px
+    @include margin-sidebar
+  };
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+  .deximJobs_tabs .contact_us .lost_password {
+    @include padding-for-lost_password
+  };
+  .deximJobs_tabs .sidebar {
+    @include margin-sidebar
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    @include padding-for-lost_password
+  };
+  .deximJobs_tabs .sidebar {
+    @include margin-sidebar
   }
 }
