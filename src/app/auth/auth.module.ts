@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { StLoginComponent } from './components/st-login/st-login.component';
 import { StRegisterComponent } from './components/st-register/st-register.component';
+import { StLostPasswordComponent } from './components/st-lost-password/st-lost-password.component';
 
 import { AuthRoutes as routes } from './auth.routes';
 
@@ -18,7 +19,8 @@ import { AuthRoutes as routes } from './auth.routes';
   ],
   declarations: [
     StLoginComponent,
-    StRegisterComponent
+    StRegisterComponent,
+    StLostPasswordComponent
   ]
 })
 export class AuthModule { }
