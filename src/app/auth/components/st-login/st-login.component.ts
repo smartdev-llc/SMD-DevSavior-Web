@@ -40,7 +40,6 @@ export class StLoginComponent implements OnInit, OnDestroy {
     const values = this.loginInForm.value;
     const keys = Object.keys(values);
 
-    console.log(values);
     if (this.loginInForm.valid) {
       this.loginSubs = this.authService
         .login(values).pipe(
