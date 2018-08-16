@@ -5,6 +5,5 @@ import { StLostPasswordComponent } from './components/st-lost-password/st-lost-p
 export const AuthRoutes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: 'st-register', component: StRegisterComponent },
-  { path: 'st-login', component: StLoginComponent },
-  { path: 'st-lost-password', component: StLostPasswordComponent}
+  { path: 'login', component: StLoginComponent }
 ];
