@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 
@@ -15,7 +16,9 @@ import { AuthRoutes as routes } from './auth.routes';
     CommonModule,
     RouterModule.forChild(routes),
     LayoutModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     StLoginComponent,

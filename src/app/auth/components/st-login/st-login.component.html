@@ -11,15 +11,15 @@
           <div id="login" class="white-text">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
               <p>Login to your Candidate account.</p>
-              <form name="contact_us" class="contact_us">
+              <form name="contact_us" class="contact_us" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                  <label class="control-label">Name</label>
-                  <input type="text" name="name">
+                  <label>Name</label>
+                  <input type="email" name="email" formControlName="email">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label">Password</label>
-                  <input type="password" name="password-2" id="password-2" />
+                  <label>Password</label>
+                  <input type="password" name="password" id="password" formControlName="password" />
                 </div>
 
                 <div class="form-group submit">
@@ -28,12 +28,10 @@
                     <span>Remember me</span>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <div class="col-lg-offset-2 tab-group">
-                    <input type="submit" name="submit" value="Sign in" class="signin" id="signin">
-                    <a routerLink="/st-lost-password" class="lost_password">Forgot Password ?</a>
-                  </div>
+                <div class="form-group submit">
+                  <label>Submit</label>
+                  <input type="submit" name="submit" value="Sign in" class="signin" id="signin">
+                  <a href="/login" class="lost_password">Lost Password?</a>
                 </div>
 
                 <div class="form-group">
