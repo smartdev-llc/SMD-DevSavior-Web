@@ -1,6 +1,6 @@
 export const DEFAULT_CONFIG = {
   // Add Your custom configs here
-  prodApiEndpoint: 'https://prod.server.com',
+  prodApiEndpoint: 'https://164.132.226.137:1337',
   appName: 'JuniorViec',
   fevicon: 'http://via.placeholder.com/350x150',
   header: {

@@ -37,9 +37,10 @@ export class AuthService {
    * @memberof AuthService
    */
   login({ email, password }: Authenticate): Observable<User> {
-    const params = { spree_user: { email, password } };
-    return this.http.post<User>('login.json', params).pipe(
+    const params = { email, password, role: 'student' };
+    return this.http.post<User>('/auth/login', params).pipe(
       map(user => {
+        this.setTokenInLocalStorage(user);
         this.store.dispatch(this.actions.loginSuccess());
         return user;
       }),
@@ -136,11 +137,7 @@ export class AuthService {
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
-      'token-type': 'Bearer',
-      access_token: user.access_token || [],
-      client: user.client || [],
-      uid: user.uid || [],
-      'X-Spree-Token': user.spree_api_key || []
+      access_token: user.access_token || []
     });
   }
 
@@ -154,6 +151,6 @@ export class AuthService {
    */
   private setTokenInLocalStorage(user_data: any): void {
     const jsonData = JSON.stringify(user_data);
-    localStorage.setItem('user', jsonData);
+    localStorage.setItem("user.access_token", jsonData.token);
   }
 }
