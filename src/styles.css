@@ -561,7 +561,7 @@ ul.dropdown-menu li:last-child a {
 }
 .filter-result {
   background: #fff;
-  padding: 40px 0;
+  padding: 25px 0;
   float: left;
   width: 100%;
   margin-bottom: 15px;
@@ -584,7 +584,7 @@ ul.dropdown-menu li:last-child a {
   margin: 0;
 }
 .filter-result .desig h3 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 9px 0;
 }
 .filter-result .desig h3:hover { color: #3e48d2; text-decoration:none; }
@@ -622,7 +622,7 @@ ul.dropdown-menu li:last-child a {
 }
 .data-job h3 {
   float: left;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 22px;
   margin-right: 28px;
 
@@ -2280,7 +2280,7 @@ ul.alphabet li {
 .form-group label {
   text-align: right;
   float: left;
-  width: 100px;
+  width: 60px;
   margin-right: 22px;
   margin-bottom: 0;
   font-family: LatoRegular;
@@ -2435,9 +2435,6 @@ ul.social li a {
 
 .deximJobs_tabs .contact_us label {
   color: #fff;
-  width: 130px;
-  margin-left: -51px;
-  padding: 2% 0;
 }
 
 .deximJobs_tabs .contact_us input {
@@ -2781,7 +2778,7 @@ body ul.select2-results li {
   padding-top: 28px;
 }
 
-.contact_us span {
+.cbox span {
   font-size: 20px;
   color: #333;
   font-weight: bold;
