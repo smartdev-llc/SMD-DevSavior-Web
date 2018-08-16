@@ -151,7 +151,6 @@ export class AuthService {
    */
   private setTokenInLocalStorage(user_data: any): void {
     const token = user_data.token;
-    console.log(token);
     localStorage.setItem("user.access_token", token);
   }
 }
