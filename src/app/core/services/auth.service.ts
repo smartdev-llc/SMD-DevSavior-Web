@@ -150,7 +150,7 @@ export class AuthService {
    * @memberof AuthService
    */
   private setTokenInLocalStorage(user_data: any): void {
-    const jsonData = JSON.stringify(user_data);
-    localStorage.setItem("user.access_token", jsonData.token);
+    const token = user_data.token;
+    localStorage.setItem("user.access_token", token);
   }
 }
