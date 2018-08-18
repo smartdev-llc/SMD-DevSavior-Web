@@ -1,8 +1,8 @@
-.companies-container {
-  box-shadow: 0 0 28px -3px #f1f1f1 inset;
-  position: relative;
-	background: url('../../../../assets/images/shape-background1.png') no-repeat top right;
-  background-size: cover
+.company-container {
+  background-image: url('../../../../assets/images/shaper-background.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:top right;
 }
 h2 {
   font-size: 36px
