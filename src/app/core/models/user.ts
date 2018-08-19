@@ -10,19 +10,26 @@ export interface Authenticate {
   email: string;
   password: string;
 }
+export enum Gender{
+  UNKNOWN = "unknown",
+  MALE = "Male",
+  FEMALE = "Female",
+  OTHER = "Other"
+}
+
+export enum Role {
+  Student,
+  Company
+}
 export class User {
-  id: string;
-  uid: string;
-  spree_api_key: string;
-  email: string;
-  created_at: string;
-  updated_at: string;
-  bill_address_id: string;
-  ship_address_id: string;
-  payment_sources: [any];
-  bill_address: [Address];
-  ship_address: [Address];
-  error?: {error: string, errors: Object};
-  access_token: string;
-  client: string;
+  email: String;
+  password: String;
+  gender: Gender;
+  role: Role;
+  firstName: String;
+  lastName: String;
+
+  get displayName() {
+    return this.firstName + " " + this.lastName;
+  }
 }

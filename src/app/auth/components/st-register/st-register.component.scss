@@ -11,6 +11,116 @@
   outline: none
 }
 
+.form-group .has-error {
+  border-color: #d21b18;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  border-width: 2px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-group .error-input {
+  color: #d21b18;
+  font-family: LatoRegular;
+  font-size: 14px;
+}
+.form-group.required label {
+  margin-right: 13px;
+  width: 138px;
+}
+.form-group.required label:after {
+  content: ' *';
+  font-size: 14px;
+  color: #ff0000;
+}
+.deximJobs_tabs .contact_us input:not([type='submit']) {
+  width: 100%;
+}
+.dropdown.open .dropdown-toggle {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.dropdown-menu {
+  top: 85%;
+  border-width: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 0px;
+  overflow: hidden;
+  transition: height 5s linear;
+}
+.dropdown-menu ul{
+  height: auto;
+  margin: 0px;
+}
+.dropdown-menu ul li{
+  cursor: pointer;
+  text-transform: none;
+  color: #333;
+  padding: 13px;
+}
+.dropdown-menu ul li:hover{
+  background-color: #12cd6a;
+  color: #fff;
+}
+.container-fluid.login_register .row {
+  position: relative;
+}
+#loadessr {
+  background-color: rgba(217,217,217,0.3);
+  z-index: 1;
+}
+.contact_us .form-group .dropdown {
+  width: 80%;
+}
+
+@media (max-width: 1200px) {
+  .input-container input {
+    width: 100%;
+  }
+  .contact_us .form-group .dropdown {
+    width: 66%;
+  }
+}
+
+@media (max-width: 991px) {
+  .input-container {
+    display: block
+  }
+  .contact_us .form-group .dropdown {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    padding: 0 0 0 10px
+  };
+  .deximJobs_tabs .sidebar{
+    margin-top: 20px
+  }
+}
+
+@media (max-width: 660px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    padding: 0 0 0 10px
+  };
+  .deximJobs_tabs .sidebar{
+    margin-top: 20px
+  }
+}
+
+@media (max-width: 580px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    padding: 0 0 0 10px
+  };
+  .deximJobs_tabs .sidebar {
+    margin-top: 20px
+  }
+}
 
 @media (max-width: 480px) {
   .deximJobs_tabs .contact_us .lost_password {
@@ -20,27 +130,6 @@
     margin-top: 20px
   }
 }
-@media (max-width: 580px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
-  };
-  .deximJobs_tabs .sidebar {
-    margin-top: 20px
-  }
-}
-@media (max-width: 660px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
-  };
-  .deximJobs_tabs .sidebar{
-    margin-top: 20px
-  }
-}
-@media (max-width: 767px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    padding: 0 0 0 10px
-  };
-  .deximJobs_tabs .sidebar{
-    margin-top: 20px
-  }
-}
+
+
+
