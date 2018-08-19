@@ -13,13 +13,15 @@ import { PostJobComponent } from './components/post-job/post-job.component';
 // Breadcrumb components
 // Routes
 import { JobsRoutes as routes } from './jobs.routes';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
-    PostJobComponent
+    PostJobComponent,
+    ContactUsComponent
   ],
   exports: [
     BrowseJobsComponent,
