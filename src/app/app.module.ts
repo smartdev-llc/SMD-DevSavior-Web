@@ -19,7 +19,6 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsModule } from './jobs/jobs.module';
-import { AuthModule } from './auth/auth.module';
 import { CompaniesModule } from './companies/companies.module';
 
 @NgModule({
@@ -59,7 +58,6 @@ import { CompaniesModule } from './companies/companies.module';
     CoreModule,
     JobsModule,
     CompaniesModule,
-    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
