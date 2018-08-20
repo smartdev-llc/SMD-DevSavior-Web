@@ -3,7 +3,6 @@ import { StLoginComponent } from './components/st-login/st-login.component';
 import { StLostPasswordComponent } from './components/st-lost-password/st-lost-password.component';
 
 export const AuthRoutes = [
-  { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: 'st-register', component: StRegisterComponent },
   { path: 'login', component: StLoginComponent }
 ];

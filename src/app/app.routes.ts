@@ -14,5 +14,9 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: './jobs/jobs.module#JobsModule'
+  },
+  {
+    path: '',
+    loadChildren: './companies/companies.module#CompaniesModule'
   }
 ];

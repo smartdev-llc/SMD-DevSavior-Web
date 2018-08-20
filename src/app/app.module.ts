@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsModule } from './jobs/jobs.module';
+import { CompaniesModule } from './companies/companies.module';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { JobsModule } from './jobs/jobs.module';
     HomeModule,
     LayoutModule,
     CoreModule,
-    JobsModule
+    JobsModule,
+    CompaniesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
