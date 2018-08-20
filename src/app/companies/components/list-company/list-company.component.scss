@@ -1,0 +1,34 @@
+.company-container {
+  background-image: url('../../../../assets/images/shaper-background2.png');
+  background-position: 20% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 83px
+}
+.title-box {
+  margin-top: 100px;
+  .title-center {
+    font-size: 36px;
+    text-transform: capitalize;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    background: url('../../../../assets/images/line2.png') no-repeat bottom center;
+    padding-bottom: 20px;
+  };
+  .description {
+    font-weight: 300;
+    max-width: 500px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin: 15px auto 0
+  }
+}
+.items-grid {
+  margin-top: 80px;
+}
+
+
+
