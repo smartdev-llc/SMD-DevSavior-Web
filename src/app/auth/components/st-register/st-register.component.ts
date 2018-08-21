@@ -27,12 +27,6 @@ export class StRegisterComponent implements OnInit {
 
   }
 
-  updateGender(gender) {
-   console.log(gender);
-   this.f.gender.setValue(gender);
-
-  }
-
   registerNewUser() {
     this.loading = true;
     this.submitted = true;
@@ -40,8 +34,7 @@ export class StRegisterComponent implements OnInit {
       this.loading = false;
       return;
     }
-    let self = this;
-
+    
     this.authService.register(this.convertToUser())
     .subscribe(
       data => {
@@ -93,7 +86,7 @@ export class StRegisterComponent implements OnInit {
       role: [Role.Student],
       gender: [Gender.UNKNOWN]
   });
-  this.genders = [Gender.MALE, Gender.FEMALE, Gender.OTHER];
+  this.genders = [Gender.UNKNOWN,Gender.MALE, Gender.FEMALE, Gender.OTHER];
   this.loading = false;
   }
 

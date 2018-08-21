@@ -22,12 +22,13 @@ export enum Role {
   Company
 }
 export class User {
-  email: String;
-  password: String;
+  email: string;
+  password: string;
   gender: Gender;
   role: Role;
-  firstName: String;
-  lastName: String;
+  firstName: string;
+  lastName: string;
+  access_token: string;
 
   get displayName() {
     return this.firstName + " " + this.lastName;

@@ -1,93 +1,117 @@
 .jobs-result {
-    float: left;
+  float: left;
+  width: 100%;
+  margin-top: 28px;
+
+  .jobs-title {
+    padding: 5px;
+    background-color: #12cd6a;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    display: inline-block;
     width: 100%;
-    margin-top: 28px;
- }
+
+    &.hot-jobs {
+      background-color: gold;
+    }
+  }
+}
+
 .tab_filters {
-    float: left;
-      width: 100%;
-   }
+  float: left;
+  width: 100%;
+}
+
 .tab_filters ul.nav li {
-    margin-right: 9px;
-    margin-left: 0;
+  margin-right: 9px;
+  margin-left: 0;
 }
+
 .tab_filters ul.nav li a {
-    border: 1px solid #d0d0d0;
-    font-family: LatoRegular;
-    font-size: 13px;
-    color: #333;
-    border-radius: 9px;
-text-transform: none;
+  border: 1px solid #d0d0d0;
+  font-family: LatoRegular;
+  font-size: 13px;
+  color: #333;
+  border-radius: 9px;
+  text-transform: none;
 }
+
 .tab_filters ul.nav li a:hover {
-    background: #333 none repeat scroll 0 0;
-    border: 1px solid #333;
-    color: #ffffff;
+  background: #333 none repeat scroll 0 0;
+  border: 1px solid #333;
+  color: #ffffff;
 }
+
 .tab_filters ul.nav li:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
+
 .tab_filters ul.nav li.active a {
-    font-family: OpenSansBold;
-    color: #fff;
-    border: 1px solid #12cd6a;
-    background: #12cd6a;
+  font-family: OpenSansBold;
+  color: #fff;
+  border: 1px solid #12cd6a;
+  background: #12cd6a;
 }
-.tab_filters h5,.tab_filters h4 {
-    margin: 0;
-    float: left;
-    padding: 19px 0;
-}
+
+.tab_filters h4,
 .tab_filters h5 {
-    padding-right: 44px;
-    border-right: 1px solid #d0d0d0;
-    margin-right: 40px;
+  margin: 0;
+  float: left;
+  padding: 19px 0;
 }
 
+.tab_filters h5 {
+  padding-right: 44px;
+  border-right: 1px solid #d0d0d0;
+  margin-right: 40px;
+}
 @media (max-width: 1200px) {
-    .tab_filters h4 {
-        display: none;
-      }
-      .tab_filters h5 {
-        margin: 0;
-        border: none;
-        text-align: center;
-        float: none;
-        padding-right: 0;
-        padding-bottom: 40px;
-      }
-      .tab_filters ul {
-        text-align: center;
-      }
-      .tab_filters ul.nav li {
-        display: initial;
-        float: none;
-        display: inline-block;
-      }
-}
+  .tab_filters h4 {
+    display: none;
+  }
 
+  .tab_filters h5 {
+    margin: 0;
+    border: none;
+    text-align: center;
+    float: none;
+    padding-right: 0;
+    padding-bottom: 40px;
+  }
+
+  .tab_filters ul {
+    text-align: center;
+  }
+
+  .tab_filters ul.nav li {
+    display: initial;
+    float: none;
+    display: inline-block;
+  }
+}
 @media (max-width: 991px) {
-    .tab_filters ul.nav li {
-        width: 26%;
-        margin: 10px 1%;
-    }
-    .jobs-result {
-        margin-top: 20px;
-    }
-}
+  .tab_filters ul.nav li {
+    width: 26%;
+    margin: 10px 1%;
+  }
 
+  .jobs-result {
+    margin-top: 20px;
+  }
+}
 @media (max-width: 767px) {
-    .tab_filters ul.nav li {
-        width: 45%;
-      }
+  .tab_filters ul.nav li {
+    width: 45%;
+  }
 }
 @media (max-width: 580px) {
-    .tab_filters ul.nav li {
-        width: 100%;
-    }
+  .tab_filters ul.nav li {
+    width: 100%;
+  }
 }
 @media (max-width: 480px) {
-    .jobs-result {
+  .jobs-result {
     text-align: center;
-    }
+  }
 }
