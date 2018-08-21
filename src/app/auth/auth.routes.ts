@@ -7,5 +7,6 @@ export const AuthRoutes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: 'register', component: StRegisterComponent },
   { path: 'login', component: StLoginComponent },
-  { path: 'register-success', component: RegisterSuccessComponent }
+  { path: 'register-success', component: RegisterSuccessComponent },
+  { path: 'lost-password', component: StLostPasswordComponent }
 ];
