@@ -21,6 +21,8 @@ export class StRegisterComponent implements OnInit {
   submitted: boolean;
   loading: boolean;
   genders: Gender[];
+  static MAX_LENGTH_PASSWORD:number = 6;
+  static DEFAULT_MESSAGE = "Something wrong while registering new user";
   constructor( private router: Router,
                private authService: AuthService, 
                private formBuilder: FormBuilder) {
@@ -49,7 +51,7 @@ export class StRegisterComponent implements OnInit {
         if (error.status == 409) {
           this.f.email.setErrors({"existed" : true})
         } else {
-          this.registerForm.setErrors({serverError: true})
+          this.registerForm.setErrors({serverError: error.error ? error.error.message : StRegisterComponent.DEFAULT_MESSAGE } )
         }
         this.loading = false;
       });
@@ -73,7 +75,7 @@ export class StRegisterComponent implements OnInit {
 
   ngOnInit() {
     this.passwordGroup = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(StRegisterComponent.MAX_LENGTH_PASSWORD)]],
       repeatPassword: ['', Validators.required]
     }, {
       validator: matchingPasswordValidator
@@ -96,25 +98,8 @@ export class StRegisterComponent implements OnInit {
     user.password = this.passwordGroup.value.password;
     user.firstName = this.registerForm.value.firstName || '';
     user.lastName = this.registerForm.value.lastName || '';
-    user.gender = this.registerForm.value.gender || 'unknown';
+    user.gender = this.registerForm.value.gender || Gender.UNKNOWN;
     user.role = Role.Student;
     return user;
-  }
-}
-
-export class PasswordMatchingValidator {
-  static validate(passwordGroup: FormGroup) {
-    let password = passwordGroup.value.password;
-    let repeatPassword = passwordGroup.value.repeatPassword;
-    if(repeatPassword == null || repeatPassword != null && repeatPassword.length <= 0) {
-      return null;
-    }
-    if(repeatPassword !== password) {
-      
-      return {
-          matchedPassword: true
-      }
-    }
-    return null;
   }
 }
