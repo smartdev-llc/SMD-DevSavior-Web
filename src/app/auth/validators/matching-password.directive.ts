@@ -22,7 +22,7 @@ export const matchingPasswordValidator: ValidatorFn =  (passwordFormGroup: FormG
   };
 
 @Directive({
-  selector: '[atchingPassword]',
+  selector: '[matchingPassword]',
   providers: [{provide: NG_VALIDATORS, useExisting: MatchingPasswordDirective, multi: true}]
 })
 export class MatchingPasswordDirective extends Validators{
