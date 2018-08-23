@@ -121,7 +121,6 @@
   .form-group select {
     width: 72.5%;
   }
-
 }
 
 @media (max-width: 991px) {
@@ -133,6 +132,9 @@
   }
   .form-group.submit label {
     display: none;
+  }
+  .form-group.global-error label {
+    display: none
   }
 }
 

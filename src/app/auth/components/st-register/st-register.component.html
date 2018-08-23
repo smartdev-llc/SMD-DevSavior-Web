@@ -19,11 +19,11 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
               <p>Register your Candidate account.</p>
               <form name="contact_us" class="contact_us" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
-                <div class="form-group">
+                <div class="form-group global-error" >
                   <label></label>
                   <div *ngIf="submitted" class="error-input">
                       <div *ngIf="submitted && registerForm.errors?.serverError">
-                          Problem while registering new user.
+                          {{registerForm.errors.serverError}}
                         </div>
                     </div>
                   </div>
