@@ -18,8 +18,8 @@ export enum Gender{
 }
 
 export enum Role {
-  Student,
-  Company
+  Student = "student",
+  Company = "company",
 }
 export class User {
   email: string;
