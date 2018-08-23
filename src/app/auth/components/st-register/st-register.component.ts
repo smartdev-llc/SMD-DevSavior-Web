@@ -16,13 +16,15 @@ import { Router, NavigationExtras } from "@angular/router";
   providers: [ AuthService ]
 })
 export class StRegisterComponent implements OnInit {
+  static MAX_LENGTH_PASSWORD: number = 8;
+  static DEFAULT_MESSAGE = "Something wrong while registering new user";
+  
   registerForm: FormGroup;
   passwordGroup: FormGroup;
   submitted: boolean;
   loading: boolean;
   genders: Gender[];
-  static MAX_LENGTH_PASSWORD:number = 6;
-  static DEFAULT_MESSAGE = "Something wrong while registering new user";
+  
   constructor( private router: Router,
                private authService: AuthService, 
                private formBuilder: FormBuilder) {
