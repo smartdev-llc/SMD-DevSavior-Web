@@ -9,6 +9,7 @@ import { StLoginComponent } from './components/st-login/st-login.component';
 import { StRegisterComponent } from './components/st-register/st-register.component';
 import { RegisterSuccessComponent } from './components/registerSuccess/registerSuccess.component';
 import { StLostPasswordComponent } from './components/st-lost-password/st-lost-password.component';
+import { MatchingPasswordDirective } from './validators/matching-password.directive';
 
 import { AuthRoutes as routes } from './auth.routes';
 
@@ -21,11 +22,12 @@ import { AuthRoutes as routes } from './auth.routes';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [
+  declarations: [ 
     StLoginComponent,
     StRegisterComponent,
     RegisterSuccessComponent,
-    StLostPasswordComponent
+    StLostPasswordComponent,
+    MatchingPasswordDirective
   ]
 })
 export class AuthModule { }
