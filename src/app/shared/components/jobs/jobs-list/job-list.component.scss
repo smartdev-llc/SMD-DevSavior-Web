@@ -2,20 +2,6 @@
   float: left;
   width: 100%;
   margin-top: 28px;
-
-  .jobs-title {
-    padding: 5px;
-    background-color: #12cd6a;
-    color: white;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
-    display: inline-block;
-    width: 100%;
-
-    &.hot-jobs {
-      background-color: gold;
-    }
-  }
 }
 
 .tab_filters {
@@ -43,6 +29,11 @@
   color: #ffffff;
 }
 
+.nav>li:hover a, .nav>li>a:focus, .nav>li>a:hover, .nav li.active a{
+  background-color: #fff;
+  z-index: 1;
+}
+
 .tab_filters ul.nav li:last-child {
   margin-right: 0;
 }
@@ -66,11 +57,52 @@
   border-right: 1px solid #d0d0d0;
   margin-right: 40px;
 }
+
+.nav li {
+  margin-right: 0px;
+}
+
+.nav-tabs {
+  margin-left: 15px;
+  border: none
+}
+
+.carousel-inner {
+  height: 900px;
+}
+
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-controls {
+  position: relative;
+  width: 300px;
+  margin: 5px auto 60px auto;
+  z-index: 2;
+  .left, .right{
+    background-image: none;
+  }
+}
+
+.carousel-indicators {
+  position: relative;
+  top: 6px;
+  .active {
+    background-color: #7CE2B4
+  }
+}
+
+.carousel-indicators li {
+  border: 1px solid #7CE2B4
+}
+
 @media (max-width: 1200px) {
   .tab_filters h4 {
     display: none;
   }
-
   .tab_filters h5 {
     margin: 0;
     border: none;
@@ -79,39 +111,63 @@
     padding-right: 0;
     padding-bottom: 40px;
   }
-
   .tab_filters ul {
     text-align: center;
   }
-
   .tab_filters ul.nav li {
     display: initial;
     float: none;
     display: inline-block;
   }
+  .carousel-inner {
+    height: 870px;
+  }
 }
+
 @media (max-width: 991px) {
   .tab_filters ul.nav li {
     width: 26%;
     margin: 10px 1%;
   }
-
   .jobs-result {
     margin-top: 20px;
   }
+  .carousel-inner {
+    height: 949px;
+  }
 }
+
 @media (max-width: 767px) {
   .tab_filters ul.nav li {
     width: 45%;
   }
+  .carousel-inner {
+    height: 1600px;
+  }
 }
+
 @media (max-width: 580px) {
   .tab_filters ul.nav li {
     width: 100%;
   }
+  .carousel-inner {
+    height: 1930px;
+  }
 }
+
 @media (max-width: 480px) {
   .jobs-result {
     text-align: center;
+  }
+  .carousel-inner {
+    height: 2110px;
+  }
+}
+@media (max-width: 320px) {
+  .jobs-result {
+    text-align: center;
+  }
+  .carousel-inner {
+    height: 2270px;
   }
 }
