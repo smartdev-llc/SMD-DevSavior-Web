@@ -12,6 +12,9 @@ import { Store } from "../../../../node_modules/@ngrx/store";
 import { map, tap } from "rxjs/operators";
 @Injectable()
 export class AuthService {
+
+  static PREFIX_AUTHORIZATION: string = "Bearer ";
+
   /**
    * Creates an instance of AuthService.
    * @param {HttpService} http
@@ -27,6 +30,7 @@ export class AuthService {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+
 
   /**
    *
@@ -97,7 +101,7 @@ export class AuthService {
    * @memberof AuthService
    */
   logout() {
-    return this.http.get('logout.json').pipe(
+    return this.http.get('logout').pipe(
       map((res: Response) => {
         // Setting token after login
         localStorage.removeItem('user');
@@ -120,8 +124,15 @@ export class AuthService {
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
-      'access_token': user.access_token || ''
+      'Authorization': this.getAccessTokenFromUser(user)
     });
+  }
+
+  getAccessTokenFromUser(user) {
+    if (user !== undefined) {
+      return AuthService.PREFIX_AUTHORIZATION + user.access_token
+    }
+    return '';
   }
 
   /**
