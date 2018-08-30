@@ -17,12 +17,14 @@
                     <div class="logins">
                         <a href="#jobs_filters_search" class="post_job" id="search-icon">
                             <span class="label job-type partytime cancel">
-                              <i class="fa fa-search ahihi" aria-hidden="true"></i>
+                              <i class="fa fa-search search-ic" aria-hidden="true"></i>
                             </span>
                         </a>
                         <a routerLink="/post-job" class="post_job">
                             <span class="label job-type partytime cancel">
                           <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                          <!-- if language is US -->
+                          <!-- <img class="la" src="assets/images/la/united-states-flag.png" alt="vietnamese"> -->
                           </span>
                         </a>
                         <!-- not logged in -->
@@ -71,11 +73,14 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <button type="button" class="navbar-toggle la-mobile">
+                                <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                            </button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -136,7 +141,10 @@
 
                             <!-- not logged in -->
                             <li class="mobile-menu">
-                                <a routerLink="/login">Login User</a>
+                                <a routerLink="/login">Login</a>
+                            </li>
+                            <li class="mobile-menu">
+                                <a routerLink="/register">Register</a>
                             </li>
                             <!-- logged -->
                             <li class="mobile-menu">
@@ -163,7 +171,6 @@
                                     <li>
                                         <a href="#">Logout</a>
                                     </li>
-
                                 </ul>
                             </li>
                         </ul>
