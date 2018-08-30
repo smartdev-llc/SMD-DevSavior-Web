@@ -10,7 +10,7 @@
     width: auto;
 }
 
-.ahihi {
+.search-ic {
     border-right: 2px solid #232323;
     border-radius: 0;
     padding: 0px 20px;
@@ -49,4 +49,17 @@
 
 span.label.job-type.partytime.profile-head.fa {
     font-size: 18px;
+}
+
+button.navbar-toggle.la-mobile {
+    background: none;
+    padding: 4px 1px;
+    margin: 0px;
+}
+
+@media (max-width:352px) {
+    .navbar-fixed-bottom,
+    .navbar-fixed-top {
+        padding: 10px !important;
+    }
 }

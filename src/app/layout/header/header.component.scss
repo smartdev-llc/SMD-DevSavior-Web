@@ -1,0 +1,64 @@
+.logins>.post_job>.cancel {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: none;
+    border-radius: none;
+    color: #12cd6a;
+    font-family: OpenSansBold;
+    font-size: 30px;
+    margin-right: 0;
+    padding: 0px;
+    width: auto;
+}
+
+// .ahihi {
+//     border-right: 2px solid #232323;
+//     border-radius: 0;
+//     padding: 0px 20px;
+// }
+.la {
+    padding: 0px 10px;
+}
+
+.post_job span {
+    margin-left: 10px;
+}
+
+.Companies-head {
+    background-color: #12cd6a;
+    color: #fff;
+}
+
+.Companies-head:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.profile-head {
+    background-color: #12cd6a;
+    color: #fff;
+    padding: auto 5px;
+}
+
+.open>.dropdown-menu {
+    display: block;
+    /* position: absolute; */
+    right: -10px;
+    left: 200px;
+}
+
+span.label.job-type.partytime.profile-head.fa {
+    font-size: 18px;
+}
+
+button.navbar-toggle.la-mobile {
+    background: none;
+    padding: 4px 1px;
+    margin: 0px;
+}
+
+@media (max-width:352px) {
+    .navbar-fixed-bottom,
+    .navbar-fixed-top {
+        padding: 10px !important;
+    }
+}
