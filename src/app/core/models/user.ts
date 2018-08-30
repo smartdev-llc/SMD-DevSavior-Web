@@ -10,16 +10,16 @@ export interface Authenticate {
   email: string;
   password: string;
 }
-export enum Gender{
-  UNKNOWN = "unknown",
-  MALE = "Male",
-  FEMALE = "Female",
-  OTHER = "Other"
+export enum Gender {
+  UNKNOWN = 'unknown',
+  MALE = 'Male',
+  FEMALE = 'Female',
+  OTHER = 'Other'
 }
 
 export enum Role {
-  Student = "student",
-  Company = "company",
+  Student = 'student',
+  Company = 'company',
 }
 export class User {
   email: string;
@@ -31,6 +31,6 @@ export class User {
   access_token: string;
 
   get displayName() {
-    return this.firstName + " " + this.lastName;
+    return this.firstName + ' ' + this.lastName;
   }
 }
