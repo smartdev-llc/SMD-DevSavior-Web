@@ -1,32 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder,
           FormGroup,
-          Validators } from "@angular/forms";
+          Validators } from '@angular/forms';
 import { User,
-         Gender, 
-         Role} from '../../../core/models/user';
+         Gender,
+         Role } from '../../../core/models/user';
 import { matchingPasswordValidator } from '../../validators/matching-password.directive';
 import { AuthService } from '../../../core/services/auth.service';
-import { Router, NavigationExtras } from "@angular/router";
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'st-register',
+  selector: 'app-st-register',
   templateUrl: './st-register.component.html',
   styleUrls: ['./st-register.component.scss'],
   providers: [ AuthService ]
 })
 export class StRegisterComponent implements OnInit {
-  static MAX_LENGTH_PASSWORD: number = 8;
-  static DEFAULT_MESSAGE = "Something wrong while registering new user";
-  
+  static MAX_LENGTH_PASSWORD = 8;
+  static DEFAULT_MESSAGE = 'Something wrong while registering new user';
   registerForm: FormGroup;
   passwordGroup: FormGroup;
   submitted: boolean;
   loading: boolean;
   genders: Gender[];
-  
   constructor( private router: Router,
-               private authService: AuthService, 
+               private authService: AuthService,
                private formBuilder: FormBuilder) {
 
   }
@@ -34,36 +32,36 @@ export class StRegisterComponent implements OnInit {
   registerNewUser() {
     this.loading = true;
     this.submitted = true;
-    if(this.registerForm.invalid) {
+    if (this.registerForm.invalid) {
       this.loading = false;
       return;
     }
-    
+
     this.authService.register(this.convertToUser())
     .subscribe(
       data => {
-        let navigationExtras: NavigationExtras = {
+        const navigationExtras: NavigationExtras = {
           queryParams: { 'email': data.email },
-          skipLocationChange: true 
+          skipLocationChange: true
         };
           this.router.navigate(['/register-success'], navigationExtras);
       },
       error => {
         this.resetPasswordForm();
-        if (error.status == 409) {
-          this.f.email.setErrors({"existed" : true})
+        if (error.status === 409) {
+          this.f.email.setErrors({'existed' : true});
         } else {
-          this.registerForm.setErrors({serverError: error.error ? error.error.message : StRegisterComponent.DEFAULT_MESSAGE } )
+          this.registerForm.setErrors({serverError: StRegisterComponent.DEFAULT_MESSAGE});
         }
         this.loading = false;
       });
   }
-  
+
   resetPasswordForm() {
     this.passwordGroup.reset();
   }
 
-  get f(){
+  get f() {
     return this.registerForm.controls;
   }
 
@@ -72,7 +70,7 @@ export class StRegisterComponent implements OnInit {
   }
 
   get LETTER_ONLY_PATTERN() {
-    return "^([a-zA-Z\\s])*$";
+    return '^([a-zA-Z\\s])*$';
   }
 
   ngOnInit() {
@@ -81,21 +79,21 @@ export class StRegisterComponent implements OnInit {
       repeatPassword: ['', Validators.required]
     }, {
       validator: matchingPasswordValidator
-    })
+    });
     this.registerForm = this.formBuilder.group({
-      email: ['',[ Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       passwordGroup: this.passwordGroup,
-      firstName: ['', [Validators.required,Validators.pattern(this.LETTER_ONLY_PATTERN)]],
+      firstName: ['', [Validators.required, Validators.pattern(this.LETTER_ONLY_PATTERN)]],
       lastName: ['', [Validators.required, Validators.pattern(this.LETTER_ONLY_PATTERN)]],
       role: [Role.Student],
       gender: [Gender.UNKNOWN]
   });
-  this.genders = [Gender.UNKNOWN,Gender.MALE, Gender.FEMALE, Gender.OTHER];
-  this.loading = false;
+  this.genders = [Gender.UNKNOWN, Gender.MALE, Gender.FEMALE, Gender.OTHER];
+  this.loading = false ;
   }
 
   convertToUser(): User {
-    let user = new User();
+    const user = new User();
     user.email = this.registerForm.value.email;
     user.password = this.passwordGroup.value.password;
     user.firstName = this.registerForm.value.firstName || '';
@@ -103,5 +101,9 @@ export class StRegisterComponent implements OnInit {
     user.gender = this.registerForm.value.gender || Gender.UNKNOWN;
     user.role = Role.Student;
     return user;
+  }
+
+  get hasServerError() {
+    return this.submitted && this.registerForm.errors !== undefined && this.registerForm.errors.serverError !== undefined;
   }
 }

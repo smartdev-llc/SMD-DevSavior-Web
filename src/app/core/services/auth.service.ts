@@ -1,19 +1,20 @@
-import { User, Authenticate } from "../models/user";
+import { User, Authenticate, Role } from '../models/user';
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs";
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { HttpClient,
          HttpRequest,
-         HttpHeaders, 
-         HttpEvent} from "@angular/common/http";
-import { AuthActions } from "../../auth/actions/auth.actions";
-import { AppState } from "../../interfaces";
-import { Store } from "../../../../node_modules/@ngrx/store";
-import { map, tap } from "rxjs/operators";
+         HttpHeaders,
+         HttpEvent,
+         HttpParams} from '@angular/common/http';
+import { AuthActions } from '../../auth/actions/auth.actions';
+import { AppState } from '../../interfaces';
+import { Store } from '../../../../node_modules/@ngrx/store';
+import { map, tap } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
 
-  static PREFIX_AUTHORIZATION: string = "Bearer ";
+  static PREFIX_AUTHORIZATION = 'Bearer ';
 
   /**
    * Creates an instance of AuthService.
@@ -58,23 +59,29 @@ export class AuthService {
   }
 
   register(data: any): Observable<User> {
-    return this.http.post<User>('/auth/signup',
-                                data);
+    return this.http.post<User>('/auth/signup', data);
   }
-  
-    // catch should be handled here with the http observable
-    // so that only the inner obs dies and not the effect Observable
-    // otherwise no further login requests will be fired
-    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
+
   /**
    *
    *
-   * @param {anyUser} data
+   * @param {string} password
+   * @param {string} token
    * @returns {Observable<any>}
    * @memberof AuthService
+   *
    */
-  forgetPassword(data: User): any {
-    return [];
+   
+  resetPassword(password: string, token: string | ''): Observable<any> {
+    const requestBody: any = { password: password};
+    let param: HttpParams = new HttpParams();
+    param = param.set('token', token);
+    return this.http.post('/auth/reset-password', requestBody, { params: param });
+  }
+
+  forgotPassword(email: string, role: Role): Observable<any> {
+    const requestBody: any = { email: email, role: role}
+    return this.http.post('/auth/forgot-password', requestBody);
   }
 
 
@@ -130,7 +137,7 @@ export class AuthService {
 
   getAccessTokenFromUser(user) {
     if (user !== undefined) {
-      return AuthService.PREFIX_AUTHORIZATION + user.access_token
+      return AuthService.PREFIX_AUTHORIZATION + user.access_token;
     }
     return '';
   }
@@ -145,6 +152,6 @@ export class AuthService {
    */
   private setTokenInLocalStorage(user_data: any): void {
     const token = user_data.token;
-    localStorage.setItem("user.access_token", token);
+    localStorage.setItem('user.access_token', token);
   }
 }

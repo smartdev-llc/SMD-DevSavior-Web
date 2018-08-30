@@ -194,6 +194,10 @@
     display: block;
     padding: 10px 15px;
   }
+
+  .validation-form .form-group input {
+    width: 100%;
+  }
   /*/////////////////*/
 }
 
@@ -370,6 +374,19 @@
   }
   .priceing_tables .purchase-now a {
     margin: 0 29px;
+  }
+
+  .validation-form .input-container {
+    display: block
+  }
+  .validation-form .form-group select {
+    width: 100%;
+  }
+  .validation-form .form-group.submit label {
+    display: none;
+  }
+  .validation-form .form-group.global-error label {
+    display: none
   }
 }
 

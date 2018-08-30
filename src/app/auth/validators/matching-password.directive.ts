@@ -1,47 +1,46 @@
 import { Directive } from '@angular/core';
-import { NG_VALIDATORS, 
+import { NG_VALIDATORS,
           Validators,
           FormGroup,
-          ValidationErrors, 
+          ValidationErrors,
           ValidatorFn
         } from '@angular/forms';
 
 export const matchingPasswordValidator: ValidatorFn =  (passwordFormGroup: FormGroup): ValidationErrors | null => {
-    let password = passwordFormGroup.value.password;
-    let repeatPassword = passwordFormGroup.value.repeatPassword;
-    if(repeatPassword == null || repeatPassword != null && repeatPassword.length <= 0) {
+    const password = passwordFormGroup.value.password;
+    const repeatPassword = passwordFormGroup.value.repeatPassword;
+    if (repeatPassword == null || repeatPassword != null && repeatPassword.length <= 0) {
       return null;
     }
-    if(repeatPassword !== password) {
-      
+    if (repeatPassword !== password) {
       return {
           matchedPassword: true
-      }
+      };
     }
     return null;
   };
 
 @Directive({
-  selector: '[matchingPassword]',
+  selector: '[appMatchingPassword]',
   providers: [{provide: NG_VALIDATORS, useExisting: MatchingPasswordDirective, multi: true}]
 })
-export class MatchingPasswordDirective extends Validators{
+export class MatchingPasswordDirective extends Validators {
 
-  constructor() { 
+  constructor() {
     super();
   }
 
   validate(formGroup: FormGroup): ValidationErrors {
-    let password = formGroup.value.password;
-    let repeatPassword = formGroup.value.repeatPassword;
-    if(repeatPassword == null || repeatPassword != null && repeatPassword.length <= 0) {
+    const password = formGroup.value.password;
+    const repeatPassword = formGroup.value.repeatPassword;
+    if (repeatPassword == null || repeatPassword != null && repeatPassword.length <= 0) {
       return null;
     }
-    if(repeatPassword !== password) {
-      
+    if (repeatPassword !== password) {
+
       return {
           matchedPassword: true
-      }
+      };
     }
     return null;
   }
