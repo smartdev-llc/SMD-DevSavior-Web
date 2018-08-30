@@ -13,20 +13,22 @@
     </div>
     <div class="container main-container-home">
       <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12 col-xs-12">
-        
         <div class="tab-content">
           <div id="register-account" class="white-text">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
-              <p>Register your Candidate account.</p>
-              <form name="contact_us" class="contact_us" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
-                <div class="form-group global-error" >
+              <p class="text-right">Register your Candidate account.</p>
+              <form name="contact_us" class="contact_us validation-form" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
+
+                <div class="form-group global-error" 
+                    [style.display]="hasServerError ? '' : 'none'">
                   <label></label>
                   <div *ngIf="submitted" class="error-input">
                       <div *ngIf="submitted && registerForm.errors?.serverError">
                           {{registerForm.errors.serverError}}
-                        </div>
-                    </div>
+                      </div>
                   </div>
+                </div>
+
                 <div class="form-group required" >
                   <label>E-mail</label>
                   <div class="input-container">
@@ -53,7 +55,7 @@
                     <div class="input-container">
                       <input type="password" name="password" 
                       id="password"
-                      [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || p.password.errors?.minlength || submitted && p.password.errors}" 
+                      [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" 
                       formControlName="password"/>
                       <div *ngIf="p.password.invalid" 
                             class="error-input">
@@ -127,9 +129,11 @@
 
                 <div class="form-group">
                   <label>Gender</label>
-                  <select formControlName="gender">
-                    <option *ngFor="let gender of genders">{{gender == 'unknown' ? 'Choose your gender': gender}}</option>
-                  </select>            
+                  <div class="input-container">
+                    <select formControlName="gender">
+                      <option *ngFor="let gender of genders">{{gender == 'unknown' ? 'Choose your gender': gender}}</option>
+                    </select>            
+                </div>
                 </div>
 
                 <div class="form-group submit">
@@ -138,7 +142,7 @@
                           name="submit"
                           value="Register" 
                           class="register" />
-                  <a href="/lost-password" class="lost_password">Lost Password?</a>
+                  <a routerLink="/lost-password" class="lost_password">Lost Password?</a>
                 </div>
               </form>
             </div>

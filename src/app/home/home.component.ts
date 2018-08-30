@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -17,21 +17,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     /* Handle for UI using Jquery */
-    var header = $("#header");
+    var header = $('#header');
 
     $(document).ready(() => {
       setTimeout(() => {
-        $("#loadessr").fadeOut();
+        $('#loadessr').fadeOut();
         $('[data-parallax="scroll"]').parallax();
       }, 500);
 
       $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
         if (scroll >= 50) {
-          header.addClass("fixed-header");
+          header.addClass('fixed-header');
 
         } else {
-          header.removeClass("fixed-header");
+          header.removeClass('fixed-header');
         }
       });
     });

@@ -10,8 +10,9 @@ import { StRegisterComponent } from './components/st-register/st-register.compon
 import { RegisterSuccessComponent } from './components/registerSuccess/registerSuccess.component';
 import { StLostPasswordComponent } from './components/st-lost-password/st-lost-password.component';
 import { MatchingPasswordDirective } from './validators/matching-password.directive';
-
+import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
 import { AuthRoutes as routes } from './auth.routes';
+
 
 @NgModule({
   imports: [
@@ -22,12 +23,13 @@ import { AuthRoutes as routes } from './auth.routes';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ 
+  declarations: [
     StLoginComponent,
     StRegisterComponent,
     RegisterSuccessComponent,
     StLostPasswordComponent,
-    MatchingPasswordDirective
+    MatchingPasswordDirective,
+    StResetPasswordComponent
   ]
 })
 export class AuthModule { }
