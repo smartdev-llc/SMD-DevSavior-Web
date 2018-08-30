@@ -1,97 +1,180 @@
 <div id="header" class="container-fluid pages">
-  <div class="row">
-    <!-- Header Image Or May be Slider-->
-    <div class="top_header">
-      <nav class="navbar navbar-fixed-top">
-        <div class="container">
-          <div class="logo">
-            <a routerLink="/">
-              <img src="assets/images/logo2.png" alt=""/>
-            </a>
-          </div>
-          <div class="logins">
-            <a routerLink="/post-job" class="post_job">
-              <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
-            </a>
-            <a routerLink="/login" class="login">
-              <i class="fa fa-user"></i>
-            </a>
-          </div>
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-                <div class="mobile-menu add-job">
-                  <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
+    <div class="row">
+        <!-- Header Image Or May be Slider-->
+        <div class="top_header">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="logo">
+                        <a routerLink="/">
+                            <img src="assets/images/logo2.png" alt="Photo" />
+                        </a>
+                    </div>
+                    <div class="logins">
+                        <a routerLink="/post-job" class="post_job">
+                            <span class="label job-type partytime cancel">
+                                <!-- if language is VN -->
+                                <!-- <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese"> -->
+                                <img class="la" src="assets/images/la/united-states-flag.png" alt="united states flag">
+                            </span>
+                        </a>
+                        <!-- not logged in -->
+                        <a routerLink="/post-job" class="post_job">
+                            <span class="label job-type partytime">Login</span>
+                        </a>
+                        <a routerLink="/post-job" class="post_job">
+                            <span class="label job-type partytime">Register</span>
+                        </a>
+                        <a routerLink="/post-job" class="post_job">
+                            <span class="label job-type partytime Companies-head">Companies</span>
+                        </a>
+                        <!-- /not logged in -->
+                        <!-- logged -->
+                        <!-- <a routerLink="/post-job" class="post_job">
+                            <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
+                        </a>
+
+                        <a href="#" class="dropdown-toggle dropdown post_job" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="label job-type partytime profile-head">
+                        <i class="fa fa-user"></i> Tuan <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+                      </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">My Profile</a>
+                            </li>
+                            <li>
+                                <a href="#">My Works</a>
+                            </li>
+                            <li>
+                                <a href="#">Job Announcement</a>
+                            </li>
+                            <li>
+                                <a href="#">Companies seen</a>
+                            </li>
+                            <li>
+                                <a href="#">My Account</a>
+                            </li>
+                            <li>
+                                <a href="#">Logout</a>
+                            </li>
+                        </ul> -->
+                        <!-- /logged -->
+                    </div>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <button type="button" class="navbar-toggle la-mobile">
+                            <img class="flag" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+
+
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                <div class="mobile-menu add-job">
+                                    <a routerLink="/post-job">Companies</a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a routerLink="/browse-jobs">Browse Jobs</a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/browse-jobs-alternative">Browse jobs alternative</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="job-style-one.html">Job Style One</a>
+                                    </li>
+                                    <li>
+                                        <a href="job-style-two.html">Job Style Two</a>
+                                    </li>
+                                    <li>
+                                        <a href="job-preview.html">Job Preview</a>
+                                    </li>
+                                    <li>
+                                        <a href="resume.html">Resume Page</a>
+                                    </li>
+                                    <li>
+                                        <a routerLink="/list-company">Companies</a>
+                                    </li>
+                                    <li>
+                                        <a href="pricing_table.html">Pricing Table</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- <li>
+                          <a href="blog.html">Blog</a>
+                      </li> -->
+                            <li class="showSearchBtn">
+                                <a href="how_its_work.html">Search jobs
+                                    <label class="textOption">now</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="how_its_work.html">How It Works</a>
+                            </li>
+                            <li>
+                                <a href="contact-us.html">Contact</a>
+                            </li>
+
+                            <!-- not logged in -->
+                            <li class="mobile-menu">
+                                <a routerLink="/login">Login</a>
+                            </li>
+                            <li class="mobile-menu">
+                                <a routerLink="/register">Register</a>
+                            </li>
+                            <!-- logged -->
+                            <li class="mobile-menu">
+                                <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
+                            </li>
+                            <li class="dropdown mobile-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tuan Quang Vo</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">My Works</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Job Announcement</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Companies seen</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">My Account</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navbar-collapse -->
                 </div>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a routerLink="/browse-jobs">Browse Jobs</a>
-                  </li>
-                  <li>
-                    <a routerLink="/browse-jobs-alternative">Browse jobs alternative</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="job-style-one.html">Job Style One</a>
-                  </li>
-                  <li>
-                    <a href="job-style-two.html">Job Style Two</a>
-                  </li>
-                  <li>
-                    <a href="job-preview.html">Job Preview</a>
-                  </li>
-                  <li>
-                    <a href="resume.html">Resume Page</a>
-                  </li>
-                  <li>
-                    <a routerLink="/list-company">Companies</a>
-                  </li>
-                  <li>
-                    <a href="pricing_table.html">Pricing Table</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="blog.html">Blog</a>
-              </li>
-              <li>
-                <a href="how_its_work.html">How It Works</a>
-              </li>
-              <li>
-                <a href="contact-us.html">Contact</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/post-job">POST A JOB, IT’S FREE!</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/login">Login User</a>
-              </li>
-            </ul>
-          </div>
-          <!-- navbar-collapse -->
+                <!-- container-fluid -->
+            </nav>
         </div>
-        <!-- container-fluid -->
-      </nav>
     </div>
-  </div>
 </div>
