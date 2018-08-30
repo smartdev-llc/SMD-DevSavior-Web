@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ParamMap, ActivatedRoute } from "@angular/router";
+import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login-success',
@@ -17,7 +17,7 @@ export class RegisterSuccessComponent implements OnInit {
   }
 
   setEmail(params) {
-    this.email = params.email || "abc@gmail.com";
+    this.email = params.email || '';
   }
 
 }
