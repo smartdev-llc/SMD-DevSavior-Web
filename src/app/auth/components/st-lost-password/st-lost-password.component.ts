@@ -13,10 +13,10 @@ import { delay } from '../../../../../node_modules/rxjs/operators';
 })
 export class StLostPasswordComponent implements OnInit {
 
-  private lostPasswordForm: FormGroup;
-  private requested = false;
-  private submitted = false;
-  private loading = false;
+  lostPasswordForm: FormGroup;
+  requested = false;
+  submitted = false;
+  loading = false;
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder) {
