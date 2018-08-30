@@ -347,20 +347,6 @@ ul.dropdown-menu li:last-child a {
   z-index: -1;
 }
 
-.slogan h1 {
-  color: #333333;
-  font-family: LatoBlack;
-  font-size: 58px;
-}
-
-.slogan h3 {
-  margin: 0;
-  font-family: RalewayLight;
-  font-size: 25px;
-  color: #333;
-  text-align: center;
-}
-
 .slogan span {
   color: #12cd6a;
 }
