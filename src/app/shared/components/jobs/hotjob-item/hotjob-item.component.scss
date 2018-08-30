@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+article {
+  display: block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+h3 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+p {
+  margin: 0 0 10px;
+  color: #707c88;
+  text-transform: capitalize;
+  font-family: Montserrat, sans-serif;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  margin-right: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-map-marker:before {
+  content: "\f041";
+}
+
+.fa-money:before {
+  content: "\f0d6";
+}
+
+::selection {
+  background: #11b719;
+  color: #fff;
+}
+
+.bg-trans-success {
+  background: rgba(15, 183, 107, .12) !important;
+}
+
+.cl-success {
+  color: #11b719 !important;
+}
+
+.brows-job-list {
+  display: table;
+  width: 100%;
+  clear: both;
+  padding: 15px 0;
+  margin-bottom: 15px;
+  transition: .4s;
+  border: 1px solid #eaeff5;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 0 rgba(88, 96, 109, .14);
+  -webkit-box-shadow: 0 0 10px 0 rgba(88, 96, 109, .14);
+  -moz-box-shadow: 0 0 10px 0 rgba(88, 96, 109, .14);
+  &:focus,
+  &:hover {
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+  }
+}
+
+.brows-job-company-img {
+  width: 75px;
+  margin: 10px auto;
+  height: 79px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  line-height: 75px;
+  img {
+    margin: 0 auto;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.brows-job-location {
+  margin-top: 23px;
+  p {
+    font-size: 18px;
+    color: #5a6f7c;
+  }
+}
+
+.brows-job-link {
+  margin-top: 22px;
+}
+
+.brows-job-position {
+  padding: 0 15px;
+  .job-type {
+    padding: 4px 12px;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 2px;
+    text-transform: capitalize;
+  }
+  h3 {
+    color: #5b6d77;
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+}
+
+.brows-job-position p span {
+  font-size: 12px;
+  color: #5a6f7c;
+  margin-top: 12px;
+}
+
+.brows-job-position p .brows-job-sallery {
+  margin-right: 0;
+  i {
+    margin-right: 10px;
+  }
+}
+
+::selection {
+  background: #07b107;
+  color: #fff;
+}
+
+.brows-job-list:hover {
+  border-left: 4px solid #07b107;
+}
+
+@media print {
+  *,
+  :after,
+  :before {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: 0 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  -webkit-border-radius: .25em;
+  -moz-border-radius: .25em;
+  -ms-border-radius: .25em;
+  -o-border-radius: .25em;
+}
+
+.label {
+  background: #ff556d none repeat scroll 0 0;
+  border-radius: 0;
+  float: left;
+  font-family: OpenSansBold;
+  font-size: 11px;
+  line-height: normal;
+  padding: 6px 11px;
+}
+
+.job-type.job-hotjob {
+  background: #ff556d;
+}
+
+.label {
+  border-radius: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  h3 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  h3 {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  .brows-job-position h3 {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 20px;
+  }
+  .brows-job-list {
+    text-align: center;
+  }
+  .item-click article {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .brows-job-category .item-click article {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h3 {
+    font-size: 20px;
+  }
+  .label {
+    margin-left: 0;
+    width: 100%;
+  }
+}

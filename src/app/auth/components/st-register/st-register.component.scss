@@ -10,48 +10,53 @@
 .deximJobs_tabs .sidebar {
   margin-top: 0 
 }
-.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
-  outline: none
+// .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
+//   outline: none
+// }
+.container-fluid.login_register .row {
+  position: relative;
 }
 
-@mixin padding-for-lost_password{
-  padding: 0 0 0 10px
-}
-
-@mixin margin-sidebar{
-  margin-top: 20px
+#loadessr {
+  background-color: rgba(217,217,217,0.3);
+  z-index: 1;
 }
 
 
-@media (min-width: 1281px) {
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (max-width: 767px) {
   .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
+    padding: 0 0 0 10px
   };
   .deximJobs_tabs .sidebar{
-    @include margin-sidebar
-  };
-}
-
-@media (min-width: 481px) and (max-width: 767px){
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
-  .deximJobs_tabs .sidebar {
-    @include margin-sidebar
+    margin-top: 20px
   }
 }
 
+@media (max-width: 660px) {
+  .deximJobs_tabs .sidebar {
+    margin-top: 20px
+  }
+}
+@media (max-width: 580px) {
+  .deximJobs_tabs .sidebar {
+    margin-top: 20px
+  }
+}
+
+@media (max-width: 337px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    margin: 10px;
+  } 
+}
 @media (min-width: 320px) and (max-width: 480px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
   .deximJobs_tabs .sidebar {
-    @include margin-sidebar
+    margin-top: 20px
   }
 }
+
+
+
+
+
+
+

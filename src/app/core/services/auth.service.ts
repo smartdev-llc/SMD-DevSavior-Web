@@ -1,18 +1,21 @@
-import { of as observableOf, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
+import { User, Authenticate, Role } from '../models/user';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { AppState } from '../../interfaces';
-import { Store } from '@ngrx/store';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient,
+         HttpRequest,
+         HttpHeaders,
+         HttpEvent,
+         HttpParams} from '@angular/common/http';
 import { AuthActions } from '../../auth/actions/auth.actions';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Authenticate, User } from '../models/user';
-import { delay } from 'q';
-import { HttpRequest } from '@angular/common/http/src/request';
-
+import { AppState } from '../../interfaces';
+import { Store } from '../../../../node_modules/@ngrx/store';
+import { map, tap } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
+
+  static PREFIX_AUTHORIZATION = 'Bearer ';
+
   /**
    * Creates an instance of AuthService.
    * @param {HttpService} http
@@ -29,6 +32,7 @@ export class AuthService {
     private activatedRoute: ActivatedRoute
   ) {}
 
+
   /**
    *
    *
@@ -37,9 +41,10 @@ export class AuthService {
    * @memberof AuthService
    */
   login({ email, password }: Authenticate): Observable<User> {
-    const params = { spree_user: { email, password } };
-    return this.http.post<User>('login.json', params).pipe(
+    const params = { email, password, role: 'student' };
+    return this.http.post<User>('/auth/login', params).pipe(
       map(user => {
+        this.setTokenInLocalStorage(user);
         this.store.dispatch(this.actions.loginSuccess());
         return user;
       }),
@@ -53,40 +58,30 @@ export class AuthService {
     // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
   }
 
-  /**
-   *
-   *
-   * @param {User} data
-   * @returns {Observable<User>}
-   *
-   * @memberof AuthService
-   */
-  register(data: User): Observable<User> {
-    const params = { spree_user: data };
-    return this.http.post<User>('auth/accounts', params).pipe(
-      map(user => {
-        this.store.dispatch(this.actions.loginSuccess());
-        return user;
-      }),
-      tap(
-        _ => _
-      )
-    );
-    // catch should be handled here with the http observable
-    // so that only the inner obs dies and not the effect Observable
-    // otherwise no further login requests will be fired
-    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
+  register(data: any): Observable<User> {
+    return this.http.post<User>('/auth/signup', data);
   }
 
   /**
    *
    *
-   * @param {anyUser} data
+   * @param {string} password
+   * @param {string} token
    * @returns {Observable<any>}
    * @memberof AuthService
+   *
    */
-  forgetPassword(data: User): any {
-    return [];
+   
+  resetPassword(password: string, token: string | ''): Observable<any> {
+    const requestBody: any = { password: password};
+    let param: HttpParams = new HttpParams();
+    param = param.set('token', token);
+    return this.http.post('/auth/reset-password', requestBody, { params: param });
+  }
+
+  forgotPassword(email: string, role: Role): Observable<any> {
+    const requestBody: any = { email: email, role: role}
+    return this.http.post('/auth/forgot-password', requestBody);
   }
 
 
@@ -113,7 +108,7 @@ export class AuthService {
    * @memberof AuthService
    */
   logout() {
-    return this.http.get('logout.json').pipe(
+    return this.http.get('logout').pipe(
       map((res: Response) => {
         // Setting token after login
         localStorage.removeItem('user');
@@ -136,12 +131,15 @@ export class AuthService {
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
-      'token-type': 'Bearer',
-      access_token: user.access_token || [],
-      client: user.client || [],
-      uid: user.uid || [],
-      'X-Spree-Token': user.spree_api_key || []
+      'Authorization': this.getAccessTokenFromUser(user)
     });
+  }
+
+  getAccessTokenFromUser(user) {
+    if (user !== undefined) {
+      return AuthService.PREFIX_AUTHORIZATION + user.access_token;
+    }
+    return '';
   }
 
   /**
@@ -153,7 +151,7 @@ export class AuthService {
    * @memberof AuthService
    */
   private setTokenInLocalStorage(user_data: any): void {
-    const jsonData = JSON.stringify(user_data);
-    localStorage.setItem('user', jsonData);
+    const token = user_data.token;
+    localStorage.setItem('user.access_token', token);
   }
 }

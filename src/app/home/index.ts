@@ -6,7 +6,7 @@ import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 // Components
 import { HomeComponent } from './home.component';
-import  { JobsFiltersComponent } from'./jobs-filters/jobs-filters.component';
+import { JobsFiltersComponent } from './jobs-filters/jobs-filters.component';
 // Breadcrumb components
 // Routes
 import { HomeRoutes as routes } from './home.routes';
