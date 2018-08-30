@@ -6,9 +6,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./job-list.component.scss']
 })
 export class JobListComponent implements OnInit {
+  items = [
+    { title: 'Slide 1' },
+    { title: 'Slide 2' },
+    { title: 'Slide 3' },
+  ]
 
   constructor() { }
 
   ngOnInit() { }
-
+ 
 }

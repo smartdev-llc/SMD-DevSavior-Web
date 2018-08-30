@@ -1,32 +1,146 @@
 <div class="jobs_results">
-    <div class="tab_filters">
-      <div class="col-lg-4">
-          <h5>Recent Jobs</h5>
-          <h4>Popular <span>Category </span></h4>
+  <div class="tab_filters">
+    <div class="col-lg-4">
+      <h5>Recent Jobs</h5>
+      <h4>Popular
+        <span>Category </span>
+      </h4>
+    </div>
+
+    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 filters pull-right filter-category">
+      <ul class="nav nav-pills">
+        <li class="web-designer">
+          <a href="#">Web Designer</a>
+        </li>
+        <li class="fianance">
+          <a href="#">Finance</a>
+        </li>
+        <li class="education">
+          <a href="#">Education</a>
+        </li>
+        <li class="food-service">
+          <a href="#">Food Services</a>
+        </li>
+        <li class="health-services">
+          <a href="#">Health Care</a>
+        </li>
+        <li class="automative">
+          <a href="#">Automative</a>
+        </li>
+        <li class="all active">
+          <a href="#">All</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="jobs-result">
+
+    <div class="col-md-12">
+      <div class="tab-control tab-control-right clearfix">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="">
+            <a role="tab" data-toggle="tab" href="#tab-1" aria-expanded="true">Jobs</a>
+          </li>
+          <li class="active">
+            <a role="tab" data-toggle="tab" href="#tab-2" aria-expanded="false">Hot Jobs</a>
+          </li>
+        </ul>
       </div>
 
-      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 filters pull-right filter-category">
-          <ul class="nav nav-pills">
-            <li class="web-designer"><a href="#">Web Designer</a></li>
-            <li class="fianance"><a href="#">Finance</a></li>
-            <li class="education"><a href="#">Education</a></li>
-            <li class="food-service"><a href="#">Food Services</a></li>
-            <li class="health-services"><a href="#">Health Care</a></li>
-            <li class="automative"><a href="#">Automative</a></li>
-            <li class="all active"><a href="#">All</a></li>
-          </ul>
+      <!-- Show content here -->
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="tab-1">
+          <div id="slideJob" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active">
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+              </div>
+
+              <div class="item">
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+              </div>
+
+              <div class="item">
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+                <app-job-item></app-job-item>
+              </div>
+            </div>
+
+            <div class="carousel-controls">
+              <a class="left carousel-control" href="#slideJob" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <ol class="carousel-indicators">
+                <li data-target="#slideJob" data-slide-to="0" class="active"></li>
+                <li data-target="#slideJob" data-slide-to="1"></li>
+                <li data-target="#slideJob" data-slide-to="2"></li>
+              </ol>
+              <a class="right carousel-control" href="#slideJob" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="tab-2">
+          <div id="slideHotJob" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active">
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+              </div>
+
+              <div class="item">
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+              </div>
+
+              <div class="item">
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+                <hotjob-item></hotjob-item>
+              </div>
+            </div>
+
+            <div class="carousel-controls">
+              <a class="left carousel-control" href="#slideHotJob" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <ol class="carousel-indicators">
+                <li data-target="#slideHotJob" data-slide-to="0" class="active"></li>
+                <li data-target="#slideHotJob" data-slide-to="1"></li>
+                <li data-target="#slideHotJob" data-slide-to="2"></li>
+              </ol>
+              <a class="right carousel-control" href="#slideHotJob" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-  <div class="jobs-result">
-    <div class="col-lg-6">
-      <h3 class="jobs-title">Jobs</h3>
-      <app-job-item></app-job-item>
-      <app-job-item></app-job-item>
-    </div>
-    <div class="col-lg-6">
-      <h3 class="jobs-title hot-jobs">Hot Jobs</h3>
-      <app-job-item></app-job-item>
-      <app-job-item></app-job-item>
     </div>
   </div>
 </div>
