@@ -1,18 +1,20 @@
-import { of as observableOf, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
+import { User, Authenticate } from "../models/user";
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { AppState } from '../../interfaces';
-import { Store } from '@ngrx/store';
-import { AuthActions } from '../../auth/actions/auth.actions';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Authenticate, User } from '../models/user';
-import { delay } from 'q';
-import { HttpRequest } from '@angular/common/http/src/request';
-
+import { Router, ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs";
+import { HttpClient,
+         HttpRequest,
+         HttpHeaders, 
+         HttpEvent} from "@angular/common/http";
+import { AuthActions } from "../../auth/actions/auth.actions";
+import { AppState } from "../../interfaces";
+import { Store } from "../../../../node_modules/@ngrx/store";
+import { map, tap } from "rxjs/operators";
 @Injectable()
 export class AuthService {
+
+  static PREFIX_AUTHORIZATION: string = "Bearer ";
+
   /**
    * Creates an instance of AuthService.
    * @param {HttpService} http
@@ -28,6 +30,7 @@ export class AuthService {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+
 
   /**
    *
@@ -54,31 +57,15 @@ export class AuthService {
     // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
   }
 
-  /**
-   *
-   *
-   * @param {User} data
-   * @returns {Observable<User>}
-   *
-   * @memberof AuthService
-   */
-  register(data: User): Observable<User> {
-    const params = { spree_user: data };
-    return this.http.post<User>('auth/accounts', params).pipe(
-      map(user => {
-        this.store.dispatch(this.actions.loginSuccess());
-        return user;
-      }),
-      tap(
-        _ => _
-      )
-    );
+  register(data: any): Observable<User> {
+    return this.http.post<User>('/auth/signup',
+                                data);
+  }
+  
     // catch should be handled here with the http observable
     // so that only the inner obs dies and not the effect Observable
     // otherwise no further login requests will be fired
     // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
-  }
-
   /**
    *
    *
@@ -114,7 +101,7 @@ export class AuthService {
    * @memberof AuthService
    */
   logout() {
-    return this.http.get('logout.json').pipe(
+    return this.http.get('logout').pipe(
       map((res: Response) => {
         // Setting token after login
         localStorage.removeItem('user');
@@ -137,8 +124,15 @@ export class AuthService {
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
-      access_token: user.access_token || []
+      'Authorization': this.getAccessTokenFromUser(user)
     });
+  }
+
+  getAccessTokenFromUser(user) {
+    if (user !== undefined) {
+      return AuthService.PREFIX_AUTHORIZATION + user.access_token
+    }
+    return '';
   }
 
   /**

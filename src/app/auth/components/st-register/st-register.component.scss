@@ -14,44 +14,167 @@
   outline: none
 }
 
+.form-group .has-error {
+  border-color: #d21b18;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  border-width: 2px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-group .error-input {
+  color: #c20c09;
+  font-family: LatoRegular;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 1%;
+  padding-left: 1%;
+}
+.form-group label {
+  font-size: 12px;
+}
+.form-group label {
+  margin-right: 13px;
+  width: 110px;
+}
+.form-group label {
+  padding-right: 10px;
+}
+.form-group.required label {
+  padding-right: 0px;
+}
+.form-group.required label:after {
+  content: ' *';
+  font-size: 14px;
+  color: #ff0000;
+}
+.deximJobs_tabs .contact_us input:not([type='submit']) {
+  width: 100%;
+}
+.dropdown.open .dropdown-toggle {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.dropdown-menu {
+  top: 85%;
+  border-width: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 0px;
+  overflow: hidden;
+  transition: height 5s linear;
+}
+.dropdown-menu ul{
+  height: auto;
+  margin: 0px;
+}
+.dropdown-menu ul li{
+  cursor: pointer;
+  text-transform: none;
+  color: #333;
+  padding: 13px;
+}
+.dropdown-menu ul li:hover{
+  background-color: #12cd6a;
+  color: #fff;
+}
+.container-fluid.login_register .row {
+  position: relative;
+}
+#loadessr {
+  background-color: rgba(217,217,217,0.3);
+  z-index: 1;
+}
+
+.form-group label {
+  padding: 2% 0px;
+}
+
+.form-group select {
+  font-size: 16px;
+  outline: none!important; 
+  width: 75%;
+  background: #fff;   
+  box-shadow: none; 
+  padding: 10px 17px;
+  font-family: LatoRegular;
+  border: 1px solid #12cd6a;
+  color: #333; 
+  line-height: normal; 
+  border-radius: 8px;
+}
+
 @mixin padding-for-lost_password{
   padding: 0 0 0 10px
 }
-
 @mixin margin-sidebar{
   margin-top: 20px
 }
 
-
-@media (min-width: 1281px) {
+@media (max-width: 1200px) {
+  .input-container input {
+    width: 100%;
+  }
+  .form-group select {
+    width: 72.5%;
+  }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (max-width: 991px) {
+  .input-container {
+    display: block
+  }
+  .form-group select {
+    width: 100%;
+  }
+  .form-group.submit label {
+    display: none;
+  }
+  .form-group.global-error label {
+    display: none
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (max-width: 767px) {
   .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
+    padding: 0 0 0 10px
   };
   .deximJobs_tabs .sidebar{
-    @include margin-sidebar
-  };
-}
-
-@media (min-width: 481px) and (max-width: 767px){
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
-  .deximJobs_tabs .sidebar {
-    @include margin-sidebar
+    margin-top: 20px
   }
 }
 
+@media (max-width: 660px) {
+  .deximJobs_tabs .sidebar {
+    margin-top: 20px
+  }
+}
+@media (max-width: 580px) {
+  .deximJobs_tabs .sidebar {
+    margin-top: 20px
+  }
+}
+
+@media (max-width: 337px) {
+  .deximJobs_tabs .contact_us .lost_password {
+    margin: 10px;
+  } 
+  .deximJobs_tabs .contact_us .register {
+    width: 100%;
+  }
+}
 @media (min-width: 320px) and (max-width: 480px) {
-  .deximJobs_tabs .contact_us .lost_password {
-    @include padding-for-lost_password
-  };
   .deximJobs_tabs .sidebar {
-    @include margin-sidebar
+    margin-top: 20px
   }
 }
+
+
+
+
+
+
+
