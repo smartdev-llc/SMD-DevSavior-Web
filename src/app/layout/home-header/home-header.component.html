@@ -8,7 +8,7 @@
         <!-- Header Image Or May be Slider-->
         <div class="top_header">
             <nav class="navbar navbar-fixed-top">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="logo">
                         <a routerLink="/">
                             <img src="assets/images/logo2.png" alt="Photo" />
@@ -17,15 +17,15 @@
                     <div class="logins">
                         <a href="#jobs_filters_search" class="post_job" id="search-icon">
                             <span class="label job-type partytime cancel">
-                              <i class="fa fa-search search-ic" aria-hidden="true"></i>
+                                <i class="fa fa-search search-ic" aria-hidden="true"></i>
                             </span>
                         </a>
                         <a routerLink="/post-job" class="post_job">
                             <span class="label job-type partytime cancel">
-                          <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
-                          <!-- if language is US -->
-                          <!-- <img class="la" src="assets/images/la/united-states-flag.png" alt="vietnamese"> -->
-                          </span>
+                                <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                                <!-- if language is US -->
+                                <!-- <img class="la" src="assets/images/la/united-states-flag.png" alt="vietnamese"> -->
+                            </span>
                         </a>
                         <!-- not logged in -->
                         <!-- <a routerLink="/post-job" class="post_job">
@@ -44,7 +44,8 @@
 
                         <a href="#" class="dropdown-toggle dropdown post_job" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="label job-type partytime profile-head">
-                              <i class="fa fa-user"></i> Tuan <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+                                <i class="fa fa-user"></i> Tuan
+                                <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
                             </span>
                         </a>
                         <ul class="dropdown-menu">
@@ -72,15 +73,16 @@
                     </div>
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                         <button type="button" class="navbar-toggle la-mobile">
-                                <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
-                            </button>
+                            <img class="flag" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                        </button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -89,8 +91,8 @@
                                 <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
 
 
-                  <span class="sr-only">(current)</span>
-                </a>
+                                    <span class="sr-only">(current)</span>
+                                </a>
                                 <div class="mobile-menu add-job">
                                     <a routerLink="/post-job">Companies</a>
                                 </div>
@@ -132,13 +134,17 @@
                             <!-- <li>
                                 <a href="blog.html">Blog</a>
                             </li> -->
+                            <li class="showSearchBtn">
+                                <a href="how_its_work.html">Search jobs
+                                    <label class="textOption">now</label>
+                                </a>
+                            </li>
                             <li>
                                 <a href="how_its_work.html">How It Works</a>
                             </li>
                             <li>
                                 <a href="contact-us.html">Contact</a>
                             </li>
-
                             <!-- not logged in -->
                             <li class="mobile-menu">
                                 <a routerLink="/login">Login</a>
@@ -186,8 +192,8 @@
                         <span>Join us </span>& Explore thousands of jobs
                     </h3>
                     <a href="">We have
-            <span>59</span> jobs offers for you!
-          </a>
+                        <span>59</span> jobs offers for you!
+                    </a>
                 </div>
             </div>
         </div>

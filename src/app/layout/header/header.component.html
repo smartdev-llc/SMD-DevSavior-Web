@@ -3,7 +3,7 @@
         <!-- Header Image Or May be Slider-->
         <div class="top_header">
             <nav class="navbar navbar-fixed-top">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="logo">
                         <a routerLink="/">
                             <img src="assets/images/logo2.png" alt="Photo" />
@@ -12,10 +12,10 @@
                     <div class="logins">
                         <a routerLink="/post-job" class="post_job">
                             <span class="label job-type partytime cancel">
-                              <!-- if language is VN -->
-                    <!-- <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese"> -->
-                    <img class="la" src="assets/images/la/united-states-flag.png" alt="united states flag">
-                    </span>
+                                <!-- if language is VN -->
+                                <!-- <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese"> -->
+                                <img class="la" src="assets/images/la/united-states-flag.png" alt="united states flag">
+                            </span>
                         </a>
                         <!-- not logged in -->
                         <a routerLink="/post-job" class="post_job">
@@ -62,15 +62,16 @@
                     </div>
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                         <button type="button" class="navbar-toggle la-mobile">
-                          <img class="la" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
-                      </button>
+                            <img class="flag" src="assets/images/la/vietnam-flag.png" alt="vietnamese">
+                        </button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -79,8 +80,8 @@
                                 <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
 
 
-            <span class="sr-only">(current)</span>
-          </a>
+                                    <span class="sr-only">(current)</span>
+                                </a>
                                 <div class="mobile-menu add-job">
                                     <a routerLink="/post-job">Companies</a>
                                 </div>
@@ -122,6 +123,11 @@
                             <!-- <li>
                           <a href="blog.html">Blog</a>
                       </li> -->
+                            <li class="showSearchBtn">
+                                <a href="how_its_work.html">Search jobs
+                                    <label class="textOption">now</label>
+                                </a>
+                            </li>
                             <li>
                                 <a href="how_its_work.html">How It Works</a>
                             </li>
