@@ -14,7 +14,7 @@ import { delay } from '../../../../../node_modules/rxjs/operators';
 export class StLostPasswordComponent implements OnInit {
 
   private lostPasswordForm: FormGroup;
-  private requested = true;
+  private requested = false;
   private submitted = false;
   private loading = false;
 
