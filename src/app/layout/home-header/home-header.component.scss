@@ -1,91 +1,93 @@
-
+.navbar-fixed-top {
+    padding: 9px 0;
+}
 .logins {
     padding-top: 0
 }
+
+@mixin cancel {
+  background: none;
+  border: none;
+  border-radius: none;
+  font-family: OpenSansBold;
+  font-size: 30px;
+  margin-right: 0;
+  padding: 0;
+  color: #12cd6a;
+  width: auto;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+}
 .logins{
-    >.post_job
-        >.cancel {
-            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-            border: none;
-            border-radius: none;
-            color: #12cd6a;
-            font-family: OpenSansBold;
-            font-size: 30px;
-            margin-right: 0;
-            padding: 0;
-            width: auto;
-        }
+  right: 0px;
+  >.flag
+      >.cancel {
+       @include cancel()  
+  }
+  >.search
+      >.cancel {
+       @include cancel()  
+  }
 }
-.nav>li a {
-    padding: 13px 12px;
-}
+
 .search-ic {
-    margin-top: 8px;
-    margin-right: 10px;
-    border-right: 2px solid #232323;
-    border-radius: 0;
-    padding: 0 20px;
+  margin-top: 8px;
+  margin-right: 10px;
+  border-right: 2px solid #232323;
+  border-radius: 0;
+  padding: 0 20px;
 }
 
 .showSearchBtn {
-    display: none;
+  display: none;
 }
 
 .textOption {
-    color: #12cd6a;
-    margin-left: 2px;
+  color: #12cd6a;
+  margin-left: 2px;
 }
 
 .flag {
-    padding: 0 10px;
+  padding: 0 10px;
 }
 
-.post_job span {
-    margin-left: 10px;
+.companies-head {
+  background-color: #12cd6a;
+  color: #fff;
 }
 
-.Companies-head {
-    background-color: #12cd6a;
-    color: #fff;
-}
-
-.Companies-head:hover {
-    background-color: #fff;
-    color: #000;
+.companies-head:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .profile-head {
-    background-color: #12cd6a;
-    color: #fff;
-    padding: auto 5px;
+  background-color: #12cd6a;
+  color: #fff;
+  padding: auto 5px;
 }
 
 .open>.dropdown-menu {
-    display: block;
-    /* position: absolute; */
-    right: -10px;
-    left: 200px;
+  display: block;
+  /* position: absolute; */
+  right: -10px;
+  left: 200px;
 }
 
 span.label.job-type.partytime.profile-head.fa {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-button.navbar-toggle.la-mobile {
-    background: none;
-    padding: 4px 1px;
-    margin: 0;
-}
-
-@media (max-width:352px) {
-    .navbar-fixed-bottom,
-    .navbar-fixed-top {
-        padding: 10px !important;
-    }
+button.navbar-toggle.flag-mobile {
+  background: none;
+  padding: 4px 1px;
+  margin: 0;
 }
 
 @media (min-width: 320px) and (max-width: 1200px){
-    .showSearchBtn {
-        display: block;
-    }
+  .showSearchBtn {
+      display: block;
+  }
 }
