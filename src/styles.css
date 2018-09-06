@@ -587,7 +587,6 @@ ul.dropdown-menu li:last-child a {
   font-family: OpenSansBold;
   font-size: 11px;
   line-height: normal;
-
   padding: 5px 11px;
 
 }
@@ -595,12 +594,7 @@ ul.dropdown-menu li:last-child a {
   width: 100%;
   text-align: right;
 }
-.filter-result .location p {
-  font-size: 12px;
-  line-height: normal;
-  color: #333;
 
-}
 .data-job {
   text-align: left;
 }
@@ -1222,7 +1216,7 @@ priceing_tables .startup {
 }
 
 .page-title, .header_area {
-  margin-top: 103px;
+  margin-top: 66px;
 }
 
 .page-title .white-heading {

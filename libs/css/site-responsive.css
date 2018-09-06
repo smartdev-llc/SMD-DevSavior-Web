@@ -2,9 +2,9 @@
   .job-recom .recom-job {}
   .job-recom .recom-job:last-child {}
   .logo {
-    position: absolute;
+    position: relative;
     left: 0;
-    margin-left: 50px;
+   
   }
 }
 
