@@ -20,24 +20,24 @@
                 <i class="fa fa-search search-ic" aria-hidden="true"></i>
               </span>
             </a>
-            <a routerLink="/" class="flag">
+            <a class="flag">
               <span class="label job-type partytime cancel">
-                <img class="flag" src="../../../assets/images/vietnam-flag.png" alt="vietnamese">
+                <img *ngIf="isEnLang" class="flag" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
                 <!-- if language is US -->
-                <!-- <img class="la" src="../../../assets/images/united-states-flag.png" alt="united-states"> -->
+                <img *ngIf="!isEnLang" class="la" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
             </a>
             <!-- not logged in -->
             <a routerLink="/login" class="student-login">
-              <span class="label job-type partytime">Login</span>
+              <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
             </a>
             <a routerLink="/register" class="student-register">
-              <span class="label job-type partytime">Register</span>
+              <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
             </a>
             <a routerLink="/employer" class="employer">
               <span class="label job-type partytime Companies-head">
-                 <p class="main-title">EMPLOYER</p>
-                 <p class="title">Recruit your staff now!</p>
+                 <p class="main-title">{{ 'header.employer' | translate }}</p>
+                 <p class="title">{{ 'header.recruit' | translate }}</p>
               </span>
             </a>
             <!-- logged -->
@@ -88,7 +88,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'header.home' | translate }}
                   <span class="sr-only">(current)</span>
                 </a>
                 <div class="mobile-menu add-job">
@@ -96,7 +96,7 @@
                 </div>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'header.jobs' | translate }}</a>
                 <ul class="dropdown-menu">
                   <li>
                     <a routerLink="/browse-jobs">Browse Jobs</a>
@@ -141,18 +141,18 @@
                 <a href="how_its_work.html">How It Works</a>
               </li>
               <li>
-                <a href="contact-us.html">Contact</a>
+                <a href="contact-us.html">{{ 'header.contact' | translate }}</a>
               </li>
               <!-- not logged in -->
               <li class="mobile-menu">
-                <a routerLink="/login">Login</a>
+                <a routerLink="/login">{{ 'header.login' | translate }}</a>
               </li>
               <li class="mobile-menu">
-                <a routerLink="/register">Register</a>
+                <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
               <!-- logged -->
               <li class="mobile-menu">
-                <a href="post-a-job.html">POST A JOB, IT’S FREE!</a>
+                <a href="post-a-job.html">{{ 'header.postAJobs' | translate }}</a>
               </li>
               <li class="dropdown mobile-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tuan Quang Vo</a>
