@@ -1,96 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .navbar-fixed-top {
   padding: 0 0;
 }
+
 #header .collapse {
-padding-top: 8px;
+  padding-top: 6px;
 }
-.logo{
-padding-top: 14px;
+
+.logo {
+  padding-top: 14px;
 }
+
+.nav {
+  padding-left: 16px;
+  a {
+    font-size: 14px;
+    text-transform: none
+  }
+}
+
+.nav>li a {
+  padding: 13px;
+}
+
 .navbar-nav {
-padding-top: 1px;
-padding-bottom: 10px;
+  padding-top: 2px;
+  padding-bottom: 8px;
 }
+
 .logins {
   padding-top: 0
 }
 
 @mixin cancel {
-background: none;
-border: none;
-border-radius: none;
-font-family: OpenSansBold;
-font-size: 30px;
-margin-right: 0;
-padding: 0;
-color: #12cd6a;
-width: auto;
--webkit-border-radius: none;
--moz-border-radius: none;
--ms-border-radius: none;
--o-border-radius: none;
+  background: none;
+  border: none;
+  border-radius: none;
+  font-family: OpenSansBold;
+  font-size: 30px;
+  margin-right: 0;
+  padding: 0;
+  color: #12cd6a;
+  width: auto;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
 }
-.logins{
-right: 0px;
->.flag
-    >.cancel {
-     @include cancel()  
+
+.logins {
+  span {
+    padding: 10px 20px;
+  }
+  right: 0px;
+  >.flag>.cancel {
+    @include cancel()
+  }
 }
->.search
-    >.cancel {
-     @include cancel()  
+
+.flag-img {
+  margin-top: 11px;
 }
-}
-.search, 
-.flag, 
+
 .student-login,
 .student-register,
 .post_job,
-.user-profile{
-span{
-  margin-top: 10px;
-  margin-left: 10px;
+.user-profile {
+  span {
+    margin-top: 12px;
+    margin-left: 10px;
+  }
 }
-}
-.student-login span{
+
+.student-login span {
   margin-left: 20px;
 }
+
 .user-profile span {
   margin-right: 10px
 }
-.employer span{
+
+.employer span {
   margin-left: 10px;
-  background:  #12cd6a none repeat scroll 0 0;
+  background: #12cd6a none repeat scroll 0 0;
   border-radius: 88px 0 0 88px;
   color: #fff;
   line-height: 10px;
-  display: inline-block;
-  padding: 6px 20px;
+  padding: 5px 20px;
   width: auto;
   -webkit-border-radius: 88px 0 0 88px;
   -moz-border-radius: 88px 0 0 88px;
   -ms-border-radius: 88px 0 0 88px;
   -o-border-radius: 88px 0 0 88px;
 }
-.main-title{
+
+.main-title {
   padding-top: 10px;
-  font-size: 20px;
-  font-family: OpenSansBold;
-}
-.title{
-  font-family: sans-serif;
-  font-size: 14px
-}
-.search-ic {
-  margin-top: 8px;
-  margin-right: 10px;
-  border-right: 2px solid #232323;
-  border-radius: 0;
-  padding: 0 15px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-.showSearchBtn {
-  display: none;
+.title {
+  font-family: sans-serif;
+  font-size: 14px
 }
 
 .textOption {
@@ -114,7 +127,7 @@ span{
   padding: auto 5px;
 }
 
-.open > .dropdown-menu {
+.open>.dropdown-menu {
   display: block;
   right: -10px;
   left: 200px;
@@ -130,16 +143,59 @@ button.navbar-toggle.flag-mobile {
   margin-right: 10px;
 }
 
-@media (min-width: 319px) and (max-width: 1200px){
-.logo{
-  padding-top: 9px;
+.slogan a {
+  margin-top: 12vh;
 }
-.showSearchBtn {
-  display: block;
+
+@media (max-width: 1360px) {
+  .top_header .nav>li a {
+    padding: 12px 10px;
+  }
+  .navbar-nav {
+    padding-top: 3px;
+    padding-bottom: 11px;
+  }
 }
+
+@media (min-width: 319px) and (max-width: 1200px) {
+  .logo {
+    padding-top: 8px;
+  }
+  .showSearchBtn {
+    display: block;
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center
+  }
+  .nav>li {
+    border-bottom: 1px solid #d6d6d6
+  }
+  .nav>li:last-child {
+    border: medium none
+  }
+  .navbar-nav>li .dropdown-menu {
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 14px;
+    }
+  }
 }
-@media (min-width: 210px) and (max-width: 320px){
-  .logo{
+
+@media (min-width: 210px) and (max-width: 320px) {
+  .logo {
     width: 146px;
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center
+  }
+  .navbar-nav>li .dropdown-menu {
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 14px;
+    }
   }
 }
