@@ -15,16 +15,11 @@
             </a>
           </div>
           <div class="logins">
-            <a href="#jobs_filters_search" class="search" id="search-icon">
-              <span class="label job-type partytime cancel">
-                <i class="fa fa-search search-ic" aria-hidden="true"></i>
-              </span>
-            </a>
             <a class="flag">
               <span class="label job-type partytime cancel">
-                <img *ngIf="isEnLang" class="flag" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+                <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
                 <!-- if language is US -->
-                <img *ngIf="!isEnLang" class="la" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
+                <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
             </a>
             <!-- not logged in -->
@@ -36,8 +31,8 @@
             </a>
             <a routerLink="/employer" class="employer">
               <span class="label job-type partytime Companies-head">
-                 <p class="main-title">{{ 'header.employer' | translate }}</p>
-                 <p class="title">{{ 'header.recruit' | translate }}</p>
+                <p class="main-title">{{ 'header.employer' | translate }}</p>
+                <p class="title">{{ 'header.recruit' | translate }}</p>
               </span>
             </a>
             <!-- logged -->
@@ -81,67 +76,19 @@
               <span class="icon-bar"></span>
             </button>
             <button type="button" class="navbar-toggle flag-mobile">
-              <img class="flag" src="../../../assets/images/vietnam-flag.png" alt="vietnamese">
+              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+              <!-- if language is US -->
+              <img *ngIf="!isEnLang" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
             </button>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'header.home' | translate }}
-                  <span class="sr-only">(current)</span>
-                </a>
-                <div class="mobile-menu add-job">
-                  <a routerLink="/post-job">Companies</a>
-                </div>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'header.jobs' | translate }}</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a routerLink="/browse-jobs">Browse Jobs</a>
-                  </li>
-                  <li>
-                    <a routerLink="/browse-jobs-alternative">Browse jobs alternative</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="job-style-one.html">Job Style One</a>
-                  </li>
-                  <li>
-                    <a href="job-style-two.html">Job Style Two</a>
-                  </li>
-                  <li>
-                    <a href="job-preview.html">Job Preview</a>
-                  </li>
-                  <li>
-                    <a href="resume.html">Resume Page</a>
-                  </li>
-                  <li>
-                    <a routerLink="/list-company">Companies</a>
-                  </li>
-                  <li>
-                    <a href="pricing_table.html">Pricing Table</a>
-                  </li>
-                </ul>
-              </li>
-              <!-- <li>
-                <a href="blog.html">Blog</a>
-                </li> -->
-              <li class="showSearchBtn">
-                <a href="how_its_work.html">Search jobs
-                  <label class="textOption">now</label>
-                </a>
+              <li>
+                <a routerLink="/">{{ 'header.jobs' | translate }}</a>
               </li>
               <li>
-                <a href="how_its_work.html">How It Works</a>
-              </li>
-              <li>
-                <a href="contact-us.html">{{ 'header.contact' | translate }}</a>
+                <a routerLink="/list-company">{{ 'header.companies' | translate }}</a>
               </li>
               <!-- not logged in -->
               <li class="mobile-menu">
@@ -150,9 +97,12 @@
               <li class="mobile-menu">
                 <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
-              <!-- logged -->
               <li class="mobile-menu">
-                <a href="post-a-job.html">{{ 'header.postAJobs' | translate }}</a>
+                <a routerLink="/">{{ 'header.employer' | translate }}</a>
+              </li>
+              <!-- logged -->
+              <!-- <li class="mobile-menu">
+                <a routerLink="/">{{ 'header.postAJobs' | translate }}</a>
               </li>
               <li class="dropdown mobile-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tuan Quang Vo</a>
@@ -176,7 +126,7 @@
                     <a href="#">Logout</a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </div>
           <!-- navbar-collapse -->
