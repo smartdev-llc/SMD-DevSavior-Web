@@ -24,8 +24,8 @@
 }
 
 .navbar-nav {
-  padding-top: 3px;
-  padding-bottom: 7px;
+  padding-top: 2px;
+  padding-bottom: 8px;
 }
 
 .logins {
@@ -151,11 +151,15 @@ button.navbar-toggle.flag-mobile {
   .top_header .nav>li a {
     padding: 12px 10px;
   }
+  .navbar-nav {
+    padding-top: 2px;
+    padding-bottom: 11px;
+  }
 }
 
 @media (min-width: 319px) and (max-width: 1200px) {
   .logo {
-    padding-top: 9px;
+    padding-top: 8px;
   }
   .showSearchBtn {
     display: block;
