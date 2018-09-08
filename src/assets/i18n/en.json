@@ -1,12 +1,11 @@
 {
   "header": {
-    "home": "Home",
-    "jobs": "Jobs",
-    "contact": "Contact",
+    "jobs": "All Jobs",
+    "companies": "Our Companies",
     "login": "Login",
     "register": "Register",
     "employer": "EMPLOYER",
     "recruit": "Recruit your staff now!",
-    "postAJobs": "POST A JOB, IT’S FREE!"
+    "postAJobs": "Post a Job, It's free!"
   }
 }
