@@ -1,10 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 /*------------------------------------------
-Project Name : Dexim Jobs
-Desgined By  : DeximLabs.com
-Developed By : DeximLabs.com;
-Date        :  January/17;
 
 Table Of Index
 ------------------
@@ -45,11 +43,11 @@ Table Of Index
 35. Blog
 36. Accordian
 ------------------------------------------*/
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
   background: #f9f9f9;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 21px;
 }
 
@@ -73,15 +71,12 @@ body.modal-open {
   width: 100%;
 }
 
-/*////////Login buttons/////*/
-
-/*////////Mobile Menu/////////////////////*/
-
 .navbar-toggle {
   margin: 0px;
 }
 
-.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+.navbar-fixed-bottom .navbar-collapse,
+.navbar-fixed-top .navbar-collapse {
   max-height: inherit;
 }
 
@@ -113,7 +108,8 @@ body.modal-open {
   border: 2px solid #12cd6a;
   border-radius: 26px;
   color: #232323;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 13px;
   margin-right: 0;
   padding: 12px 30px;
@@ -153,30 +149,35 @@ a {
 }
 
 h3 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 40px;
   margin: 0 0 4px;
   color: #333;
 }
 
 h4 {
-  font-family: OpenSansRegular;
-  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
 }
 
 h4 span {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   width: 100%;
   float: left;
 }
 
 h5 {
-  font-family: LatoBlack;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
   font-size: 28px;
 }
 
 ul li {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   padding-bottom: 12px;
 }
@@ -197,7 +198,14 @@ ul li {
 
 /*/////////Animations ///////*/
 
-.navbar-fixed-top, .filter-result:hover, a, .btn, .related_jos, input[type="submit"], .posts-list .post-thumb img, .label {
+.navbar-fixed-top,
+.filter-result:hover,
+a,
+.btn,
+.related_jos,
+input[type="submit"],
+.posts-list .post-thumb img,
+.label {
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
@@ -232,7 +240,7 @@ nav.navbar.home {
 }
 
 .pages.fixed-header .navbar {
-  padding: 10px 0;
+  padding: 1px 0;
 }
 
 /*///////////////*/
@@ -281,24 +289,14 @@ ul.dropdown-menu {
 
 .nav a {
   color: #333;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   text-transform: uppercase;
 }
 
 .nav li {
-  margin-right: 15px;
   padding-bottom: 0;
-}
-
-.nav>li:first-child {
-  padding: 0;
-  border: medium none;
-}
-
-.nav>li:nth-of-type(2) {
-  padding: 0;
-  border: medium none;
 }
 
 .nav>li a {
@@ -313,7 +311,10 @@ ul.dropdown-menu li a {
   border-bottom: 1px solid #e9e9e9;
 }
 
-.nav>li:hover a, .nav>li>a:focus, .nav>li>a:hover, .nav li.active a {
+.nav>li:hover a,
+.nav>li>a:focus,
+.nav>li>a:hover,
+.nav li.active a {
   color: #12cd6a;
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
@@ -362,7 +363,8 @@ ul.dropdown-menu li:last-child a {
   border: 2px solid #12cd6a;
   color: #333;
   display: inline-block;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   margin-top: 46px;
   padding: 10px 31px;
@@ -371,7 +373,8 @@ ul.dropdown-menu li:last-child a {
 }
 
 .slogan a span {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 /*////////////////Jobs Filters//////////*/
@@ -380,13 +383,15 @@ ul.dropdown-menu li:last-child a {
   padding: 0;
 }
 
-.jobs_filters .filters_feilds, .jobs_filters .form-group input {
+.jobs_filters .filters_feilds,
+.jobs_filters .form-group input {
   width: 100%;
   text-align: left;
   border: none;
   border-radius: 0;
   line-height: normal;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   padding: 20px 28px 20px 20px;
   color: #333;
@@ -435,21 +440,26 @@ ul.dropdown-menu li:last-child a {
   border: none;
 }
 
-.tiny_scrolling::-webkit-scrollbar-track, .select2-results::-webkit-scrollbar-track, {
+.tiny_scrolling::-webkit-scrollbar-track,
+.select2-results::-webkit-scrollbar-track,
+  {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #d0d0d0;
 }
 
-.tiny_scrolling::-webkit-scrollbar, .select2-results::-webkit-scrollbar {
+.tiny_scrolling::-webkit-scrollbar,
+.select2-results::-webkit-scrollbar {
   width: 6px;
   background-color: transparent;
 }
 
-.tiny_scrolling::-webkit-scrollbar-thumb, .select2-results::-webkit-scrollbar-thumb {
+.tiny_scrolling::-webkit-scrollbar-thumb,
+.select2-results::-webkit-scrollbar-thumb {
   background-color: #ef4136;
 }
 
-.tiny_scrolling, .select2-results {
+.tiny_scrolling,
+.select2-results {
   overflow: auto;
   margin-right: 15px;
   height: 186px;
@@ -459,7 +469,8 @@ ul.dropdown-menu li:last-child a {
 .jobs_filters .tiny_scrolling li a {
   border-bottom: 1px solid #f4f4f4;
   display: block;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   padding: 8px;
 }
@@ -473,7 +484,10 @@ ul.dropdown-menu li:last-child a {
   list-style: none;
 }
 
-.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover, .btn-default:hover, .open>.dropdown-toggle.btn-default {
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover,
+.btn-default:hover,
+.open>.dropdown-toggle.btn-default {
   background: #fff !important;
 }
 
@@ -519,7 +533,7 @@ ul.dropdown-menu li:last-child a {
   margin-bottom: 2px;
   margin-top: 8px;
   padding-left: 21px;
-  font-family: raleway;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*///////////Main Container /////////*/
@@ -537,15 +551,17 @@ ul.dropdown-menu li:last-child a {
 }
 
 /*/////////////////Filters Result /////////*/
+
 .jobs-result {
   float: left;
   width: 100%;
   margin-top: 28px;
 }
+
 .filter-result:hover {
   border-bottom: 2px solid #12cd6a;
-
 }
+
 .filter-result {
   background: #fff;
   padding: 25px 0;
@@ -557,39 +573,48 @@ ul.dropdown-menu li:last-child a {
   -moz-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   transition-duration: 0.2s;
-
 }
+
 .filter-result .company-left-info {
   float: left;
-
   margin-right: 26px;
 }
+
 .filter-result .desig {
   float: left;
 }
-.filter-result .desig h3, .filter-result .desig h4 {
+
+.filter-result .desig h3,
+.filter-result .desig h4 {
   margin: 0;
 }
+
 .filter-result .desig h3 {
   font-size: 16px;
   margin: 9px 0;
 }
-.filter-result .desig h3:hover { color: #3e48d2; text-decoration:none; }
+
+.filter-result .desig h3:hover {
+  color: #3e48d2;
+  text-decoration: none;
+}
 
 .filter-result .desig h4 {
   font-size: 13px;
   color: #909090;
 }
-.label{
+
+.label {
   background: #12cd6a none repeat scroll 0 0;
   border-radius: 0;
   float: left;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 11px;
   line-height: normal;
   padding: 5px 11px;
-
 }
+
 .filter-result .location {
   width: 100%;
   text-align: right;
@@ -598,63 +623,75 @@ ul.dropdown-menu li:last-child a {
 .data-job {
   text-align: left;
 }
+
 .data-job {
   float: right;
 }
+
 .data-job h3 {
   float: left;
   font-size: 16px;
   line-height: 22px;
   margin-right: 28px;
-
 }
-.data-job  h4 {
+
+.data-job h4 {
   float: left;
 }
+
 .job-type.job-parttime {
   background: #31ce8a;
 }
+
 .job-type.job-internship {
   background: #efc36e;
 }
+
 .job-type.job-fulltime {
   background: #31ce8a;
 }
+
 .label.job-partytime {
   background: #f71212 none repeat scroll 0 0;
   border-radius: 33px;
   text-transform: none;
 }
+
 #load_more {
   text-align: center;
   display: block;
   margin: 0 auto;
   color: #333;
   padding: 12px 47px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   position: relative;
   text-transform: uppercase;
-  margin:  55px auto 28px;
+  margin: 55px auto 28px;
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   border: 2px solid #12cd6a;
   border-radius: 26px;
 }
+
 #load_more:hover {
-  background: #12cd6a  !important;
+  background: #12cd6a !important;
   color: #fff;
 }
+
 #load_more .glyphicon {
   position: absolute;
   right: 17px;
   top: 14px;
 }
+
 /*/////////////////////////Continer Blue Section//////////*/
 
 .container-fluid.bluesection {
   position: relative;
 }
 
-.container-fluid.bluesection:after, .container-fluid.bluesection:before {
+.container-fluid.bluesection:after,
+.container-fluid.bluesection:before {
   content: "";
   position: absolute;
   height: 100%;
@@ -682,7 +719,8 @@ ul.dropdown-menu li:last-child a {
 
 .bluesection p {
   color: #ffffff;
-  font-family: latoregular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 17px;
   line-height: 25px;
   padding-top: 26px;
@@ -694,7 +732,8 @@ ul.dropdown-menu li:last-child a {
   float: left;
   list-style: none;
   color: #fff;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 50px;
   padding: 0px 6%;
   line-height: 40px;
@@ -719,7 +758,8 @@ ul.dropdown-menu li:last-child a {
 
 #counter li span {
   font-size: 17px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   float: left;
   width: 100%;
 }
@@ -730,7 +770,8 @@ ul.dropdown-menu li:last-child a {
   width: 100%;
 }
 
-#counter li:first-child, .how_work #counter li:first-child {
+#counter li:first-child,
+.how_work #counter li:first-child {
   padding-left: 0;
 }
 
@@ -752,7 +793,8 @@ ul.dropdown-menu li:last-child a {
 }
 
 .price-tags p {
-  font-family: RalewayLight;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 21px;
 }
 
@@ -777,7 +819,8 @@ ul.dropdown-menu li:last-child a {
 .priceing_tables .header {
   border-bottom: 1px solid #f2f2f2;
   color: #333;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 25px;
   padding: 48px 0;
   position: relative;
@@ -803,7 +846,8 @@ priceing_tables .startup {
 
 .priceing_tables .price {
   padding: 3px 0;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 63px;
   float: left;
   width: 100%;
@@ -812,7 +856,8 @@ priceing_tables .startup {
 }
 
 .priceing_tables .price span {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   float: left;
   width: 100%;
   font-size: 15px;
@@ -846,7 +891,8 @@ priceing_tables .startup {
   border-radius: 77px;
   color: #12cd6a;
   display: inherit;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   margin: 0 77px;
   padding: 17px 0;
@@ -875,7 +921,8 @@ priceing_tables .startup {
   background: #fa2328 none repeat scroll 0 0;
   border-radius: 34px;
   color: #ffffff;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 12px;
   left: 0;
   margin: 0 auto;
@@ -888,7 +935,7 @@ priceing_tables .startup {
 }
 
 .priceing_tables .price i {
-  font-family: Raleway;
+  font-family: 'Roboto', sans-serif;
   font-size: 26px;
   font-style: normal;
   position: relative;
@@ -939,24 +986,28 @@ priceing_tables .startup {
 .postdate {
   background: #12cd6a;
   font-size: 18px;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 .postmonth {
   background: #333;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 14px;
 }
 
 .posts-list .post-meta h4 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin: 23px 0;
   line-height: 20px;
 }
 
 .posts-list .post-meta p {
   color: #333;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 13px;
   line-height: 29px;
   margin-bottom: 19px;
@@ -967,7 +1018,8 @@ priceing_tables .startup {
   border-radius: 22px;
   color: #12cd6a;
   float: left;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 11px;
   padding: 9px 19px;
   text-transform: uppercase;
@@ -980,7 +1032,8 @@ priceing_tables .startup {
 }
 
 .container.main-container>p {
-  font-family: RalewayLight;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   text-align: center;
 }
 
@@ -988,7 +1041,8 @@ priceing_tables .startup {
 
 .white-heading {
   color: #fff;
-  font-family: opensansbold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 39px;
   margin-bottom: 0;
   text-align: center;
@@ -996,7 +1050,8 @@ priceing_tables .startup {
 
 .price-heading {
   color: #fff;
-  font-family: opensansbold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 39px;
   margin-bottom: 0;
   text-align: center;
@@ -1019,11 +1074,13 @@ priceing_tables .startup {
 }
 
 .white-heading span {
-  font-family: RalewayThin;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 
 .btn-getstarted {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   color: #fff;
   border: none;
   border-radius: 0;
@@ -1069,9 +1126,11 @@ priceing_tables .startup {
   text-align: center;
 }
 
-.owl-item .item h5, .owl-item .item span {
+.owl-item .item h5,
+.owl-item .item span {
   color: #ffffff;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 22px;
   margin: 5px 0;
 }
@@ -1083,7 +1142,8 @@ priceing_tables .startup {
 
 #testio .owl-item .item p {
   color: #ffffff;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   margin-top: 28px;
@@ -1102,7 +1162,8 @@ priceing_tables .startup {
   height: 15px;
 }
 
-.owl-item .item p:after, .owl-item .item p:before {
+.owl-item .item p:after,
+.owl-item .item p:before {
   content: "";
 }
 
@@ -1152,7 +1213,8 @@ priceing_tables .startup {
 }
 
 .footer h3 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 18px;
   margin-bottom: 26px;
 }
@@ -1167,7 +1229,8 @@ priceing_tables .startup {
   color: #333;
 }
 
-.footer ul li.active a, .footer a:hover {
+.footer ul li.active a,
+.footer a:hover {
   color: #12cd6a;
   padding-left: 6px;
 }
@@ -1175,7 +1238,8 @@ priceing_tables .startup {
 .footer p {
   font-size: 15px;
   color: #333;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .container-fluid.last-footer {
@@ -1187,7 +1251,8 @@ priceing_tables .startup {
 }
 
 .last-footer p {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .footer.last-footer ul li {
@@ -1215,25 +1280,29 @@ priceing_tables .startup {
   box-shadow: 0 -17px 15px -17px #099b4e inset;
 }
 
-.page-title, .header_area {
-  margin-top: 66px;
+.page-title,
+.header_area {
+  margin-top: 63px;
 }
 
 .page-title .white-heading {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   text-align: left;
   font-size: 49px;
 }
 
 .page-title .image-heading {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 49px;
   text-align: left;
 }
 
 .image-heading {
   color: #333;
-  font-family: opensansbold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 39px;
   margin-bottom: 0;
   text-align: center;
@@ -1244,7 +1313,8 @@ priceing_tables .startup {
 .favourite {
   color: #fff;
   text-align: right;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   padding: 5px 0;
   float: right;
@@ -1260,7 +1330,7 @@ priceing_tables .startup {
 }
 
 .favourite.hard {
-  font-family: RalewayHeavy;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-size: 28px;
   padding: 8px 0;
@@ -1303,12 +1373,14 @@ priceing_tables .startup {
   float: left;
   width: 100%;
   color: #12cd6a;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .user-data .user-tag {
   line-height: normal;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   width: 100%;
 }
@@ -1332,13 +1404,15 @@ priceing_tables .startup {
   margin: 0;
   padding: 6px 0 0;
   font-size: 12px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .user-data .user-tag label span {
   font-size: 18px;
   color: #333;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin-top: 8px;
 }
 
@@ -1397,7 +1471,8 @@ priceing_tables .startup {
 }
 
 .content p {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 26px;
   margin-top: 24px;
@@ -1405,7 +1480,8 @@ priceing_tables .startup {
 }
 
 .content h2 {
-  font-family: opensansbold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin: 33px 0;
   float: left;
   width: 100%;
@@ -1417,7 +1493,8 @@ ul.skills li {
 }
 
 .content ul li {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   color: #333;
   font-size: 14px;
   list-style: outside none none;
@@ -1542,7 +1619,8 @@ ul.simple li {
 
 .sidebar .subscribe h3 {
   font-size: 15px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   color: #333;
   text-transform: none;
   margin-bottom: 21px;
@@ -1553,10 +1631,12 @@ ul.simple li {
   width: 100%;
 }
 
-.subscribe input, .subscribe button {
+.subscribe input,
+.subscribe button {
   width: 100%;
   text-align: center;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
   padding: 16px 0;
@@ -1584,7 +1664,8 @@ ul.simple li {
 
 .subscribe a {
   color: #2a2a2a;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 13px;
 }
 
@@ -1599,9 +1680,11 @@ ul.simple li {
   padding: 36px 0;
 }
 
-.job-recom .main-container h3, .recom {
+.job-recom .main-container h3,
+.recom {
   margin-bottom: 48px;
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 30px;
 }
 
@@ -1620,7 +1703,8 @@ ul.simple li {
 }
 
 #recommended-job .related_jos h4 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   color: #333;
   margin: 0 0 20px;
@@ -1629,7 +1713,8 @@ ul.simple li {
 #recommended-job .related_jos p {
   float: left;
   width: 100%;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   color: #858585;
   font-size: 13px;
   line-height: normal;
@@ -1651,14 +1736,16 @@ ul.simple li {
   border-top: 1px solid #dddddd;
   color: #333;
   float: left;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   margin: 0;
   padding: 17px 0 0;
   width: 100%;
 }
 
-#recommended-job .related_jos p:after, #recommended-job .related_jos p:before {}
+#recommended-job .related_jos p:after,
+#recommended-job .related_jos p:before {}
 
 .related_jos span.salary i {
   float: right;
@@ -1720,7 +1807,8 @@ ul.simple li {
   padding: 68px 0 67px;
 }
 
-.title-image .user-data .user-tag, .title-image .user-data .user-tag span {
+.title-image .user-data .user-tag,
+.title-image .user-data .user-tag span {
   color: #fff;
 }
 
@@ -1729,7 +1817,8 @@ ul.simple li {
   opacity: 0.20;
 }
 
-.title-image .page-title .job-admin, .title-image .page-title .favourite {
+.title-image .page-title .job-admin,
+.title-image .page-title .favourite {
   color: #333;
 }
 
@@ -1768,7 +1857,8 @@ ul.top_filters li input[type="checkbox"] {
 }
 
 ul.top_filters li label {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   margin-bottom: 0;
   padding-left: 30px;
@@ -1809,7 +1899,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 }
 
 .list-style2 .desig h3 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin: 0 0 9px;
 }
 
@@ -1926,14 +2017,16 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   color: #fff;
   display: inline-block;
   line-height: 19px;
-  font-family: RalewayExtraBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 #jobs-slider .item .overlay h3 span {
   float: left;
   width: 100%;
   color: #fff;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   padding-left: 25px;
 }
 
@@ -1953,7 +2046,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   border-radius: 0;
 }
 
-.slider-botom h3, .slider-botom h4 {
+.slider-botom h3,
+.slider-botom h4 {
   float: left;
   width: 100%;
   margin: 0 0 2px;
@@ -1963,12 +2057,15 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 .slider-botom h3 {
   color: #fff;
   font-size: 22px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-#jobs-slider .slider-botom h4, #jobs-slider .slider-botom h5 {
+#jobs-slider .slider-botom h4,
+#jobs-slider .slider-botom h5 {
   color: #848484;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 #jobs-slider .slider-botom h5 {
@@ -1982,7 +2079,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   margin: 0;
 }
 
-#jobs-slider .owl-controls .owl-prev, #jobs-slider .owl-controls .owl-next {
+#jobs-slider .owl-controls .owl-prev,
+#jobs-slider .owl-controls .owl-next {
   background: none;
   opacity: 1;
   padding: 2px;
@@ -1994,7 +2092,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   color: #12cd6a;
 }
 
-#jobs-slider .item .overlay, #jobs-slider .item .slider-botom {
+#jobs-slider .item .overlay,
+#jobs-slider .item .slider-botom {
   width: 100%;
   padding: 0 34px;
 }
@@ -2004,12 +2103,14 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   box-shadow: 0 0 46px 0 #f0f0f0;
 }
 
-.tag h3, .tag ul {}
+.tag h3,
+.tag ul {}
 
 .tag h3 {
   border-bottom: 1px solid #e5e5e5;
   color: #1a1a1a;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   margin: 0 5px 3px;
   padding: 32px 32px 25px;
@@ -2031,7 +2132,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 .tag ul li a {
   color: #333;
   font-size: 15px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   display: block;
 }
 
@@ -2048,7 +2150,7 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 .page-title p {
   color: #fff;
   font-size: 21px;
-  font-family: Raleway;
+  font-family: 'Roboto', sans-serif;
   padding-top: 14px;
 }
 
@@ -2058,7 +2160,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 }
 
 .lighttext p {
-  font-family: RalewayLight;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 21px;
   margin-top: 24px;
 }
@@ -2083,7 +2186,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 
 .blocks p {
   color: #333333;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   font-weight: normal;
   line-height: 24px;
@@ -2094,7 +2198,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   border-radius: 55px;
   color: #12cd6a;
   float: left;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 11px;
   margin-top: 30px;
   padding: 9px 19px;
@@ -2116,24 +2221,27 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
   font-size: 60px;
 }
 
-.icons-heading h3, .icons-heading p {
+.icons-heading h3,
+.icons-heading p {
   padding-left: 110px;
 }
 
 .icons-heading h3 {
   font-size: 32px;
-  font-family: RalewayHeavy;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   margin-bottom: 19px;
 }
 
 .icons-heading p {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 19px;
   color: #585858;
 }
 
-.how_work:after, .how_work:before {
+.how_work:after,
+.how_work:before {
   content: "";
   position: absolute;
   background: red;
@@ -2185,7 +2293,7 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 
 .how_work ul li h3 {
   color: #fff;
-  font-family: RalewayHeavy;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-size: 32px;
 }
@@ -2214,7 +2322,8 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 }
 
 .how_work ul li ul li span {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 17px;
   display: block;
   width: 100%;
@@ -2254,7 +2363,8 @@ ul.alphabet li {
 .page-title h5 {
   font-size: 15px;
   color: #fff;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   margin: 16px 0;
 }
 
@@ -2264,13 +2374,15 @@ ul.alphabet li {
   width: 60px;
   margin-right: 22px;
   margin-bottom: 0;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   font-weight: normal;
 }
 
-.form-group input, .form-group textarea {
-  outline: none!important;
+.form-group input,
+.form-group textarea {
+  outline: none !important;
   width: 100%;
   background: #fff;
   box-shadow: none;
@@ -2279,15 +2391,18 @@ ul.alphabet li {
   font-size: 16px;
   color: #333;
   line-height: normal;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   border-radius: 8px;
 }
 
-.contact_us .form-group input:focus, .contact_us .form-group textarea:focus {
+.contact_us .form-group input:focus,
+.contact_us .form-group textarea:focus {
   border: 1px solid #12cd6a;
   box-shadow: none;
   color: #333;
 }
+
 .form-group.submit {
   margin-top: 2%;
 }
@@ -2296,9 +2411,13 @@ ul.alphabet li {
   opacity: 0;
 }
 
-.contact_us .form-group input[type="submit"], #register, #signin {
+.contact_us .form-group input[type="submit"],
+#register,
+#signin {
   width: initial;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  ;
   border: none;
   font-size: 14px;
   background: #333;
@@ -2314,7 +2433,8 @@ ul.alphabet li {
   width: 100%;
 }
 
-.register:hover, #signin:hover {
+.register:hover,
+#signin:hover {
   border: 2px solid #ffffff;
 }
 
@@ -2327,7 +2447,8 @@ ul.alphabet li {
 }
 
 .about_section p {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   line-height: 30px;
 }
@@ -2395,7 +2516,8 @@ ul.social li a {
 }
 
 .deximJobs_tabs .nav li a {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 45px;
   background: none !important;
   color: #007738;
@@ -2425,7 +2547,8 @@ ul.social li a {
   width: 75%;
   font-size: 16px;
   padding: 10px 17px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   border: 1px solid #12cd6a;
 }
 
@@ -2467,7 +2590,8 @@ ul.social li a {
 }
 
 .sidebar h3 {
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #fff;
   text-transform: uppercase;
@@ -2491,7 +2615,8 @@ ul.social li a {
 .deximJobs_tabs .sidebar .widget li p {
   text-align: left;
   font-size: 15px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   margin-bottom: 0;
   line-height: 25px;
 }
@@ -2511,7 +2636,8 @@ ul.social li a {
 .register {
   background: #333 !important;
   font-size: 14px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .deximJobs_tabs .contact_us .lost_password {
@@ -2564,7 +2690,9 @@ ul.social li a {
   padding: 15px 40px;
 }
 
-.fa.fa-clock-o, .fa.fa-child, .fa.fa-check-circle-o {
+.fa.fa-clock-o,
+.fa.fa-child,
+.fa.fa-check-circle-o {
   font-size: 26px;
 }
 
@@ -2599,13 +2727,15 @@ ul.buttons li:last-child {
 }
 
 .post-job .main-container label {
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   margin: 0;
   padding: 8px 0;
 }
 
-ul.buttons li #signin, ul.buttons li #register {
+ul.buttons li #signin,
+ul.buttons li #register {
   float: left;
   height: 44px;
   line-height: 7px;
@@ -2646,7 +2776,8 @@ ul.select2-choices {
 .select2-container a.select2-choice .select2-chosen {
   color: #888e94;
   margin: 0;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   font-weight: normal;
   float: left;
@@ -2665,7 +2796,8 @@ body .select2-search {
   content: "Chose a category...";
   margin: 11px 0;
   float: left;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   padding-right: 35px;
   color: #888e94;
@@ -2676,13 +2808,15 @@ body .select2-search {
   border: medium none;
   border-radius: 33px;
   color: #ffffff;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   margin: 5px 8px 5px 0;
   padding: 14px 30px 14px 17px;
 }
 
-.container .select2-container-multi ul.select2-choices li:last-child, .container .select2-container-multi ul.select2-choices li.select2-search-field {
+.container .select2-container-multi ul.select2-choices li:last-child,
+.container .select2-container-multi ul.select2-choices li.select2-search-field {
   display: none;
 }
 
@@ -2719,7 +2853,8 @@ body ul.select2-results {
 body ul.select2-results li {
   padding: 11px 14px;
   margin-right: 22px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 16px;
 }
 
@@ -2803,7 +2938,8 @@ body ul.select2-results li {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: OpenSansSemibold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 13px;
   margin-right: 35px;
   padding: 15px 17px;
@@ -2823,7 +2959,9 @@ body ul.select2-results li {
 
 .form-group label.heading {
   font-size: 20px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  ;
   padding: 0 !important;
 }
 
@@ -2866,7 +3004,8 @@ body ul.select2-results li {
 
 .white-text p {
   color: #fff;
-  font-family: LatoLight;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 20px;
 }
 
@@ -2907,7 +3046,8 @@ li.admin {
 
 li.admin span {
   color: #333;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
 }
 
@@ -2980,7 +3120,8 @@ ul.education {
 ul.education h3 {
   margin: 20px 0;
   font-size: 17px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-weight: bold;
 }
 
@@ -2990,7 +3131,8 @@ ul.education li p {
   margin-bottom: 0;
 }
 
-ul.education li:after, ul.education li:before {
+ul.education li:after,
+ul.education li:before {
   opacity: 0;
 }
 
@@ -3014,7 +3156,8 @@ ul.education li:after, ul.education li:before {
   padding: inherit;
 }
 
-.checkout ul.buttons li input, .checkout ul.buttons li label {
+.checkout ul.buttons li input,
+.checkout ul.buttons li label {
   float: left;
 }
 
@@ -3057,7 +3200,8 @@ ul.education li:after, ul.education li:before {
   width: 326px;
 }
 
-.order-items .table th:first-child, .order-items .table td:first-child {
+.order-items .table th:first-child,
+.order-items .table td:first-child {
   width: 30%;
 }
 
@@ -3093,7 +3237,8 @@ ul.order-table li ul li {
 }
 
 ul.order-table li strong {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 15px;
 }
 
@@ -3185,7 +3330,8 @@ ul.order-table>li:last-child:before {
 }
 
 ul.order-table li span.mobile {
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-weight: normal;
   padding-left: 20px;
   display: none;
@@ -3200,7 +3346,8 @@ ul.order-table li span.mobile {
   color: #333;
   border-radius: 0;
   font-size: 20px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   padding: 10px 15px;
 }
 
@@ -3263,7 +3410,8 @@ ul.order-table li span.mobile {
 .companies ul.list>li span {
   float: left;
   width: 100%;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 26px;
   color: #333;
   text-transform: uppercase;
@@ -3357,7 +3505,8 @@ ul.order-table li span.mobile {
 }
 
 .modal-dialog h3 span {
-  font-family: latoregular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   float: left;
   width: 100%;
@@ -3372,7 +3521,8 @@ ul.order-table li span.mobile {
   margin-bottom: 1px;
 }
 
-.modal-dialog input, .modal-dialog textarea {
+.modal-dialog input,
+.modal-dialog textarea {
   width: 100%;
   background: #f9f9f9;
   border: 1px solid #e2e2e2;
@@ -3449,7 +3599,8 @@ ul.order-table li span.mobile {
 /*///////////////blog //*/
 
 .page-blog .capital h5 {
-  font-family: RalewayLight;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 21px;
   margin: 13px 0;
 }
@@ -3464,7 +3615,8 @@ form#search .form-group {
 form#search input {
   color: #333;
   font-size: 17px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   padding: 14px 27px;
   line-height: normal;
   border: none;
@@ -3486,7 +3638,8 @@ form#search .form-group.submit {
   padding: 0;
 }
 
-form#search .form-group.submit .glyphicon, form#search .form-group.submit input[type="submit"] {
+form#search .form-group.submit .glyphicon,
+form#search .form-group.submit input[type="submit"] {
   position: absolute;
   color: #fff;
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -3531,12 +3684,14 @@ form#search .form-group.submit .glyphicon, form#search .form-group.submit input[
 
 .data-post h3 {
   font-size: 23px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   line-height: normal;
 }
 
 .data-post p {
-  font-family: OpenSansRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   font-weight: 500;
   line-height: 22px;
@@ -3560,7 +3715,8 @@ form#search .form-group.submit .glyphicon, form#search .form-group.submit input[
 }
 
 #blog-sidebar h3.widget-title {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 27px;
   margin-bottom: 30px;
 }
@@ -3613,7 +3769,8 @@ form#search .form-group.submit .glyphicon, form#search .form-group.submit input[
 }
 
 .comment-section h3 {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 27px;
   margin-bottom: 37px;
 }
@@ -3630,12 +3787,14 @@ form#search .form-group.submit .glyphicon, form#search .form-group.submit input[
 }
 
 .view-comments strong {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .comment-section {
   font-size: 15px;
-  font-family: opensansregular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   line-height: 25px;
 }
 
@@ -3704,7 +3863,8 @@ span.login-ins {
   line-height: normal;
   padding: 18px 23px;
   font-size: 15px;
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   position: relative;
 }
@@ -3725,7 +3885,8 @@ span.login-ins {
   padding: 33px 22px 0px;
   font-size: 15px;
   line-height: 30px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .posts-list .post-thumb:hover img {
@@ -3850,38 +4011,46 @@ span.login-ins {
 }
 
 /* Start- Format for form with validation */
+
 .validation-form .form-group input {
   width: 100%;
 }
+
 .validation-form .form-group .error-input {
   color: #dc3545;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 14px;
   padding-top: 1%;
   padding-left: 1%;
 }
+
 .validation-form .form-group .has-error {
   border-color: #dc3545;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   border-width: 1px;
 }
+
 .validation-form .form-group .has-error:focus {
   border-color: #dc3545;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   border-width: 1px;
 }
+
 .validation-form .input-container {
   display: flex;
   flex-direction: column;
 }
+
 .validation-form .form-group label {
   font-size: 12px;
   margin-right: 13px;
   width: 110px;
   padding: 2% 0px;
 }
+
 .validation-form .form-group.required label {
-    padding-right: 0px;
+  padding-right: 0px;
 }
 
 .validation-form .form-group.required label:after {
@@ -3893,17 +4062,29 @@ span.login-ins {
 .validation-form .form-group .input-container label {
   padding: 2% 0px;
 }
+
 .validation-form .form-group .input-container select {
   font-size: 16px;
-  outline: none!important; 
+  outline: none !important;
   width: 100%;
-  background: #fff;   
-  box-shadow: none; 
+  background: #fff;
+  box-shadow: none;
   padding: 10px 17px;
-  font-family: LatoRegular;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   border: 1px solid #12cd6a;
-  color: #333; 
-  line-height: normal; 
+  color: #333;
+  line-height: normal;
   border-radius: 8px;
+}
+.validation-form .form-group input::placeholder {
+  opacity: 0.3;
+}
+*:focus::placeholder {
+  opacity: 0;
+}
+
+*:focus::-webkit-input-placeholder {
+  opacity: 0;
 }
   /* End validation-form */

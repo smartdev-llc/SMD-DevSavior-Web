@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name": "juniorviec-web",
-    "script": "http-server",
-    "args": "-- dist/juniorViec/ -p 4200 -d false"
+    "script": "node",
+    "args": "server"
   }]
 }
