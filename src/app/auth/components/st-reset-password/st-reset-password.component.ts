@@ -16,7 +16,7 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrls: ['./st-reset-password.component.css']
 })
 export class StResetPasswordComponent implements OnInit {
-  private static DEFAULT_MESSAGE_INTERNAL_ERROR = 'Error while reseting password.';
+  private static DEFAULT_MESSAGE_INTERNAL_ERROR = 'Oops! Something wrong happened. Please try again later!';
   private token: string;
   resetPasswordForm: FormGroup;
   loading = false;
@@ -41,6 +41,7 @@ export class StResetPasswordComponent implements OnInit {
     this.loading = true;
     this.submitted = true;
     if (this.resetPasswordForm.invalid) {
+      this.loading = false;
       return;
     }
 
@@ -78,8 +79,8 @@ export class StResetPasswordComponent implements OnInit {
 
   get hasServerError() {
     return this.submitted
-            && this.resetPasswordForm.errors !== undefined
-            && this.resetPasswordForm.errors.serverError !== undefined;
+            && this.resetPasswordForm.errors != null
+            && this.resetPasswordForm.errors.serverError != null;
   }
 
 }
