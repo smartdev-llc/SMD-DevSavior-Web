@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { SharedModule } from '../shared/shared.module';
 // Components
 import { HeaderComponent } from './header/header.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
@@ -21,7 +21,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent
   ],
   imports: [
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class LayoutModule { }

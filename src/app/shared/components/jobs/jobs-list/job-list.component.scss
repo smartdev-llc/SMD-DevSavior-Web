@@ -2,6 +2,18 @@
   float: left;
   width: 100%;
   margin-top: 28px;
+  .jobs-title {
+    padding: 10px;
+    background-color: #12cd6a;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    &.hot-jobs {
+      background-color: #12cd6a;
+      font-size: 18px;
+    }
+  }
 }
 
 .tab_filters {
@@ -29,7 +41,10 @@
   color: #ffffff;
 }
 
-.nav>li:hover a, .nav>li>a:focus, .nav>li>a:hover, .nav li.active a{
+.nav>li:hover a,
+.nav>li>a:focus,
+.nav>li>a:hover,
+.nav li.active a {
   background-color: #fff;
   z-index: 1;
 }
@@ -39,7 +54,7 @@
 }
 
 .tab_filters ul.nav li.active a {
-  font-family: OpenSansBold;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
   border: 1px solid #12cd6a;
   background: #12cd6a;
@@ -82,7 +97,8 @@
   width: 300px;
   margin: 5px auto 60px auto;
   z-index: 2;
-  .left, .right{
+  .left,
+  .right {
     background-image: none;
   }
 }
@@ -163,6 +179,7 @@
     height: 2110px;
   }
 }
+
 @media (max-width: 320px) {
   .jobs-result {
     text-align: center;
