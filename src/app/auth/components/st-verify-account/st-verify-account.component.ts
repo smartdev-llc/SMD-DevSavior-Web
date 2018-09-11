@@ -11,13 +11,13 @@ import { EmailValidator, Form, FormBuilder, Validators, FormGroup } from '../../
   styleUrls: ['./st-verify-account.component.css']
 })
 export class StVerifyAccountComponent implements OnInit {
-  private isVerified = false;
-  private loading = true;
-  private verifyFailed = false;
-  private isSubmitted = false;
-  private verificationError: string;
-  private isSent = false;
-  private resendverificationForm: FormGroup;
+  isVerified = false;
+  loading = true;
+  verifyFailed = false;
+  isSubmitted = false;
+  verificationError: string;
+  isSent = false;
+  resendverificationForm: FormGroup;
 
 
   constructor(private authService: AuthService,
