@@ -1,4 +1,4 @@
-import {tap} from 'rxjs/operators';
+import { tap, map, filter, scan} from 'rxjs/operators';
 import { AuthActions } from '../../actions/auth.actions';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from '../../../../environments/environment';
@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../interfaces';
 import { Router, ActivatedRoute } from '@angular/router';
 import { getAuthStatus } from '../../reducers/selectors';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'job-detail',
@@ -42,12 +42,11 @@ export class StLoginComponent implements OnInit, OnDestroy {
 
     if (this.loginInForm.valid) {
       this.loginSubs = this.authService
-        .login(values).pipe(
+        .login(values)
+        .pipe(
           tap(_ => _, (user) => {
             const errors = user || 'Something went wrong';
-            keys.forEach(val => {
-              this.pushErrorFor(val, errors);
-            });
+            this.pushErrorFor('password', errors.error.message);
           })).subscribe();
     } else {
       keys.forEach(val => {
@@ -62,12 +61,10 @@ export class StLoginComponent implements OnInit, OnDestroy {
   }
 
   initForm () {
-    const email = '';
-    const password = '';
 
     this.loginInForm = this.fb.group({
-      'email': [email, Validators.required],
-      'password': [password, Validators.required]
+      'email': ['', Validators.email],
+      'password': ['', Validators.required]
     });
   }
 
@@ -85,6 +82,10 @@ export class StLoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.loginSubs) { this.loginSubs.unsubscribe(); }
+  }
+
+  socialLogin(provider: string) {
+    this.store.dispatch(this.actions.oAuthLogin(provider));
   }
 
 }

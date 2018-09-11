@@ -20,6 +20,8 @@ import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsModule } from './jobs/jobs.module';
 import { CompaniesModule } from './companies/companies.module';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
 @NgModule({
   declarations: [
@@ -58,8 +60,30 @@ import { CompaniesModule } from './companies/companies.module';
     CoreModule,
     JobsModule,
     CompaniesModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("Facebook-App-Id")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 export class AppModule { }

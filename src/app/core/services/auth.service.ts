@@ -11,6 +11,9 @@ import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
 import { Store } from '../../../../node_modules/@ngrx/store';
 import { map, tap } from 'rxjs/operators';
+import { AuthService as SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+
 @Injectable()
 export class AuthService {
 
@@ -29,7 +32,8 @@ export class AuthService {
     private actions: AuthActions,
     private store: Store<AppState>,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private socialAuthService: SocialAuthService
   ) {}
 
 
@@ -62,6 +66,10 @@ export class AuthService {
     return this.http.post<User>('/auth/signup', data);
   }
 
+    // catch should be handled here with the http observable
+    // so that only the inner obs dies and not the effect Observable
+    // otherwise no further login requests will be fired
+    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
   /**
    *
    *
@@ -71,7 +79,7 @@ export class AuthService {
    * @memberof AuthService
    *
    */
-   
+
   resetPassword(password: string, token: string | ''): Observable<any> {
     const requestBody: any = { password: password};
     let param: HttpParams = new HttpParams();
@@ -153,5 +161,17 @@ export class AuthService {
   private setTokenInLocalStorage(user_data: any): void {
     const token = user_data.token;
     localStorage.setItem('user.access_token', token);
+  }
+
+  socialLogin(provider: string) {
+    let socialPlatformProvider;
+    if (provider == "facebook") {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (provider == "google") {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider);
+
   }
 }
