@@ -3912,4 +3912,14 @@ span.login-ins {
   line-height: normal; 
   border-radius: 8px;
 }
+.validation-form .form-group input::placeholder {
+  opacity: 0.3;
+}
+*:focus::placeholder {
+  opacity: 0;
+}
+
+*:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
   /* End validation-form */

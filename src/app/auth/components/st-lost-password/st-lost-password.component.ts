@@ -45,7 +45,12 @@ export class StLostPasswordComponent implements OnInit {
                         this.loading = false;
                       },
                       error => {
-                        this.requested = true;
+                        if(error.status >= 500) {
+                          this.lostPasswordForm.setErrors({globalError: 'Oops! Something bad happened. Please come back later!'})
+                        } else {
+                          this.lostPasswordForm.setErrors({globalError: error.error.message});
+                        }
+                        
                         this.loading = false;
                       });
   }

@@ -17,7 +17,7 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class StRegisterComponent implements OnInit {
   static MAX_LENGTH_PASSWORD = 8;
-  static DEFAULT_MESSAGE = 'Something wrong while registering new user';
+  static DEFAULT_MESSAGE = 'Oops! Something bad happened. Please come back later.';
   registerForm: FormGroup;
   passwordGroup: FormGroup;
   submitted: boolean;
@@ -50,8 +50,10 @@ export class StRegisterComponent implements OnInit {
         this.resetPasswordForm();
         if (error.status === 409) {
           this.f.email.setErrors({'existed' : true});
-        } else {
+        } else if(error.status >= 500) {
           this.registerForm.setErrors({serverError: StRegisterComponent.DEFAULT_MESSAGE});
+        } else {
+          this.registerForm.setErrors({serverError: error.error.message});
         }
         this.loading = false;
       });
@@ -70,7 +72,7 @@ export class StRegisterComponent implements OnInit {
   }
 
   get LETTER_ONLY_PATTERN() {
-    return '^([a-zA-Z\\s])*$';
+    return '^[^@!~#$%^&*()}{]*$';
   }
 
   ngOnInit() {
@@ -104,6 +106,6 @@ export class StRegisterComponent implements OnInit {
   }
 
   get hasServerError() {
-    return this.submitted && this.registerForm.errors !== undefined && this.registerForm.errors.serverError !== undefined;
+    return this.submitted && this.registerForm.errors != null && this.registerForm.errors.serverError != null;
   }
 }
