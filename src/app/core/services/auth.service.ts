@@ -84,6 +84,15 @@ export class AuthService {
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
+  verifyAccount(token: string): Observable<any> {
+    const params: HttpParams = new HttpParams({fromObject: { token: token}});
+    return this.http.get('/auth/verify',{params: params});
+  }
+
+  resendVerificationEmail(email: string, role: Role): Observable<any> {
+    const requestBody: any = { email: email, role: role};
+    return this.http.post('/auth/resend-email', requestBody);
+  }
 
   /**
    *

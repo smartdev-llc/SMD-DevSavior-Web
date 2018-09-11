@@ -1,0 +1,86 @@
+<!-- Header Section -->
+<app-header></app-header>
+<!-- Header Section -->
+
+
+
+<!--content lost_password-->
+<div class="container-fluid verify-account header_area">
+  <div class="row">
+    <div id="loadessr" *ngIf="loading">
+      <div id="loader">
+      </div>
+    </div>
+    <div class="container main-container pop-up text-center">
+      <div class="col-xs-12 verify-icon text-center">
+          <img src="../../../../assets/images/icon-verify-email.png"/>
+      </div>
+        
+      <h1>Verify your account.</h1>
+      <ng-container *ngIf="isVerified">
+        <div class="verify-success-content">
+          <p>We've just sent an verification email to your email address.</p>
+          <a class="form-group submit" routerLink="/login">Login</a>
+        </div>
+    </ng-container>
+
+ 
+
+    <ng-container *ngIf="verifyFailed && !isSent">
+        <div class="xs-col-12 global-message" *ngIf="!isSubmitted">
+          <p>Can not verify your account({{verificationError}}).</p>
+        </div>
+      <div class="xs-col-12 resend-verify-container">
+            <form class="col-md-8 col-xs-12 resend-verify validation-form" [formGroup]="resendverificationForm" (ngSubmit)="resendVerificationEmail()">
+                <div class="form-group global-error" *ngIf="resendverificationForm.errors?.errorMessage">
+                  <label></label>
+                  <div class="error-input">
+                    <div>
+                        {{resendverificationForm.errors?.errorMessage}}
+                    </div>
+                  </div>
+                </div>
+
+              <div class="form-group required">
+                <label>Email</label>
+                <div class="input-container">
+                  <input type="text" 
+                         name="name" 
+                         formControlName="email"
+                         [ngClass]="{'has-error': isSubmitted && control.email.invalid}"
+                         placeholder="Enter email to resend verification email.">
+                  <div *ngIf="isSubmitted && control.email.invalid" class="error-input">
+                    <div *ngIf="control.email.errors.required">
+                      Email is required.
+                    </div>
+                    <div *ngIf="control.email.errors.email">
+                        Please enter an valid email.
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group submit">
+                  <label>Submit</label>
+                  <input type="submit" name="submit" value="Resend" class="submit" id="submit">
+                </div>
+
+            </form>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isSent">
+        <div class="verify-success-content">
+          <p>We've just sent an verification email to your email address <b>{{resendverificationForm.value.email}}</b></p>
+          <a class="form-group submit" routerLink="/login">Login</a>
+        </div>
+    </ng-container>
+   
+     
+    </div>
+  </div>
+</div>
+<!--content lost_password-->
+
+<!-- Footer Section -->
+<app-footer></app-footer>
+<!-- Footer Section -->
