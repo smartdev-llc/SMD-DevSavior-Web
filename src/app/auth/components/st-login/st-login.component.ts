@@ -9,6 +9,9 @@ import { AppState } from '../../../interfaces';
 import { Router, ActivatedRoute } from '@angular/router';
 import { getAuthStatus } from '../../reducers/selectors';
 import { Subscription } from 'rxjs';
+import {AppErrors} from '../../../core/error/app-errors';
+import {Forbidden} from '../../../core/error/forbidden';
+import {InternalServer} from '../../../core/error/internal-server';
 
 @Component({
   selector: 'job-detail',
@@ -19,6 +22,8 @@ export class StLoginComponent implements OnInit, OnDestroy {
   loginInForm: FormGroup;
   loginSubs: Subscription;
   returnUrl: string;
+  isNotVerified = false;
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -40,7 +45,10 @@ export class StLoginComponent implements OnInit, OnDestroy {
     const values = this.loginInForm.value;
     const keys = Object.keys(values);
 
+    console.log('value', values);
+
     if (this.loginInForm.valid) {
+      this.isLoading = true;
       this.loginSubs = this.authService
         .login(values).pipe(
           tap(_ => _, (user) => {
@@ -48,14 +56,26 @@ export class StLoginComponent implements OnInit, OnDestroy {
             keys.forEach(val => {
               this.pushErrorFor(val, errors);
             });
-          })).subscribe();
+          })).subscribe(
+            response =>this.isLoading= false,
+          (error) => {
+
+              if (error instanceof Forbidden ) {
+                console.log('forbidden', error);
+                  this.isNotVerified = true;
+                  this.isLoading= false
+              } else {
+                console.log('app error');
+              }
+            }
+          );
     } else {
       keys.forEach(val => {
         const ctrl = this.loginInForm.controls[val];
         if (!ctrl.valid) {
           this.pushErrorFor(val, null);
           ctrl.markAsTouched();
-        };
+        }
       });
     }
 
@@ -81,6 +101,28 @@ export class StLoginComponent implements OnInit, OnDestroy {
         if (data === true) { this.router.navigate([this.returnUrl]); }
       }
     );
+  }
+
+  resendEmail( email: HTMLInputElement) {
+    this.isLoading = true;
+
+    this.authService
+      .resendEmail( email.value, 'student')
+      .subscribe(
+        message => {
+          if ( message === 'Sent email.') {
+            this.isLoading = false;
+            this.isNotVerified = false;
+          }
+        },
+        (error: AppErrors) => {
+          if (error instanceof InternalServer ) {
+            console.log('interanale server', error);
+
+          } else {
+            console.log('app error');
+          }}
+      );
   }
 
   ngOnDestroy() {

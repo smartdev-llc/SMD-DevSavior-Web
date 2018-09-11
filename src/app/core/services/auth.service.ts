@@ -10,7 +10,11 @@ import { HttpClient,
 import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
 import { Store } from '../../../../node_modules/@ngrx/store';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import {AppErrors} from '../error/app-errors';
+import {Forbidden} from '../error/forbidden';
+import {InternalServer} from '../error/internal-server';
 @Injectable()
 export class AuthService {
 
@@ -48,6 +52,7 @@ export class AuthService {
         this.store.dispatch(this.actions.loginSuccess());
         return user;
       }),
+      catchError( this.handleError),
       tap(
         _ => this.router.navigate(['/'])
       )
@@ -71,7 +76,7 @@ export class AuthService {
    * @memberof AuthService
    *
    */
-   
+
   resetPassword(password: string, token: string | ''): Observable<any> {
     const requestBody: any = { password: password};
     let param: HttpParams = new HttpParams();
@@ -80,7 +85,7 @@ export class AuthService {
   }
 
   forgotPassword(email: string, role: Role): Observable<any> {
-    const requestBody: any = { email: email, role: role}
+    const requestBody: any = { email: email, role: role};
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
@@ -162,5 +167,30 @@ export class AuthService {
   private setTokenInLocalStorage(user_data: any): void {
     const token = user_data.token;
     localStorage.setItem('user.access_token', token);
+  }
+
+  resendEmail( email, userRole){
+    let userParam = {email: email, role: userRole};
+    return this.http
+      .post('/auth/resend-email', userParam)
+      .pipe(
+        map(
+          (response: any) => {
+            console.log('data is', response);
+            return response.message;
+          }),
+        catchError( this.handleError)
+      );
+
+  }
+
+  private handleError( error) {
+    if ( error.status === 403) {
+      return throwError( new Forbidden(error.error.message));
+    }
+    if (error.status === 500){
+      return throwError( new InternalServer(error.error.message));
+    }
+     return throwError( new AppErrors(error.error.message));
   }
 }

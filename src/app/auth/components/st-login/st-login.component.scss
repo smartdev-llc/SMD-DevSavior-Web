@@ -77,7 +77,7 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   .btn-social{
     margin-top: 10px;
-  } 
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -114,4 +114,14 @@
   .btn-social {
     @include btn-social-resize;
   }
+}
+
+#loadessr {
+  background-color: rgba(217,217,217,0.3);
+  z-index: 1;
+}
+
+a.error-input{
+  color: red !important;
+  cursor: pointer;
 }
