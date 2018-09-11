@@ -11,6 +11,7 @@ import { RegisterSuccessComponent } from './components/registerSuccess/registerS
 import { StLostPasswordComponent } from './components/st-lost-password/st-lost-password.component';
 import { MatchingPasswordDirective } from './validators/matching-password.directive';
 import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
+import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 import { AuthRoutes as routes } from './auth.routes';
 
 
@@ -29,7 +30,8 @@ import { AuthRoutes as routes } from './auth.routes';
     RegisterSuccessComponent,
     StLostPasswordComponent,
     MatchingPasswordDirective,
-    StResetPasswordComponent
+    StResetPasswordComponent,
+    StVerifyAccountComponent
   ]
 })
 export class AuthModule { }
