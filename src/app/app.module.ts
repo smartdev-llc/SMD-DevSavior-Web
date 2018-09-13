@@ -20,6 +20,7 @@ import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsModule } from './jobs/jobs.module';
 import { CompaniesModule } from './companies/companies.module';
+import { CompanyModule } from './company/company.module'
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CompaniesModule } from './companies/companies.module';
     CoreModule,
     JobsModule,
     CompaniesModule,
+    CompanyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
