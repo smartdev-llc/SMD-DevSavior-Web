@@ -24,6 +24,7 @@ export class StLoginComponent implements OnInit, OnDestroy {
   returnUrl: string;
   isNotVerified = false;
   isLoading = false;
+  isResendEmailSuccess = false;
 
   constructor(
     private fb: FormBuilder,
@@ -49,6 +50,7 @@ export class StLoginComponent implements OnInit, OnDestroy {
 
     if (this.loginInForm.valid) {
       this.isLoading = true;
+      this.isResendEmailSuccess = false;
       this.loginSubs = this.authService
         .login(values).pipe(
           tap(_ => _, (user) => {
@@ -57,18 +59,18 @@ export class StLoginComponent implements OnInit, OnDestroy {
               this.pushErrorFor(val, errors);
             });
           })).subscribe(
-            response =>this.isLoading= false,
+          response => this.isLoading = false,
           (error) => {
+            this.isLoading = false;
+            if (error instanceof Forbidden) {
+              console.log('forbidden', error);
+              this.isNotVerified = true;
 
-              if (error instanceof Forbidden ) {
-                console.log('forbidden', error);
-                  this.isNotVerified = true;
-                  this.isLoading= false
-              } else {
-                console.log('app error');
-              }
+            } else {
+              console.log('app error');
             }
-          );
+          }
+        );
     } else {
       keys.forEach(val => {
         const ctrl = this.loginInForm.controls[val];
@@ -113,9 +115,11 @@ export class StLoginComponent implements OnInit, OnDestroy {
           if ( message === 'Sent email.') {
             this.isLoading = false;
             this.isNotVerified = false;
+            this.isResendEmailSuccess = true;
           }
         },
         (error: AppErrors) => {
+          this.isLoading = false;
           if (error instanceof InternalServer ) {
             console.log('interanale server', error);
 

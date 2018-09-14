@@ -32,6 +32,11 @@
                   class="form-group text-center error-input">
                   Confirm your email address to active your account
                 </a>
+                <p
+                  *ngIf="isResendEmailSuccess"
+                  class="font-size-20 text-center">
+                  We just sent you an verification to your email
+                </p>
 
                 <div class="form-group submit">
                   <div class="col-lg-offset-2 cbox">
