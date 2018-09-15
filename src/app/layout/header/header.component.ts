@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateCacheService } from 'ngx-translate-cache';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +11,12 @@ import { TranslateCacheService } from 'ngx-translate-cache';
 
 export class HeaderComponent implements OnInit {
   isEnLang: boolean = false
-  
+
   constructor(
-    private translateService: TranslateService,
-    private translateCacheService: TranslateCacheService
+    private languageService: LanguageService
   ) {
-    translateService.setDefaultLang('en');
-    translateCacheService.init();
-    const lang = translateCacheService.getCachedLanguage() || translateService.getBrowserLang()
+    const lang = languageService.getCachedLanguage()
+    languageService.setDefaultLang()
     if (lang === 'en') {
       this.isEnLang = true
     }
@@ -27,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: string): void {
-    this.translateService.use(language).subscribe(() => {
+    this.languageService.changeLanguage(language).subscribe(() => {
       language === 'en' ? this.isEnLang = true : this.isEnLang = false;
     });
   }
