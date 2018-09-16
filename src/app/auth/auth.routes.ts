@@ -6,7 +6,6 @@ import { StResetPasswordComponent } from './components/st-reset-password/st-rese
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 
 export const AuthRoutes = [
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path: 'register', component: StRegisterComponent },
   { path: 'login', component: StLoginComponent },
   { path: 'register-success', component: RegisterSuccessComponent },

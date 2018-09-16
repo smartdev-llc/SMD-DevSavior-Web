@@ -7,6 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 // Modules
 import { RouterModule } from '@angular/router';
 
+import { LanguageService } from './services/language.service';
+
 @NgModule({
   declarations: [
     // components
@@ -23,6 +25,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule,
     SharedModule
+  ],
+  providers: [
+    LanguageService
   ]
 })
 export class LayoutModule { }
