@@ -1,0 +1,153 @@
+<div id="header" class="container-fluid pages">
+  <div class="row">
+    <!-- Header Image Or May be Slider-->
+    <div class="top_header">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- not logged in -->
+          <div class="logo">
+            <a routerLink="/">
+              <img src="../../../assets/images/logoEmployer.png" alt="Photo" />
+            </a>
+          </div>
+          <div class="logins">
+            <a class="flag">
+              <span class="label job-type partytime cancel">
+                <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
+                <!-- if language is US -->
+                <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
+              </span>
+            </a>
+
+            <!-- not logged in -->
+            <a routerLink="/employer/login" class="student-login">
+              <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
+            </a>
+            <a routerLink="/employer/register" class="student-register">
+              <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
+            </a>
+            <a routerLink="/home" class="staff">
+              <span class="label job-type partytime">
+                <p class="main-title">{{ 'header.jobseeker' | translate }}</p>
+              </span>
+            </a>
+
+            <!-- logged -->
+            <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="label job-type partytime profile-head">
+                <i class="fa fa-user"></i> Tuan
+                <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">My Profile</a>
+              </li>
+              <li>
+                <a href="#">My Works</a>
+              </li>
+              <li>
+                <a href="#">Job Announcement</a>
+              </li>
+              <li>
+                <a href="#">Companies seen</a>
+              </li>
+              <li>
+                <a href="#">My Account</a>
+              </li>
+              <li>
+                <a href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle flag-mobile">
+              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+              <!-- if language is US -->
+              <img *ngIf="!isEnLang" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
+            </button>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <!-- not logged in -->
+              <li>
+                <a routerLink="/">{{ 'header.about' | translate }}</a>
+              </li>
+              <li>
+                <a routerLink="/list-company">{{ 'header.services_product' | translate }}</a>
+              </li>
+
+              <!-- logged -->
+              <li class="jobs-menu">
+                <a routerLink="/">
+                  <img src="../../../assets/images/jobs.png" />{{ 'header.jobs' | translate }}
+                </a>
+              </li>
+              <li class="candidate-menu">
+                <a routerLink="/">
+                  <img src="../../../assets/images/candidates.png" />{{ 'header.candidate' | translate }}
+                </a>
+              </li>
+              <li class="postjob-button">
+                <a routerLink="/post-job">
+                  <img src="../../../assets/images/add.png" />{{ 'header.post_job' | translate }}
+                </a>
+              </li>
+              <li class="search-candidate-button">
+                <a routerLink="/post-job">
+                  <img src="../../../assets/images/search.png" />{{ 'header.find_candidate' | translate }}
+                </a>
+              </li>
+              <!-- not logged in -->
+              <li class="mobile-menu">
+                <a routerLink="/login">{{ 'header.login' | translate }}</a>
+              </li>
+              <li class="mobile-menu">
+                <a routerLink="/register">{{ 'header.register' | translate }}</a>
+              </li>
+              <li class="mobile-menu">
+                <a routerLink="/">{{ 'header.jobseeker_mobile' | translate }}</a>
+              </li>
+
+              <!-- logged -->
+              <li class="dropdown mobile-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vu</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">My Profile</a>
+                  </li>
+                  <li>
+                    <a href="#">My Works</a>
+                  </li>
+                  <li>
+                    <a href="#">Job Announcement</a>
+                  </li>
+                  <li>
+                    <a href="#">Companies seen</a>
+                  </li>
+                  <li>
+                    <a href="#">My Account</a>
+                  </li>
+                  <li>
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- navbar-collapse -->
+        </div>
+        <!-- container-fluid -->
+      </nav>
+    </div>
+  </div>
+</div>

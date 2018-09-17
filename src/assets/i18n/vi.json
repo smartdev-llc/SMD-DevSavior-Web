@@ -6,6 +6,13 @@
     "register": "Đăng ký",
     "employer": "NHÀ TUYỂN DỤNG",
     "recruit": "Đăng Tuyển & Kiếm Nhân Tài",
-    "postAJobs": "Đăng Tuyển Miễn Phí!"
+    "postAJobs": "Đăng Tuyển Miễn Phí!",
+    "jobseeker": "DÀNH CHO\n NGƯỜI TÌM VIỆC",
+    "jobseeker_mobile" : "DÀNH CHO NGƯỜI TÌM VIỆC",
+    "about" : "Về chúng tôi",
+    "services_product" : "Sản phẩm và dịch vụ",
+    "candidate" : "Ứng viên",
+    "post_job" : "Đăng tuyển dụng",
+    "find_candidate" : "Tìm ứng viên"
   }
 }
