@@ -1,4 +1,3 @@
-// header not login
 .pages .navbar {
   background: #12cd6a;
 }
@@ -12,23 +11,33 @@
 }
 
 .logo {
-  margin-top: 8px;
+  display: none;
 }
 
 .nav {
   padding-left: 16px;
   a {
-    color: #fff;
     font-size: 15px;
-    text-transform: none;
-    &:hover {
-      color: #0e974e;
-    }
+    text-transform: none
   }
 }
 
 .nav>li a {
-  padding: 13px;
+  padding: 15px;
+  color: #fff;
+  &:hover {
+    color: #4e4e4e
+  }
+}
+
+.fa-file-text-o {
+  margin-right: 8px;
+  font-size: 15px;
+}
+
+.fa-users {
+  margin-right: 4px;
+  font-size: 14px;
 }
 
 .navbar-nav {
@@ -59,12 +68,6 @@
 .logins {
   span {
     padding: 10px 20px;
-    color: #fff;
-    ;
-    border-color: #fff;
-    &:hover {
-      background-color: #0e974e
-    }
   }
   right: 0px;
   >.flag>.cancel {
@@ -73,57 +76,33 @@
 }
 
 .flag-img {
-  margin-top: 20px;
-}
-
-.student-login,
-.student-register,
-.post_job,
-.user-profile {
-  span {
-    margin-top: 12px;
-    margin-left: 10px;
-  }
-}
-
-.student-login span {
-  margin-left: 20px;
+  margin-top: 22px;
 }
 
 .user-profile span {
-  margin-right: 10px
+  margin-top: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 15px;
 }
 
-.employer span {
-  margin-left: 10px;
-  background: #ffffff none repeat scroll 0 0;
-  border-radius: 88px 0 0 88px;
-  color: #12cd6a;
-  border-color: #fff;
-  line-height: 10px;
-  padding: 2px 20px;
-  width: auto;
-  -webkit-border-radius: 88px 0 0 88px;
-  -moz-border-radius: 88px 0 0 88px;
-  -ms-border-radius: 88px 0 0 88px;
-  -o-border-radius: 88px 0 0 88px;
-  &:hover {
-    background-color: #fff
+.post_job {
+  span {
+    margin-top: 4px;
+    padding: 10px;
+    margin-left: 12px;
+    font-size: 15px;
+    border: 2px solid #fff;
+    border-radius: 26px;
+    &:hover{
+      background-color: #0d994e
+    }
   }
 }
 
-.main-title {
-  white-space: pre-line;
-  padding-top: 10px;
-  font-size: 15px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.title {
-  font-family: sans-serif;
-  font-size: 14px
+.post-job-mobile,
+.find-candidate-mobile {
+  display: none;
 }
 
 .textOption {
@@ -131,26 +110,17 @@
   margin-left: 2px;
 }
 
-.companies-head {
-  background-color: #12cd6a;
-  color: #fff;
-}
-
-.companies-head:hover {
-  background-color: #fff;
-  color: #000;
-}
-
 .profile-head {
-  background-color: #12cd6a;
-  color: #fff;
+  background-color: #fff;
+  color: #12cd6a;
   padding: auto 5px;
+  font-weight: 500
 }
 
 .open>.dropdown-menu {
   display: block;
-  right: -10px;
-  left: 200px;
+  left: -89px;
+  right: 10px;
 }
 
 span.label.job-type.partytime.profile-head.fa {
@@ -161,10 +131,6 @@ button.navbar-toggle.flag-mobile {
   background: none;
   padding: 4px 1px;
   margin-right: 10px;
-}
-
-.slogan a {
-  margin-top: 12vh;
 }
 
 @media (max-width: 1360px) {
@@ -179,10 +145,8 @@ button.navbar-toggle.flag-mobile {
 
 @media (min-width: 319px) and (max-width: 1200px) {
   .logo {
-    padding-top: 2px;
-  }
-  .showSearchBtn {
     display: block;
+    padding-top: 10px;
   }
   .navbar-nav {
     width: 100%;
@@ -194,12 +158,22 @@ button.navbar-toggle.flag-mobile {
   .nav>li:last-child {
     border: medium none
   }
+  .nav>li a {
+    color: #000;
+  }
   .navbar-nav>li .dropdown-menu {
     text-align: center;
     width: 100%;
     a {
       font-size: 14px;
     }
+  }
+  .post_job span {
+    display: none;
+  }
+  .post-job-mobile,
+  .find-candidate-mobile {
+    display: block;
   }
 }
 
@@ -218,6 +192,11 @@ button.navbar-toggle.flag-mobile {
       font-size: 14px;
     }
   }
+  .post_job span {
+    display: none;
+  }
+  .post-job-mobile,
+  .find-candidate-mobile {
+    display: block;
+  }
 }
-
-//header login

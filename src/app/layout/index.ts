@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeCompanyComponent } from './home-company/home-company.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { HomeCompanyLoggedComponent } from './home-company-logged/home-company-logged.component';
 // Modules
 import { RouterModule } from '@angular/router';
 
@@ -17,17 +17,19 @@ import { LanguageService } from './services/language.service';
     HeaderComponent,
     FooterComponent,
     HomeHeaderComponent,
-    HomeCompanyComponent
+    HomeCompanyComponent,
+    HomeCompanyLoggedComponent
     // pipes
   ],
   exports: [
     HeaderComponent,
     HomeHeaderComponent,
     FooterComponent,
-    HomeCompanyComponent
+    HomeCompanyComponent,
+    HomeCompanyLoggedComponent
   ],
   imports: [
-    RouterModule,
+  RouterModule,
     SharedModule
   ],
   providers: [
