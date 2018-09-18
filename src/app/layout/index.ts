@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
 
 import { LanguageService } from './services/language.service';
 
+// Modules
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     // components
