@@ -3,8 +3,11 @@ import { SharedModule } from '../shared/shared.module';
 // Components
 import { HeaderComponent } from './header/header.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
-import { UserHeaderComponent } from './user-header/user-header.component';
+import { HomeCompanyComponent } from './home-company/home-company.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeCompanyLoggedComponent } from './home-company-logged/home-company-logged.component';
+// Modules
+import { RouterModule } from '@angular/router';
 
 import { LanguageService } from './services/language.service';
 
@@ -15,19 +18,21 @@ import { RouterModule } from '@angular/router';
   declarations: [
     // components
     HeaderComponent,
+    FooterComponent,
     HomeHeaderComponent,
-    UserHeaderComponent,
-    FooterComponent
+    HomeCompanyComponent,
+    HomeCompanyLoggedComponent
     // pipes
   ],
   exports: [
     HeaderComponent,
     HomeHeaderComponent,
-    UserHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeCompanyComponent,
+    HomeCompanyLoggedComponent
   ],
   imports: [
-    RouterModule,
+  RouterModule,
     SharedModule
   ],
   providers: [
