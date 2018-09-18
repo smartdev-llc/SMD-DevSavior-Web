@@ -6,8 +6,7 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeCompanyComponent } from './home-company/home-company.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeCompanyLoggedComponent } from './home-company-logged/home-company-logged.component';
-// Modules
-import { RouterModule } from '@angular/router';
+import { UserHeaderComponent } from './user-header/user-header.component';
 
 import { LanguageService } from './services/language.service';
 
@@ -18,15 +17,16 @@ import { RouterModule } from '@angular/router';
   declarations: [
     // components
     HeaderComponent,
-    FooterComponent,
     HomeHeaderComponent,
+    UserHeaderComponent,
+    FooterComponent,
     HomeCompanyComponent,
     HomeCompanyLoggedComponent
-    // pipes
   ],
   exports: [
     HeaderComponent,
     HomeHeaderComponent,
+    UserHeaderComponent,
     FooterComponent,
     HomeCompanyComponent,
     HomeCompanyLoggedComponent
