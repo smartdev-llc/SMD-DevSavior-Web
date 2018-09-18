@@ -3,23 +3,27 @@ import { SharedModule } from '../shared/shared.module';
 // Components
 import { HeaderComponent } from './header/header.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { UserHeaderComponent } from './user-header/user-header.component';
 import { FooterComponent } from './footer/footer.component';
-// Modules
-import { RouterModule } from '@angular/router';
 
 import { LanguageService } from './services/language.service';
+
+// Modules
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     // components
     HeaderComponent,
-    FooterComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    UserHeaderComponent,
+    FooterComponent
     // pipes
   ],
   exports: [
     HeaderComponent,
     HomeHeaderComponent,
+    UserHeaderComponent,
     FooterComponent
   ],
   imports: [

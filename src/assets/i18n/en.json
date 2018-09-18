@@ -6,6 +6,9 @@
     "register": "Register",
     "employer": "EMPLOYER",
     "recruit": "Recruit your staff now!",
-    "postAJobs": "Post a Job, It's free!"
+    "postAJobs": "Post a Job, It's free!",
+    "careerCenter": "Career center",
+    "dashboard": "Dashboard",
+    "myJobs": "My jobs"
   }
 }
