@@ -42,7 +42,6 @@
               "./libs/js/jquery.counterup.min.js",
               "./libs/js/owl.carousel.js",
               "./libs/js/parallax.js",
-              "./libs/js/tinymce.min.js",
               "./libs/js/webjs.js",
               "./libs/js/npm.js"
             ]
