@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 /*------------------------------------------
-
 Table Of Index
 ------------------
 1. Base css
@@ -4077,15 +4075,12 @@ span.login-ins {
   line-height: normal;
   border-radius: 8px;
 }
-
 .validation-form .form-group input::placeholder {
   opacity: 0.3;
 }
-
 *:focus::placeholder {
   opacity: 0;
 }
-
 *:focus::-webkit-input-placeholder {
   opacity: 0;
 }
