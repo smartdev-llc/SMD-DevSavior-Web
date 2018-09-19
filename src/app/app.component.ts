@@ -1,5 +1,4 @@
 import { filter } from 'rxjs/operators';
-import { getAuthStatus } from './auth/reducers/selectors';
 import { AppState } from './interfaces';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
