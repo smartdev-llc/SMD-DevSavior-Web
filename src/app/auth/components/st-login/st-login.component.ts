@@ -1,10 +1,8 @@
-import { tap, map, filter, scan} from 'rxjs/operators';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
-import { getAuthStatus } from '../../reducers/selectors';
 import {AppErrors} from '../../../core/error/app-errors';
 import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
@@ -17,7 +15,6 @@ import {InternalServer} from '../../../core/error/internal-server';
 export class StLoginComponent implements OnInit, OnDestroy {
   loginInForm: FormGroup;
   loginSubs: Subscription;
-  returnUrl: string;
   isNotVerified = false;
   isLoading = false;
   isResendEmailSuccess = false;
@@ -36,31 +33,24 @@ export class StLoginComponent implements OnInit, OnDestroy {
     const values = this.loginInForm.value;
     const keys = Object.keys(values);
 
-    console.log('value', values);
-
     if (this.loginInForm.valid) {
       this.isLoading = true;
       this.isResendEmailSuccess = false;
-      this.loginSubs = this.authService
-        .login(values).pipe(
-          tap(_ => _, (user) => {
-            const errors = user || 'Something went wrong';
-            keys.forEach(val => {
-              this.pushErrorFor(val, errors);
-            });
-          })).subscribe(
-          response => this.isLoading = false,
-          (error) => {
-            this.isLoading = false;
-            if (error instanceof Forbidden) {
-              console.log('forbidden', error);
-              this.isNotVerified = true;
+      this.loginSubs = this.authService.login(values)
+        .subscribe(user => {
+          this.isLoading = false;
+          this.authService.setTokenInLocalStorage(user, false);
+          this.router.navigate(['/']);
+        }, error => {
+          this.isLoading = false;
+          if (error instanceof Forbidden) {
+            console.log('forbidden', error);
+            this.isNotVerified = true;
 
-            } else {
-              console.log('app error');
-            }
+          } else {
+            console.log('app error');
           }
-        );
+        })
     } else {
       keys.forEach(val => {
         const ctrl = this.loginInForm.controls[val];

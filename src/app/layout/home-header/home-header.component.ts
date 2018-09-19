@@ -1,13 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslateCacheService } from 'ngx-translate-cache';
-<<<<<<< HEAD
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from "rxjs";
-=======
 import { LanguageService } from '../services/language.service';
->>>>>>> dev
 
 @Component({
   selector: 'app-home-header',
@@ -21,20 +16,16 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
   subscription: Subscription
 
   constructor(
-<<<<<<< HEAD
-    private translateService: TranslateService,
-    private translateCacheService: TranslateCacheService,
     private authService: AuthService,
-    private router: Router
-=======
+    private router: Router,
     private languageService: LanguageService
->>>>>>> dev
   ) {
     const lang = languageService.getCachedLanguage()
     languageService.setDefaultLang()
     if (lang === 'en') {
       this.isEnLang = true
     }
+
   }
 
   ngOnInit() {
@@ -74,5 +65,4 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
-
 }
