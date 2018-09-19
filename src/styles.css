@@ -4019,7 +4019,7 @@ span.login-ins {
 .validation-form .form-group .error-input {
   color: #dc3545;
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   padding-top: 1%;
   padding-left: 1%;
@@ -4071,11 +4071,20 @@ span.login-ins {
   box-shadow: none;
   padding: 10px 17px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   border: 1px solid #12cd6a;
   color: #333;
   line-height: normal;
   border-radius: 8px;
 }
+.validation-form .form-group input::placeholder {
+  opacity: 0.3;
+}
+*:focus::placeholder {
+  opacity: 0;
+}
 
-/* End validation-form */
+*:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+  /* End validation-form */

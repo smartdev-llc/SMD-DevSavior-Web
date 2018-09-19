@@ -10,13 +10,16 @@ import { HttpClient,
 import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
 import { Store } from '../../../../node_modules/@ngrx/store';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import {AppErrors} from '../error/app-errors';
+import {Forbidden} from '../error/forbidden';
+import {InternalServer} from '../error/internal-server';
 import {
   AuthService as SocialAuthService,
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angular-6-social-login";
-
 @Injectable()
 export class AuthService {
 
@@ -82,10 +85,19 @@ export class AuthService {
   }
 
   forgotPassword(email: string, role: Role): Observable<any> {
-    const requestBody: any = { email: email, role: role}
+    const requestBody: any = { email: email, role: role};
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
+  verifyAccount(token: string): Observable<any> {
+    const params: HttpParams = new HttpParams({fromObject: { token: token}});
+    return this.http.get('/auth/verify',{params: params});
+  }
+
+  resendVerificationEmail(email: string, role: Role): Observable<any> {
+    const requestBody: any = { email: email, role: role};
+    return this.http.post('/auth/resend-email', requestBody);
+  }
 
   /**
    *
@@ -154,6 +166,31 @@ export class AuthService {
     }
     localStorage.setItem('user', JSON.stringify(user_data));
     this.getLoggedInUser.emit(user_data);
+  }
+
+  resendEmail( email, userRole){
+    let userParam = {email: email, role: userRole};
+    return this.http
+      .post('/auth/resend-email', userParam)
+      .pipe(
+        map(
+          (response: any) => {
+            console.log('data is', response);
+            return response.message;
+          }),
+        catchError( this.handleError)
+      );
+
+  }
+
+  private handleError( error) {
+    if ( error.status === 403) {
+      return throwError( new Forbidden(error.error.message));
+    }
+    if (error.status === 500){
+      return throwError( new InternalServer(error.error.message));
+    }
+     return throwError( new AppErrors(error.error.message));
   }
 
   socialLogin(provider: string) {

@@ -5,6 +5,10 @@
 <!--maine container Section -->
 <div class="container-fluid login_register header_area deximJobs_tabs">
   <div class="row">
+    <div id="loadessr" *ngIf="isLoading">
+      <div  id="loader">
+      </div>
+    </div>
     <div class="container main-container-home">
       <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12 col-xs-12">
         <div class="tab-content">
@@ -29,6 +33,18 @@
                     <p class="login-error-message text-danger">{{loginInForm.get('password').errors.msg || 'Please input password.'}}</p>
                   </div>
                 </div>
+
+                <a
+                  *ngIf="isNotVerified"
+                  (click)="resendEmail(email)"
+                  class="form-group text-center error-input">
+                  Confirm your email address to active your account
+                </a>
+                <p
+                  *ngIf="isResendEmailSuccess"
+                  class="font-size-20 text-center">
+                  We just sent you an verification to your email
+                </p>
 
                 <div class="form-group submit">
                   <div class="col-lg-offset-2 cbox">

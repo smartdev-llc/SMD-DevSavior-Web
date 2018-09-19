@@ -4,6 +4,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
+import { getAuthStatus } from '../../reducers/selectors';
+import {AppErrors} from '../../../core/error/app-errors';
+import {Forbidden} from '../../../core/error/forbidden';
+import {InternalServer} from '../../../core/error/internal-server';
 
 @Component({
   selector: 'login',
@@ -13,6 +17,10 @@ import { Subscription, Observable } from 'rxjs';
 export class StLoginComponent implements OnInit, OnDestroy {
   loginInForm: FormGroup;
   loginSubs: Subscription;
+  returnUrl: string;
+  isNotVerified = false;
+  isLoading = false;
+  isResendEmailSuccess = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,22 +36,38 @@ export class StLoginComponent implements OnInit, OnDestroy {
     const values = this.loginInForm.value;
     const keys = Object.keys(values);
 
+    console.log('value', values);
+
     if (this.loginInForm.valid) {
-      this.loginSubs = this.authService.login(values)
-        .subscribe(user => {
-          this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigate(['/']);
-        }, error => {
-          const errors = error || 'Something went wrong';
-          this.pushErrorFor('password', errors.error.message);
-        })
+      this.isLoading = true;
+      this.isResendEmailSuccess = false;
+      this.loginSubs = this.authService
+        .login(values).pipe(
+          tap(_ => _, (user) => {
+            const errors = user || 'Something went wrong';
+            keys.forEach(val => {
+              this.pushErrorFor(val, errors);
+            });
+          })).subscribe(
+          response => this.isLoading = false,
+          (error) => {
+            this.isLoading = false;
+            if (error instanceof Forbidden) {
+              console.log('forbidden', error);
+              this.isNotVerified = true;
+
+            } else {
+              console.log('app error');
+            }
+          }
+        );
     } else {
       keys.forEach(val => {
         const ctrl = this.loginInForm.controls[val];
         if (!ctrl.valid) {
           this.pushErrorFor(val, null);
           ctrl.markAsTouched();
-        };
+        }
       });
     }
 
@@ -61,6 +85,30 @@ export class StLoginComponent implements OnInit, OnDestroy {
     this.loginInForm.controls[ctrl_name].setErrors({ 'msg': msg });
   }
 
+
+  resendEmail( email: HTMLInputElement) {
+    this.isLoading = true;
+
+    this.authService
+      .resendEmail( email.value, 'student')
+      .subscribe(
+        message => {
+          if ( message === 'Sent email.') {
+            this.isLoading = false;
+            this.isNotVerified = false;
+            this.isResendEmailSuccess = true;
+          }
+        },
+        (error: AppErrors) => {
+          this.isLoading = false;
+          if (error instanceof InternalServer ) {
+            console.log('interanale server', error);
+
+          } else {
+            console.log('app error');
+          }}
+      );
+  }
 
   ngOnDestroy() {
     if (this.loginSubs) { this.loginSubs.unsubscribe(); }

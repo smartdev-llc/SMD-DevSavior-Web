@@ -7,7 +7,7 @@
 }
 
 .logo {
-  padding-top: 14px;
+  margin-top: 8px;
 }
 
 .nav {
@@ -58,7 +58,7 @@
 }
 
 .flag-img {
-  margin-top: 11px;
+  margin-top: 20px;
 }
 
 .student-login,
@@ -151,14 +151,14 @@ button.navbar-toggle.flag-mobile {
     padding: 12px 10px;
   }
   .navbar-nav {
-    padding-top: 3px;
-    padding-bottom: 11px;
+    padding-top: 2px;
+    padding-bottom: 10px;
   }
 }
 
 @media (min-width: 319px) and (max-width: 1200px) {
   .logo {
-    padding-top: 8px;
+    padding-top: 2px;
   }
   .showSearchBtn {
     display: block;

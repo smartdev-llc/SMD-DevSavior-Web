@@ -17,7 +17,7 @@
           <div class="logins">
             <a class="flag">
               <span class="label job-type partytime cancel">
-                <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+                <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
                 <!-- if language is US -->
                 <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
@@ -29,7 +29,7 @@
             <a routerLink="/register" class="student-register">
               <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
             </a>
-            <a routerLink="/employer" class="employer">
+            <a routerLink="/employer/home" class="employer">
               <span class="label job-type partytime Companies-head">
                 <p class="main-title">{{ 'header.employer' | translate }}</p>
                 <p class="title">{{ 'header.recruit' | translate }}</p>
@@ -101,7 +101,7 @@
                 <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
               <li class="mobile-menu">
-                <a routerLink="/">{{ 'header.employer' | translate }}</a>
+                <a routerLink="/employer/home">{{ 'header.employer' | translate }}</a>
               </li>
               <!-- logged -->
               <!-- <li class="mobile-menu">

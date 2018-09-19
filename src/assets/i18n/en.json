@@ -6,6 +6,16 @@
     "register": "Register",
     "employer": "EMPLOYER",
     "recruit": "Recruit your staff now!",
-    "postAJobs": "Post a Job, It's free!"
+    "postAJobs": "Post a Job, It's free!",
+    "careerCenter": "Career center",
+    "dashboard": "Dashboard",
+    "myJobs": "My jobs",
+    "jobseeker": "JOBSEEKER'S SITE \n find a job now!",
+    "jobseeker_mobile": "JOBSEEKER'S SITE",
+    "about": "About",
+    "services_product": "Product & Services",
+    "candidate" : "Candidate",
+    "post_job" : "Post a job",
+    "find_candidate" : "Search candidates for job"
   }
 }
