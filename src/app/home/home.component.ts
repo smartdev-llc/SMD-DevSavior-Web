@@ -9,11 +9,9 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     /* Handle for UI using Jquery */
@@ -36,5 +34,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       });
     });
     /* End Handle for UI using Jquery */
+
   }
+
 }
