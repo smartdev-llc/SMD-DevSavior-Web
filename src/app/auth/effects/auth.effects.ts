@@ -24,26 +24,4 @@ export class AuthenticationEffects {
       filter(data => !data.error && data.count),
       map(() => this.authActions.loginSuccess())
     );
-
-  // tslint:disable-next-line:member-ordering
-  @Effect()
-  OAuthLogin: Observable<Action> = this.actions$
-    .ofType(AuthActions.O_AUTH_LOGIN)
-    .pipe(
-      switchMap((action: any) => {
-        console.log(action.payload);
-
-        return this.authService.socialLogin(action.payload);
-      }),
-      filter(data => data !== null),
-      map(data => {
-        if (typeof data === typeof 'string') {
-          return this.authActions.noOp();
-        } else {
-          return this.authActions.loginSuccess();
-        }
-      }).catch((error:any) => {
-        return Observable.throw(error);
-      })
-    );
 }

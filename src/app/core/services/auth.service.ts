@@ -1,5 +1,5 @@
 import { User, Authenticate, Role } from '../models/user';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient,
@@ -11,13 +11,17 @@ import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
 import { Store } from '../../../../node_modules/@ngrx/store';
 import { map, tap } from 'rxjs/operators';
-import { AuthService as SocialAuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import {
+  AuthService as SocialAuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider
+} from "angular-6-social-login";
 
 @Injectable()
 export class AuthService {
 
   static PREFIX_AUTHORIZATION = 'Bearer ';
+  @Output() getLoggedInUser: EventEmitter<any> = new EventEmitter();
 
   /**
    * Creates an instance of AuthService.
@@ -29,7 +33,6 @@ export class AuthService {
    */
   constructor(
     private http: HttpClient,
-    private actions: AuthActions,
     private store: Store<AppState>,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -46,16 +49,7 @@ export class AuthService {
    */
   login({ email, password }: Authenticate): Observable<User> {
     const params = { email, password, role: 'student' };
-    return this.http.post<User>('/auth/login', params).pipe(
-      map(user => {
-        this.setTokenInLocalStorage(user);
-        this.store.dispatch(this.actions.loginSuccess());
-        return user;
-      }),
-      tap(
-        _ => this.router.navigate(['/'])
-      )
-    );
+    return this.http.post<User>('/auth/login', params);
     // catch should be handled here with the http observable
     // so that only the inner obs dies and not the effect Observable
     // otherwise no further login requests will be fired
@@ -115,15 +109,10 @@ export class AuthService {
    *
    * @memberof AuthService
    */
-  logout() {
-    return this.http.get('logout').pipe(
-      map((res: Response) => {
-        // Setting token after login
-        localStorage.removeItem('user');
-        this.store.dispatch(this.actions.logoutSuccess());
-        return res;
-      })
-    );
+  logout(): Observable<any> {
+    let param: HttpParams = new HttpParams();
+    // param = param.set('token', token);
+    return this.http.post('/auth/logout', param);
   }
 
   /**
@@ -158,9 +147,13 @@ export class AuthService {
    *
    * @memberof AuthService
    */
-  private setTokenInLocalStorage(user_data: any): void {
-    const token = user_data.token;
-    localStorage.setItem('user.access_token', token);
+  setTokenInLocalStorage(user_data: any, socialLogin: boolean): void {
+    user_data.access_token = user_data.token;
+    if (socialLogin) {
+      user_data.socialLogin = true;
+    }
+    localStorage.setItem('user', JSON.stringify(user_data));
+    this.getLoggedInUser.emit(user_data);
   }
 
   socialLogin(provider: string) {
@@ -170,8 +163,39 @@ export class AuthService {
     } else if (provider == "google") {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     }
-
-    this.socialAuthService.signIn(socialPlatformProvider);
-
+    return this.socialAuthService.signIn(socialPlatformProvider)
+      .then(userData => {
+        if (userData) {
+          return this.sendTokenToServer(userData)
+            .subscribe(data => {
+              this.setTokenInLocalStorage(data, true);
+              return data;
+            })
+        }
+      })
   }
+
+  sendTokenToServer(userData: any): Observable<any> {
+    let param = {'access_token': userData.token};
+    return this.http.post<User>('/auth/' + userData.provider.toLowerCase(), param);
+  }
+
+  signOut(): void {
+    let userData = this.getCurrentUser();
+    if (userData && userData.socialLogin) {
+      this.socialAuthService.signOut();
+    }
+  }
+
+  isLoggedIn(): boolean {
+    if ( this.getCurrentUser() == null) {
+      return false;
+    }
+    return true;
+  }
+
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
 }

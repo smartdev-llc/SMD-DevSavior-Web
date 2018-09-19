@@ -23,7 +23,7 @@
               </span>
             </a>
             <!-- not logged in -->
-            <a routerLink="/login" class="student-login">
+            <a routerLink="/login" *ngIf="!isLoggedIn()" class="student-login">
               <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
             </a>
             <a routerLink="/register" class="student-register">
@@ -36,35 +36,38 @@
               </span>
             </a>
             <!-- logged -->
-            <!-- <a routerLink="/post-job" class="post_job">
-              <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
-            </a>
-            <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <div *ngIf="isLoggedIn()">
+              <a routerLink="/post-job" class="post_job">
+                <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
+              </a>
+              <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="label job-type partytime profile-head">
-                <i class="fa fa-user"></i> Tuan
+                <i class="fa fa-user"></i>
+                <span>{{user.displayName}}</span>
                 <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
               </span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">My Profile</a>
-              </li>
-              <li>
-                <a href="#">My Works</a>
-              </li>
-              <li>
-                <a href="#">Job Announcement</a>
-              </li>
-              <li>
-                <a href="#">Companies seen</a>
-              </li>
-              <li>
-                <a href="#">My Account</a>
-              </li>
-              <li>
-                <a href="#">Logout</a>
-              </li>
-            </ul> -->
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">My Profile</a>
+                </li>
+                <li>
+                  <a href="#">My Works</a>
+                </li>
+                <li>
+                  <a href="#">Job Announcement</a>
+                </li>
+                <li>
+                  <a href="#">Companies seen</a>
+                </li>
+                <li>
+                  <a href="#">My Account</a>
+                </li>
+                <li>
+                  <a role="button" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+            </div>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
