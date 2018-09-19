@@ -142,6 +142,18 @@ button.navbar-toggle.flag-mobile {
   }
 }
 
+@media (min-width: 1201px) and (max-width: 1359px){
+  .post_job span {
+    margin-top: 2px;
+  }
+  .user-profile span{
+    margin-top: 10px;
+  }
+  .flag-img{
+    margin-top: 20px
+  }
+}
+
 @media (min-width: 319px) and (max-width: 1200px) {
   .logo {
     display: block;
