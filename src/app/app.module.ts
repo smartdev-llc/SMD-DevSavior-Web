@@ -12,14 +12,12 @@ import { AppComponent } from './app.component';
 // Routes
 import { routes } from './app.routes';
 // Modules
-import { HomeModule } from './home/index';
-import { LayoutModule } from './layout/index';
 import { CoreModule } from './core/index';
+import { SharedModule } from './shared/shared.module';
+
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JobsModule } from './jobs/jobs.module';
-import { CompaniesModule } from './companies/companies.module';
 
 @NgModule({
   declarations: [
@@ -53,11 +51,8 @@ import { CompaniesModule } from './companies/companies.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HomeModule,
-    LayoutModule,
     CoreModule,
-    JobsModule,
-    CompaniesModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
