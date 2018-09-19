@@ -21,342 +21,195 @@
     <div class="row user-information">
       <div class="container main-container-home">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <!--Chức Dạm-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job Title</label>
+              <label>Chức Danh</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="name">
+              <input type="text" name="name" placeholder="Eg. Senior UX Designer">
             </div>
           </div>
+
+          <!--Cấp Bậc-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Location (optional)</label>
+              <label>Cấp bậc</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="location" placeholder="eg. London">
+              <input type="text" name="location" placeholder="Vui lòng chọn">
             </div>
           </div>
+
+          <!--Ngành Nghề-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job type</label>
+              <label class="default">Ngành Nghề
+                <br>
+                <span>(Tối đa 3 ngành)</span>
+              </label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="Free Time">
+              <input type="text" name="job-type" placeholder="Vui lòng chọn">
             </div>
           </div>
+
+          <!--Nơi Làm Việc-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job category</label>
+              <label>Nơi Làm Việc</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <div class="select2-container select2-container-multi form-control" id="s2id_tagPicker">
-                <ul class="select2-choices">
-                  <li class="select2-search-field"><label for="s2id_autogen1" class="select2-offscreen"></label> <input
-                    type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    class="select2-input" id="s2id_autogen1" placeholder="" style="width: 20px;"></li>
-                </ul>
-                <div class="select2-drop select2-drop-multi select2-display-none">
-                  <ul class="select2-results">
-                    <li class="select2-no-results">No matches found</li>
-                  </ul>
-                </div>
-              </div>
-              <select class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
-                <option value="1">Graphic Designer</option>
-                <option value="2">Email marketing</option>
-                <option value="3">Webdesigner</option>
-                <option value="4">Animations</option>
-                <option value="5">Display Adversting</option>
-                <option value="6">Web develioper</option>
-                <option value="7">Programmer</option>
+              <input type="text" name="job-type" placeholder="Vui lòng chọn">
+            </div>
+          </div>
+
+          <!--Lương-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="default">
+                Mức Lương
+                <br>
+                <span>(USD)</span>
+              </label>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <select class="form-control" >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job tags (optional)</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-tag" placeholder="eg. php, developer">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Your email</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="email" name="job-tag" placeholder="your@email">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- User Data Row-->
-    <div class="row user-info">
-      <div class="container main-container-home">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="form-group submit">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Your email</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <span>Write about your company, job description, skills required, benefits, etc.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Description</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <div id="mceu_10" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1"
-                   role="application" style="visibility: hidden; border-width: 1px;">
-                <div id="mceu_10-body" class="mce-container-body mce-stack-layout">
-                  <div id="mceu_11" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first"
-                       hidefocus="1" tabindex="-1" role="group">
-                    <div id="mceu_11-body" class="mce-container-body mce-stack-layout">
-                      <div id="mceu_12" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last"
-                           role="toolbar">
-                        <div id="mceu_12-body" class="mce-container-body mce-flow-layout">
-                          <div id="mceu_13" class="mce-container mce-flow-layout-item mce-first mce-btn-group"
-                               role="group">
-                            <div id="mceu_13-body">
-                              <div id="mceu_0"
-                                   class="mce-widget mce-btn mce-menubtn mce-first mce-last mce-btn-has-text"
-                                   tabindex="-1" aria-labelledby="mceu_0" role="button" aria-haspopup="true">
-                                <button id="mceu_0-open" role="presentation" type="button" tabindex="-1"><span
-                                  class="mce-txt">Formats</span> <i class="mce-caret"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="mceu_14" class="mce-container mce-flow-layout-item mce-btn-group" role="group">
-                            <div id="mceu_14-body">
-                              <div id="mceu_1" class="mce-widget mce-btn mce-first" tabindex="-1"
-                                   aria-labelledby="mceu_1" role="button" aria-label="Bold">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-bold"></i></button>
-                              </div>
-                              <div id="mceu_2" class="mce-widget mce-btn mce-last" tabindex="-1"
-                                   aria-labelledby="mceu_2" role="button" aria-label="Italic">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-italic"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="mceu_15" class="mce-container mce-flow-layout-item mce-btn-group" role="group">
-                            <div id="mceu_15-body">
-                              <div id="mceu_3" class="mce-widget mce-btn mce-first" tabindex="-1"
-                                   aria-labelledby="mceu_3" role="button" aria-label="Align left">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-alignleft"></i></button>
-                              </div>
-                              <div id="mceu_4" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_4"
-                                   role="button" aria-label="Align center">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-aligncenter"></i></button>
-                              </div>
-                              <div id="mceu_5" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_5"
-                                   role="button" aria-label="Align right">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-alignright"></i></button>
-                              </div>
-                              <div id="mceu_6" class="mce-widget mce-btn mce-last" tabindex="-1"
-                                   aria-labelledby="mceu_6" role="button" aria-label="Justify">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-alignjustify"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="mceu_16" class="mce-container mce-flow-layout-item mce-btn-group" role="group">
-                            <div id="mceu_16-body">
-                              <div id="mceu_7"
-                                   class="mce-widget mce-btn mce-menubtn mce-fixed-width mce-listbox mce-first mce-last mce-btn-has-text"
-                                   tabindex="-1" aria-labelledby="mceu_7" role="button" aria-label="Font Family"
-                                   aria-haspopup="true">
-                                <button id="mceu_7-open" role="presentation" type="button" tabindex="-1"><span
-                                  class="mce-txt">Times New Roman</span> <i class="mce-caret"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="mceu_17" class="mce-container mce-flow-layout-item mce-btn-group" role="group">
-                            <div id="mceu_17-body">
-                              <div id="mceu_8" class="mce-widget mce-btn mce-first" tabindex="-1"
-                                   aria-labelledby="mceu_8" role="button" aria-label="Decrease indent">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-outdent"></i></button>
-                              </div>
-                              <div id="mceu_9" class="mce-widget mce-btn mce-last" tabindex="-1"
-                                   aria-labelledby="mceu_9" role="button" aria-label="Increase indent">
-                                <button role="presentation" type="button" tabindex="-1"><i
-                                  class="mce-ico mce-i-indent"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="mceu_18" class="mce-container mce-flow-layout-item mce-last mce-btn-group"
-                               role="group">
-                            <div id="mceu_18-body"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="mceu_19" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1"
-                       tabindex="-1" role="group" style="border-width: 1px 0px 0px;">
-                    <iframe id="mce_0_ifr" frameborder="0" allowtransparency="true"
-                            title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"
-                            src='javascript:""' style="width: 100%; height: 100px; display: block;"></iframe>
-                  </div>
-                  <div id="mceu_20" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last"
-                       hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;">
-                    <div id="mceu_20-body" class="mce-container-body mce-flow-layout">
-                      <div id="mceu_21" class="mce-path mce-flow-layout-item mce-first">
-                        <div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_21-0"
-                             aria-level="1">p
-                        </div>
-                      </div>
-                      <div id="mceu_22" class="mce-flow-layout-item mce-last mce-resizehandle"><i
-                        class="mce-ico mce-i-resize"></i></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <textarea class="textarea" id="mce_0" aria-hidden="true" style="display: none;"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Application email/URL</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="application-email">
-            </div>
-          </div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Maximum rate/h ($) <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="application-email">
-            </div>
-          </div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">External "Apply for Job" link<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="apply-for-job">
-            </div>
-          </div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Post image <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile">
 
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 850 px 350 px</i>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              Option
+
+            </div>
+          </div>
+
+          <!--Mô Tả-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Mô Tả</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea name="" cols="30" rows="10" placeholder="Mô tả công việc"></textarea>
+              <i class="note-hint">(Bạn có thể nhập 14500 ký tự)</i>
+            </div>
+          </div>
+
+          <!--Job Required-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Yêu Cầu Công Việc</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea name="" cols="30" rows="10" placeholder="Nhập yêu cầu công việc"></textarea>
+              <i class="note-hint">(Bạn có thể nhập 14500 ký tự)</i>
+            </div>
+          </div>
+
+
+          <!--Tag-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="default">Thẻ Từ Khóa
+                <br>
+                <span>(Tối đa 3 ngành)</span>
+              </label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="email" name="job-tag" placeholder="Ví dụ: Giao tiếp...">
+            </div>
+          </div>
+
+          <!--Yêu cầu giới thiệu-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label >Yêu cầu giới thiệu?</label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="1" value="Bắt buộc">
+              <label class="label-radio radio-inline" for="1">
+                Option
+              </label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="2" value="Hiển Thị nhưng không bắt buộc">
+              <label class="label-radio radio-inline" for="2">
+                Option
+              </label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="3" value="Bắt buộc">
+              <label class="label-radio radio-inline" for="3">
+                Option
+              </label>
+            </div>
+
+          </div>
+
+          <!--CV-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Nhận Hồ Sơ bằng ngôn ngữ</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="text" name="job-type" placeholder="Bất kỳ">
+            </div>
+          </div>
+
+          <!--Contact-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Người liên hệ</label>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+              <input type="text" name="job-type" placeholder="HR Dept">
+            </div>
+
+
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+              <div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                Option
               </div>
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Người liên hệ</label>
+            </div>
+
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- Company Details-->
-    <div class="row company-details">
-      <div class="container main-container-home">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="form-group">
-            <label class="heading">Company Details</label>
-          </div>
+
+          <!--Email-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Company nameL</label>
+              <label>Địa chỉ nhận hồ sơ</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="Company-name">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Website <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="website">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Recruter name <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="Recruter-name">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 zero-padding-left">
-              <label class="default">The position of recruiter<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="position-of-recruiter">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Recruiter avatar (optional)<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile">
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 250 px 250px</i>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Facebook</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="facebook">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Twitter</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="twitter">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">LinkedIn</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="LinkedIn">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type image_uplaod ">
-            <label class=""><img id="blah" src="#" alt="your image"><a href="#" id="removeimg">[remove ]</a></label>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Logo<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile" onchange="readURL(this);">
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 20 MB</i>
-              </div>
+              <input type="text" name="job-type" placeholder="yourEmail@example.com">
             </div>
           </div>
 
