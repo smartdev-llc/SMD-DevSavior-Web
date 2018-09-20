@@ -193,33 +193,6 @@ button.navbar-toggle.flag-mobile {
   margin-top: 12vh;
 }
 
-.wrapper-content {
-  padding-top: 147px;
-  margin-top: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px #ccc solid;
-  .user-profile-info {
-    background-color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-    margin: 0;
-    margin-bottom: 13px;
-    border: 1px solid #e5e5e5;
-  }
-  .page-dashboard {
-    background-color: #fff;
-    border: 1px #e5e5e5 solid;
-    .title {
-      font-size: 22px;
-      font-weight: 500;
-      margin-left: 25px;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      word-spacing: 2px;
-    }
-  }
-}
-
 @media (max-width: 1360px) {
   .top_header .nav>li a {
     padding: 12px 10px;
