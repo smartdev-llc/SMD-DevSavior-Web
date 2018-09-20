@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 // Modules
 import { CoreModule } from './core/index';
+import { SharedModule } from './shared/shared.module';
+
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,9 +51,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

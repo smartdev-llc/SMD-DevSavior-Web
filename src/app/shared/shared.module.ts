@@ -16,6 +16,8 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
+import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
     LoadmoreButtonComponent,
     CompanyItemComponent,
     TranslateModule,
-    TranslateCacheModule
+    TranslateCacheModule,
+    SocialLoginModule
   ],
   imports: [
     CommonModule,
@@ -55,11 +58,33 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
         },
         deps: [ TranslateService, TranslateCacheSettings ]
       }
-    })
+    }),
+    SocialLoginModule
+  ],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ]
 })
 export class SharedModule { }
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `${environment.appUrl}/assets/i18n/`, '.json');
+}
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("116950717907-t331s4qcs1lqslkrcs2u05jimoac22h9.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("857769421089853")
+  }
+]);
+
+export function provideConfig() {
+  return config;
 }

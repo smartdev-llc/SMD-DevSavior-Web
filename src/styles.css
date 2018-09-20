@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 /*------------------------------------------
-
 Table Of Index
 ------------------
 1. Base css
@@ -4083,8 +4081,46 @@ span.login-ins {
 *:focus::placeholder {
   opacity: 0;
 }
-
 *:focus::-webkit-input-placeholder {
   opacity: 0;
 }
-  /* End validation-form */
+
+/* Overide css ng-style */
+.ng-select.ng-select-single 
+.ng-select-container 
+.ng-value-container {
+  font-size: 14px;
+  font-weight: 300;
+  color: #555;
+}
+
+.ng-select .ng-select-container{
+  border-radius: 0px 4px 4px 0px!important;
+  border: 1px solid #ccc;
+  min-height: 36px;
+  align-items: center;
+  -webkit-border-radius: 0px 4px 4px 0px!important;
+  -moz-border-radius: 0px 4px 4px 0px!important;
+  -ms-border-radius: 0px 4px 4px 0px!important;
+  -o-border-radius: 0px 4px 4px 0px!important;
+}
+.ng-select span {
+  font-size: 14px;
+  font-weight: 300;
+  color: #555;
+ 
+}
+.ng-dropdown-panel 
+.ng-dropdown-panel-items 
+.ng-option  {
+  padding: 0px 10px!important
+}
+
+/* ng-bootstrap datepicker */
+.bg-primary{
+  color: #12cd6a
+}
+[_nghost-c10] > select[_ngcontent-c10]{
+  padding:2px!important;
+}
+/* End validation-form */

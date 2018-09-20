@@ -8,6 +8,7 @@ import { UserRoutes as routes } from './user.routes';
 
 // Components
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   exports:[
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    UserProfileComponent
   ]
 })
 export class UserModule { }

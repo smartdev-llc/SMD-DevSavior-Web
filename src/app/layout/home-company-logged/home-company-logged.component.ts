@@ -21,7 +21,7 @@ export class HomeCompanyLoggedComponent implements OnInit {
       this.isEnLang = true
     }
   }
-
+  
   ngOnInit() {
   }
 
