@@ -16,6 +16,7 @@ import { JobsRoutes as routes } from './jobs.routes';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import {CategoryCompanyService} from '../core/services/category/CategoryCompanyService';
 import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanySer
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    ReactiveFormsModule
   ],
   providers:[
     CategoryCompanyService,

@@ -17,7 +17,7 @@
 
 <!--Contact-us-->
 <div class="container-fluid  contact_us">
-  <form name="contact_us" id="form-style-2">
+  <form  [formGroup]="postJobForm" name="contact_us" id="form-style-2" (ngSubmit)="submitPostJobForm()">
     <div class="row user-information">
       <div class="container main-container-home">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -28,8 +28,16 @@
               <label>Job Title</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="location" placeholder="">
+              <input formControlName="title" type="text" name="location" placeholder="">
             </div>
+
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
+                  *ngIf="(title.touched && title.invalid) || submitted">
+              <!--<span *ngIf="title.errors?.required">hehe</span>-->
+              <span  *ngIf="title.getError('required')">Field is Required</span>
+            </span>
+
+
           </div>
 
           <!--Job Category-->
@@ -41,10 +49,36 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <select class="form-control" >
-                <option  *ngFor="let category of categories">{{category.name}}</option>
+              <select formControlName="categoryId" class="form-control" >
+                <option value="" disabled="true" checked="true">Please Select Category</option>
+                <option
+                  *ngFor="let category of categories"
+                  [value]="category.id"
+                >{{ category.name}}</option>
               </select>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
+                  *ngIf="(categoryId.touched && categoryId.invalid) || submitted">
+              <span *ngIf="categoryId.getError('required')">Field is Required</span>
+            </span>
+
+          </div>
+
+          <!--Description-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Description</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea formControlName="description" name="" cols="30" rows="10" placeholder=""></textarea>
+              <i class="note-hint">(Maximum is 14500 character)</i>
+            </div>
+
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input" *ngIf="(description.touched && description.invalid) || submitted">
+              <span *ngIf="description.getError('required')">Field is Required</span>
+            </span>
 
           </div>
 
@@ -112,16 +146,6 @@
             </div>
           </div>
 
-          <!--Description-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Description</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <textarea name="" cols="30" rows="10" placeholder=""></textarea>
-              <i class="note-hint">(Maximum is 14500 character)</i>
-            </div>
-          </div>
 
           <!--Job Required-->
           <div class="form-group">
@@ -149,7 +173,7 @@
           </div>
 
           <!--Yêu cầu giới thiệu-->
-          <!--<div class="form-group">
+          <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <label >Yêu cầu giới thiệu?</label>
             </div>
@@ -174,7 +198,7 @@
 
           </div>
 
-          <!--CV-->
+          <!--CV
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <label>Nhận Hồ Sơ bằng ngôn ngữ</label>
@@ -212,6 +236,15 @@
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <input type="text" name="job-type" placeholder="yourEmail@example.com">
+            </div>
+          </div>
+
+          <!--Submit-->
+          <div class="form-group">
+            <div class="col-lg10 col-md10 col-sm10 col-xs-10">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+              <button class="btn btn-primary">Submit</button>
             </div>
           </div>
 
