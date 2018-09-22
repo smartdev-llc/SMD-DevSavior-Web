@@ -14,6 +14,8 @@ import { PostJobComponent } from './components/post-job/post-job.component';
 // Routes
 import { JobsRoutes as routes } from './jobs.routes';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import {CategoryCompanyService} from '../core/services/category/CategoryCompanyService';
+import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,10 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     LayoutModule,
     SharedModule,
     HomeModule
+  ],
+  providers:[
+    CategoryCompanyService,
+    PostJobCompanyService
   ]
 })
 export class JobsModule { }

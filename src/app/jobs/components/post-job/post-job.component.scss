@@ -1,3 +1,13 @@
+/* font-family: 'Roboto', sans-serif; */
+/* font-weight: 500; */
+/* font-size: 21px; */
+
+
+//Switch
+.label-switch-text{
+   font-size: 14px;
+  font-weight: 200;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -77,7 +87,7 @@ select{
   border-radius: 8px;
 }
 
-
+//Radio Button
 @keyframes hover-color {
   from {
     border-color: #c0c0c0; }

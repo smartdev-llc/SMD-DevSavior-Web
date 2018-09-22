@@ -1,0 +1,33 @@
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {AppErrors} from '../error/app-errors';
+
+@Injectable()
+export class DataService {
+
+  constructor(private url: string, private http: HttpClient) {  }
+
+  getAll(){
+    return this.http.get(this.url)
+      .pipe(
+        map( (response) => response),
+        catchError (this.handleError)
+      );
+  }
+
+  createData (resource: any){
+    resource = JSON.stringify(resource);
+    this.http.post(this.url, resource)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError (error: Response) {
+    console.log('error in data service', error.json());
+    return throwError( new AppErrors(error.json()));
+  }
+}
