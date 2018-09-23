@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class PostJobCompanyService extends DataService{
 
-  constructor(url: string, http: HttpClient) {
-    super(url, http);
+  constructor(http: HttpClient) {
+    super('/job', http);
   }
 }

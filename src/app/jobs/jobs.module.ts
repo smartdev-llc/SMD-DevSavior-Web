@@ -17,6 +17,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import {CategoryCompanyService} from '../core/services/category/CategoryCompanyService';
 import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SkillService} from '../core/services/skill/SkillService';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   providers:[
     CategoryCompanyService,
-    PostJobCompanyService
+    PostJobCompanyService,
+    SkillService
   ]
 })
 export class JobsModule { }

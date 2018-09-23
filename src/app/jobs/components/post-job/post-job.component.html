@@ -30,14 +30,24 @@
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <input formControlName="title" type="text" name="location" placeholder="">
             </div>
-
+            <!--Validation-->
             <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
                   *ngIf="(title.touched && title.invalid) || submitted">
               <!--<span *ngIf="title.errors?.required">hehe</span>-->
               <span  *ngIf="title.getError('required')">Field is Required</span>
             </span>
+          </div>
 
-
+          <!--Skills-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Skill</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <select class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
+                <option *ngFor="let skill of skills" [value]="skill.name" >{{skill.name}}</option>
+              </select>
+            </div>
           </div>
 
           <!--Job Category-->

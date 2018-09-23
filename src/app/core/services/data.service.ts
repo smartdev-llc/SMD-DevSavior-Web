@@ -19,7 +19,7 @@ export class DataService {
 
   createData (resource: any){
     resource = JSON.stringify(resource);
-    this.http.post(this.url, resource)
+    return this.http.post(this.url, resource)
       .pipe(
         map(response => response),
         catchError(this.handleError)
