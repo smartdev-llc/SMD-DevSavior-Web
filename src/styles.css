@@ -2369,7 +2369,6 @@ ul.alphabet li {
 .form-group label {
   text-align: right;
   float: left;
-  width: 60px;
   margin-right: 22px;
   margin-bottom: 0;
   font-family: 'Roboto', sans-serif;
@@ -2391,7 +2390,7 @@ ul.alphabet li {
   line-height: normal;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .contact_us .form-group input:focus,
@@ -4086,8 +4085,8 @@ span.login-ins {
 }
 
 /* Overide css ng-style */
-.ng-select.ng-select-single 
-.ng-select-container 
+.ng-select.ng-select-single
+.ng-select-container
 .ng-value-container {
   font-size: 14px;
   font-weight: 300;
@@ -4108,10 +4107,10 @@ span.login-ins {
   font-size: 14px;
   font-weight: 300;
   color: #555;
- 
+
 }
-.ng-dropdown-panel 
-.ng-dropdown-panel-items 
+.ng-dropdown-panel
+.ng-dropdown-panel-items
 .ng-option  {
   padding: 0px 10px!important
 }

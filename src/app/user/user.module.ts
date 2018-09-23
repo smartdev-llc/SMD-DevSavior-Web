@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FileUploadModule } from 'ng2-file-upload';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 
@@ -19,6 +22,9 @@ import { UpdateProfileStep5Component } from './components/update-profile/step5/s
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    FileUploadModule,
+    NgSelectModule,
+    FormsModule,
     LayoutModule,
     SharedModule
   ],

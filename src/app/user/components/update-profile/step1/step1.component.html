@@ -8,6 +8,63 @@
   </div>
 
   <steps-update-profile currentPage="1"></steps-update-profile>
+
+  <div class="box-content box">
+    <div>
+      <h4 class="heading-title">Thông tin cơ bản</h4>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-2 container-overlay" for="uploader-input">
+        <img class="profile-img" src="assets/images/profile-placeholder.png">
+        <label class="overlay" for="uploader-input">
+          <div class="icon" for="uploader-input"><i class="fa fa-camera" aria-hidden="true"></i></div>
+          <div class="content">
+            <p class="text">Thay đổi ảnh đại diện</p>
+          </div>
+        </label>
+        <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (fileOver)="fileOver($event)" id="uploader-input" />
+      </div>
+      <div class="col-sm-9 col-md-10">
+        <form class="update-form">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="email" class="required">Vị trí/việc làm cần ứng tuyển:</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <label class="required">Trình độ học vấn:</label>
+                <ng-select>
+                   <ng-option *ngFor="let car of jobsLevel" [value]="car.id">{{car.name}}</ng-option>
+               </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="required" for="email">Số năm kinh nghiệm:</label>
+                <input type="number" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="checkbox">
+               <label class="no-work-experience"><input type="checkbox"> Tôi chưa có kinh nghiệm</label>
+             </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="box-content box">
+    <div>
+      <h4 class="heading-title">Thông tin cá nhân</h4>
+    </div>
+  </div>
 </div>
 <!-- Footer Section -->
 <app-footer></app-footer>
