@@ -13,7 +13,6 @@ export class LanguageService {
     private translateCacheService: TranslateCacheService
   ) {
     translateCacheService.init();
-    this.translateService.setDefaultLang(this.DEFAULT_LANG);
   }
 
   setDefaultLang() {

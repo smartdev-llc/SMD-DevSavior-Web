@@ -1,0 +1,213 @@
+.pages .navbar {
+  background: #12cd6a;
+}
+
+.navbar-fixed-top {
+  padding: 0 0;
+}
+
+#header .collapse {
+  padding-top: 6px;
+}
+
+.logo {
+  display: none;
+}
+
+.nav {
+  a {
+    font-size: 15px;
+    text-transform: none
+  }
+}
+
+.nav>li a {
+  padding: 15px;
+  color: #fff;
+  &:hover {
+    color: #4e4e4e
+  }
+}
+
+.fa-file-text-o {
+  margin-right: 8px;
+  font-size: 15px;
+}
+
+.fa-users {
+  margin-right: 4px;
+  font-size: 14px;
+}
+
+.navbar-nav {
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+
+.logins {
+  padding-top: 0
+}
+
+@mixin cancel {
+  background: none;
+  border: none;
+  border-radius: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  margin-right: 0;
+  padding: 0;
+  color: #12cd6a;
+  width: auto;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+}
+
+.logins {
+  span {
+    padding: 10px 20px;
+  }
+  right: 0px;
+  >.flag>.cancel {
+    @include cancel()
+  }
+}
+
+.flag-img {
+  margin-top: 22px;
+}
+
+.user-profile span {
+  margin-top: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.post_job {
+  span {
+    margin-top: 4px;
+    padding: 10px;
+    margin-left: 12px;
+    font-size: 15px;
+    border: 2px solid #fff;
+    border-radius: 26px;
+    &:hover{
+      background-color: #0d994e
+    }
+  }
+}
+
+.post-job-mobile,
+.find-candidate-mobile {
+  display: none;
+}
+
+.textOption {
+  color: #12cd6a;
+  margin-left: 2px;
+}
+
+.profile-head {
+  background-color: #fff;
+  color: #12cd6a;
+  padding: auto 5px;
+  font-weight: 500
+}
+
+.open>.dropdown-menu {
+  display: block;
+  left: -89px;
+  right: 10px;
+}
+
+span.label.job-type.partytime.profile-head.fa {
+  font-size: 18px;
+}
+
+button.navbar-toggle.flag-mobile {
+  background: none;
+  padding: 4px 1px;
+  margin-right: 10px;
+}
+
+@media (max-width: 1360px) {
+  .top_header .nav>li a {
+    padding: 12px 10px;
+  }
+  .navbar-nav {
+    padding-top: 2px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1359px){
+  .post_job span {
+    margin-top: 2px;
+  }
+  .user-profile span{
+    margin-top: 10px;
+  }
+  .flag-img{
+    margin-top: 20px
+  }
+}
+
+@media (min-width: 319px) and (max-width: 1200px) {
+  .logo {
+    display: block;
+    padding-top: 10px;
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center
+  }
+  .nav>li {
+    border-bottom: 1px solid #d6d6d6
+  }
+  .nav>li:last-child {
+    border: medium none
+  }
+  .nav>li a {
+    color: #000;
+  }
+  .navbar-nav>li .dropdown-menu {
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 14px;
+    }
+  }
+  .post_job span {
+    display: none;
+  }
+  .post-job-mobile,
+  .find-candidate-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 210px) and (max-width: 320px) {
+  .logo {
+    width: 146px;
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center
+  }
+  .navbar-nav>li .dropdown-menu {
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 14px;
+    }
+  }
+  .post_job span {
+    display: none;
+  }
+  .post-job-mobile,
+  .find-candidate-mobile {
+    display: block;
+  }
+}

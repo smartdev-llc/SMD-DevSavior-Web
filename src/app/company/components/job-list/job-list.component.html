@@ -1,0 +1,120 @@
+<app-home-company-logged></app-home-company-logged>
+<div class="container main-container header_area">
+  <div class="row j-filter-search">
+    <div class="col-lg-6 col-xs-12">
+      <div class="tab_filters">
+      
+        <ul class="nav nav-pills">
+          <li class="active">
+            <a  href="">online
+              <span class="badge j-number">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="">draft
+                <span class="badge j-number">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="">Inactive
+                <span class="badge j-number">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="">Expires in 7 days
+                <span class="badge j-number">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="">Expired
+              <span class="badge j-number">3</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <form class="form validation-form col-lg-6 col-xs-12">
+      <div class="col-lg-offset-6 ">
+        <div class="input-group">
+          <input  class="form-control" placeholder="Keyword, job title or skill" type="text">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row j-export">
+    <button class="btn btn-default btn-export">
+      <span class="glyphicon glyphicon-file icon-primary"></span>
+        Export To Excel
+    </button>
+  </div>
+  <div class="col-xs-12 j-list">
+    <table class="j-table">
+      <thead class="j-table-header">
+        <th class="col-xs-5">Job Title - ID</th>
+        <th class="col-xs-2">Services</th>
+        <th class="col-xs-3">Expires</th>
+        <th class="col-xs-1">Views</th>
+        <th class="col-xs-1">Applications</th>
+      </thead>
+      <tbody class="j-table-body">
+        <!-- start list job -->
+        <tr>
+          <td>
+            <div>
+              <div class="j-title">
+                <a href="">job title</a>
+                <span>12343334</span>
+              </div>
+              <div class="j-location">Da Nang</div>
+              <div class="j-actions">
+                <a href="">View Online</a>
+                <a href="">Edit</a>
+                <a href="">Copy</a>
+                <a href="">Inactive</a>
+                <a routerLink="/employer/candidates">View Candidates</a>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <span class="label">Job Posting</span>
+            </div>
+            <div>
+              <span class="label">Upgrade</span>
+            </div>
+          </td>
+
+          <td>
+            <div class="expiration">
+              <div>17 days</div>
+              <div class="time">Online: 24 Aug 2018</div>
+              <div  class="time">Expired: 30 Sep 2018</div>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <span >98</span>
+              
+            </div>
+          </td>
+          
+          <td>
+            <div class="text-center">
+                <a routerLink="/employer/candidates">4</a>
+            </div>
+          </td>
+        </tr>
+        <!-- end list job -->
+      </tbody>
+    </table>
+
+  </div>
+</div>

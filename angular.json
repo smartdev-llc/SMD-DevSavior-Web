@@ -32,7 +32,8 @@
               "./libs/css/font-awesome.min.css",
               "./libs/css/custom_fonts.css",
               "src/styles.css",
-              "./libs/css/site-responsive.css"
+              "./libs/css/site-responsive.css",
+              "./node_modules/@ng-select/ng-select/themes/default.theme.css"
             ],
             "scripts": [
               "./libs/js/jquery-2.2.4.min.js",
@@ -42,7 +43,6 @@
               "./libs/js/jquery.counterup.min.js",
               "./libs/js/owl.carousel.js",
               "./libs/js/parallax.js",
-              "./libs/js/tinymce.min.js",
               "./libs/js/webjs.js",
               "./libs/js/npm.js"
             ]

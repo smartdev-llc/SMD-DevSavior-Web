@@ -24,7 +24,7 @@ export class StLostPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.lostPasswordForm = this.formBuilder.group({
-      email: ['', Validators.email]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -36,7 +36,8 @@ export class StLostPasswordComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
     if (this.lostPasswordForm.invalid) {
-      return true;
+      this.loading = false;
+      return ;
     }
     this.authService.forgotPassword(this.lostPasswordForm.value.email, Role.Student)
                     .subscribe(
@@ -57,5 +58,13 @@ export class StLostPasswordComponent implements OnInit {
 
   get givenEmail() {
     return this.lostPasswordForm.value.email || '';
+  }
+
+  get hasServerError() {
+    return this.submitted && this.lostPasswordForm.errors != null && this.lostPasswordForm.errors.globalError != null;
+  }
+
+  get globalError() {
+    return this.lostPasswordForm.errors.globalError;
   }
 }
