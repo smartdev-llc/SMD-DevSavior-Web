@@ -7,6 +7,6 @@ import {HttpClient} from '@angular/common/http';
 export class SkillService extends DataService{
 
   constructor(http: HttpClient) {
-    super('/skill', http);
+    super('/skills', http);
   }
 }

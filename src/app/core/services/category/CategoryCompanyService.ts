@@ -7,6 +7,6 @@ import {HttpClient} from '@angular/common/http';
 export class CategoryCompanyService extends DataService{
 
   constructor(http: HttpClient) {
-    super('/category', http);
+    super('/categories', http);
   }
 }
