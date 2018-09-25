@@ -1,7 +1,9 @@
 /* font-family: 'Roboto', sans-serif; */
 /* font-weight: 500; */
 /* font-size: 21px; */
-
+.textarea {
+  resize: vertical;
+}
 .error-input{
   color: #dc3545;
   font-family: 'Roboto', sans-serif;
