@@ -47,6 +47,16 @@
 .input-calendar {
   margin-top: 18px;
 }
+
+.input-level {
+  margin-top: 45px;
+  span {
+    button {
+      height: 36px;
+    }
+  }
+}
+
 .search-advanced {
   margin-top: 20px;
   input[type=radio] {
@@ -80,11 +90,23 @@
   }
 }
 
-.input-level {
-  margin-top: 45px;
-  span {
-    button {
-      height: 36px;
+.search-btn{
+  float: right;
+  margin-top: 20px;
+  button{
+    i{
+      color: #fff;
+      margin-bottom: 2px;
+      position: relative;
+      bottom: 1px;
+    }
+    font-weight: 500;
+    border-radius: 4;
+    border: 1px solid #12cd6a;
+    background-color: #12cd6a;
+    &:hover{
+      background-color: #0d994e;
+      color: #fff
     }
   }
 }

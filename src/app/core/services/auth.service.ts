@@ -2,19 +2,21 @@ import { User, Authenticate, Role } from '../models/user';
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HttpClient,
-         HttpRequest,
-         HttpHeaders,
-         HttpEvent,
-         HttpParams} from '@angular/common/http';
+import {
+  HttpClient,
+  HttpRequest,
+  HttpHeaders,
+  HttpEvent,
+  HttpParams
+} from '@angular/common/http';
 import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
 import { Store } from '../../../../node_modules/@ngrx/store';
 import { map, tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import {AppErrors} from '../error/app-errors';
-import {Forbidden} from '../error/forbidden';
-import {InternalServer} from '../error/internal-server';
+import { AppErrors } from '../error/app-errors';
+import { Forbidden } from '../error/forbidden';
+import { InternalServer } from '../error/internal-server';
 import {
   AuthService as SocialAuthService,
   FacebookLoginProvider,
@@ -40,7 +42,7 @@ export class AuthService {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private socialAuthService: SocialAuthService
-  ) {}
+  ) { }
 
 
   /**
@@ -63,10 +65,10 @@ export class AuthService {
     return this.http.post<User>('/auth/signup', data);
   }
 
-    // catch should be handled here with the http observable
-    // so that only the inner obs dies and not the effect Observable
-    // otherwise no further login requests will be fired
-    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
+  // catch should be handled here with the http observable
+  // so that only the inner obs dies and not the effect Observable
+  // otherwise no further login requests will be fired
+  // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
   /**
    *
    *
@@ -78,24 +80,24 @@ export class AuthService {
    */
 
   resetPassword(password: string, token: string | ''): Observable<any> {
-    const requestBody: any = { password: password};
+    const requestBody: any = { password: password };
     let param: HttpParams = new HttpParams();
     param = param.set('token', token);
     return this.http.post('/auth/reset-password', requestBody, { params: param });
   }
 
   forgotPassword(email: string, role: Role): Observable<any> {
-    const requestBody: any = { email: email, role: role};
+    const requestBody: any = { email: email, role: role };
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
   verifyAccount(token: string): Observable<any> {
-    const params: HttpParams = new HttpParams({fromObject: { token: token}});
-    return this.http.get('/auth/verify',{params: params});
+    const params: HttpParams = new HttpParams({ fromObject: { token: token } });
+    return this.http.get('/auth/verify', { params: params });
   }
 
   resendVerificationEmail(email: string, role: Role): Observable<any> {
-    const requestBody: any = { email: email, role: role};
+    const requestBody: any = { email: email, role: role };
     return this.http.post('/auth/resend-email', requestBody);
   }
 
@@ -168,8 +170,8 @@ export class AuthService {
     this.getLoggedInUser.emit(user_data);
   }
 
-  resendEmail( email, userRole){
-    let userParam = {email: email, role: userRole};
+  resendEmail(email, userRole) {
+    let userParam = { email: email, role: userRole };
     return this.http
       .post('/auth/resend-email', userParam)
       .pipe(
@@ -178,19 +180,19 @@ export class AuthService {
             console.log('data is', response);
             return response.message;
           }),
-        catchError( this.handleError)
+        catchError(this.handleError)
       );
 
   }
 
-  private handleError( error) {
-    if ( error.status === 403) {
-      return throwError( new Forbidden(error.error.message));
+  private handleError(error) {
+    if (error.status === 403) {
+      return throwError(new Forbidden(error.error.message));
     }
-    if (error.status === 500){
-      return throwError( new InternalServer(error.error.message));
+    if (error.status === 500) {
+      return throwError(new InternalServer(error.error.message));
     }
-     return throwError( new AppErrors(error.error.message));
+    return throwError(new AppErrors(error.error.message));
   }
 
   socialLogin(provider: string) {
@@ -213,7 +215,7 @@ export class AuthService {
   }
 
   sendTokenToServer(userData: any): Observable<any> {
-    let param = {'access_token': userData.token};
+    let param = { 'access_token': userData.token };
     return this.http.post<User>('/auth/' + userData.provider.toLowerCase(), param);
   }
 
@@ -225,7 +227,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    if ( this.getCurrentUser() == null) {
+    if (this.getCurrentUser() == null) {
       return false;
     }
     return true;
@@ -235,4 +237,7 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('user'));
   }
 
+  getJobItem() {
+    return this.http.get('/jobs')
+  }
 }

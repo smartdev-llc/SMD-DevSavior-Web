@@ -72,10 +72,37 @@
               </li>
 
               <li>
-                <a routerLink="/">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-users"></i>
                   {{ 'header.candidate' | translate }}
+                  <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
                 </a>
+                <ul class="dropdown-menu candidate-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-file"></i>
+                      {{ 'header.byJob' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-search"></i>
+                      {{ 'header.byResume' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user-secret"></i>
+                      {{ 'header.blacklist' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user-times"></i>
+                      {{ 'header.cv_deleted' | translate }}
+                    </a>
+                  </li>
+                </ul>
               </li>
 
               <li class="post-job-mobile">
@@ -84,7 +111,7 @@
                   {{ 'header.post_job' | translate }}
                 </a>
               </li>
-              
+
               <li class="find-candidate-mobile">
                 <a routerLink="/">
                   <i class="fa fa-search"></i>
