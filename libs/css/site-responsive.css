@@ -34,6 +34,9 @@
   .companies ul.list>li:nth-child(5n+0) {
     margin-right: 0;
   }
+  .md-hide {
+    display: none
+  }
 }
 
 @media (max-width: 1200px) {
@@ -88,6 +91,26 @@
   }
   .user-data .user-tag label span {
     font-size: 16px;
+  }
+  /*//////////Tabs filter///////////////////*/
+  .tab_filters h4 {
+    display: none;
+  }
+  .tab_filters h5 {
+    margin: 0;
+    border: none;
+    text-align: center;
+    float: none;
+    padding-right: 0;
+    padding-bottom: 40px;
+  }
+  .tab_filters ul {
+    text-align: center;
+  }
+  .tab_filters ul.nav li {
+    display: initial;
+    float: none;
+    display: inline-block;
   }
   /*//////////Change Mobile Menu Screens///////////////////*/
   .navbar-fixed-bottom, .navbar-fixed-top {
@@ -243,8 +266,10 @@
 }
 
 @media (max-width: 991px) {
-
-
+  .tab_filters ul.nav li {
+    width: 26%;
+    margin: 10px 1%;
+  }
   .countjobs ul li {
     padding: 0px 5%;
   }
@@ -406,6 +431,9 @@
   .user-data .user-image {
     padding-right: 0;
   }
+  .sm-hide {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -534,6 +562,9 @@
   .title-image .section-title .main-container {
     padding: 38px 0 32px;
   }
+  .tab_filters ul.nav li {
+    width: 45%;
+  }
 }
 
 @media (max-width: 660px) {
@@ -562,6 +593,9 @@
 }
 
 @media (max-width: 580px) {
+  .tab_filters ul.nav li {
+    width: 100%;
+  }
   ul.order-table .payment-method td:first-child {}
   .checkout ul.buttons li {
     float: left;
@@ -662,6 +696,9 @@
   }
   .deximJobs_tabs .contact_us .lost_password {
     padding: 0
+  }
+  .j-table .j-table-header {
+    display: none;
   }
 }
 
