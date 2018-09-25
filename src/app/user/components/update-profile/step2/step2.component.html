@@ -1,0 +1,103 @@
+<!-- Header Section -->
+<user-header></user-header>
+<!-- Header Section -->
+<div class="container wrapper-content">
+  <div class="alert alert-add-more-detail alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <i class="fa fa-fw fa-lg fa-info-circle text-primary"></i> <strong>Thu,</strong> Add more details and start getting job interviews straight away!
+  </div>
+
+  <steps-update-profile currentPage="2"></steps-update-profile>
+
+  <div class="box-content box">
+    <div>
+      <h4 class="heading-title">Học vấn và bằng cấp
+        <button class="btn btn-link pull-right" (click)="lgModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
+      </h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="not-update-alert">Vui lòng hoàn thiện thông tin học vấn / bằng cấp.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Add  Education History -->
+  <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm mới học vấn/bằng cấp</h4>
+          <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="update-form">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="subject" class="required">Chuyên ngành</label>
+                  <input type="text" id="subject" class="form-control" placeholder="VD: Công nghệ thông tin, Mạng máy tính...">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="school" class="required">Trường</label>
+                  <input type="text" id="school" class="form-control" placeholder="Nhận tên trường">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="qualification" class="required">Bằng cấp</label>
+                  <input type="text" id="qualification" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="fromMonth">Từ tháng</label>
+                  <input type="text" id="fromMonth" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="toMonth">Đến tháng</label>
+                  <input type="text" id="toMonth" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="subject">Thông tin bổ sông</label>
+                  <textarea class="textarea" placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <hr>
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="lgModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Add  Education History -->
+</div>
+<!-- Footer Section -->
+<app-footer></app-footer>
+<!-- Footer Section -->
