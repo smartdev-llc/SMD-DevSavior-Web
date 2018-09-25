@@ -45,7 +45,7 @@ Table Of Index
 body {
   background: #f9f9f9;
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-weight: normal;
   font-size: 21px;
 }
 
@@ -552,6 +552,72 @@ ul.dropdown-menu li:last-child a {
 
 .main-container-home {
   padding: 29px 0;
+}
+
+/*///////////Tab Filters /////////*/
+.tab_filters {
+  float: left;
+  width: 100%;
+}
+
+.tab_filters ul.nav li {
+  margin-right: 9px;
+  margin-left: 0;
+}
+
+.tab_filters ul.nav li a {
+  border: 1px solid #d0d0d0;
+  font-family: LatoRegular;
+  font-size: 13px;
+  color: #333;
+  border-radius: 9px;
+  text-transform: none;
+}
+
+.tab_filters ul.nav li a:hover {
+  background: #333 none repeat scroll 0 0;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+.nav>li:hover a,
+.nav>li>a:focus,
+.nav>li>a:hover,
+.nav li.active a {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.tab_filters ul.nav li:last-child {
+  margin-right: 0;
+}
+
+.tab_filters ul.nav li.active a {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 1px solid #12cd6a;
+  background: #12cd6a;
+}
+
+.tab_filters h4,
+.tab_filters h5 {
+  margin: 0;
+  float: left;
+  padding: 19px 0;
+}
+
+.tab_filters h5 {
+  padding-right: 44px;
+  border-right: 1px solid #d0d0d0;
+  margin-right: 40px;
+}
+.nav li {
+  margin-right: 0px;
+}
+
+.nav-tabs {
+  margin-left: 15px;
+  border: none
 }
 
 /*/////////////////Filters Result /////////*/
@@ -3950,8 +4016,24 @@ span.login-ins {
   line-height: normal;
   border-radius: 8px;
 }
-.validation-form .form-group input::placeholder {
+::placeholder {
   opacity: 0.3;
+}
+::-moz-placeholder {
+  opacity: 0.3;
+}
+::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+
+.form-group.form-group-checkbox label:before{
+  content: ''
+}
+.form-group.form-group-checkbox input[type='checkbox'] {
+  opacity: 0;
+}
+.form-group.form-group-checkbox label:before {
+  content: '\e013';
 }
 *:focus::placeholder {
   opacity: 0;
@@ -3999,3 +4081,43 @@ span.login-ins {
   padding:2px!important;
 }
 /* End validation-form */
+  /* End validation-form */
+
+.card {
+  clear: both;
+  border: 1px solid #eaeff5;
+  background: #fff;
+  margin: 10px;
+  padding: 30px 20px;
+  border-radius: 5px;
+}
+.one-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn {
+    outline: none;
+}
+.number-highlight, .text-highlight {
+    color: #12cd6a;
+}
+.j-table {
+  width: 100%;
+}
+.j-table-header th, .j-table-body td{ 
+  padding: 15px 0px;
+}
+.j-table-body td {
+  border-top: 2px solid rgba(185, 180, 180, 0.2);
+}
+.icon-primary {
+  color: #12cd6a;
+}
+/* This fixes margin of panel-heading */
+.panel-heading.row {
+  margin: 0
+}
+.icon-with-text i {
+  margin: 5px;
+}

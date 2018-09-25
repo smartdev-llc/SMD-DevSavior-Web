@@ -1,0 +1,46 @@
+.main-container {
+    background-color: #fff;
+}
+.j-list {
+    font-size: 17px;
+    background-color: #fff;
+}
+.j-list .expiration {  
+    font-size: 17px;
+}
+.j-list .expiration .time {
+    font-size: 13px;
+}
+.j-title {
+    font-size: 27px;
+}
+.j-title span {
+    font-size: 17px;
+    color: #b3b2b2;
+    font-style: italic;
+}
+.j-actions a {
+    font-size: 13px;
+}
+.j-filter-search {
+    margin: 20px auto;
+}
+.j-export {
+    margin: 20px auto;
+}
+.j-list .j-actions a:after {
+    content: " | ";
+    color: #000
+}
+.j-list .j-actions a:last-child:after {
+    content: ""
+}
+.j-list span.label {
+    float: none;
+}
+.nav>li a {
+    padding: 5px 10px;
+}
+.btn-export { 
+    margin-left: 15px;
+}
