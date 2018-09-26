@@ -11,6 +11,7 @@ import { LayoutModule } from '../layout/index';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     FindResumesComponent,
     JobListComponent,
-    CandidateListComponent
+    CandidateListComponent,
+    DetailCandidateComponent
   ],
   bootstrap: [ HomeComponent ]
 })
