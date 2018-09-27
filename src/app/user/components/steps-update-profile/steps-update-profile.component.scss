@@ -101,11 +101,13 @@
     font-size: 10px;
   }
 }
+
 @media (max-width: 768px) {
   .steps-form-2 .steps-row-2 .steps-step-2 .steps-text {
     display: none;
   }
 }
+
 @media (max-width: 576px) {
   .steps-form-2 {
     .steps-row-2 {

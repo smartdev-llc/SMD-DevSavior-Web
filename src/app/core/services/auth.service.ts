@@ -22,6 +22,8 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angular-6-social-login";
+
+
 @Injectable()
 export class AuthService {
 
@@ -239,5 +241,8 @@ export class AuthService {
 
   getJobItem() {
     return this.http.get('/jobs')
-  }
+    .pipe(
+      map((response: Response) => response),
+    )}
+  
 }

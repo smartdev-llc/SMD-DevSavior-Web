@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { UserRoutes as routes } from './user.routes';
 
@@ -22,6 +23,7 @@ import { UpdateProfileStep5Component } from './components/update-profile/step5/s
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ModalModule.forRoot(),
     FileUploadModule,
     NgSelectModule,
     FormsModule,
