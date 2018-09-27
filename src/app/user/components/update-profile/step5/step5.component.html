@@ -12,7 +12,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Kinh nghiệm làm việc
-        <button class="btn btn-link pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
+        <button class="btn btn-link pull-right" (click)="eplHistoryModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
       </h4>
     </div>
     <div class="row">
@@ -21,6 +21,82 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal Add Employment History -->
+  <div bsModal #eplHistoryModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm kinh nghiệm làm việc</h4>
+          <button type="button" class="close pull-right" (click)="eplHistoryModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="update-form">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="subject" class="required">Chức danh</label>
+                  <input type="text" id="subject" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="subject" class="required">Công ty</label>
+                  <input type="text" id="subject" class="form-control" placeholder="VD: JuniorViec">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="fromMonth">Từ tháng</label>
+                  <input type="text" id="fromMonth" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="toMonth">Đến tháng</label>
+                  <input type="text" id="toMonth" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="checkbox">
+                 <label class="no-work-experience"><input type="checkbox"> Công việc hiện tại</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="subject">Thông tin bổ sông</label>
+                  <textarea class="textarea" placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <hr>
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="eplHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Add Employment History -->
 </div>
 <!-- Footer Section -->
 <app-footer></app-footer>
