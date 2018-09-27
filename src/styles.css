@@ -69,6 +69,7 @@ button.btn-defaut.bg-submit {
 
 button.btn-defaut.bg-submit:hover {
   background: #45e490;
+  color: white;
 }
 
 button.btn-defaut.bg-white {

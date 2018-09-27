@@ -12,7 +12,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Học vấn và bằng cấp
-        <button class="btn btn-link pull-right" (click)="lgModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
+        <button class="btn btn-link pull-right" (click)="eduHistoryModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
       </h4>
     </div>
     <div class="row">
@@ -21,14 +21,14 @@
       </div>
     </div>
   </div>
-  <!-- Modal Add  Education History -->
-  <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+  <!-- Modal Add Education History -->
+  <div bsModal #eduHistoryModal="bs-modal" class="modal fade" tabindex="-1"
      role="dialog" aria-labelledby="dialog-sizes-name1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm mới học vấn/bằng cấp</h4>
-          <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <button type="button" class="close pull-right" (click)="eduHistoryModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -86,7 +86,7 @@
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right">
-                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="lgModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="eduHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
                   <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
                 </div>
             </div>
@@ -96,7 +96,7 @@
       </div>
     </div>
   </div>
-  <!-- End Modal Add  Education History -->
+  <!-- End Modal Add Education History -->
 </div>
 <!-- Footer Section -->
 <app-footer></app-footer>
