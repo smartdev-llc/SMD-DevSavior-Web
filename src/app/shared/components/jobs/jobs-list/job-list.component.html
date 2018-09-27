@@ -38,15 +38,12 @@
     <div class="col-xl-12 col-md-8 col-sm-12 col-lg-8">
       <div id="slideJob" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <ng-container ngFor let-item [ngForOf]="items" let-i="index" [ngForTrackBy]="trackByFn">
-            <ng-template *ngIf="i % {n} == 0">
-              <div class="item" [ngClass.active]="i == 0">
-            </ng-template>
-            <app-job-item [job]="item"></app-job-item>
-            <ng-template *ngIf="(i % n == n -1) || (i == item.length - 1)">
-              </div>
-            </ng-template>
-          </ng-container>
+            <div  class="item" *ngFor="let i of fakeArray; index as page" [class.active]="page == 0">
+              <ng-template ngFor let-job [ngForOf]="jobs | slice:getStartIndexOfPage(page):getEndIndexOfPage(page)">
+                <app-job-item [job]="job"></app-job-item>
+              </ng-template>
+            </div>
+          
         </div>
 
         <div class="carousel-controls">

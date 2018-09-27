@@ -17,21 +17,21 @@ export class JobItemComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.getJobItem();
+    // this.getJobItem();
   }
 
   getJobItem(){
-    this.authService.getJobItem()
-    .subscribe(
-      data => {
-        this.loading = false;
-        console.log(data)
-        this.data = data;
-      },
-      error => {
-        this.loading = false;
-        console.log(error)
-      }
-    )
+    // this.authService.getJobItem()
+    // .subscribe(
+    //   data => {
+    //     this.loading = false;
+    //     console.log(data)
+    //     this.data = data;
+    //   },
+    //   error => {
+    //     this.loading = false;
+    //     console.log(error)
+    //   }
+    // )
   }
 }
