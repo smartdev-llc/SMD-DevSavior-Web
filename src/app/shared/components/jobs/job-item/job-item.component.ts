@@ -8,7 +8,7 @@ import { AuthService } from '../../../../core/services/auth.service';
   providers: [ AuthService ]
 })
 export class JobItemComponent implements OnInit {
-  @Input() item: any;
+  @Input() job: any;
   loading = true;
   data: any = [];
 

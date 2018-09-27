@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
   selector: 'app-job-list',
@@ -6,6 +6,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./job-list.component.scss']
 })
 export class JobListComponent implements OnInit {
+    n = 5;
+
   items = [
     { title: 'Slide 1' },
     { title: 'Slide 2' },
