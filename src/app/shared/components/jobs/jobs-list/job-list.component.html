@@ -38,28 +38,10 @@
     <div class="col-xl-12 col-md-8 col-sm-12 col-lg-8">
       <div id="slideJob" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="item active">
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-          </div>
-
-          <div class="item">
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-          </div>
-
-          <div class="item">
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
-            <app-job-item></app-job-item>
+          <div class="item active" 
+          *ngFor="let item of items; index as i"
+          [ngClass]="{active: i == 0}">
+            <app-job-item [item]="item"></app-job-item>
           </div>
         </div>
 

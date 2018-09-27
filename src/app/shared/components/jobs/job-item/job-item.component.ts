@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
@@ -8,21 +8,25 @@ import { AuthService } from '../../../../core/services/auth.service';
   providers: [ AuthService ]
 })
 export class JobItemComponent implements OnInit {
+  @Input() item: any;
   loading = true;
+  data: any = [];
 
   constructor(private authService:AuthService){ 
   }
 
   ngOnInit() {
     this.loading = true;
+    this.getJobItem();
   }
 
   getJobItem(){
     this.authService.getJobItem()
     .subscribe(
-      (response) => {
+      data => {
         this.loading = false;
-        console.log(response)
+        console.log(data)
+        this.data = data;
       },
       error => {
         this.loading = false;
@@ -30,13 +34,4 @@ export class JobItemComponent implements OnInit {
       }
     )
   }
-
-  // getJobItem(){
-  //   this.authService.getJobItem()
-  //   .subscribe(
-  //     response => console.log(response),
-  //     error => console.log(error)
-  //   )
-  // }
-
 }
