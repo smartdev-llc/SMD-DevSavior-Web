@@ -38,12 +38,11 @@
     <div class="col-xl-12 col-md-8 col-sm-12 col-lg-8">
       <div id="slideJob" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div  class="item" *ngFor="let i of fakeArray; index as page" [class.active]="page == 0">
-              <ng-template ngFor let-job [ngForOf]="jobs | slice:getStartIndexOfPage(page):getEndIndexOfPage(page)">
-                <app-job-item [job]="job"></app-job-item>
-              </ng-template>
-            </div>
-          
+          <div class="item" *ngFor="let i of pages ; index as page" [class.active]="page == 0">
+            <ng-template ngFor let-job [ngForOf]="jobs | slice:getStartIndexOfPage(page):getEndIndexOfPage(page)">
+              <app-job-item [job]="job"></app-job-item>
+            </ng-template>
+          </div>
         </div>
 
         <div class="carousel-controls">
@@ -51,9 +50,7 @@
             <span class="glyphicon glyphicon-chevron-left"></span>
           </a>
           <ol class="carousel-indicators">
-            <li data-target="#slideJob" data-slide-to="0" class="active"></li>
-            <li data-target="#slideJob" data-slide-to="1"></li>
-            <li data-target="#slideJob" data-slide-to="2"></li>
+            <li *ngFor="let i of pages ; index as page" [class.active]="page == 0" data-target="#slideJob" data-slide-to="0"></li>
           </ol>
           <a class="right carousel-control" href="#slideJob" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>

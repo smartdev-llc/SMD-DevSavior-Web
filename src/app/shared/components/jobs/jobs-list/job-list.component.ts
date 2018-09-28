@@ -1,44 +1,48 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-job-list',
   templateUrl: './job-list.component.html',
-  styleUrls: ['./job-list.component.scss']
+  styleUrls: ['./job-list.component.scss'],
+  providers: [AuthService]
 })
 export class JobListComponent implements OnInit {
-    jobsPerPage = 3;
-    page: number;
+  jobsPerPage = 3;
+  page: number;
+  loading = true;
+  jobs: any = [];
+  pages: any;
 
-  jobs = [
-    { title: 'Slide 1' },
-    { title: 'Slide 2' },
-    { title: 'Slide 3' },
-    { title: 'Slide 4' },
-    { title: 'Slide 5' },
-    { title: 'Slide 6' },
-    { title: 'Slide 7' }
-  ]
+  constructor(private authService: AuthService) { }
 
-  constructor() {
-    this.page = Math.ceil(this.jobs.length / this.jobsPerPage);
-   }
+  ngOnInit() {
+    this.getJobItem();
+  }
 
-  ngOnInit() { }
-
-  get fakeArray(): any[] {
-    return new Array(this.page);
+  getJobItem() {
+    this.authService.getJobItem()
+      .subscribe(
+        jobs => {
+          this.loading = false;
+          this.jobs = jobs;
+          this.page = Math.ceil(this.jobs.length / this.jobsPerPage);
+          this.pages = new Array(this.page);
+        },
+        error => {
+          this.loading = false;
+          console.log(error)
+        }
+      )
   }
 
   getStartIndexOfPage(page: number): number {
-    console.log(page*this.jobsPerPage);
-    return page*this.jobsPerPage;
-    
+    return page * this.jobsPerPage;
   }
 
   getEndIndexOfPage(page: number): number {
-    console.log((page+1) * this.jobsPerPage);
-    return (page+1) * this.jobsPerPage > this.jobs.length ? this.jobs.length : (page+1) * this.jobsPerPage;
+    return (page + 1) * this.jobsPerPage > this.jobs.length ? this.jobs.length : (page + 1) * this.jobsPerPage;
   }
 
- 
+
 }
