@@ -105,38 +105,6 @@
   }
 }
 
-button {
-  &.btn-defaut {
-    font-size: 15px;
-    font-weight: 400;
-    border-radius: 20px;
-    color: white;
-    padding: 10px 25px;
-    &.bg-submit {
-      background: #12cd6a;
-      &:hover {
-        background: #45e490;
-      }
-    }
-    &.bg-white {
-      border: 1px #aaa solid;
-      background: white;
-      color: #000;
-      &:hover {
-        border: 1px #12cd6a solid;
-        color: #12cd6a;
-      }
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
-.textarea {
-  resize: vertical;
-}
-
 @media (max-width: 992px) {
   .clear-both-sm {
     clear: both;

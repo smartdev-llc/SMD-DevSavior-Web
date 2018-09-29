@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FindResumesComponent } from './components/find-resumes/find-resumes.component';
 import { JobListComponent } from "./components/job-list/job-list.component";
 import { CandidateListComponent } from "./components/candidate-list/candidate-list.component";
+import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 
 export const CompanyRoutes = [
     {
@@ -16,5 +17,6 @@ export const CompanyRoutes = [
             { path: 'jobs', component: JobListComponent},
             { path: 'candidates', component: CandidateListComponent}
         ]
-    }
+    },
+    { path : 'detail-candidate', component: DetailCandidateComponent}
 ];

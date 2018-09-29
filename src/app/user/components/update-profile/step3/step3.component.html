@@ -11,7 +11,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Kỹ năng
-        <button class="btn btn-link pull-right" (click)="lgModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kỹ năng</button>
+        <button class="btn btn-link pull-right" (click)="keySkillsModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kỹ năng</button>
       </h4>
     </div>
     <div class="row">
@@ -24,7 +24,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Ngoại ngữ
-        <button class="btn btn-link pull-right" (click)="lgModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm ngoại ngữ</button>
+        <button class="btn btn-link pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm ngoại ngữ</button>
       </h4>
     </div>
     <div class="row">
@@ -33,6 +33,62 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal Add Key Skills -->
+  <div bsModal #keySkillsModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm kỹ năng</h4>
+          <button type="button" class="close pull-right" (click)="keySkillsModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="update-form">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="position-relative">
+                  <div id="tags-edit">
+                    <span class="tag-xs" title="Javascript">
+                      <span class="tag-name">Javascript</span>
+                      <a class="ic-close" href="#"><i class="fa fa-fw fa-remove"></i></a>
+                      <input class="input-tag-name" type="hidden" name="skills[]" value="99" data-tag-name="Javascript">
+                    </span>
+                    <span class="tag-xs" title="HTML/CSS">
+                      <span class="tag-name">HTML/CSS</span>
+                      <a class="ic-close" href="#"><i class="fa fa-fw fa-remove"></i></a>
+                      <input class="input-tag-name" type="hidden" name="skills[]" value="7913" data-tag-name="HTML/CSS">
+                    </span>
+                  </div>
+                  <div hidden="" id="key-skill-limit-error" style=""><em class="text-orange">You have reached the maximum number of skills. Please delete one to add another.</em></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="text" id="school" class="form-control" placeholder="Hãy điền thông tin về lĩnh vực chuyên môn của bạn.">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <hr>
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Add Employment History -->
 </div>
 <!-- Footer Section -->
 <app-footer></app-footer>
