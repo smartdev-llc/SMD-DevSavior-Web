@@ -7,6 +7,6 @@ import {HttpClient} from '@angular/common/http';
 export class PostJobCompanyService extends DataService{
 
   constructor(http: HttpClient) {
-    super('/job', http);
+    super('/jobs', http);
   }
 }

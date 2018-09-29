@@ -44,11 +44,20 @@
               <label>Skill</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <select  formControlName="skill" class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
+              <!--<select  formControlName="skill" class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
                 <option *ngFor="let skill of skills" [value]="skill.name" >{{skill.name}}</option>
-              </select>
+              </select>-->
 
-
+              <ng-select
+                [items]="recievedSkill | async"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                [searchable]="false"
+                bindLabel="name"
+                placeholder="Select people"
+                #ngSelectObj
+                (change)="changeSelect(ngSelectObj)">
+              </ng-select>
             </div>
           </div>
 

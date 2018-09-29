@@ -3,7 +3,7 @@ import {CategoryCompanyService} from '../../../core/services/category/CategoryCo
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostJobCompanyService} from '../../../core/services/post-job/PostJobCompanyService';
 import {SkillService} from '../../../core/services/skill/SkillService';
-import {combineLatest} from 'rxjs';
+import {combineLatest, Observable} from 'rxjs';
 
 @Component({
   selector: 'post-job',
@@ -16,6 +16,8 @@ export class PostJobComponent implements OnInit {
   postJobForm: FormGroup;
   submitted: boolean;
 
+  recievedSkill: Observable<any[]>;
+
   constructor(private categoryService: CategoryCompanyService,
               private jobService: PostJobCompanyService,
               private skillService: SkillService,
@@ -25,23 +27,20 @@ export class PostJobComponent implements OnInit {
   ngOnInit() {
 
     combineLatest([
-      this.categoryService.getAll(),
-      this.skillService.getAll()
+      this.categoryService.getAll()
     ]).subscribe( response => {
 
       this.categories = response[0] as Category[];
-      this.skills = response[1] as Skill [];
-
       console.log('list category', response[0]);
-      console.log('list skill', response[1]);
     });
+
+    this.recievedSkill = this.skillService.getAll() as Observable<Skill[]>;
 
     // Initialize Form Group
     this.postJobForm = this.formBuilder.group({
       'title': ['', [Validators.required]],
       'description': ['', [Validators.required]],
       'categoryId': ['', [Validators.required]],
-      'skill': [''],
     });
 
   }
@@ -66,14 +65,34 @@ export class PostJobComponent implements OnInit {
 
     if( this.postJobForm.invalid){
       this.submitted = true;
-      console.log('Failed: form submision', this.postJobForm);
+
+      this.postJobForm.value['skillsIds'] = this.skills;
+      console.log('Failed: form submision', this.postJobForm.value);
     }else {
+      this.postJobForm['skillsIds'] = this.skills;
+      console.log('Success: form submision', this.postJobForm.value);
+
+
       this.jobService.createData(this.postJobForm.value).subscribe( data => {
         console.log('data', data);
       });
-      console.log('Success: form submision', this.postJobForm.value);
+
+
     }
 
+  }
+
+  changeSelect (ngSelectObj){
+    this.skills = this.getListSkillObject(ngSelectObj.itemsList.selectedItems);
+  }
+
+  getListSkillObject(listOptionSelected): Skill[] {
+    let tempSkills = [];
+    listOptionSelected.forEach((element, index) => {
+      tempSkills.push(element.value.id);
+    });
+
+    return tempSkills;
   }
 
 }

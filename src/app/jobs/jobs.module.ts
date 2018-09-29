@@ -9,13 +9,15 @@ import {BrowseJobsComponent} from './components/list-browse-jobs/browse-jobs.com
 import {BrowseJobsAlternativeComponent} from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
 import {JobDetailComponent} from './components/job-detail/job-detail.component';
 import {PostJobComponent} from './components/post-job/post-job.component';
+import {NgSelectModule} from '@ng-select/ng-select';
+
 // Breadcrumb components
 // Routes
 import {JobsRoutes as routes} from './jobs.routes';
 import {ContactUsComponent} from './components/contact-us/contact-us.component';
 import {CategoryCompanyService} from '../core/services/category/CategoryCompanyService';
 import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SkillService} from '../core/services/skill/SkillService';
 
 @NgModule({
@@ -38,9 +40,11 @@ import {SkillService} from '../core/services/skill/SkillService';
     LayoutModule,
     SharedModule,
     HomeModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ],
-  providers:[
+  providers: [
     CategoryCompanyService,
     PostJobCompanyService,
     SkillService
