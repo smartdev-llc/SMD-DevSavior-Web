@@ -29,7 +29,18 @@
   }
 }
 
-.fa-file-text-o {
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
+  background-color: #0d994e;
+  color: #fff
+}
+
+.fa-file-text-o,
+.fa-file,
+.fa-search,
+.fa-user-secret,
+.fa-user-times {
   margin-right: 8px;
   font-size: 15px;
 }
@@ -93,7 +104,7 @@
     font-size: 15px;
     border: 2px solid #fff;
     border-radius: 26px;
-    &:hover{
+    &:hover {
       background-color: #0d994e
     }
   }
@@ -122,6 +133,12 @@
   right: 10px;
 }
 
+.open>.candidate-menu {
+  display: block;
+  left: -43px;
+  right: -38px;
+}
+
 span.label.job-type.partytime.profile-head.fa {
   font-size: 18px;
 }
@@ -142,14 +159,14 @@ button.navbar-toggle.flag-mobile {
   }
 }
 
-@media (min-width: 1201px) and (max-width: 1359px){
+@media (min-width: 1201px) and (max-width: 1359px) {
   .post_job span {
     margin-top: 2px;
   }
-  .user-profile span{
+  .user-profile span {
     margin-top: 10px;
   }
-  .flag-img{
+  .flag-img {
     margin-top: 20px
   }
 }
