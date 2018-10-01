@@ -11,6 +11,7 @@
 
 h1 {
     font-size: 30px;
+    font-weight: 300;
 }
 
 .m-b-lg {
@@ -53,18 +54,4 @@ h1 {
     background-color: #12cd6a;
     border-color: #12cd6a;
     color: #FFF;
-    width: 100%;
-}
-
-.remember_me {
-    width: 14px;
-}
-
-h1 {
-    font-size: 30px;
-    font-weight: 300;
-}
-
-.checkbox-inline {
-    padding-left: 0px;
 }
