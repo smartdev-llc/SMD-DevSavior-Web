@@ -16,6 +16,10 @@
     "services_product" : "Sản phẩm và dịch vụ",
     "candidate" : "Ứng viên",
     "post_job" : "Đăng tuyển dụng",
-    "find_candidate" : "Tìm ứng viên"
+    "find_candidate" : "Tìm ứng viên",
+    "byJob" : "Theo việc làm",
+    "byResume" : "Theo tìm kiếm hồ sơ",
+    "blacklist" : "Danh sách đen",
+    "cv_deleted": "Hồ sơ đã xóa"
   }
 }
