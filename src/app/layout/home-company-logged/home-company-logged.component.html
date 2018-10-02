@@ -76,8 +76,8 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-                        <button type="button" class="navbar-toggle flag-mobile">
-              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+            <button type="button" class="navbar-toggle flag-mobile">
+              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
               <!-- if language is US -->
               <img *ngIf="!isEnLang" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
             </button>
@@ -91,23 +91,53 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a routerLink="/employer/candidates">
-                                    <i class="fa fa-users"></i> {{ 'header.candidate' | translate }}
-                                </a>
-                            </li>
+              <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-users"></i>
+                  {{ 'header.candidate' | translate }}
+                  <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu candidate-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-file"></i>
+                      {{ 'header.byJob' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-search"></i>
+                      {{ 'header.byResume' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user-secret"></i>
+                      {{ 'header.blacklist' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user-times"></i>
+                      {{ 'header.cv_deleted' | translate }}
+                    </a>
+                  </li>
+                </ul>
+              </li>
 
-                            <li class="post-job-mobile">
-                                <a routerLink="/">
-                                    <i class="fa fa-plus-circle"></i> {{ 'header.post_job' | translate }}
-                                </a>
-                            </li>
+              <li class="post-job-mobile">
+                <a routerLink="/">
+                  <i class="fa fa-plus-circle"></i>
+                  {{ 'header.post_job' | translate }}
+                </a>
+              </li>
 
-                            <li class="find-candidate-mobile">
-                                <a routerLink="/">
-                                    <i class="fa fa-search"></i> {{ 'header.find_candidate' | translate }}
-                                </a>
-                            </li>
+              <li class="find-candidate-mobile">
+                <a routerLink="/">
+                  <i class="fa fa-search"></i>
+                  {{ 'header.find_candidate' | translate }}
+                </a>
+              </li>
 
                             <a routerLink="/post-job" class="post_job">
                                 <span class="label job-type partytime">

@@ -16,6 +16,10 @@
     "services_product": "Product & Services",
     "candidate" : "Candidate",
     "post_job" : "Post a job",
-    "find_candidate" : "Search candidates for job"
+    "find_candidate" : "Search candidates for job",
+    "byJob" : "By Jobs",
+    "byResume" : "By Resumes Search",
+    "blacklist" : "Blacklist",
+    "cv_deleted": "Deleted"
   }
 }

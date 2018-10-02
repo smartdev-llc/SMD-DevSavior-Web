@@ -128,8 +128,8 @@
 
 .open>.dropdown-menu {
   display: block;
-  right: -10px;
-  left: 200px;
+  right: 0;
+  left: 0;
 }
 
 span.label.job-type.partytime.profile-head.fa {
@@ -168,7 +168,7 @@ button.navbar-toggle.flag-mobile {
     width: 100%;
     text-align: center
   }
-  .nav>li {
+  .nav>li, .nav>li>ul>li {
     border-bottom: 1px solid #d6d6d6
   }
   .nav>li:last-child {

@@ -17,236 +17,255 @@
 
 <!--Contact-us-->
 <div class="container-fluid  contact_us">
-  <form name="contact_us" id="form-style-2">
+  <form  [formGroup]="postJobForm" name="contact_us" id="form-style-2" (ngSubmit)="submitPostJobForm()">
     <div class="row user-information">
       <div class="container main-container-home">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <!--Job Title-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <label>Job Title</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="name">
+              <input formControlName="title" type="text" name="location" placeholder="">
             </div>
+            <!--Validation-->
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
+                  *ngIf="(title.touched && title.invalid) || submitted">
+              <!--<span *ngIf="title.errors?.required">hehe</span>-->
+              <span  *ngIf="title.getError('required')">Field is Required</span>
+            </span>
           </div>
+
+          <!--Skills-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Location (optional)</label>
+              <label>Skill</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="location" placeholder="eg. London">
+              <!--<select  formControlName="skill" class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
+                <option *ngFor="let skill of skills" [value]="skill.name" >{{skill.name}}</option>
+              </select>-->
+
+              <ng-select
+                [items]="recievedSkill | async"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                [searchable]="false"
+                bindLabel="name"
+                placeholder="Select people"
+                #ngSelectObj
+                (change)="changeSelect(ngSelectObj)">
+              </ng-select>
             </div>
           </div>
+
+          <!--Job Category-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job type</label>
+              <label class="default">
+                Job Category
+              </label>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="Free Time">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job category</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <div class="select2-container select2-container-multi form-control" id="s2id_tagPicker">
-                <ul class="select2-choices">
-                  <li class="select2-search-field"><label for="s2id_autogen1" class="select2-offscreen"></label> <input
-                    type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    class="select2-input" id="s2id_autogen1" placeholder="" style="width: 20px;"></li>
-                </ul>
-                <div class="select2-drop select2-drop-multi select2-display-none">
-                  <ul class="select2-results">
-                    <li class="select2-no-results">No matches found</li>
-                  </ul>
-                </div>
-              </div>
-              <select class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
-                <option value="1">Graphic Designer</option>
-                <option value="2">Email marketing</option>
-                <option value="3">Webdesigner</option>
-                <option value="4">Animations</option>
-                <option value="5">Display Adversting</option>
-                <option value="6">Web develioper</option>
-                <option value="7">Programmer</option>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <select formControlName="categoryId" class="form-control" >
+                <option value="" disabled="true" checked="true">Please Select Category</option>
+                <option
+                  *ngFor="let category of categories"
+                  [value]="category.id"
+                >{{ category.name}}</option>
               </select>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
+                  *ngIf="(categoryId.touched && categoryId.invalid) || submitted">
+              <span *ngIf="categoryId.getError('required')">Field is Required</span>
+            </span>
+
           </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job tags (optional)</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-tag" placeholder="eg. php, developer">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Your email</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="email" name="job-tag" placeholder="your@email">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- User Data Row-->
-    <div class="row user-info">
-      <div class="container main-container-home">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="form-group submit">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Your email</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <span>Write about your company, job description, skills required, benefits, etc.</span>
-            </div>
-          </div>
+
+          <!--Description-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <label>Description</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea formControlName="description" name="" cols="30" rows="10" placeholder=""></textarea>
+              <i class="note-hint">(Maximum is 14500 character)</i>
+            </div>
 
-              <textarea class="textarea"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Application email/URL</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="application-email">
-            </div>
-          </div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Maximum rate/h ($) <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="application-email">
-            </div>
-          </div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">External "Apply for Job" link<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="apply-for-job">
-            </div>
-          </div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Post image <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile">
+            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input" *ngIf="(description.touched && description.invalid) || submitted">
+              <span *ngIf="description.getError('required')">Field is Required</span>
+            </span>
 
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 850 px 350 px</i>
+          </div>
+
+          <!--Major-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="default">Major
+                <br>
+                <span>(Maximum is 3)</span>
+              </label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="text" name="job-type" placeholder="">
+            </div>
+          </div>
+
+          <!--Work Place-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Work Place</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="text" name="job-type" placeholder="">
+            </div>
+          </div>
+
+          <!--Salary-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="default">
+                Salary
+                <br>
+                <span>(USD)</span>
+              </label>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <select class="form-control" >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 label-switch-text">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              Option
+
+            </div>
+          </div>
+
+
+          <!--Job Required-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Job Require</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea name="" cols="30" rows="10" placeholder=""></textarea>
+              <i class="note-hint">(Maximum is 14500 character)</i>
+            </div>
+          </div>
+
+
+          <!--Tag-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="default">Tag
+                <br>
+                <span>(Maximum 3 tag)</span>
+              </label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="text" name="job-tag" placeholder="">
+            </div>
+          </div>
+
+          <!--Yêu cầu giới thiệu-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label >Yêu cầu giới thiệu?</label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="1" value="Bắt buộc">
+              <label class="label-radio radio-inline" for="1">
+                Option
+              </label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="2" value="Hiển Thị nhưng không bắt buộc">
+              <label class="label-radio radio-inline" for="2">
+                Option
+              </label>
+            </div>
+            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
+              <input class="magic-radio" type="radio" name="radio" id="3" value="Bắt buộc">
+              <label class="label-radio radio-inline" for="3">
+                Option
+              </label>
+            </div>
+
+          </div>
+
+          <!--CV
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Nhận Hồ Sơ bằng ngôn ngữ</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input type="text" name="job-type" placeholder="Bất kỳ">
+            </div>
+          </div>
+
+          <!--Contact-->
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Contact</label>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+              <input type="text" name="job-type" placeholder="HR Dept">
+            </div>
+
+
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 label-switch-text">
+              <div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                Option
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- Company Details-->
-    <div class="row company-details">
-      <div class="container main-container-home">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="form-group">
-            <label class="heading">Company Details</label>
-          </div>
+
+          <!--Email-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Company nameL</label>
+              <label>Company</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="Company-name">
+              <input type="text" name="job-type" placeholder="yourEmail@example.com">
             </div>
           </div>
+
+          <!--Submit-->
           <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Website <br><span>(optional)</span></label>
+            <div class="col-lg10 col-md10 col-sm10 col-xs-10">
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="website">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Recruter name <br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="Recruter-name">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 zero-padding-left">
-              <label class="default">The position of recruiter<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="position-of-recruiter">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Recruiter avatar (optional)<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile">
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 250 px 250px</i>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Facebook</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="facebook">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">Twitter</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="twitter">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="">LinkedIn</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="LinkedIn">
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type image_uplaod ">
-            <label class=""><img id="blah" src="#" alt="your image"><a href="#" id="removeimg">[remove ]</a></label>
-          </div>
-          <div class="clearfix"></div>
-          <div class="form-group file-type ">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Logo<br><span>(optional)</span></label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="file" name="post-image" class="inputfile" onchange="readURL(this);">
-              <div class="upload">
-                <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse image</div>
-                <i>Size should be 20 MB</i>
-              </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+              <button class="btn btn-primary">Submit</button>
             </div>
           </div>
 

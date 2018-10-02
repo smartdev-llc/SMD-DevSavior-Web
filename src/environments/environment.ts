@@ -8,7 +8,7 @@ import { DEFAULT_CONFIG } from '../config/default';
 export const environment = {
   production: false,
   appUrl: 'http://localhost:4200',
-  apiEndpoint: 'https://juniorviec.com:1337',
+  apiEndpoint: 'https://juniorviec.com/api/v1',
   appName: DEFAULT_CONFIG.appName,
   config: DEFAULT_CONFIG
 };

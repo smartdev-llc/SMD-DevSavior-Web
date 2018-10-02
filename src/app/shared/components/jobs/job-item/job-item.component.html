@@ -1,33 +1,33 @@
-<a routerLink="/jobs/:id">
-  <article>
-    <div class="brows-job-list">
-      <div class="col-md-1 col-sm-2 small-padding">
-        <div class="brows-job-company-img">
-          <img src="../../../../../assets/images/company-logo.png" class="img-responsive" alt="">
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-5">
-        <div class="brows-job-position">
-          <h3>Digital Marketing Manager</h3>
-          <p>
-            <span>Autodesk</span>
-            <span class="brows-job-sallery">
-              <i class="fa fa-money"></i>$750 - 800</span>
-            <span class="job-type cl-success bg-trans-success">Full Time</span>
-          </p>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-3">
-        <div class="brows-job-location">
-          <p>
-            <i class="fa fa-map-marker"></i>QBL Park, C40</p>
-        </div>
-      </div>
-      <div class="col-md-2 col-sm-2">
-        <div class="brows-job-link">
-          <span class="label job-type job-premium ">Premium</span>
-        </div>
+<!-- <a routerLink="/jobs/:id"> -->
+<article>
+  <div class="brows-job-list">
+    <div class="col-md-1 col-sm-2 small-padding" >
+      <div class="brows-job-company-img">
+        <img src="../../../../../assets/images/company-logo.png" class="img-responsive" alt="">
       </div>
     </div>
-  </article>
-</a>
+    <div class="col-md-6 col-sm-5">
+      <div class="brows-job-position">
+        <h3>{{job.title}}</h3>
+        <p>
+          <span>Autodesk</span>
+          <span class="brows-job-sallery">
+            <i class="fa fa-money"></i>$750 - 800</span>
+          <span class="job-type cl-success bg-trans-success">Full Time</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <div class="brows-job-location">
+        <p>
+          <i class="fa fa-map-marker"></i>{{job.company.address}}</p>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-2">
+      <div class="brows-job-link">
+        <span class="label job-type job-premium ">Premium</span>
+      </div>
+    </div>
+  </div>
+</article>
+<!-- </a> -->
