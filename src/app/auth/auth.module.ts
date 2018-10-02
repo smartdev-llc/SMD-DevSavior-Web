@@ -13,6 +13,7 @@ import { MatchingPasswordDirective } from './validators/matching-password.direct
 import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 import { AuthRoutes as routes } from './auth.routes';
+import { PolicyComponent } from './components/policy/policy.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AuthRoutes as routes } from './auth.routes';
     StLostPasswordComponent,
     MatchingPasswordDirective,
     StResetPasswordComponent,
-    StVerifyAccountComponent
+    StVerifyAccountComponent,
+    PolicyComponent
   ]
 })
 export class AuthModule { }

@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { CanActivateViaAuthGuard } from './core/guards/auth.guard';
-import { PolicyComponent } from './policy/policy.component';
+
 
 
 export const routes: Routes = [
@@ -28,8 +28,5 @@ export const routes: Routes = [
     path: '',
     loadChildren: './user/user.module#UserModule'
   },
-  {
-    path:'privacy-policy',
-    component:PolicyComponent
-  }
+ 
 ];

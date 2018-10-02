@@ -21,12 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsModule } from './jobs/jobs.module';
 import { CompaniesModule } from './companies/companies.module';
 import { CompanyModule } from './company/company.module';
-import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PolicyComponent
   ],
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
@@ -57,7 +55,8 @@ import { PolicyComponent } from './policy/policy.component';
     FormsModule,
     HttpClientModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
