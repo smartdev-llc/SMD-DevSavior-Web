@@ -14,7 +14,7 @@
               <img src="assets/images/logo2.png" alt="Photo" />
             </a>
           </div>
-          <div class="logins">
+          <div class="logins" *ngIf="!isLoggedIn()">
             <a class="flag">
               <span class="label job-type partytime cancel">
                 <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
@@ -35,39 +35,44 @@
                 <p class="title">{{ 'header.recruit' | translate }}</p>
               </span>
             </a>
-            <!-- logged -->
-            <div *ngIf="isLoggedIn()">
-              <a routerLink="/post-job" class="post_job">
-                <span class="label job-type partytime">POST A JOB, IT’S FREE!</span>
-              </a>
-              <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span class="label job-type partytime profile-head">
-                <i class="fa fa-user"></i>
-                <span>{{user.displayName}}</span>
-                <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+          </div>
+
+          <!-- logged -->
+          <div class="logins" *ngIf="isLoggedIn()">
+            <a class="flag">
+              <span class="label job-type partytime cancel">
+                <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
+                <!-- if language is US -->
+                <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">My Profile</a>
-                </li>
-                <li>
-                  <a href="#">My Works</a>
-                </li>
-                <li>
-                  <a href="#">Job Announcement</a>
-                </li>
-                <li>
-                  <a href="#">Companies seen</a>
-                </li>
-                <li>
-                  <a href="#">My Account</a>
-                </li>
-                <li>
-                  <a role="button" (click)="logout()">Logout</a>
-                </li>
-              </ul>
-            </div>
+            </a>
+            <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="label job-type partytime profile-head">
+              <i class="fa fa-user"></i>
+              <span>{{ user.displayName }}</span>
+              <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+            </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a routerLink="/my-career-center">My Profile</a>
+              </li>
+              <li>
+                <a href="#">My Works</a>
+              </li>
+              <li>
+                <a href="#">Job Announcement</a>
+              </li>
+              <li>
+                <a href="#">Companies seen</a>
+              </li>
+              <li>
+                <a href="#">My Account</a>
+              </li>
+              <li>
+                <a role="button" (click)="logout()">Logout</a>
+              </li>
+            </ul>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -86,7 +91,7 @@
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" *ngIf="!isLoggedIn()">
               <li>
                 <a routerLink="/">{{ 'header.jobs' | translate }}</a>
               </li>
@@ -103,15 +108,15 @@
               <li class="mobile-menu">
                 <a routerLink="/employer/home">{{ 'header.employer' | translate }}</a>
               </li>
-              <!-- logged -->
-              <!-- <li class="mobile-menu">
-                <a routerLink="/">{{ 'header.postAJobs' | translate }}</a>
-              </li>
-              <li class="dropdown mobile-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tuan Quang Vo</a>
+            </ul>
+
+            <!-- logged -->
+            <ul class="nav navbar-nav" *ngIf="isLoggedIn()">
+              <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.displayName }}</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="#">My Profile</a>
+                    <a routerLink="/my-career-center">My Profile</a>
                   </li>
                   <li>
                     <a href="#">My Works</a>
@@ -126,10 +131,10 @@
                     <a href="#">My Account</a>
                   </li>
                   <li>
-                    <a href="#">Logout</a>
+                    <a role="button" (click)="logout()">Logout</a>
                   </li>
                 </ul>
-              </li> -->
+              </li>
             </ul>
           </div>
           <!-- navbar-collapse -->
