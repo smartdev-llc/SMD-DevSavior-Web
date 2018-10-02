@@ -1,0 +1,19 @@
+.main-policy{
+    font-size: 14px;
+    background: #fff;
+    padding: 50px;
+}
+.main-policy h1{
+    color: #f7941d;
+    text-transform: capitalize;
+    font-size: 30px;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 300;
+}
+.main-policy h2{
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
