@@ -5,6 +5,8 @@ import { FindResumesComponent } from './components/find-resumes/find-resumes.com
 import { JobListComponent } from "./components/job-list/job-list.component";
 import { CandidateListComponent } from "./components/candidate-list/candidate-list.component";
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
+import { CpRegisterComponent } from './components/cp-register/cp-register.component';
+
 
 export const CompanyRoutes = [
     {
@@ -15,7 +17,9 @@ export const CompanyRoutes = [
             { path: 'home', component: HomeComponent },
             { path: 'find-resumes', component: FindResumesComponent },
             { path: 'jobs', component: JobListComponent},
-            { path: 'candidates', component: CandidateListComponent}
+            { path: 'candidates', component: CandidateListComponent},
+            { path: 'register', component: CpRegisterComponent},
+
         ]
     },
     { path : 'detail-candidate', component: DetailCandidateComponent}
