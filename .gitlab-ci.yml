@@ -25,18 +25,12 @@ build:
     - master
 
 deploy:
-    
-    before_script:
-            - mkdir -p ~/.ssh
-            - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
-            - chmod 600 ~/.ssh/id_rsa
-            - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-        
-        script:
-            
-                                    
-        environment:
-            name: production
-            
-        only:
-            - master
+  stage: staging
+  script:
+    - ssh root@164.132.226.137 "cd /srv/www/staging.example.com &&
+        git checkout master &&
+        git fetch &&
+        "
+  environment: staging
+  only:
+    - master
