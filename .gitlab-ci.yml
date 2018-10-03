@@ -25,8 +25,10 @@ build:
     - master
 
 deploy:
- 
-  before_script:
+    stage: deploy
+        image: tetraweb/php:7.0       
+                        
+    before_script:
             - mkdir -p ~/.ssh
             - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
             - chmod 600 ~/.ssh/id_rsa
@@ -34,14 +36,7 @@ deploy:
         
         script:
             - ssh user@server-name.com "
-                cd /var/www/ &&
-                php artisan down &&
-                git checkout . &&
-                git checkout master &&
-                git pull &&
-                composer install &&
-                php artisan migrate &&
-                php artisan up
+                pwd
             "
                                     
         environment:
@@ -49,3 +44,4 @@ deploy:
             
         only:
             - master
+`
