@@ -33,9 +33,7 @@ deploy:
             - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
         
         script:
-            - ssh user@server-name.com "
-                pwd
-            "
+            
                                     
         environment:
             name: production
