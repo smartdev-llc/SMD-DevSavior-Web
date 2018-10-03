@@ -26,8 +26,6 @@ build:
 
 deploy:
     stage: deploy
-        image: tetraweb/php:7.0       
-                        
     before_script:
             - mkdir -p ~/.ssh
             - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
