@@ -4,16 +4,6 @@ cache:
   paths:
     - node_modules/
 
-before_script:
- - mkdir -p ~/.ssh
- - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
- - chmod 600 ~/.ssh/id_rsa
- - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
- script:
-    - ssh root@164.132.226.137 "
-      pwd
-    "
-
 stages:
   - setup
   - build
@@ -37,5 +27,26 @@ build:
 deploy:
   stage: deploy
   
-  only:
-    - master
+  before_script:
+            - mkdir -p ~/.ssh
+            - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
+            - chmod 600 ~/.ssh/id_rsa
+            - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        
+        script:
+            - ssh user@server-name.com "
+                cd /var/www/ &&
+                php artisan down &&
+                git checkout . &&
+                git checkout master &&
+                git pull &&
+                composer install &&
+                php artisan migrate &&
+                php artisan up
+            "
+                                    
+        environment:
+            name: production
+            
+        only:
+            - master
