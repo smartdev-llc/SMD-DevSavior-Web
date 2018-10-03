@@ -42,4 +42,3 @@ deploy:
             
         only:
             - master
-`
