@@ -1,31 +1,32 @@
-image: juristr/angular-ci-build:1.0.0
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
 stages:
+  - setup
   - build
-  - test
   - deploy
-  
-before_script:
-  - npm install
-  - npm --prefix ./functions install
-  
-app-build:
+
+setup:
+  stage: setup
+  script:
+    - npm install
+  only:
+    - master
+
+build:
   stage: build
-  artifacts:
-    paths:
-      - dist/
   script:
-    - ng build
+    - npm install -g @angular/cli
+    - ./node_modules/.bin/ng build -prod
+  only:
+    - master
 
-unit-tests:
-  stage: test
-  script:
-    - ng test
-
-deploy-production:
+deploy:
   stage: deploy
-  dependencies:
-    - app-build
   script:
-    - npm run deploy
+    - npm install -g @angular/cli
   only:
     - master
