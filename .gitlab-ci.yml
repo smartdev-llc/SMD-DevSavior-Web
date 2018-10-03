@@ -4,6 +4,9 @@ cache:
   paths:
     - node_modules/
 
+before_script:
+ - apt-get update -qq && apt-get install -y -qq sshpass
+
 stages:
   - setup
   - build
@@ -27,6 +30,15 @@ build:
 deploy:
   stage: deploy
   script:
-    - npm install -g @angular/cli
+    - rm ./package-lock.json
+    - npm install
+    - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
+    - ./node_modules/@angular/cli/bin/ng e2e --progress false --watch=false
+    - ./node_modules/@angular/cli/bin/ng build --progress false --prod 
+    - cd dist/
+    - ls
+    - sshpass -V
+    - export SSHPASS=$USER_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r . root@164.132.226.137:/var/www/juniorviec-web
   only:
     - master
