@@ -12,8 +12,6 @@ deploy:
   stage: deploy
   script:
     - ssh root@164.132.226.137 "cd juniorviec/juniorviec-web/ &&
-        git checkout master &&
-        git fetch &&
         pwd
         "
   environment: staging
