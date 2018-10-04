@@ -20,7 +20,8 @@ deploy:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web ; git pull;"
+    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web ; git pull;npm i"
+    - +"pm2 delete juniorviec-web"
   environment: staging
   only:
     - master
