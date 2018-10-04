@@ -15,8 +15,9 @@
     }
   }
 }
+
 .carousel-inner {
-  height: 750px;
+  min-height: 900px;
 }
 
 .carousel-inner>.item>img,
@@ -48,47 +49,18 @@
   border: 1px solid #7CE2B4
 }
 
-@media (max-width: 1200px) {
-  .carousel-inner {
-    height: 870px;
-  }
-}
-
 @media (max-width: 991px) {
   .jobs-result {
     margin-top: 20px;
   }
-  .carousel-inner {
-    height: 949px;
-  }
 }
 
 @media (max-width: 767px) {
-  .carousel-inner {
-    height: 1600px;
-  }
-}
 
-@media (max-width: 580px) {
-  .carousel-inner {
-    height: 1930px;
-  }
 }
 
 @media (max-width: 480px) {
   .jobs-result {
     text-align: center;
-  }
-  .carousel-inner {
-    height: 2110px;
-  }
-}
-
-@media (max-width: 320px) {
-  .jobs-result {
-    text-align: center;
-  }
-  .carousel-inner {
-    height: 2270px;
   }
 }
