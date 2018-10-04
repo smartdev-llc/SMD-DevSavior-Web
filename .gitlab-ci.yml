@@ -22,6 +22,7 @@ deploy:
     - export SSHPASS=$USER_PASS 
     - sshpass -e scp -o stricthostkeychecking=no -r . root@164.132.226.137:/var/www/juniorviec-web
     - ls
+    - cd juniorviec-web
     - pm2 start pm2.json
   environment: staging
   only:
