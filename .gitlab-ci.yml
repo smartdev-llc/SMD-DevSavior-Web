@@ -21,7 +21,7 @@ deploy:
     - sshpass -V
     - export SSHPASS=$USER_PASS 
     - sshpass -e scp -o stricthostkeychecking=no -r . root@164.132.226.137:/var/www/juniorviec-web
-
+    - sshpass -e ls
   environment: staging
   only:
     - master
