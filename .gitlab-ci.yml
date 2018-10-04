@@ -5,24 +5,8 @@ cache:
     - node_modules/
 
 stages:
-  - setup
-  - build
   - deploy
 
-setup:
-  stage: setup
-  script:
-    - npm install
-  only:
-    - master
-
-build:
-  stage: build
-  script:
-    - npm install -g @angular/cli
-    - ./node_modules/.bin/ng build -prod
-  only:
-    - master
 
 deploy:
   stage: deploy
