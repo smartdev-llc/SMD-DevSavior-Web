@@ -24,7 +24,7 @@ import { CompanyModule } from './company/company.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
@@ -55,7 +55,8 @@ import { CompanyModule } from './company/company.module';
     FormsModule,
     HttpClientModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

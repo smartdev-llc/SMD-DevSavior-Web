@@ -12,6 +12,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
+import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DetailCandidateComponent } from './components/detail-candidate/detail-c
     FindResumesComponent,
     JobListComponent,
     CandidateListComponent,
-    DetailCandidateComponent
+    DetailCandidateComponent,
+    CpRegisterComponent
   ],
   bootstrap: [ HomeComponent ]
 })
