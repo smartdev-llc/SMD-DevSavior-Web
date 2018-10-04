@@ -20,8 +20,7 @@ deploy:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137
-    'cd /root/juniorviec/juniorviec-web'
+    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web"
   environment: staging
   only:
     - master
