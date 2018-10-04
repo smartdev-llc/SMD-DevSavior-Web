@@ -20,10 +20,10 @@ deploy:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r . root@164.132.226.137:/var/www/juniorviec-web
+    - sshpass -e  -o stricthostkeychecking=no  . root@164.132.226.137
     - ls
-    - cd juniorviec-web
-    - pm2 start pm2.json
+    - cd /root/juniorviec/juniorviec-web
+    - git pull
   environment: staging
   only:
     - master
