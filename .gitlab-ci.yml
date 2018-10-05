@@ -20,7 +20,7 @@ deploy:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web; git pull; npm i -g pm2; npm i; pm2 delete juniorviec-web; ng build --prod; pm2 start pm2.json;"
+    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web; git pull; npm i -g pm2; npm i; pm2 delete juniorviec-web; npm install -g angular-cli; ng build --prod; pm2 start pm2.json;"
    
   environment: staging
   only:
