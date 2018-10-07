@@ -30,6 +30,13 @@
 .nav>li a {
   padding: 13px;
 }
+.nav>li:hover a,
+.nav>li>a:focus,
+.nav>li>a:hover,
+.nav li.active a {
+  color: #12cd6a;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
 
 .navbar-nav {
   padding-top: 2px;

@@ -348,13 +348,7 @@ ul.dropdown-menu li a {
   border-bottom: 1px solid #e9e9e9;
 }
 
-.nav>li:hover a,
-.nav>li>a:focus,
-.nav>li>a:hover,
-.nav li.active a {
-  color: #12cd6a;
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-}
+
 
 ul.tiny_scrolling li a {
   text-transform: none;
