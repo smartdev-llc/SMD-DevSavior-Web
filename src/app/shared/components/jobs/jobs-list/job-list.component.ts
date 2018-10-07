@@ -8,7 +8,7 @@ import { AuthService } from '../../../../core/services/auth.service';
   providers: [AuthService]
 })
 export class JobListComponent implements OnInit {
-  jobsPerPage = 3;
+  jobsPerPage = 6;
   page: number;
   loading = true;
   jobs: any = [];

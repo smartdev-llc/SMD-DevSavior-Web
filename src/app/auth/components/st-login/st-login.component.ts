@@ -18,15 +18,18 @@ export class StLoginComponent implements OnInit, OnDestroy {
   isNotVerified = false;
   isLoading = false;
   isResendEmailSuccess = false;
+  returnUrl: string;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit() {
     this.initForm();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit () {
@@ -40,13 +43,12 @@ export class StLoginComponent implements OnInit, OnDestroy {
         .subscribe(user => {
           this.isLoading = false;
           this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigate(['/']);
+          this.router.navigateByUrl(this.returnUrl);
         }, error => {
           this.isLoading = false;
           if (error instanceof Forbidden) {
             console.log('forbidden', error);
             this.isNotVerified = true;
-
           } else {
             console.log('app error');
           }
@@ -64,7 +66,6 @@ export class StLoginComponent implements OnInit, OnDestroy {
   }
 
   initForm () {
-
     this.loginInForm = this.fb.group({
       'email': ['', Validators.email],
       'password': ['', Validators.required]
@@ -74,7 +75,6 @@ export class StLoginComponent implements OnInit, OnDestroy {
   private pushErrorFor(ctrl_name: string, msg: string) {
     this.loginInForm.controls[ctrl_name].setErrors({ 'msg': msg });
   }
-
 
   resendEmail( email: HTMLInputElement) {
     this.isLoading = true;
