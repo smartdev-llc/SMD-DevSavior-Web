@@ -22,6 +22,7 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angular-6-social-login";
+import {Unauthorized} from '../error/unauthorized';
 
 
 @Injectable()
@@ -56,11 +57,17 @@ export class AuthService {
    */
   login({ email, password }: Authenticate): Observable<User> {
     const params = { email, password, role: 'student' };
-    return this.http.post<User>('/auth/login', params);
-    // catch should be handled here with the http observable
-    // so that only the inner obs dies and not the effect Observable
-    // otherwise no further login requests will be fired
-    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
+    return this.http
+      .post<User>('/auth/login', params)
+      .pipe(
+        map(
+          (response: any) => {
+            console.log('[login()][response]', response.message);
+            return response;
+          }
+        ),
+        catchError(this.handleError)
+      );
   }
 
   register(data: any): Observable<User> {
@@ -194,6 +201,9 @@ export class AuthService {
     if (error.status === 500) {
       return throwError(new InternalServer(error.error.message));
     }
+    if (error.status === 401) {
+      return throwError(new Unauthorized(error.error.message));
+    }
     return throwError(new AppErrors(error.error.message));
   }
 
@@ -244,5 +254,4 @@ export class AuthService {
     .pipe(
       map((response: Response) => response),
     )}
-  
 }

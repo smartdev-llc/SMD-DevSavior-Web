@@ -6,6 +6,7 @@ import { Subscription, Observable } from 'rxjs';
 import {AppErrors} from '../../../core/error/app-errors';
 import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
+import {Unauthorized} from '../../../core/error/unauthorized';
 
 @Component({
   selector: 'login',
@@ -18,6 +19,8 @@ export class StLoginComponent implements OnInit, OnDestroy {
   isNotVerified = false;
   isLoading = false;
   isResendEmailSuccess = false;
+  isSubmited = false;
+  formErrorMessage: string;
   returnUrl: string;
 
   constructor(
@@ -32,48 +35,44 @@ export class StLoginComponent implements OnInit, OnDestroy {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  get email() {
+    return this.loginInForm.get('email');
+  }
+
+  get password() {
+    return this.loginInForm.get('password');
+  }
+
   onSubmit () {
-    const values = this.loginInForm.value;
-    const keys = Object.keys(values);
+    let values = this.loginInForm.value;
 
-    if (this.loginInForm.valid) {
-      this.isLoading = true;
-      this.isResendEmailSuccess = false;
-      this.loginSubs = this.authService.login(values)
-        .subscribe(user => {
-          this.isLoading = false;
-          this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigateByUrl(this.returnUrl);
-        }, error => {
-          this.isLoading = false;
-          if (error instanceof Forbidden) {
-            console.log('forbidden', error);
-            this.isNotVerified = true;
-          } else {
-            console.log('app error');
-          }
-        })
+    this.isSubmited = true;
+    this.formErrorMessage = '';
+    this.isResendEmailSuccess = false;
+
+    if (this.loginInForm.invalid) {
+      console.log('error', this.loginInForm);
+
     } else {
-      keys.forEach(val => {
-        const ctrl = this.loginInForm.controls[val];
-        if (!ctrl.valid) {
-          this.pushErrorFor(val, null);
-          ctrl.markAsTouched();
-        }
-      });
+      this.isLoading = true;
+      this.authService
+        .login(values)
+        .subscribe(user => {
+            this.isLoading = false;
+            this.authService.setTokenInLocalStorage(user, false);
+            this.router.navigateByUrl(this.returnUrl);
+          },
+          (error: AppErrors) => {
+            this.handleErrorLoginComponent(error);
+          });
     }
-
   }
 
   initForm () {
     this.loginInForm = this.fb.group({
-      'email': ['', Validators.email],
+      'email': ['',[Validators.email, Validators.required]],
       'password': ['', Validators.required]
     });
-  }
-
-  private pushErrorFor(ctrl_name: string, msg: string) {
-    this.loginInForm.controls[ctrl_name].setErrors({ 'msg': msg });
   }
 
   resendEmail( email: HTMLInputElement) {
@@ -89,14 +88,7 @@ export class StLoginComponent implements OnInit, OnDestroy {
             this.isResendEmailSuccess = true;
           }
         },
-        (error: AppErrors) => {
-          this.isLoading = false;
-          if (error instanceof InternalServer ) {
-            console.log('interanale server', error);
-
-          } else {
-            console.log('app error');
-          }}
+        this.handleErrorLoginComponent
       );
   }
 
@@ -108,6 +100,27 @@ export class StLoginComponent implements OnInit, OnDestroy {
     this.authService.socialLogin(provider)
       .then(_ => {
         this.router.navigate(['/']);
-      })
+      });
   }
+
+  handleErrorLoginComponent(error: AppErrors) {
+    this.isLoading = false;
+
+    if (error instanceof InternalServer) {
+      console.log('Internal server', error);
+    }
+    else if (error instanceof Unauthorized) {
+      console.log('Unauthorized ', error.originalError);
+      this.formErrorMessage = error.originalError;
+    }
+    else if (error instanceof Forbidden) {
+      console.log('Forbidden ', error.originalError);
+      this.isNotVerified = true;
+    }
+    else {
+      console.log('app error', error);
+      throw error;
+    }
+  }
+
 }
