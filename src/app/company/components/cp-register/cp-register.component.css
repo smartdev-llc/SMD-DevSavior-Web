@@ -55,3 +55,28 @@ h1 {
     border-color: #12cd6a;
     color: #FFF;
 }
+
+.form-group input {
+    padding: 7px 16px;
+}
+
+.form-group select {
+    outline: none !important;
+    width: 100%;
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #e1e1e1;
+    padding: 6px 16px;
+    font-size: 16px;
+    color: #333;
+    line-height: normal;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+.error-input {
+    font-size: 13px;
+    color: #dc3545 !important;
+    margin-top: 8px;
+}
