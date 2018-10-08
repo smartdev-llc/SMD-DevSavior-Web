@@ -44,3 +44,6 @@
 .btn-export { 
     margin-left: 15px;
 }
+.input-group {
+    z-index: 0;
+}
