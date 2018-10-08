@@ -81,6 +81,7 @@ export class CpRegisterComponent implements OnInit {
       name:['',[Validators.required,Validators.pattern(this.LETTER_ONLY_PATTERN)]],
       phoneNumber:['',[Validators.required]],
       website:['',[Validators.required]],
+      checkbox:['',[Validators.required]],
       role:[Role.Company],
     });
     this.loading = false ;

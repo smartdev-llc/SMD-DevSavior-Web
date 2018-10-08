@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         .subscribe(user => {
           this.isLoading = false;
           this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigate(['/']);
+          this.router.navigate(['/employer/home']);
         }, error => {
           this.isLoading = false;
           if (error instanceof Forbidden) {

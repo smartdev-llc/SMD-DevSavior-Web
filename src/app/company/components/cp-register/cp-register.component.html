@@ -112,7 +112,7 @@
                                             <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" tabindex="7" aria-required="true"> -->
                                             <div *ngIf="submitted && f.city.invalid" class="error-input">
                                                 <div *ngIf="f.city.errors.required">
-                                                    Last name is required.
+                                                    Location is required.
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                             <input type="text" name="address" [ngClass]="{ 'has-error': submitted && f.address.errors}" formControlName="address" id="cp_address" tabindex="8" class="form-control form-control" tabindex="7" aria-required="true">
                                             <div *ngIf="submitted && f.address.invalid" class="error-input">
                                                 <div *ngIf="f.address.errors.required">
-                                                    Last name is required.
+                                                    address is required.
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@
                                             <input type="text" id="user_phone" name="phoneNumber" [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors}" formControlName="phoneNumber" class="form-control form-control" tabindex="9" aria-required="true">
                                             <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
                                                 <div *ngIf="f.phoneNumber.errors.required">
-                                                    Last name is required.
+                                                    phone number is required.
                                                 </div>
                                             </div>
                                         </div>
@@ -139,14 +139,21 @@
                                             <input type="text" id="cp_website" name="website" [ngClass]="{ 'has-error': submitted && f.website.errors}" formControlName="website" required="required" class="form-control form-control" tabindex="10" aria-required="true">
                                             <div *ngIf="submitted && f.website.invalid" class="error-input">
                                                 <div *ngIf="f.website.errors.required">
-                                                    Last name is required.
+                                                    Website name is required.
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="#user_termsAccepted" style="display: content;">
-                                            <input class="checkTerms" type="checkbox" name="" id="user_termsAccepted" required>
+                                            <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}" >
                                             Tôi đã đọc và đồng ý với các <a routerLink="/privacy-policy">Quy định bảo mật</a> và <a routerLink="/privacy-policy">Thỏa thuận sử dụng </a></label>
+                                            <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
+                                                <div *ngIf="f.checkbox.errors.required">
+                                                    <p style="display: inline-block;">
+                                                        You must agree to the security requirements before registering
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group" style="margin-top: 50px;">
                                             <input type="submit" value="Đăng ký" class=" btn btn-success btn-dk">
