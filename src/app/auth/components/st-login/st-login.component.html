@@ -15,22 +15,42 @@
           <div id="login" class="white-text">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
               <p>Login to your Candidate account.</p>
-              <form name="contact_us" class="contact_us" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                  <label>Name</label>
-                  <input required type="email" name="email" formControlName="email">
-                  <div *ngIf="loginInForm.get('email').errors && (loginInForm.get('email').touched || loginInForm.get('email').dirty)">
-                    <span class="login-error-icon text-danger">!</span>
-                    <p class="login-error-message text-danger">{{loginInForm.get('email').errors.msg || 'Please input a valid email.'}}</p>
+              <form name="contact_us" class="contact_us validation-form" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
+
+                <!--Form Error-->
+                <div class="form-group global-error">
+                  <label></label>
+                  <div class="error-input">
+                    <div *ngIf="formErrorMessage">
+                      {{formErrorMessage}}
+                    </div>
                   </div>
                 </div>
 
-                <div class="form-group">
+                <!--Email-->
+                <div class="form-group required">
+                  <label>Name</label>
+                  <div class="input-container">
+                    <input formControlName="email" type="email" name="email" />
+                    <div
+                      *ngIf="(email.invalid && email.touched) || isSubmited"
+                      class="error-input" >
+                      <div *ngIf="email.getError('required')">Field is required</div>
+                      <div *ngIf="email.getError('email')">Email is required</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Password-->
+                <div class="form-group required">
                   <label>Password</label>
-                  <input required type="password" name="password" id="password" formControlName="password"/>
-                  <div *ngIf="loginInForm.get('password').errors && (loginInForm.get('password').touched || loginInForm.get('email').dirty)">
-                    <span class="login-error-icon text-danger">!</span>
-                    <p class="login-error-message text-danger">{{loginInForm.get('password').errors.msg || 'Please input password.'}}</p>
+                  <div class="input-container">
+                    <input required type="password" name="password" id="password" formControlName="password"/>
+                    <div
+                      *ngIf="(password.invalid && password.touched) || isSubmited"
+                      class="error-input" >
+                      <div *ngIf="password.getError('required')">Field is required</div>
+                    </div>
                   </div>
                 </div>
 
