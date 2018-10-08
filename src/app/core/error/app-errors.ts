@@ -1,4 +1,4 @@
 export class AppErrors {
-  constructor( private originalError: any) {
+  constructor( public originalError: any) {
   }
 }
