@@ -20,6 +20,14 @@
     "byJob" : "By Jobs",
     "byResume" : "By Resumes Search",
     "blacklist" : "Blacklist",
-    "cv_deleted": "Deleted"
+    "cv_deleted": "Deleted",
+    "account_infomation" : "Account Infomation",
+    "memberships" : "Memberships",
+    "customer_support": "Customer Support",
+    "hotline" : "Hotline: 1800 1560",
+    "call_to_buy" : "Call To Buy",
+    "buy_more_services" : "Buy More Services",
+    "faq" : "FAQ",
+    "log_out" : "Log Out"
   }
 }

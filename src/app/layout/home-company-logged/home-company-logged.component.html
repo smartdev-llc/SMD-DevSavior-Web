@@ -27,42 +27,28 @@
               <li>
                 <a href="#">
                   <i class="fa fa-user" aria-hidden="true"></i>
-                  &nbsp;&nbsp;Account Infomation
-                </a>
+                  &nbsp;&nbsp;{{ 'header.account_infomation' | translate }}</a>
               </li>
 
               <li>
                 <a href="#">
                   <i class="fa fa-trophy" aria-hidden="true"></i>
-                  &nbsp;&nbsp;Memberships
-                </a>
+                  &nbsp;&nbsp;{{ 'header.memberships' | translate }}</a>
               </li>
 
               <li>
                 <a href="#">
                   <i class="fa fa-life-ring" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;Customer Support</strong>
+                  <strong>&nbsp;&nbsp;{{ 'header.customer_support' | translate }}</strong>
                   <br>
-                  <p class="ml-18">Hotline: 1800 1000</p>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;Your Respective Consultant</strong>
-                  <br>
-                  <p class="ml-18">Vo Quang Tuan
-                    <br> Email: quangtuandev@juniorviec.com
-                    <br> Dricet phone: 0123456789
-                  </p>
+                  <p class="ml-18">{{ 'header.hotline' | translate }}</p>
                 </a>
               </li>
 
               <li>
                 <a href="#">
                   <i class="fa fa-phone" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;Call To Buy</strong>
+                  <strong>&nbsp;&nbsp;{{ 'header.call_to_buy' | translate }}</strong>
                   <br>
                   <p class="ml-18">(HCM): 0880008800
                     <br> (DN): 0265665566
@@ -74,19 +60,21 @@
               <li>
                 <a href="#">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;Buy More Services</strong>
+                  <strong>&nbsp;&nbsp;{{ 'header.buy_more_services' | translate }}</strong>
                 </a>
               </li>
+
               <li>
                 <a href="#">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;FAQ</strong>
+                  <strong>&nbsp;&nbsp;{{ 'header.faq' | translate }}</strong>
                 </a>
               </li>
+
               <li>
                 <a href="#">
                   <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  <strong>&nbsp;&nbsp;Log Out</strong>
+                  <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
                 </a>
               </li>
             </ul>
@@ -102,7 +90,7 @@
               <span class="icon-bar"></span>
             </button>
             <button type="button" class="navbar-toggle flag-mobile">
-              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vn')">
+              <img *ngIf="isEnLang" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
               <!-- if language is US -->
               <img *ngIf="!isEnLang" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
             </button>
@@ -118,7 +106,8 @@
               </li>
 
               <li class="left-menu">
-                <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse"  aria-expanded="true" data-target="#bs-1">
+                <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" aria-expanded="true"
+                  data-target="#bs-1">
                   <i class="fa fa-users"></i>
                   {{ 'header.candidate' | translate }}
                   <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
@@ -186,39 +175,29 @@
                 <ul class="dropdown-menu" id="bs-2">
                   <li>
                     <a href="#">
-                      <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Infomation</a>
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      &nbsp;&nbsp;{{ 'header.account_infomation' | translate }}</a>
                   </li>
 
                   <li>
                     <a href="#">
-                      <i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Memberships</a>
+                      <i class="fa fa-trophy" aria-hidden="true"></i>
+                      &nbsp;&nbsp;{{ 'header.memberships' | translate }}</a>
                   </li>
 
                   <li>
                     <a href="#">
                       <i class="fa fa-life-ring" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;Customer Support</strong>
+                      <strong>&nbsp;&nbsp;{{ 'header.customer_support' | translate }}</strong>
                       <br>
-                      <p class="ml-18">Hotline: 1800 1000</p>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;Your Respective Consultant</strong>
-                      <br>
-                      <p class="ml-18">Vo Quang Tuan
-                        <br> Email: quangtuandev@juniorviec.com
-                        <br> Dricet phone: 0123456789
-                      </p>
+                      <p class="ml-18">{{ 'header.hotline' | translate }}</p>
                     </a>
                   </li>
 
                   <li>
                     <a href="#">
                       <i class="fa fa-phone" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;Call To Buy</strong>
+                      <strong>&nbsp;&nbsp;{{ 'header.call_to_buy' | translate }}</strong>
                       <br>
                       <p class="ml-18">(HCM): 0880008800
                         <br> (DN): 0265665566
@@ -230,21 +209,21 @@
                   <li>
                     <a href="#">
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;Buy More Services</strong>
+                      <strong>&nbsp;&nbsp;{{ 'header.buy_more_services' | translate }}</strong>
                     </a>
                   </li>
 
                   <li>
                     <a href="#">
                       <i class="fa fa-question-circle" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;FAQ</strong>
+                      <strong>&nbsp;&nbsp;{{ 'header.faq' | translate }}</strong>
                     </a>
                   </li>
 
                   <li>
                     <a href="#">
                       <i class="fa fa-sign-out" aria-hidden="true"></i>
-                      <strong>&nbsp;&nbsp;Log Out</strong>
+                      <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
                     </a>
                   </li>
                 </ul>
