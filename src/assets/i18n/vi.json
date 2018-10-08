@@ -20,6 +20,14 @@
     "byJob" : "Theo việc làm",
     "byResume" : "Theo tìm kiếm hồ sơ",
     "blacklist" : "Danh sách đen",
-    "cv_deleted": "Hồ sơ đã xóa"
+    "cv_deleted": "Hồ sơ đã xóa",
+    "account_infomation" : "Thông tin tài khoản",
+    "memberships" : "Thành viên",
+    "customer_support": "Hỗ trợ khách hàng",
+    "hotline" : "Hotline: 1800 1560",
+    "call_to_buy" : "Liên hệ để mua",
+    "buy_more_services" : "Mua gói dịch vụ",
+    "faq" : "Hỏi đáp",
+    "log_out" : "Thoát"
   }
 }
