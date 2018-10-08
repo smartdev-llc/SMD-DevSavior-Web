@@ -13,35 +13,41 @@
                                     <div class="text-center m-t-lg m-b-lg">
                                         <h1>Đăng nhập vào trang Quản lý Tuyển dụng</h1>
                                     </div>
-                                    <form class="m-t-lg" id="loginForm" action="/v2/login_check" method="post" novalidate="novalidate">
+                                    <form class="m-t-lg" id="loginForm" [formGroup]="loginInForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
                                         <div class="form-group">
                                             <label>Địa chỉ email</label>
-                                            <input class="form-control valid" type="text" id="username" name="_username" placeholder="Nhập địa chỉ email của bạn" value="" aria-required="true" aria-invalid="false">
+                                            <input class="form-control valid" formControlName="email" type="email" id="username" name="name" placeholder="Nhập địa chỉ email của bạn" value="" aria-required="true" aria-invalid="false">
+                                            <div *ngIf="loginInForm.get('email').errors && (loginInForm.get('email').touched || loginInForm.get('email').dirty)">
+                                                <span class="login-error-icon text-danger">!</span>
+                                                <p class="login-error-message text-danger">{{loginInForm.get('email').errors.msg || 'Please input a valid email.'}}</p>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Mật khẩu</label>
-                                            <input class="form-control valid" type="password" id="password" name="_password" placeholder="Nhập mật khẩu" aria-required="true" aria-invalid="false">
+                                            <input class="form-control valid" type="password" id="password" name="password" formControlName="password" placeholder="Nhập mật khẩu" aria-required="true" aria-invalid="false">
+                                            <div *ngIf="loginInForm.get('password').errors && (loginInForm.get('password').touched || loginInForm.get('email').dirty)">
+                                                <span class="login-error-icon text-danger">!</span>
+                                                <p class="login-error-message text-danger">{{loginInForm.get('password').errors.msg || 'Please input password.'}}</p>
+                                            </div>
                                         </div>
-
-
                                         <div class="form-group">
                                             <input type="hidden" name="_redirect_url" value="">
                                             <input type="hidden" name="_target_path" value="/v2/">
                                             <button id="btnLogin" type="submit" class="btn btn-primary btn-dk ">
-                  Đăng Nhập
-               </button>
+                                                Đăng Nhập
+                                            </button>
                                         </div>
                                         <div class="form-group clearfix">
                                             <span class="pull-left">
-                    <div class="checkbox checkbox-success checkbox-inline">
-                            <label for="remember_me">
-                        <input type="checkbox" id="remember_me" name="_remember_me" class="remember_me">
-                        Duy trì đăng nhập</label>
-                    </div>
-                </span>
+                                                <div class="checkbox checkbox-success checkbox-inline">
+                                                        <label for="remember_me">
+                                                    <input type="checkbox" id="remember_me" name="_remember_me" class="remember_me">
+                                                    Duy trì đăng nhập</label>
+                                                </div>
+                                            </span>
                                             <span class="pull-right pull-left-xs em-log-in__reset-pass">
-                    <a href="/v2/reset-password">Bạn quên mật khẩu?</a>
-                </span>
+                                                <a href="/v2/reset-password">Bạn quên mật khẩu?</a>
+                                            </span>
                                         </div>
                                         <div class="form-group">
                                             <p class="text-muted text-center text-left-xs m-t">Bạn chưa có tài khoản? <a routerLink="/employer/register"><strong>Đăng ký ngay!</strong></a></p>

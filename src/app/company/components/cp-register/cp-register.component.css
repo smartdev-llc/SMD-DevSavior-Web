@@ -56,6 +56,10 @@ h1 {
     color: #FFF;
 }
 
+.form-group input {
+    padding: 7px 16px;
+}
+
 .form-group select {
     outline: none !important;
     width: 100%;
@@ -69,4 +73,10 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     border-radius: 8px;
+}
+
+.error-input {
+    font-size: 13px;
+    color: #dc3545 !important;
+    margin-top: 8px;
 }
