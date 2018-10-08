@@ -9,7 +9,7 @@ import { JobListComponent } from './components/job-list/job-list.component';
 import { CandidateListComponent } from './components/candidate-list/candidate-list.component';
 import { LayoutModule } from '../layout/index';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
@@ -22,7 +22,8 @@ import { CpRegisterComponent } from './components/cp-register/cp-register.compon
     LayoutModule,
     NgSelectModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HomeComponent,

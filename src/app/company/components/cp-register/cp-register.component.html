@@ -1,5 +1,9 @@
 <div class="container m-t-lg">
     <div class="row">
+        <div _ngcontent-c4="" id="loadessr" *ngIf="loading">
+            <div _ngcontent-c4="" id="loader">
+            </div>
+        </div>
         <div class="col-sm-8 col-sm-offset-2">
             <div class="text-center m-t-lg m-b-lg">
                 <a href="/">
@@ -12,61 +16,144 @@
                             <link rel="stylesheet" href="/bundles/naviworksuser/css/signup.css?zr1538043124">
                             <div class="row section-form">
                                 <div class="col-sm-10 col-sm-offset-1">
-                                    <style>
-                                        .help-block {
-                                            text-align: left;
-                                            margin: 5px 0 0;
-                                        }
-                                        
-                                        .checkbox label a {
-                                            position: relative;
-                                            z-index: 100
-                                        }
-                                    </style>
                                     <div class="text-center m-t-lg m-b-lg">
                                         <h1>Hãy tham gia cùng hàng ngàn công ty đang sử dụng Juniorviec mỗi ngày</h1>
                                     </div>
-                                    <form name="user" method="post" action="/v2/signup" novalidate="novalidate" id="formSignUp" class="m-t-lg" role="form">
+                                    <form [formGroup]="registerForm" (ngSubmit)="registerNewUser()" novalidate="novalidate" id="formSignUp" class="m-t-lg" role="form">
+                                        <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
+                                            <label></label>
+                                            <div *ngIf="submitted" class="error-input">
+                                                <div *ngIf="submitted && registerForm.errors?.serverError">
+                                                    {{registerForm.errors.serverError}}
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="alert alert-danger hide">
 
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label required" for="user_email" aria-required="true">Địa Chỉ Email</label>
-                                            <input type="email" id="user_email" name="user[email]" required="required" class="form-control form-control" tabindex="1" aria-required="true">
+                                            <input type="email" formControlName="email" id="user_email" name="email" class="form-control form-control" tabindex="1" aria-required="true">
+                                            <div *ngIf="submitted && f.email.invalid" class="error-input">
+                                                <div *ngIf="f.email.errors.required">
+                                                    Email is required.
+                                                </div>
+                                                <div *ngIf="f.email.errors.email">
+                                                    Invalid email.
+                                                </div>
+                                                <div *ngIf="f.email.errors.existed">
+                                                    This email already registered!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ng-container formGroupName="passwordGroup">
+                                            <div class="form-group">
+                                                <label class="control-label required" for="password" aria-required="true">Mật khẩu (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
+                                                <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" tabindex="2" aria-required="true"> -->
+                                                <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
+                                                <div *ngIf="p.password.invalid" class="error-input">
+                                                    <div *ngIf="submitted && p.password.errors?.required">
+                                                        Password is required.
+                                                    </div>
+                                                    <div *ngIf="p.password.errors.minlength">
+                                                        The password is at least {{p.password.errors?.minlength.requiredLength}} characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label required" for="user_password_second" aria-required="true">Nhập Lại Mật Khẩu</label>
+                                                <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control" [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}" formControlName="repeatPassword"
+                                                    tabindex="3" aria-required="true">
+                                                <div *ngIf="passwordGroup.invalid " class="error-input">
+                                                    <div *ngIf="passwordGroup.errors?.matchedPassword">
+                                                        Password doesn't match.
+                                                    </div>
+                                                    <div *ngIf="submitted && p.repeatPassword.errors?.required">
+                                                        Password required.
+                                                    </div>
 
-
-
+                                                </div>
+                                                <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.
+                                                </p>
+                                            </div>
+                                        </ng-container>
+                                        <div class="form-group">
+                                            <label class="control-label required" for="company_name" aria-required="true">Tên Công Ty</label>
+                                            <input type="text" id="company_name" name="name" [ngClass]="{ 'has-error': submitted && f.name.errors}" formControlName="name" class="form-control form-control" tabindex="4" aria-required="true">
+                                            <div *ngIf="submitted && f.name.invalid" class="error-input">
+                                                <div *ngIf="f.name.errors.required">
+                                                    First name is required.
+                                                </div>
+                                                <div *ngIf="f.name.errors.pattern">
+                                                    No special characters or numbers
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="user_password_first" aria-required="true">Mật khẩu (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
-                                            <input type="password" id="user_password_first" name="user[password][first]" required="required" class="form-control form-control" tabindex="2" aria-required="true">
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="user_password_second" aria-required="true">Nhập Lại Mật Khẩu</label>
-                                            <input type="password" id="user_password_second" name="user[password][second]" required="required" class="form-control form-control" tabindex="3" aria-required="true">
-
-                                            <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.
-                                            </p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="user_company_name" aria-required="true">Tên Công Ty</label>
-                                            <input type="text" id="user_company_name" name="user[company_name]" required="required" class="form-control form-control" tabindex="4" aria-required="true">
-
+                                            <label class="control-label required" for="user_company_name" aria-required="true">Tên Người Tuyển Dụng Của Công Ty</label>
+                                            <input type="text" id="user_company_name" name="contactName" [ngClass]="{ 'has-error': submitted && f.contactName.errors}" formControlName="contactName" class="form-control form-control" tabindex="5" aria-required="true">
+                                            <div *ngIf="submitted && f.contactName.invalid" class="error-input">
+                                                <div *ngIf="f.contactName.errors.required">
+                                                    Last name is required.
+                                                </div>
+                                                <div *ngIf="f.contactName.errors.pattern">
+                                                    No special characters or numbers
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label required" for="user_address" aria-required="true">Địa chỉ</label>
-                                            <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" tabindex="7" aria-required="true">
+                                            <label class="control-label required" for="cp_location" aria-required="true">Công Ty</label>
+                                            <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city" tabindex="7">
+                                                <option value="DN">DN</option>
+                                                <option value="HN">HN</option>
+                                                <option value="HCM">HCM</option>
+                                            </select>
+                                            <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" tabindex="7" aria-required="true"> -->
+                                            <div *ngIf="submitted && f.city.invalid" class="error-input">
+                                                <div *ngIf="f.city.errors.required">
+                                                    Location is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label required" for="cp_address" aria-required="true">Địa chỉ</label>
+                                            <input type="text" name="address" [ngClass]="{ 'has-error': submitted && f.address.errors}" formControlName="address" id="cp_address" tabindex="8" class="form-control form-control" tabindex="7" aria-required="true">
+                                            <div *ngIf="submitted && f.address.invalid" class="error-input">
+                                                <div *ngIf="f.address.errors.required">
+                                                    address is required.
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label required" for="user_phone" aria-required="true">Điện Thoại</label>
-                                            <input type="text" id="user_phone" name="user[phone]" required="required" class="form-control form-control" tabindex="7" aria-required="true">
+                                            <input type="text" id="user_phone" name="phoneNumber" [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors}" formControlName="phoneNumber" class="form-control form-control" tabindex="9" aria-required="true">
+                                            <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
+                                                <div *ngIf="f.phoneNumber.errors.required">
+                                                    phone number is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label required" for="cp_website" aria-required="true">Website</label>
+                                            <input type="text" id="cp_website" name="website" [ngClass]="{ 'has-error': submitted && f.website.errors}" formControlName="website" required="required" class="form-control form-control" tabindex="10" aria-required="true">
+                                            <div *ngIf="submitted && f.website.invalid" class="error-input">
+                                                <div *ngIf="f.website.errors.required">
+                                                    Website name is required.
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="#user_termsAccepted" style="display: content;">
-                                            <input class="checkTerms" type="checkbox" name="" id="user_termsAccepted">
-                                            Tôi đã đọc và đồng ý với các <a href="#">Quy định bảo mật</a> và <a href="#">Thỏa thuận sử dụng </a></label>
+                                            <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}" >
+                                            Tôi đã đọc và đồng ý với các <a routerLink="/privacy-policy">Quy định bảo mật</a> và <a routerLink="/privacy-policy">Thỏa thuận sử dụng </a></label>
+                                            <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
+                                                <div *ngIf="f.checkbox.errors.required">
+                                                    <p style="display: inline-block;">
+                                                        You must agree to the security requirements before registering
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group" style="margin-top: 50px;">
                                             <input type="submit" value="Đăng ký" class=" btn btn-success btn-dk">

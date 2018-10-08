@@ -34,3 +34,16 @@ export class User {
     return this.firstName + ' ' + this.lastName;
   }
 }
+export class UserCompany {
+  email: string;
+  password: string;
+  role: Role;
+  name: string;
+  contactName: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  website: string;
+  access_token: string;
+  
+}
