@@ -1,12 +1,13 @@
 import { Subscription, Observable } from 'rxjs';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { AuthService } from '../../core/services/auth.service';
+import { User, Role } from '../models/user';
 
 @Injectable()
-export class CanActivateViaAuthGuard implements CanActivate {
-  isAuthenticated: boolean;
+export class StudentUserAuthGuard implements CanActivate {
+  user: User;
+  isStudentRole: boolean;
 
   constructor(
     private router: Router,
@@ -15,10 +16,17 @@ export class CanActivateViaAuthGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    this.isAuthenticated = this.authService.isLoggedIn();
-    if (!this.isAuthenticated) {
+    this.user = this.authService.getCurrentUser();
+    this.isStudentRole = !!this.user && this.user.role === Role.Student;
+
+    if (!this.user) {
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    } else {
+      if (!this.isStudentRole) {
+        this.router.navigate(['/']);
+      }
     }
-    return this.isAuthenticated;
+
+    return this.isStudentRole;
   }
 }

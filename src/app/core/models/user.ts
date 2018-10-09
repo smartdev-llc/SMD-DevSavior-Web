@@ -21,6 +21,7 @@ export enum Role {
   Student = 'student',
   Company = 'company',
 }
+
 export class User {
   email: string;
   password: string;
@@ -29,11 +30,13 @@ export class User {
   firstName: string;
   lastName: string;
   access_token: string;
+  socialLogin: boolean;
 
   get displayName() {
     return this.firstName + ' ' + this.lastName;
   }
 }
+
 export class UserCompany {
   email: string;
   password: string;
@@ -45,5 +48,5 @@ export class UserCompany {
   city: string;
   website: string;
   access_token: string;
-  
+
 }

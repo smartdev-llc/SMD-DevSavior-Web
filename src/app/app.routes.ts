@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { CanActivateViaAuthGuard } from './core/guards/auth.guard';
+import { StudentUserAuthGuard } from './core/guards/student-user.guard';
 
 export const routes: Routes = [
   {
@@ -25,6 +25,6 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: './user/user.module#UserModule',
-    canActivate: [CanActivateViaAuthGuard]
+    canActivate: [StudentUserAuthGuard]
   }
 ];

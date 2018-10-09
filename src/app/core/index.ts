@@ -13,7 +13,7 @@ import { HumanizePipe } from './pipes/humanize.pipe';
 
 import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from '../auth/effects/auth.effects';
-import { CanActivateViaAuthGuard } from './guards/auth.guard';
+import { StudentUserAuthGuard } from './guards/student-user.guard';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { CanActivateViaAuthGuard } from './guards/auth.guard';
   providers: [
     AuthService,
     AuthActions,
-    CanActivateViaAuthGuard,
+    StudentUserAuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ]
 })
