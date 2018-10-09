@@ -14,6 +14,7 @@ import { HumanizePipe } from './pipes/humanize.pipe';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from '../auth/effects/auth.effects';
 import { StudentUserAuthGuard } from './guards/student-user.guard';
+import { StudentLoggedGuard } from './guards/student-logged.guard';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { StudentUserAuthGuard } from './guards/student-user.guard';
     AuthService,
     AuthActions,
     StudentUserAuthGuard,
+    StudentLoggedGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ]
 })
