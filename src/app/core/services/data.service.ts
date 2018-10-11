@@ -4,7 +4,6 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {AppErrors} from '../error/app-errors';
 
-@Injectable()
 export class DataService {
 
   constructor(private url: string, private http: HttpClient) {  }
