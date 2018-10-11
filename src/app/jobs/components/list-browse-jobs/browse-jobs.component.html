@@ -29,7 +29,41 @@
   <!-- Page Title-->
 
   <!-- Job Categories Filters -->
-  <app-jobs-filters></app-jobs-filters>
+  <div class="jobs_filters">
+    <div class="container">
+      <form [formGroup]="searchJobForm" (ngSubmit)="onSubmitSearch()">
+        <!--col-lg-3 filter_width -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 filter_width bgicon">
+          <jv-select-dropdown formControlName="category" (change)="selectionChanged($event)" [options]="jobCategories" [config]="configDropDown"></jv-select-dropdown>
+          <span>e.g. Web Developer</span>
+        </div>
+        <!--col-lg-3 filter_width -->
+        <!-- col-lg-5 filter_width -->
+        <div class="col-lg-5 col-md-4 col-sm-6 col-xs-12 filter_width bgicon">
+          <div class="form-group">
+            <input formControlName="search" type="text" class="form-control" placeholder="Keyword, job title or skill">
+            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+          </div>
+          <span>e.g. Designer</span>
+        </div>
+        <!-- col-lg-5 filter_width -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 filter_width bgicon location">
+          <div class="form-group">
+            <input formControlName="location" type="text" class="form-control" placeholder="Location">
+            <span class="glyphicon fa fa-location-arrow" aria-hidden="true"></span>
+          </div>
+          <span>e.g. New York</span>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 filter_width bgicon submit">
+          <div class="form-group">
+            <button class="btn btn-search-job" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
   <!-- Job Categories Filters -->
 
   <!-- Job Results -->
@@ -39,8 +73,7 @@
         <h3 class="recom">Recent Jobs</h3>
       </div>
       <div class="col-lg-12">
-        <app-job-item></app-job-item>
-        <app-job-item></app-job-item>
+        <!-- <app-job-item></app-job-item> -->
       </div>
     </div>
 

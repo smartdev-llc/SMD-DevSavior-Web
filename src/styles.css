@@ -493,7 +493,7 @@ ul.dropdown-menu li:last-child a {
 .select2-results {
   overflow: auto;
   margin-right: 15px;
-  height: 186px;
+  max-height: 200px;
   padding: 0;
 }
 
@@ -532,8 +532,8 @@ ul.dropdown-menu li:last-child a {
 
 .filter_width.bgicon .glyphicon {
   position: absolute;
-  right: 40px;
-  top: 22px;
+  right: 38px;
+  top: 19px;
   color: #12cd6a;
 }
 
@@ -1173,6 +1173,21 @@ priceing_tables .startup {
 .white-heading span {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
+}
+
+.btn-search-job {
+  width: 100%;
+  border-radius: 11px;
+  font-family: Roboto,sans-serif;
+  font-size: 14px;
+  padding: 16px 20px;
+  background: rgba(0,0,0,0);
+  border: 2px solid #fff;
+}
+
+.btn-search-job:hover {
+  background: #333;
+  border: 2px solid #333;
 }
 
 .btn-getstarted {

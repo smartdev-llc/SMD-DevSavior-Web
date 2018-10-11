@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {NgxInputStarRatingModule} from '@ngx-lite/input-star-rating';
 import {LayoutModule} from '../layout/index';
 import {SharedModule} from '../shared/shared.module';
-import {HomeModule} from '../home/index';
 // Components
 import {BrowseJobsComponent} from './components/list-browse-jobs/browse-jobs.component';
 import {BrowseJobsAlternativeComponent} from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
@@ -19,6 +18,8 @@ import {CategoryCompanyService} from '../core/services/category/CategoryCompanyS
 import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SkillService} from '../core/services/skill/SkillService';
+
+import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,6 @@ import {SkillService} from '../core/services/skill/SkillService';
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
-    HomeModule,
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule
@@ -47,7 +47,8 @@ import {SkillService} from '../core/services/skill/SkillService';
   providers: [
     CategoryCompanyService,
     PostJobCompanyService,
-    SkillService
+    SkillService,
+    JobCategories
   ]
 })
 export class JobsModule { }
