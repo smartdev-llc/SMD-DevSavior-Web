@@ -98,7 +98,7 @@
       <div class="clearfix"></div>
       <div class="row">
         <div class="col-xs-12 jv-pagination">
-          <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
+          <pagination [totalItems]="totalItems" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
         </div>
       </div>
     </div>
