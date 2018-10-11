@@ -91,6 +91,10 @@ button.btn-defaut.bg-white:focus {
 .textarea {
   resize: vertical;
 }
+
+.jv-pagination .pagination>li>a {
+  padding: 10px 18px;
+}
 /* End common */
 
 /*/////Logo//////////*/

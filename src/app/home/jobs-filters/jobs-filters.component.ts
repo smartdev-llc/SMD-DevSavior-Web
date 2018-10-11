@@ -35,20 +35,20 @@ export class JobsFiltersComponent implements OnInit {
   initSearcForm() {
     this.searchJobForm = this.formBuilder.group({
       'category': [''],
-      'search': [''],
+      'qs': [''],
       'location': ['']
     });
   }
 
 
   onSubmitSearch(): void {
-    const { category, location, search } = this.searchJobForm.value
+    const { category, location, qs } = this.searchJobForm.value
     const params = {
       category: category.id,
       location,
-      search
+      qs
     }
-    if (category || location || search) {
+    if (category || location || qs) {
       this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
     }
   }

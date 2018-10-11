@@ -23,5 +23,13 @@ export class JobService {
     return this.http.get('/categories')
     .pipe(
       map((response: Response) => response),
-    )}
+    )
+  }
+
+  searchJobs(params: HttpParams) {
+    return this.http.get('/jobs/search', { params })
+    .pipe(
+      map((response: any) => response),
+    )
+  }
 }

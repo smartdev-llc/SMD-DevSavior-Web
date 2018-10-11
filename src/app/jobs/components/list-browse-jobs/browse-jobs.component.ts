@@ -1,9 +1,12 @@
 import { Injectable, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Categories } from '../../../core/models/job';
 import { from } from 'rxjs';
 import { find } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
+
+import { Categories } from '../../../core/models/job';
+import { JobService } from '../../../core/services/job.service';
 
 @Component({
   selector: 'browse-jobs',
@@ -12,20 +15,22 @@ import { find } from 'rxjs/operators';
 })
 export class BrowseJobsComponent implements OnInit {
 
+  totalItems: number = 0;
+  itemsPerPage: number = 2;
+  listJobs: Array<any> = [];
   searchJobForm: FormGroup;
+  jobCategories: Array<Categories>;
+  queryParams: any = {};
   configDropDown = {
     displayKey: 'name',
     placeholder: 'Select'
   };
 
-  jobCategories: Array<Categories>;
-
-  queryParams: any;
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private jobService: JobService) {
   }
 
   ngOnInit() {
@@ -38,10 +43,12 @@ export class BrowseJobsComponent implements OnInit {
     });
 
     this.initSearcForm();
+
+    this.loadJobs();
   }
 
   initSearcForm() {
-    const { category, search, location } = this.queryParams;
+    const { category, qs, location } = this.queryParams;
     let objCategory = null;
     from(this.jobCategories)
       .pipe(
@@ -51,7 +58,7 @@ export class BrowseJobsComponent implements OnInit {
 
     this.searchJobForm = this.formBuilder.group({
       'category': [objCategory],
-      'search': [search],
+      'qs': [qs],
       'location': [location]
     });
   }
@@ -61,14 +68,33 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   onSubmitSearch(): void {
-    const { category, location, search } = this.searchJobForm.value
-    const params = {
+    const { category, location, qs } = this.searchJobForm.value
+    this.queryParams = {
       category: category ? category.id : '',
       location,
-      search
+      qs
     }
-    if (category || location || search) {
-      this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
+    if (category || location || qs) {
+      this.router.navigate(['/browse-jobs'], { queryParams: this.queryParams, queryParamsHandling: 'merge', replaceUrl: true });
+      this.loadJobs();
     }
+  }
+
+  loadJobs(): void {
+    this.queryParams = {
+      size: this.itemsPerPage,
+      page: 0,
+      ...this.queryParams
+    };
+    const params = new HttpParams({fromObject: this.queryParams});
+    this.jobService.searchJobs(params).subscribe(value => {
+      this.listJobs = value.list;
+      this.totalItems = value.total;
+    });
+  }
+
+  pageChanged(event: any): void {
+    this.queryParams.page = event.page - 1;
+    this.loadJobs();
   }
 }

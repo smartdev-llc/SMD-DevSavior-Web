@@ -41,7 +41,7 @@
         <!-- col-lg-5 filter_width -->
         <div class="col-lg-5 col-md-4 col-sm-6 col-xs-12 filter_width bgicon">
           <div class="form-group">
-            <input formControlName="search" type="text" class="form-control" placeholder="Keyword, job title or skill">
+            <input formControlName="qs" type="text" class="form-control" placeholder="Keyword, job title or skill">
             <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
           </div>
           <span>e.g. Designer</span>
@@ -67,16 +67,41 @@
   <!-- Job Categories Filters -->
 
   <!-- Job Results -->
-  <div class="container main-container-home">
+  <div class="container main-container">
     <div class="jobs-result">
       <div class="col-lg-12">
         <h3 class="recom">Recent Jobs</h3>
       </div>
-      <div class="col-lg-12">
-        <!-- <app-job-item></app-job-item> -->
+      <!--jobs result-->
+      <div class="filter-result" *ngFor="let job of listJobs ;let i = index">
+        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+          <div class="company-left-info pull-left">
+            <img src="assets/images/company-logo.png" alt="" />
+          </div>
+          <div class="desig">
+            <a href="job_detail2.html">
+              <h3>{{job.title}}</h3>
+            </a>
+            <h4>PHP, MySQL, Linux, Wordpress</h4>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+          <div class="pull-right location">
+            <p>Da nang</p>
+          </div>
+          <div class="data-job">
+            <h3>£10 - £12 an hour</h3>
+            <span class="label job-type job-fulltime ">Full Time</span>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-xs-12 jv-pagination">
+          <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
+        </div>
       </div>
     </div>
-
   </div>
   <!-- Job Results -->
 

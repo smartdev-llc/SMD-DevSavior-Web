@@ -1,14 +1,15 @@
-import {RouterModule} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {NgxInputStarRatingModule} from '@ngx-lite/input-star-rating';
-import {LayoutModule} from '../layout/index';
-import {SharedModule} from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { LayoutModule } from '../layout/index';
+import { SharedModule } from '../shared/shared.module';
 // Components
-import {BrowseJobsComponent} from './components/list-browse-jobs/browse-jobs.component';
-import {BrowseJobsAlternativeComponent} from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
-import {JobDetailComponent} from './components/job-detail/job-detail.component';
-import {PostJobComponent} from './components/post-job/post-job.component';
-import {NgSelectModule} from '@ng-select/ng-select';
+import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
+import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 // Breadcrumb components
 // Routes
@@ -37,6 +38,7 @@ import { JobCategories }  from './components/list-browse-jobs/job-resolve';
   ],
   imports: [
     RouterModule.forChild(routes),
+    PaginationModule.forRoot(),
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
