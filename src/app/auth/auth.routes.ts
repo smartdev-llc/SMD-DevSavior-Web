@@ -5,12 +5,14 @@ import { StLostPasswordComponent } from './components/st-lost-password/st-lost-p
 import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 import { PolicyComponent } from './components/policy/policy.component';
+import { StudentLoggedGuard } from '../core/guards/student-logged.guard';
+
 export const AuthRoutes = [
-  { path: 'register', component: StRegisterComponent },
-  { path: 'login', component: StLoginComponent },
-  { path: 'register-success', component: RegisterSuccessComponent },
-  { path: 'lost-password', component: StLostPasswordComponent },
+  { path: 'register', component: StRegisterComponent, canActivate: [StudentLoggedGuard] },
+  { path: 'login', component: StLoginComponent, canActivate: [StudentLoggedGuard] },
+  { path: 'register-success', component: RegisterSuccessComponent, canActivate: [StudentLoggedGuard] },
+  { path: 'lost-password', component: StLostPasswordComponent, canActivate: [StudentLoggedGuard] },
   { path: 'reset-password', component: StResetPasswordComponent },
   { path: 'verify-account', component: StVerifyAccountComponent },
-  { path: 'privacy-policy',component:PolicyComponent}
+  { path: 'privacy-policy',component:PolicyComponent }
 ];

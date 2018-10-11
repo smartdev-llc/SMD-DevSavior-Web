@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, CanActivate, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Categories } from '../../core/models/job';
 
 @Component({
   selector: 'app-jobs-filters',
@@ -7,9 +10,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobsFiltersComponent implements OnInit {
 
-  constructor() {
+  searchJobForm: FormGroup;
+
+  public configDropDown = {
+    displayKey: 'name',
+    placeholder: 'Select'
+  };
+
+  public jobCategories: Array<Categories>;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(({ jobCategories }) => {
+      this.jobCategories = jobCategories;
+    });
+    this.initSearcForm();
+  }
+
+  initSearcForm() {
+    this.searchJobForm = this.formBuilder.group({
+      'category': [''],
+      'qs': [''],
+      'location': ['']
+    });
+  }
+
+
+  onSubmitSearch(): void {
+    const { category, location, qs } = this.searchJobForm.value
+    const params = {
+      category: category.id,
+      location,
+      qs
+    }
+    if (category || location || qs) {
+      this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
+    }
   }
 }

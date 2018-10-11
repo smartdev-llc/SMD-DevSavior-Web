@@ -1,76 +1,89 @@
 <div id="header" class="container-fluid pages">
-    <div class="row">
-        <!-- Header Image Or May be Slider-->
-        <div class="top_header">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="logo">
-                        <a routerLink="/">
-                            <img src="../../../assets/images/logo2.png" alt="Photo" />
-                        </a>
-                    </div>
-                    <div class="logins">
-                        <a class="flag">
-                            <span class="label job-type partytime cancel">
+  <div class="row">
+    <!-- Header Image Or May be Slider-->
+    <div class="top_header">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="logo">
+            <a routerLink="/">
+              <img src="../../../assets/images/logo2.png" alt="Photo" />
+            </a>
+          </div>
+          <div class="logins">
+            <a class="flag">
+              <span class="label job-type partytime cancel">
                 <img *ngIf="isEnLang" class="flag-img" src="../../../assets/images/vietnam-flag.png" alt="vietnamese" (click)="changeLanguage('vi')">
                 <!-- if language is US -->
                 <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
-                        </a>
+            </a>
 
+            <a href="#" class="dropdown-toggle right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+              <span class="label job-type">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu right-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  &nbsp;&nbsp;{{ 'header.account_infomation' | translate }}</a>
+              </li>
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="label job-type  bars-icon partytime " style="font-size: 26px;">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Infomation</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Memberships</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-life-ring" aria-hidden="true"></i><strong>&nbsp;&nbsp;Customer Support</strong><br>
-                                  <p class="ml-18">Hotline: 1800 1000</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i><strong>&nbsp;&nbsp;Your Respective Consultant</strong><br>
-                                  <p class="ml-18">Vo Quang Tuan <br>
-                                    Email: quangtuandev@juniorviec.com <br>
-                                    Dricet phone: 0123456789
-                                  </p>
-                                
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-phone" aria-hidden="true"></i><strong>&nbsp;&nbsp;Call To Buy</strong><br>
-                                  <p class="ml-18">(HCM): 0880008800<br>
-                                    (DN): 0265665566 <br>
-                                    (HN): 0123456789
-                                  </p>
-                                
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><strong>&nbsp;&nbsp;Buy More Services</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i><strong>&nbsp;&nbsp;FAQ</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i><strong>&nbsp;&nbsp;Log Out</strong>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <li>
+                <a href="#">
+                  <i class="fa fa-trophy" aria-hidden="true"></i>
+                  &nbsp;&nbsp;{{ 'header.memberships' | translate }}</a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <i class="fa fa-life-ring" aria-hidden="true"></i>
+                  <strong>&nbsp;&nbsp;{{ 'header.customer_support' | translate }}</strong>
+                  <br>
+                  <p class="ml-18">{{ 'header.hotline' | translate }}</p>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <strong>&nbsp;&nbsp;{{ 'header.call_to_buy' | translate }}</strong>
+                  <br>
+                  <p class="ml-18">(HCM): 0880008800
+                    <br> (DN): 0265665566
+                    <br> (HN): 0123456789
+                  </p>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <strong>&nbsp;&nbsp;{{ 'header.buy_more_services' | translate }}</strong>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  <strong>&nbsp;&nbsp;{{ 'header.faq' | translate }}</strong>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -81,23 +94,25 @@
               <!-- if language is US -->
               <img *ngIf="!isEnLang" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
             </button>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a routerLink="/employer/jobs">
-                                    <i class="fa fa-file-text-o"></i> {{ 'header.jobs' | translate }}
-                                </a>
-                            </li>
-
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
               <li>
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a routerLink="/employer/jobs">
+                  <i class="fa fa-file-text-o"></i>
+                  {{ 'header.jobs' | translate }}
+                </a>
+              </li>
+
+              <li class="left-menu">
+                <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" aria-expanded="true"
+                  data-target="#bs-1">
                   <i class="fa fa-users"></i>
                   {{ 'header.candidate' | translate }}
                   <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
                 </a>
-                <ul class="dropdown-menu candidate-menu">
+                <ul class="dropdown-menu" id="bs-1">
                   <li>
                     <a href="#">
                       <i class="fa fa-file"></i>
@@ -133,79 +148,92 @@
               </li>
 
               <li class="find-candidate-mobile">
-                <a routerLink="/">
+                <a routerLink="/employer/find-resumes">
                   <i class="fa fa-search"></i>
                   {{ 'header.find_candidate' | translate }}
                 </a>
               </li>
 
-                            <a routerLink="/post-job" class="post_job">
-                                <span class="label job-type partytime">
+              <a routerLink="/post-job" class="post_job">
+                <span class="label job-type partytime">
                   <i class="fa fa-plus-circle"></i>
                   {{ 'header.post_job' | translate }}
                 </span>
-                            </a>
+              </a>
 
-                            <a routerLink="/" class="post_job">
-                                <span class="label job-type partytime">
+              <a routerLink="/employer/find-resumes" class="post_job">
+                <span class="label job-type partytime">
                   <i class="fa fa-search"></i>
                   {{ 'header.find_candidate' | translate }}
                 </span>
-                            </a>
+              </a>
 
-                            <li class="dropdown mobile-menu">
+              <li class="dropdown mobile-menu">
+                <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" data-target="#bs-2"
+                  aria-expanded="true">Tuan Quang Vo
+                </a>
+                <ul class="dropdown-menu" id="bs-2">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      &nbsp;&nbsp;{{ 'header.account_infomation' | translate }}</a>
+                  </li>
 
-                                <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" data-target="#bs-1" aria-expanded="true">Tuan Quang Vo</a>
-                                <ul class="dropdown-menu" id="bs-1">
-                                    <li>
-                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Infomation</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Memberships</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-life-ring" aria-hidden="true"></i><strong>&nbsp;&nbsp;Customer Support</strong><br>
-                                          <p class="ml-18">Hotline: 1800 1000</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i><strong>&nbsp;&nbsp;Your Respective Consultant</strong><br>
-                                          <p class="ml-18">Vo Quang Tuan <br>
-                                            Email: quangtuandev@juniorviec.com <br>
-                                            Dricet phone: 0123456789
-                                          </p>
-                                        
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-phone" aria-hidden="true"></i><strong>&nbsp;&nbsp;Call To Buy</strong><br>
-                                          <p class="ml-18">(HCM): 0880008800<br>
-                                            (DN): 0265665566 <br>
-                                            (HN): 0123456789
-                                          </p>
-                                        
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><strong>&nbsp;&nbsp;Buy More Services</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i><strong>&nbsp;&nbsp;FAQ</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i><strong>&nbsp;&nbsp;Log Out</strong>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- navbar-collapse -->
-                </div>
-                <!-- container-fluid -->
-            </nav>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-trophy" aria-hidden="true"></i>
+                      &nbsp;&nbsp;{{ 'header.memberships' | translate }}</a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-life-ring" aria-hidden="true"></i>
+                      <strong>&nbsp;&nbsp;{{ 'header.customer_support' | translate }}</strong>
+                      <br>
+                      <p class="ml-18">{{ 'header.hotline' | translate }}</p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <strong>&nbsp;&nbsp;{{ 'header.call_to_buy' | translate }}</strong>
+                      <br>
+                      <p class="ml-18">(HCM): 0880008800
+                        <br> (DN): 0265665566
+                        <br> (HN): 0123456789
+                      </p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      <strong>&nbsp;&nbsp;{{ 'header.buy_more_services' | translate }}</strong>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                      <strong>&nbsp;&nbsp;{{ 'header.faq' | translate }}</strong>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- navbar-collapse -->
         </div>
+        <!-- container-fluid -->
+      </nav>
     </div>
+  </div>
 </div>

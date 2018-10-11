@@ -56,7 +56,7 @@ export class AuthService {
    * @memberof AuthService
    */
   login({ email, password }: Authenticate): Observable<User> {
-    const params = { email, password, role: 'student' };
+    const params = { email, password, role: Role.Student };
     return this.http
       .post<User>('/auth/login', params)
       .pipe(
@@ -68,6 +68,15 @@ export class AuthService {
         ),
         catchError(this.handleError)
       );
+  }
+
+  loginCompany({ email, password }: Authenticate): Observable<User> {
+    const params = { email, password, role: Role.Company };
+    return this.http.post<User>('/auth/login', params);
+    // catch should be handled here with the http observable
+    // so that only the inner obs dies and not the effect Observable
+    // otherwise no further login requests will be fired
+    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
   }
 
   register(data: any): Observable<User> {
@@ -239,14 +248,18 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    if (this.getCurrentUser() == null) {
-      return false;
+    if (this.getCurrentUser()) {
+      return true;
     }
-    return true;
+    return false;
   }
 
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));
+  getCurrentUser(): User {
+    try {
+      return JSON.parse(localStorage.getItem('user'));
+    } catch (error) {
+      return null;
+    }
   }
 
   getJobItem() {
