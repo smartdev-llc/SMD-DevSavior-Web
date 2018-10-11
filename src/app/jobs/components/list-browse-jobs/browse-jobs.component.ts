@@ -17,6 +17,7 @@ export class BrowseJobsComponent implements OnInit {
 
   totalItems: number = 0;
   itemsPerPage: number = 2;
+  currentPage: number = 1;
   listJobs: Array<any> = [];
   searchJobForm: FormGroup;
   jobCategories: Array<Categories>;
