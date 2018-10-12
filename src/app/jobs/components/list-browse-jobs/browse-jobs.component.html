@@ -74,7 +74,7 @@
       </div>
       <!--jobs result-->
       <div class="filter-result" *ngFor="let job of listJobs ;let i = index">
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+        <div class="col-md-7 col-xs-12 pull-left">
           <div class="company-left-info pull-left">
             <img src="assets/images/company-logo.png" alt="" />
           </div>
@@ -82,10 +82,10 @@
             <a href="job_detail2.html">
               <h3>{{job.title}}</h3>
             </a>
-            <h4>PHP, MySQL, Linux, Wordpress</h4>
+            <h4>{{ job.skills | parseskill }}</h4>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+        <div class="col-md-5 col-xs-12 pull-right">
           <div class="pull-right location">
             <p>Da nang</p>
           </div>

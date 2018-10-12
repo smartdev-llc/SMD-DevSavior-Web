@@ -22,13 +22,17 @@ import {SkillService} from '../core/services/skill/SkillService';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 
+import { ParseSkill } from '../core/pipes/parse-skill.pipe';
+
+
 @NgModule({
   declarations: [
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
     PostJobComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    ParseSkill
   ],
   exports: [
     BrowseJobsComponent,
