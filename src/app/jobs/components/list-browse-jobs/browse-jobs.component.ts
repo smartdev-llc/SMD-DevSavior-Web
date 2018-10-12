@@ -87,7 +87,7 @@ export class BrowseJobsComponent implements OnInit {
       page: 0,
       ...this.queryParams
     };
-    const params = new HttpParams({fromObject: this.queryParams});
+    const params = new HttpParams({ fromObject: this.queryParams });
     this.jobService.searchJobs(params).subscribe(value => {
       this.listJobs = value.list;
       this.totalItems = value.total;
@@ -95,7 +95,10 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   pageChanged(event: any): void {
-    this.queryParams.page = event.page - 1;
+    this.queryParams = {
+      ...this.queryParams,
+      page: event.page - 1
+    };
     this.loadJobs();
   }
 }
