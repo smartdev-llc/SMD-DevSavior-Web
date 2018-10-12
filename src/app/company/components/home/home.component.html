@@ -3,17 +3,35 @@
 <!--maine container Section -->
 <div class="container-fluid main-container">
   <carousel>
-    <slide *ngFor="let slide of slides; let index=index" [ngSwitch]="index">
+    <slide *ngFor="let slide of slides; let index=index">
       <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
 
       <div class="carousel-caption" *ngIf="index == 0">
         <h1 class="heading-primary">
-          <span class="heading-primary-main" @[moveInLeft]>{{ slide.mainTitle }}</span>
-          <span class="heading-primary-sub" @[moveInRight]>{{ slide.bigTitle }}</span>
+          <p class="heading-primary-main" [@moveInLeft]="currentStateLeftToRight">{{ slide.mainTitle }}</p>
+          <p class="heading-primary-sub" [@moveInRight]="currentStateRightToLeft">{{ slide.bigTitle }}</p>
         </h1>
-        <button class="btn main-button" @[moveInTop] type="button">{{ slide.buttonTitle }}</button>
+        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
+      </div>
+
+       <div class="carousel-caption" *ngIf="index != 0">
+        <h1 class="heading-primary">
+          <p class="heading-primary-main" [@moveInBottom]="currentStateBottomToTop">{{ slide.mainTitle }}</p>
+          <p class="heading-primary-sub" [@moveInTop]="currentStateTopToBottom">{{ slide.bigTitle }}</p>
+        </h1>
+        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
+      </div> 
+
+      <div class="carousel-caption" *ngIf="index != 1">
+        <h1 class="heading-primary">
+          <p class="heading-primary-main" [@moveInRight]="currentStateRightToLeft">{{ slide.mainTitle }}</p>
+          <p class="heading-primary-sub" [@moveInLeft]="currentStateLeftToRight">{{ slide.bigTitle }}</p>
+        </h1>
+        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
       </div>
     </slide>
   </carousel>
 
+
+  
 </div>

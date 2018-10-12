@@ -21,19 +21,19 @@ import {
     trigger('moveInRight', [
       state('right', style({ transform: 'translateX(100px)', opacity: 0 })),
       state('left', style({ transform: 'translate(0)', opacity: 1 })),
-      transition('right => left', animate('3s ease-out'))
-    ]),
-
-    trigger('moveInBottom', [
-      state('bottom', style({ transform: 'translateY(100px)', opacity: 0 })),
-      state('top', style({ transform: 'translate(0)', opacity: 1 })),
-      transition('bottom => top', animate('3s ease-out'))
+      transition('right => left', animate('1s ease-out'))
     ]),
 
     trigger('moveInTop', [
-      state('top', style({ transform: 'translateY(-100px)', opacity: 0 })),
-      state('bottom', style({ transform: 'translate(0)', opacity: 1 })),
-      transition('bottom => top', animate('3s ease-out'))
+      state('top', style({ transform: 'translateY(-35px)', opacity: 0 })),
+      state('bottom', style({ transform: 'translate(0px)', opacity: 1 })),
+      transition('top => bottom', animate('1s ease-out'))
+    ]),
+
+    trigger('moveInBottom', [
+      state('bottom', style({ transform: 'translateY(35px)', opacity: 0 })),
+      state('top', style({ transform: 'translate(0px)', opacity: 1 })),
+      transition('bottom => top', animate('1s ease-out'))
     ]),
   ]
 })
@@ -60,9 +60,28 @@ export class HomeComponent implements OnInit {
   ];
 
   showIndicator = true;
+  isSlide1 = true;
+  isSlide2 = true;
 
+  public currentStateLeftToRight: String;
+  public currentStateRightToLeft: String;
+  public currentStateTopToBottom: String;
+  public currentStateBottomToTop: String;
 
-  constructor() { }
+  constructor() {
+    this.currentStateLeftToRight = "left";
+    this.currentStateRightToLeft = "right";
+    this.currentStateTopToBottom = "top";
+    this.currentStateBottomToTop = "bottom";
+
+   
+    setTimeout(() => {
+      this.currentStateLeftToRight = "right";
+      this.currentStateRightToLeft = "left";
+      this.currentStateTopToBottom = "bottom";
+      this.currentStateBottomToTop = "top";
+    },  500)
+  }
 
   ngOnInit() {
   }
