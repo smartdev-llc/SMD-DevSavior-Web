@@ -1,5 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
@@ -43,6 +44,7 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
   imports: [
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
+    ScrollToModule.forRoot(),
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
