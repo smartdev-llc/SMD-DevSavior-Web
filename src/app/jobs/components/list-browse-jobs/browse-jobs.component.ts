@@ -16,12 +16,13 @@ import { JobService } from '../../../core/services/job.service';
 export class BrowseJobsComponent implements OnInit {
 
   totalItems: number = 0;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 5;
   currentPage: number = 1;
   listJobs: Array<any> = [];
   searchJobForm: FormGroup;
   jobCategories: Array<Categories>;
   queryParams: any = {};
+  loading = false;
   configDropDown = {
     displayKey: 'name',
     placeholder: 'Select'
@@ -88,9 +89,11 @@ export class BrowseJobsComponent implements OnInit {
       ...this.queryParams
     };
     const params = new HttpParams({ fromObject: this.queryParams });
+    this.loading = true;
     this.jobService.searchJobs(params).subscribe(value => {
       this.listJobs = value.list;
       this.totalItems = value.total;
+      this.loading = false;
     });
   }
 

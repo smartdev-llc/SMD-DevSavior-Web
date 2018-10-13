@@ -3,7 +3,6 @@ import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -50,7 +49,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     CoreModule,
     SharedModule
   ],
