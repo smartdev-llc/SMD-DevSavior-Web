@@ -6,32 +6,85 @@
     <slide *ngFor="let slide of slides; let index=index">
       <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
 
-      <div class="carousel-caption" *ngIf="index == 0">
+      <div class="carousel-caption">
         <h1 class="heading-primary">
-          <p class="heading-primary-main" [@moveInLeft]="currentStateLeftToRight">{{ slide.mainTitle }}</p>
-          <p class="heading-primary-sub" [@moveInRight]="currentStateRightToLeft">{{ slide.bigTitle }}</p>
+          <p class="heading-primary-main">{{ slide.mainTitle }}</p>
+          <p class="heading-primary-sub">{{ slide.bigTitle }}</p>
         </h1>
-        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
-      </div>
-
-       <div class="carousel-caption" *ngIf="index != 0">
-        <h1 class="heading-primary">
-          <p class="heading-primary-main" [@moveInBottom]="currentStateBottomToTop">{{ slide.mainTitle }}</p>
-          <p class="heading-primary-sub" [@moveInTop]="currentStateTopToBottom">{{ slide.bigTitle }}</p>
-        </h1>
-        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
-      </div> 
-
-      <div class="carousel-caption" *ngIf="index != 1">
-        <h1 class="heading-primary">
-          <p class="heading-primary-main" [@moveInRight]="currentStateRightToLeft">{{ slide.mainTitle }}</p>
-          <p class="heading-primary-sub" [@moveInLeft]="currentStateLeftToRight">{{ slide.bigTitle }}</p>
-        </h1>
-        <button class="btn main-button" [@moveInBottom]="currentStateBottomToTop" type="button">{{ slide.buttonTitle }}</button>
+        <button class="btn main-button btn-animation" type="button">{{ slide.buttonTitle }}</button>
       </div>
     </slide>
   </carousel>
 
 
-  
+  <section class="bottom-slider py-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-4 text-center">
+          <div class="info-block">
+            <p>CALL US 24/7</p>
+            <h3>+123-456-7890</h3>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4 col-lg-4 text-center">
+          <div class="info-block">
+            <p>EMAIL ADDRESS</p>
+            <h3>example@example.com</h3>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4 col-lg-4 text-center">
+          <div class="info-block">
+            <p>OPEN HOURS</p>
+            <h3>Daily 9:00-20:00</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about pt-25">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <div class="heading-about">
+            <h2>HR</h2>
+            <h4>Welcome to</h4>
+            <h3>JuniorViec</h3>
+            <p>We believe in the value that our functions add to a business. We feel that this specialist part of HR is often
+              unrecognised for its contribution to the profitability and success of a business.</p>
+          </div>
+          <div class="icons-list">
+            <div class="media">
+              <i class="teaser-icon fa fa-rocket"></i>
+              <span>638</span>
+              <p>Companies We Helped</p>
+            </div>
+
+            <div class="media">
+              <i class="teaser-icon fa fa-briefcase"></i>
+              <span>12</span>
+              <p>Corporate Programs</p>
+            </div>
+
+            <div class="media">
+              <i class="teaser-icon fa fa-graduation-cap"></i>
+              <span>28</span>
+              <p>Trainings Courses</p>
+            </div>
+
+            <div class="media">
+              <i class="teaser-icon fa fa-user"></i>
+              <span>125</span>
+              <p>Strategic Partners</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <img class="hr-cover" src="../../../../assets/images/person01.jpg" alt="person01.jpg"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 </div>
