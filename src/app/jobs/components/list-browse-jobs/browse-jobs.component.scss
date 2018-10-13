@@ -11,6 +11,11 @@
   }
 }
 
+.main-container.jobs {
+  position: relative;
+  min-height: 500px;
+}
+
 @media (max-width: 500px) {
   .desig {
     width: 100%;

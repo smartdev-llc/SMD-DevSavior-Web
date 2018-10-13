@@ -3,6 +3,7 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 // components
 import { JobListComponent } from './components/jobs/jobs-list/job-list.component';
@@ -39,12 +40,19 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     TranslateModule,
     TranslateCacheModule,
     SocialLoginModule,
-    JVDropDownComponent
+    JVDropDownComponent,
+    NgxLoadingModule
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxInputStarRatingModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circle,
+      backdropBackgroundColour: 'transparent',
+      primaryColour: '#eee',
+      secondaryColour: '#12cd6a'
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
