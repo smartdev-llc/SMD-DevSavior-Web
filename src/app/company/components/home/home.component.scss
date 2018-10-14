@@ -239,6 +239,11 @@
 
 .main-contact-form {
     background-image: url(../../../../assets/images/slide03.jpg);
+    width: 100%;
+    height: auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     .contact-header {
         text-transform: uppercase;
         padding-bottom: 70px;
@@ -246,19 +251,22 @@
         color: #fff;
         text-align: center;
         h5 {
+            width:100%;
+            height:auto;
             position: relative;
             bottom: 10px;
             font-size: 30px;
             font-weight: 300;
         }
         h4 {
+            width:100%;
+            height:auto;
             font-size: 40px;
             line-height: 0;
             font-weight: 600;
         }
     }
     .form-contact {
-        color: #fff;
         .form-group {
             .form-control {
                 background-color: rgba(15, 15, 15, 0.5);
@@ -514,6 +522,14 @@
             }
         }
     }
+
+    .main-contact-form {
+        .form-contact {
+            .form-group {
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -570,6 +586,28 @@
             p {
                 font-size: 16px;
                 margin-top: 30px;
+            }
+        }
+    }
+
+    .main-contact-form {
+        .contact-header {
+            h5 {
+                width:100%;
+                height:auto;
+                font-size: 28px;
+                
+            }
+            h4 {
+                width:100%;
+                height:auto;
+                font-size: 35px;
+                
+            }
+        }
+        .form-contact {
+            .form-group {
+                margin-bottom: 10px;
             }
         }
     }
