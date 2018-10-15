@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
 import { find } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 import { Categories } from '../../../core/models/job';
 import { JobService } from '../../../core/services/job.service';
@@ -32,7 +33,8 @@ export class BrowseJobsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private jobService: JobService) {
+    private jobService: JobService,
+    private scrollToService: ScrollToService) {
   }
 
   ngOnInit() {
@@ -103,5 +105,6 @@ export class BrowseJobsComponent implements OnInit {
       page: event.page - 1
     };
     this.loadJobs();
+    this.scrollToService.scrollTo({ target: 'searchJobs' });
   }
 }

@@ -1,8 +1,12 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
+import { QuillModule } from 'ngx-quill';
+
 // Components
 import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
 import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
@@ -17,7 +21,6 @@ import {JobsRoutes as routes} from './jobs.routes';
 import {ContactUsComponent} from './components/contact-us/contact-us.component';
 import {CategoryCompanyService} from '../core/services/category/CategoryCompanyService';
 import {PostJobCompanyService} from '../core/services/post-job/PostJobCompanyService';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SkillService} from '../core/services/skill/SkillService';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
@@ -43,7 +46,9 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
   imports: [
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
+    ScrollToModule.forRoot(),
     NgxInputStarRatingModule,
+    QuillModule,
     LayoutModule,
     SharedModule,
     FormsModule,
