@@ -17,23 +17,23 @@
                 <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
             </a>
-            <!-- logging -->
-            <a routerLink="/" class="student-login">
-              <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
-            </a>
-            <a routerLink="/employer/statistic" class="student-register">
-              <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
-            </a>
-            <!-- logging -->
-
             <!-- not logged in -->
-            <!-- <a routerLink="/login" class="student-login">
+            <a routerLink="/login" class="student-login">
               <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
             </a>
             <a routerLink="/register" class="student-register">
               <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
+            </a>
+            <!-- not logged in -->
+
+            <!-- logging -->
+            <!-- <a routerLink="/" class="student-login">
+              <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
+            </a>
+            <a routerLink="/employer/statistic" class="student-register">
+              <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
             </a> -->
-             <!-- not logged in -->
+            <!-- logging -->
 
             <a routerLink="/" class="employer">
               <span class="label job-type partytime Companies-head">
@@ -65,13 +65,6 @@
               <li>
                 <a routerLink="/list-company">{{ 'header.services_product' | translate }}</a>
               </li>
-              <!-- logging -->
-              <li class="mobile-menu">
-                <a routerLink="/">{{ 'header.log_out' | translate }}</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
-              </li>
               <!-- not logged in -->
               <li class="mobile-menu">
                 <a routerLink="/login">{{ 'header.login' | translate }}</a>
@@ -80,8 +73,20 @@
                 <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
               <li class="mobile-menu">
-                <a routerLink="/employer/home">{{ 'header.jobseeker_mobile' | translate }}</a>
+                <a routerLink="/">{{ 'header.jobseeker_mobile' | translate }}</a>
               </li>
+              <!-- not logged in -->
+
+
+              <!-- logging -->
+              <!-- <li class="mobile-menu">
+                <a routerLink="/">{{ 'header.log_out' | translate }}</a>
+              </li>
+              <li class="mobile-menu">
+                <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
+              </li>
+            <!-- logging -->
+
             </ul>
           </div>
           <!-- navbar-collapse -->

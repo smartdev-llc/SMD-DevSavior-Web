@@ -154,7 +154,7 @@
     top: 0;
   }
   .navbar-fixed-top {
-    background: #fff !important;
+    background: #fff;
     box-shadow: 0 0 1px #d6d6d6;
   }
   .navbar-nav>li .dropdown-menu {
