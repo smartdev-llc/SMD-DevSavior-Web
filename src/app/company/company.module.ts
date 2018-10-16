@@ -13,17 +13,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
-
-
+import { StatisticComponent } from './components/statistic/statistic.component';
+import { CarouselModule } from 'ngx-bootstrap';
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     RouterModule.forChild(CompanyRoutes),
     LayoutModule,
     NgSelectModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule.forRoot()
   ],
   declarations: [
     HomeComponent,
@@ -32,7 +33,8 @@ import { CpRegisterComponent } from './components/cp-register/cp-register.compon
     JobListComponent,
     CandidateListComponent,
     DetailCandidateComponent,
-    CpRegisterComponent
+    CpRegisterComponent,
+    StatisticComponent
   ],
   bootstrap: [ HomeComponent ]
 })

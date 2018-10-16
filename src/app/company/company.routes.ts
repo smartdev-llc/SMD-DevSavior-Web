@@ -6,7 +6,7 @@ import { JobListComponent } from "./components/job-list/job-list.component";
 import { CandidateListComponent } from "./components/candidate-list/candidate-list.component";
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
-
+import { StatisticComponent } from './components/statistic/statistic.component';
 
 export const CompanyRoutes = [
     {
@@ -19,7 +19,7 @@ export const CompanyRoutes = [
             { path: 'jobs', component: JobListComponent},
             { path: 'candidates', component: CandidateListComponent},
             { path: 'register', component: CpRegisterComponent},
-
+            { path: 'statistic', component: StatisticComponent},
         ]
     },
     { path : 'detail-candidate', component: DetailCandidateComponent}
