@@ -7,6 +7,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 // Services
 import { AuthService } from './services/auth.service';
+import { JobService } from './services/job.service';
 import { AuthActions } from '../auth/actions/auth.actions';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HumanizePipe } from './pipes/humanize.pipe';
@@ -39,6 +40,7 @@ import { StudentLoggedGuard } from './guards/student-logged.guard';
   ],
   providers: [
     AuthService,
+    JobService,
     AuthActions,
     StudentUserAuthGuard,
     StudentLoggedGuard,

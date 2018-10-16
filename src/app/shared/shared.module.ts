@@ -3,6 +3,7 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 // components
 import { JobListComponent } from './components/jobs/jobs-list/job-list.component';
@@ -10,6 +11,7 @@ import { JobItemComponent } from './components/jobs/job-item/job-item.component'
 import { LoadmoreButtonComponent } from './components/loadmore-button/loadmore-button.component';
 import { CompanyItemComponent } from './components/company/company-item.component';
 import { HotJobItemComponent } from './components/jobs/hotjob-item/hotjob-item.component';
+import { JVDropDownComponent } from './components/custom-dropdown/jv-dropdown.component';
 
 // import ngx-translate and the http loader
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -26,7 +28,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     HotJobItemComponent,
     LoadmoreButtonComponent,
     CompanyItemComponent,
-
+    JVDropDownComponent
   ],
   exports: [
     CommonModule,
@@ -37,12 +39,20 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     CompanyItemComponent,
     TranslateModule,
     TranslateCacheModule,
-    SocialLoginModule
+    SocialLoginModule,
+    JVDropDownComponent,
+    NgxLoadingModule
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxInputStarRatingModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circle,
+      backdropBackgroundColour: 'transparent',
+      primaryColour: '#eee',
+      secondaryColour: '#12cd6a'
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

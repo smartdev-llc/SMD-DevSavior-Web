@@ -1,0 +1,23 @@
+.filter-result {
+  padding: 40px 0;
+}
+
+.desig {
+  width: 80%;
+  h4 {
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+}
+
+.main-container.jobs {
+  position: relative;
+  min-height: 500px;
+}
+
+@media (max-width: 500px) {
+  .desig {
+    width: 100%;
+  }
+}

@@ -4,7 +4,6 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {AppErrors} from '../error/app-errors';
 
-@Injectable()
 export class DataService {
 
   constructor(private url: string, private http: HttpClient) {  }
@@ -18,7 +17,6 @@ export class DataService {
   }
 
   createData (resource: any){
-    resource = JSON.stringify(resource);
     return this.http.post(this.url, resource)
       .pipe(
         map(response => response),
