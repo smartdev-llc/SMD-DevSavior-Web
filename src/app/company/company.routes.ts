@@ -6,6 +6,8 @@ import { CandidateListComponent } from "./components/candidate-list/candidate-li
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
+
 
 // Guards
 import { CompanyUserAuthGuard } from '../core/guards/company-user.guard';
@@ -23,6 +25,7 @@ export const CompanyRoutes = [
             { path: 'jobs', component: JobListComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'candidates', component: CandidateListComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'statistic', component: StatisticComponent, canActivate: [CompanyUserAuthGuard] },
+            { path: 'post-job', component: PostJobComponent, canActivate: [CompanyUserAuthGuard] }
         ]
     },
     { path : 'detail-candidate', component: DetailCandidateComponent, canActivate: [CompanyUserAuthGuard]}
