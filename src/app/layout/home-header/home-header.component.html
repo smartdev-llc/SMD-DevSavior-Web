@@ -93,7 +93,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav" *ngIf="!isLoggedIn()">
               <li>
-                <a routerLink="/">{{ 'header.jobs' | translate }}</a>
+                <a routerLink="/browse-jobs">{{ 'header.jobs' | translate }}</a>
               </li>
               <li>
                 <a routerLink="/list-company">{{ 'header.companies' | translate }}</a>
@@ -113,7 +113,7 @@
             <!-- logged -->
             <ul class="nav navbar-nav" *ngIf="isLoggedIn()">
               <li>
-                <a routerLink="/">{{ 'header.jobs' | translate }}</a>
+                <a routerLink="/browse-jobs">{{ 'header.jobs' | translate }}</a>
               </li>
               <li>
                 <a routerLink="/list-company">{{ 'header.companies' | translate }}</a>
