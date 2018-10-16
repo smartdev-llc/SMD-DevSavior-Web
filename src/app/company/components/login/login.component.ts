@@ -21,14 +21,18 @@ export class LoginComponent implements OnInit {
   isSubmited = false;
   formErrorMessage: string;
   isResendEmailSuccess = false;
+  returnUrl: string;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.initForm();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/employer/statistic';
   }
   initForm() {
     this.loginInForm = this.fb.group({
@@ -60,7 +64,7 @@ export class LoginComponent implements OnInit {
         .subscribe(user => {
           this.isLoading = false;
           this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl(this.returnUrl);
         },
           (error: AppErrors) => {
             this.handleErrorLoginComponent(error);

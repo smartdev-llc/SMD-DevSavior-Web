@@ -1,5 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
+
+// Guards
 import { StudentUserAuthGuard } from './core/guards/student-user.guard';
+import { StudentLoggedGuard } from './core/guards/student-logged.guard';
 
 export const routes: Routes = [
   {
@@ -20,7 +23,8 @@ export const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: './company/company.module#CompanyModule'
+    loadChildren: './company/company.module#CompanyModule',
+    canActivate: [StudentLoggedGuard]
   },
   {
     path: '',

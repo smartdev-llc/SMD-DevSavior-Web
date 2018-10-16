@@ -7,9 +7,9 @@ import { User, Role } from '../models/user';
 // If user logged we block they back login, register,.. pages
 
 @Injectable()
-export class StudentLoggedGuard implements CanActivate {
+export class CompanyLoggedGuard implements CanActivate {
   user: User;
-  isStudentRole: boolean;
+  isCompanyRole: boolean;
 
   constructor(
     private router: Router,
@@ -19,12 +19,12 @@ export class StudentLoggedGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     this.user = this.authService.getCurrentUser();
-    this.isStudentRole = !!this.user && this.user.role === Role.Student;
+    this.isCompanyRole = !!this.user && this.user.role === Role.Company;
 
-    if (this.isStudentRole) {
-      this.router.navigate(['/']);
+    if (this.isCompanyRole) {
+      this.router.navigate(['/employer/statistic']);
     }
 
-    return !this.isStudentRole;
+    return !this.isCompanyRole;
   }
 }
