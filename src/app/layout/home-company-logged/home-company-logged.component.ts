@@ -40,7 +40,7 @@ export class HomeCompanyLoggedComponent implements OnInit {
       .subscribe(_ => {
         this.authService.signOut();
         localStorage.removeItem('user');
-        this.router.navigate(['/employer/login'])
+        this.router.navigate(['/employer/home'])
       })
   }
 
