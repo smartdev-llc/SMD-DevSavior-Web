@@ -17,9 +17,6 @@ export class LoginComponent implements OnInit {
   loginInForm: FormGroup;
   loginSubs: Subscription;
   isNotVerified = false;
-  isLoading = false;
-  isSubmited = false;
-  formErrorMessage: string;
   isResendEmailSuccess = false;
   constructor(
     private fb: FormBuilder,
@@ -46,12 +43,16 @@ export class LoginComponent implements OnInit {
   onSubmit () {
     let values = this.loginInForm.value;
 
-    this.isSubmited = true;
-    this.formErrorMessage = '';
-    this.isResendEmailSuccess = false;
-
-    if (this.loginInForm.invalid) {
-      console.log('error', this.loginInForm);
+    if (this.loginInForm.valid) {
+      this.isResendEmailSuccess = false;
+      this.loginSubs = this.authService.loginCompany(values)
+        .subscribe(user => {
+          this.authService.setTokenInLocalStorage(user, false);
+          this.router.navigate(['/employer/home']);
+        }, error => {
+          if (error instanceof Forbidden) {
+            console.log('forbidden', error);
+            this.isNotVerified = true;
 
     } else {
       this.isLoading = true;

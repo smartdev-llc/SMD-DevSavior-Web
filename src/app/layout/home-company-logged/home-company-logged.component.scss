@@ -7,6 +7,7 @@
 }
 
 #header .collapse {
+  overflow: hidden;
   padding-top: 6px;
 }
 #header .navbar-nav li.dropdown:hover ul.dropdown-menu {
@@ -167,6 +168,9 @@ button.navbar-toggle.flag-mobile {
 }
 
 @media (min-width: 1201px) and (max-width: 1359px) {
+  .pages .navbar {
+    background: #fff;
+  }
   .post_job span {
     margin-top: 2px;
   }
@@ -176,11 +180,15 @@ button.navbar-toggle.flag-mobile {
 }
 
 @media (min-width: 319px) and (max-width: 1200px) {
+  .pages .navbar {
+    background: #fff;
+  }
   .logo {
     display: block;
     padding-top: 10px;
   }
   .navbar-nav {
+    width: 100%;
     text-align: center
   }
   .nav>li {
@@ -209,6 +217,9 @@ button.navbar-toggle.flag-mobile {
 }
 
 @media (min-width: 210px) and (max-width: 320px) {
+  .pages .navbar {
+    background: #fff;
+  }
   .logo {
     width: 146px;
   }

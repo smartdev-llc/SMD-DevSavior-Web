@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-<!--Title Section-->
 <div class="container-fluid page-title">
   <div class="row green-banner">
     <div class="container main-container">
@@ -13,266 +12,155 @@
     </div>
   </div>
 </div>
-<!--Title Section-->
+<!--header section -->
 
-<!--Contact-us-->
-<div class="container-fluid  contact_us">
-  <form  [formGroup]="postJobForm" name="contact_us" id="form-style-2" (ngSubmit)="submitPostJobForm()">
+<!-- full width section forms -->
+<div class="container-fluid contact_us">
+  <form class="update-form" id="form-style-2" [formGroup]="postAJobForm" (ngSubmit)="onSubmitPostJob()">
     <div class="row user-information">
       <div class="container main-container-home">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-          <!--Job Title-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job Title</label>
+              <label class="required">Job Title</label>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input formControlName="title" type="text" name="location" placeholder="">
-            </div>
-            <!--Validation-->
-            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
-                  *ngIf="(title.touched && title.invalid) || submitted">
-              <!--<span *ngIf="title.errors?.required">hehe</span>-->
-              <span  *ngIf="title.getError('required')">Field is Required</span>
-            </span>
-          </div>
-
-          <!--Skills-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Skill</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <!--<select  formControlName="skill" class="form-control select2-offscreen" id="tagPicker" multiple="multiple" tabindex="-1">
-                <option *ngFor="let skill of skills" [value]="skill.name" >{{skill.name}}</option>
-              </select>-->
-
-              <ng-select
-                [items]="recievedSkill | async"
-                [multiple]="true"
-                [closeOnSelect]="false"
-                [searchable]="false"
-                bindLabel="name"
-                placeholder="Select people"
-                #ngSelectObj
-                (change)="changeSelect(ngSelectObj)">
-              </ng-select>
-            </div>
-          </div>
-
-          <!--Job Category-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">
-                Job Category
-              </label>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <select formControlName="categoryId" class="form-control" >
-                <option value="" disabled="true" checked="true">Please Select Category</option>
-                <option
-                  *ngFor="let category of categories"
-                  [value]="category.id"
-                >{{ category.name}}</option>
-              </select>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
-
-            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input"
-                  *ngIf="(categoryId.touched && categoryId.invalid) || submitted">
-              <span *ngIf="categoryId.getError('required')">Field is Required</span>
-            </span>
-
-          </div>
-
-          <!--Description-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Description</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <textarea formControlName="description" name="" cols="30" rows="10" placeholder=""></textarea>
-              <i class="note-hint">(Maximum is 14500 character)</i>
-            </div>
-
-            <span class="col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10 error-input" *ngIf="(description.touched && description.invalid) || submitted">
-              <span *ngIf="description.getError('required')">Field is Required</span>
-            </span>
-
-          </div>
-
-          <!--Major-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Major
-                <br>
-                <span>(Maximum is 3)</span>
-              </label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="">
-            </div>
-          </div>
-
-          <!--Work Place-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Work Place</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="">
-            </div>
-          </div>
-
-          <!--Salary-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">
-                Salary
-                <br>
-                <span>(USD)</span>
-              </label>
-
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <select class="form-control" >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 label-switch-text">
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>
-              Option
-
-            </div>
-          </div>
-
-
-          <!--Job Required-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Job Require</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <textarea name="" cols="30" rows="10" placeholder=""></textarea>
-              <i class="note-hint">(Maximum is 14500 character)</i>
-            </div>
-          </div>
-
-
-          <!--Tag-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="default">Tag
-                <br>
-                <span>(Maximum 3 tag)</span>
-              </label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-tag" placeholder="">
-            </div>
-          </div>
-
-          <!--Yêu cầu giới thiệu-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label >Yêu cầu giới thiệu?</label>
-            </div>
-            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
-              <input class="magic-radio" type="radio" name="radio" id="1" value="Bắt buộc">
-              <label class="label-radio radio-inline" for="1">
-                Option
-              </label>
-            </div>
-            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
-              <input class="magic-radio" type="radio" name="radio" id="2" value="Hiển Thị nhưng không bắt buộc">
-              <label class="label-radio radio-inline" for="2">
-                Option
-              </label>
-            </div>
-            <div class="col-xs-3 col-xs-3 col-xs-3 col-xs-3 padding-top-10">
-              <input class="magic-radio" type="radio" name="radio" id="3" value="Bắt buộc">
-              <label class="label-radio radio-inline" for="3">
-                Option
-              </label>
-            </div>
-
-          </div>
-
-          <!--CV
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Nhận Hồ Sơ bằng ngôn ngữ</label>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="Bất kỳ">
-            </div>
-          </div>
-
-          <!--Contact-->
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Contact</label>
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-              <input type="text" name="job-type" placeholder="HR Dept">
-            </div>
-
-
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 label-switch-text">
-              <div>
-                <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-                Option
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" [ngClass]="{ 'has-error': submitted && f.title.errors }">
+              <input type="text" class="form-control" formControlName="title" />
+              <div *ngIf="submitted && f.title.errors">
+                <em *ngIf="f.title.errors.required" class="error help-block">Field is Required</em>
               </div>
             </div>
           </div>
-
-          <!--Email-->
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Company</label>
+              <label class="required">Job category</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-              <input type="text" name="job-type" placeholder="yourEmail@example.com">
+              <ng-select
+                class="custom"
+                [ngClass]="{ 'ng-touched': submitted && f.categoryId.errors }"
+                [items]="jobCategories"
+                [closeOnSelect]="true"
+                [hideSelected]="true"
+                bindLabel="name"
+                placeholder="Select category"
+                formControlName="categoryId"
+              >
+              </ng-select>
+              <div *ngIf="submitted && f.categoryId.errors">
+                <em *ngIf="submitted && f.categoryId.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
             </div>
           </div>
-
-          <!--Submit-->
           <div class="form-group">
-            <div class="col-lg10 col-md10 col-sm10 col-xs-10">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="required">Skills</label>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-              <button class="btn btn-primary">Submit</button>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <ng-select
+                class="multiple"
+                [ngClass]="{ 'ng-touched': submitted && f.skillIds.errors }"
+                [items]="listSkills"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                [searchable]="true"
+                [hideSelected]="true"
+                bindLabel="name"
+                placeholder="Select skills"
+                formControlName="skillIds"
+              >
+              </ng-select>
+              <div *ngIf="submitted && f.skillIds.errors">
+                <em *ngIf="submitted && f.skillIds.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
             </div>
           </div>
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="required">Description</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <quill-editor
+                [modules]="quillModules"
+                [style]="{height: '150px'}"
+                [required]="true"
+                formControlName="description">
+              </quill-editor>
+              <div *ngIf="submitted && f.description.errors">
+                <em *ngIf="submitted && f.description.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="required">Job Requirements</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <quill-editor
+                [modules]="quillModules"
+                [required]="true"
+                [style]="{height: '150px'}"
+                formControlName="jobRequirements">
+              </quill-editor>
+              <div *ngIf="submitted && f.jobRequirements.errors">
+                <em *ngIf="submitted && f.jobRequirements.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
+            </div>
+          </div>
+          <ng-container formGroupName="salaryForm">
+            <div class="form-group">
+              <hr class="salary">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <label class="required">Salary(USD)</label>
+              </div>
+              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group" [ngClass]="{ 'has-error': submitted && salaryF.fromSalary.errors }">
+                      <label class="required salary" for="from">From</label>
+                      <input type="text" id="from" class="form-control" formControlName="fromSalary">
+                      <div *ngIf="submitted && salaryF.fromSalary.errors">
+                        <em *ngIf="salaryF.fromSalary.errors.required" class="error help-block">Field is Required</em>
+                        <em *ngIf="salaryF.fromSalary.errors.pattern" class="error help-block">Salary must be number</em>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group" [ngClass]="{ 'has-error': submitted && (salaryF.toSalary.errors || salaryForm.errors) }">
+                      <label class="required salary" for="to">To</label>
+                      <input type="text" id="to" class="form-control" formControlName="toSalary">
+                      <div *ngIf="submitted && salaryF.toSalary.errors">
+                        <em *ngIf="salaryF.toSalary.errors.required" class="error help-block">Field is Required</em>
+                        <em *ngIf="salaryF.toSalary.errors.pattern" class="error help-block">Salary must be number</em>
+                      </div>
+                      <div *ngIf="submitted && salaryForm.errors">
+                        <em *ngIf="salaryForm.errors.difference" class="error help-block">To salary must be greater than or equal to from salary</em>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
 
+          <div class="row">
+            <div class="col-md-12">
+              <hr>
+              <div class="pull-right">
+                <button type="submit" class="btn btn-defaut bg-submit" [disabled]="isSubmitting">
+                  <i *ngIf="!isSubmitting" class="fa fa-check-circle" aria-hidden="true"></i>
+                  <i *ngIf="isSubmitting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                  Đăng tin</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+
   </form>
+  <ngx-loading [show]="isSubmitting"></ngx-loading>
 </div>
 <!--Contact-us-->
 
