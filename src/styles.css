@@ -231,7 +231,7 @@ ul li {
   top: 29px;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 99;
 }
 
 /*/////////////////////////////*/
@@ -478,21 +478,21 @@ ul.dropdown-menu li:last-child a {
 }
 
 ::-webkit-input-placeholder {
-  color: #232323 !important;
+  color: #232323
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #232323 !important;
+  color: #232323
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #232323 !important;
+  color: #232323
 }
 
 :-ms-input-placeholder {
-  color: #232323 !important;
+  color: #232323
 }
 
 .jobs_filters button .glyphicon {

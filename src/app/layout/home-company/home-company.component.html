@@ -18,13 +18,24 @@
               </span>
             </a>
             <!-- not logged in -->
-            <a routerLink="/login" class="student-login">
+            <a routerLink="/employer/login" class="student-login">
               <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
             </a>
-            <a routerLink="/register" class="student-register">
+            <a routerLink="/employer/register" class="student-register">
               <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
             </a>
-            <a routerLink="/employer/home" class="employer">
+            <!-- not logged in -->
+
+            <!-- logging -->
+            <!-- <a routerLink="/" class="student-login">
+              <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
+            </a>
+            <a routerLink="/employer/statistic" class="student-register">
+              <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
+            </a> -->
+            <!-- logging -->
+
+            <a routerLink="/" class="employer">
               <span class="label job-type partytime Companies-head">
                 <p class="main-title">{{ 'header.jobseeker' | translate }}</p>
               </span>
@@ -62,8 +73,20 @@
                 <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
               <li class="mobile-menu">
-                <a routerLink="/employer/home">{{ 'header.jobseeker_mobile' | translate }}</a>
+                <a routerLink="/">{{ 'header.jobseeker_mobile' | translate }}</a>
               </li>
+              <!-- not logged in -->
+
+
+              <!-- logging -->
+              <!-- <li class="mobile-menu">
+                <a routerLink="/">{{ 'header.log_out' | translate }}</a>
+              </li>
+              <li class="mobile-menu">
+                <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
+              </li> -->
+              <!-- logging -->
+
             </ul>
           </div>
           <!-- navbar-collapse -->
