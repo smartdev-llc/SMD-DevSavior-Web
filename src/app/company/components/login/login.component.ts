@@ -5,8 +5,8 @@ import { AuthService } from '../../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppErrors } from '../../../core/error/app-errors';
 import { Forbidden } from '../../../core/error/forbidden';
-import {InternalServer} from '../../../core/error/internal-server';
-import {Unauthorized} from '../../../core/error/unauthorized';
+import { InternalServer } from '../../../core/error/internal-server';
+import { Unauthorized } from '../../../core/error/unauthorized';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   loginInForm: FormGroup;
   loginSubs: Subscription;
   isNotVerified = false;
+  isLoading = false;
+  isSubmited = false;
+  formErrorMessage: string;
   isResendEmailSuccess = false;
   constructor(
     private fb: FormBuilder,
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
-  initForm () {
+  initForm() {
     this.loginInForm = this.fb.group({
       'email': ['', Validators.email],
       'password': ['', Validators.required]
@@ -40,45 +43,41 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginInForm.get('password');
   }
-  onSubmit () {
+  onSubmit() {
     let values = this.loginInForm.value;
 
-    if (this.loginInForm.valid) {
-      this.isResendEmailSuccess = false;
-      this.loginSubs = this.authService.loginCompany(values)
-        .subscribe(user => {
-          this.authService.setTokenInLocalStorage(user, false);
-          this.router.navigate(['/employer/home']);
-        }, error => {
-          if (error instanceof Forbidden) {
-            console.log('forbidden', error);
-            this.isNotVerified = true;
+    this.isSubmited = true;
+    this.formErrorMessage = '';
+    this.isResendEmailSuccess = false;
+
+    if (this.loginInForm.invalid) {
+      console.log('error', this.loginInForm);
 
     } else {
       this.isLoading = true;
       this.authService
         .loginCompany(values)
         .subscribe(user => {
-            this.isLoading = false;
-            this.authService.setTokenInLocalStorage(user, false);
-            this.router.navigateByUrl('/');
-          },
+          this.isLoading = false;
+          this.authService.setTokenInLocalStorage(user, false);
+          this.router.navigateByUrl('/');
+        },
           (error: AppErrors) => {
             this.handleErrorLoginComponent(error);
           });
     }
 
   }
-  
 
-  resendEmail( email: HTMLInputElement) {
+
+  resendEmail(email: HTMLInputElement) {
     this.isLoading = true;
 
     this.authService
-      .resendEmail( email.value, 'company')
+      .resendEmail(email.value, 'company')
       .subscribe(
         message => {
-          if ( message === 'Sent email.') {
+          if (message === 'Sent email.') {
             this.isLoading = false;
             this.isNotVerified = false;
             this.isResendEmailSuccess = true;
@@ -88,7 +87,7 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  handleErrorLoginComponent(error : AppErrors){
+  handleErrorLoginComponent(error: AppErrors) {
     this.isLoading = false;
 
     if (error instanceof InternalServer) {
@@ -105,7 +104,6 @@ export class LoginComponent implements OnInit {
     else {
       console.log('app error', error);
       throw error;
-      
     }
   }
 }
