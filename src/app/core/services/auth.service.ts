@@ -72,11 +72,17 @@ export class AuthService {
 
   loginCompany({ email, password }: Authenticate): Observable<User> {
     const params = { email, password, role: Role.Company };
-    return this.http.post<User>('/auth/login', params);
-    // catch should be handled here with the http observable
-    // so that only the inner obs dies and not the effect Observable
-    // otherwise no further login requests will be fired
-    // MORE INFO https://youtu.be/3LKMwkuK0ZE?t=24m29s
+    return this.http
+      .post<User>('/auth/login', params)
+      .pipe(
+        map(
+          (response: any) => {
+            console.log('[login()][response]', response.message);
+            return response;
+          }
+        ),
+        catchError(this.handleError)
+      );
   }
 
   register(data: any): Observable<User> {
