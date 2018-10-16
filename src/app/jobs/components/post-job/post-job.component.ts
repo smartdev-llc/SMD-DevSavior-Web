@@ -101,8 +101,6 @@ export class PostJobComponent implements OnInit {
 
   onSubmitPostJob() {
     this.submitted = true;
-    this.isSubmitting = true;
-
     if (this.postAJobForm.invalid) {
       return;
     }
@@ -126,6 +124,7 @@ export class PostJobComponent implements OnInit {
     };
     delete params.salaryForm;
 
+    this.isSubmitting = true;
     this.jobService.createData(params)
       .subscribe((response) => {
         this.isSubmitting = false;
