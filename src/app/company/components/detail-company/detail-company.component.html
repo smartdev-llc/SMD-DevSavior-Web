@@ -1,0 +1,213 @@
+<div id="header" class="container-fluid pages">
+    <div class="row">
+        <!-- Header Image Or May be Slider-->
+        <div class="top_header">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="logo">
+                        <a routerLink="/">
+                            <img src="../../../assets/images/logoEmployer.png" alt="Photo" />
+                        </a>
+                    </div>
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#info-company">Thông tin</a>
+                            </li>
+                            <li>
+                                <a href="#recruitment-company">Tuyển dụng</a>
+                            </li>
+                            <li>
+                                <a href="#introduce-company">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="#images-company">Hình ảnh</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!-- navbar-collapse -->
+                </div>
+                <!-- container-fluid -->
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid main-container">
+    <carousel>
+        <slide *ngFor="let slide of slides; let index=index" class="carousel-fix-he">
+            <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+
+        </slide>
+    </carousel>
+
+
+    <section id="info-company" class="bottom-slider py-100">
+        <div class="container">
+            <div class="row media">
+
+
+                <div class="media-left col-md-3 col-sm-6">
+                    <div class="avatar">
+                        <!-- <img src="https://cdn1.mywork.com.vn/company-logo-medium/102018/10a072eb032fac5febce029ee8cec33d.png" class="media-object" alt="Công ty TNHH LOGIFORM" width="100%"> -->
+                        <img src="{{ company.logoURL || '' }}" alt="">
+
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-6 mt-20">
+                    <h4 class="media-heading fs-20 ">Công ty JuniorViec</h4>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-map-marker"></i> Địa chỉ: 08 Nguyễn Thông, Sơn Trà, Đà Nẵng</p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-envelope"></i> Email: quangtuan@deptrai.com</p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-earphone"></i> Điện thoại: <a href="tel:+{{ company.phoneNumber || ''}}">{{ company.phoneNumber || ''}}</a></p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> Website: <a href="{{ company.website || ''}}">{{ company.website || ''}}</a></p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="recruitment-company">
+        <div class="container">
+            <div class="row">
+                <div class="jobs-result">
+                    <!--Search Result 01-->
+                    <div class="col-md-12">
+                        <h3 class="title-company-w fs-20">Vị trí tuyển dụng</h3>
+
+                        <a href="#">
+                            <div class="filter-result 03">
+                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+                                    <div class="company-left-info pull-left">
+                                        <img src="assets/images/company-logo.png" alt="">
+
+                                    </div>
+                                    <div class="desig">
+                                        <h3>Full Stack Web Developer</h3>
+                                        <h4>C# / ASP.NET / MVC</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+                                    <div class="pull-right location">
+                                        <p>Loss Angeles</p>
+                                    </div>
+                                    <div class="data-job">
+                                        <h3>£10 - £12 an hour</h3>
+                                        <span class="label job-type job-internship ">Internship</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <!--jobs result-->
+                        <a href="#">
+                            <div class="filter-result 04">
+                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+                                    <div class="company-left-info pull-left">
+                                        <img src="assets/images/company-logo.png" alt="">
+                                    </div>
+                                    <div class="desig">
+                                        <h3>Web Developer / PHP &amp; Drupal Ninja!</h3>
+                                        <h4>PHP, MySQL, Linux, Wordpress</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+                                    <div class="pull-right location">
+                                        <p>Loss Angeles</p>
+                                    </div>
+                                    <div class="data-job">
+                                        <h3>£10 - £12 an hour</h3>
+                                        <span class="label job-type job-fulltime ">Full Time</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <!--jobs result-->
+                        <a href="#">
+                            <div class="filter-result 02">
+                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+                                    <div class="company-left-info pull-left">
+                                        <img src="assets/images/company-logo.png" alt="">
+                                    </div>
+                                    <div class="desig">
+                                        <h3>Front-End UI Web Developer - ReactJS</h3>
+                                        <h4>PHP, MySQL, Linux, Wordpress</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+                                    <div class="pull-right location">
+                                        <p>Loss Angeles</p>
+                                    </div>
+                                    <div class="data-job">
+                                        <h3>£10 - £12 an hour</h3>
+                                        <span class="label job-type job-partytime">Party Time</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="load_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">   Show more Jobs <span class="glyphicon glyphicon-menu-down"></span>
+                               </button> </div>
+
+                        </a>
+                    </div>
+                    <a href="#"> </a>
+                    <!--Search Result 01-->
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="introduce-company" class="pt-20 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="title-company-w fs-20">Giới thiệu công ty</h3>
+                </div>
+                <div class="col-md-7 fs-16">
+                    {{ company.description || 'hiện tại chưa có thông tin về công ty bạn ưi'}}
+                </div>
+                <div class="col-md-5">
+                    <img src="https://brand.mywork.com.vn/img/intro/2.jpg" style="width: 100%; border-radius: 3px;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="images-company" class="pt-20 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="title-company-w fs-20">Một số hình ảnh</h3>
+                </div>
+                <div class="mb-20 col-md-4 img-company">
+                    <img src="https://brand.mywork.com.vn/img/office/14.jpg">
+                </div>
+                <div class="mb-20 col-md-4 img-company">
+                    <img src="https://brand.mywork.com.vn/img/office/13.jpg">
+                </div>
+                <div class="mb-20 col-md-4 img-company">
+                    <img src="https://brand.mywork.com.vn/img/office/12.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-footer></app-footer>
