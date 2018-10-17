@@ -11,7 +11,7 @@ export const JobsRoutes = [
       jobCategories: JobCategories
     }
   },
-  { path: 'browse-jobs-alternative', component: BrowseJobsAlternativeComponent },
+  // { path: 'browse-jobs-alternative', component: BrowseJobsAlternativeComponent },
   { path: 'jobs/:id', component: JobDetailComponent },
   { path: 'contact-us', component: ContactUsComponent}
 ];
