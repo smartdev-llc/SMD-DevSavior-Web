@@ -44,26 +44,12 @@
         <div class="post-image">
           <img src="assets/images/job-image.png" alt=""/>
         </div>
-        <div class="content">
-          <h3>Google INC</h3>
-          <p>You will help Google build next-generation web applications like Gmail, Google Docs, Google Analytics, and the Google eBookstore and eBook readers. As a Front End Engineer at Google, you will specialize in building responsive and elegant web UIs with AJAX and similar technologies. You may design or work on frameworks for building scalable frontend applications. We are looking for engineers who are passionate about and have experience building leading-edge user experience, including dynamic consumer experiences.</p>
+        <div *ngIf="job" class="content">
+          <h3>{{job.title}}</h3>
+          <div [innerHTML]="job.description"></div>
 
-          <h2>Primary Responsibilities:</h2>
-          <ul>
-            <li>Take action to avoid potential hazards and obstructions, such as utility lines.</li>
-            <li>Start engines, move throttles, switches, and levers, and depress pedals</li>
-            <li>Align machines with reference stakes and guidelines following hand signals of other workers.</li>
-            <li>Load and move dirt, rocks, equipment, and materials, using trucks, crawler tractors, shovels, graders, or related equipment.</li>
-            <li>Coordinate machine actions with other activities, positioning or moving loads in response to hand.</li>
-          </ul>
-          <h2>Good to have:</h2>
-          <ul class="simple">
-            <li>Wordpress</li>
-            <li>HTML5</li>
-            <li>CSS</li>
-            <li>Javascript</li>
-            <li>SEO</li>
-          </ul>
+          <h2>Requirement</h2>
+          <div [innerHTML]="job.requirements" ></div>
         </div>
 
 
@@ -80,35 +66,16 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h3 class="modal-title">Apply For This Job<span>Web Designer at Google inc</span></h3>
+                      <h2 class="modal-title">Apply For This Job</h2>
                     </div>
                     <div class="modal-body">
-                      <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="name"/>
-                      </div>
-                      <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" name="email"/>
-                      </div>
                       <div class="form-group">
                         <label>Message</label>
                         <textarea></textarea>
                       </div>
-                      <div class="form-group file-type">
-                        <label>Upload your CV/resume or any other relevant file. </label>
-                        <div class="upload resume">
-                          <input type="file" name="post-image" class="inputfile" id="select_file" />
-                          <div class="filename"><i class="fa fa-file-image-o" aria-hidden="true"></i>Browse resume</div>
-                          <i> Max. file size: 50 MB.</i>
-                        </div>
-
-                      </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="margin-top: 100px">
                       <a href="#"><span class="label job-type apply-job">Send Aplications</span></a>
-                      <i>OR</i>
-                      <a href="#"><span class="label job-type submit-resume">Sumbit resume and apply</span></a>
                     </div>
                   </div>
                 </div>
@@ -129,7 +96,7 @@
 
         <div class="widget w2">
           <div class="subscribe">
-            <form formGroup="null">
+            <form>
               <h3>Get similar jobs by email</h3>
               <div class="form-group">
                 <input type="email" placeholder="enter your email" name="email"/>

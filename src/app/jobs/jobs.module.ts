@@ -23,6 +23,7 @@ import { SkillService } from '../core/services/skill/SkillService';
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
+import {JobService} from '../core/services/job.service';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
   providers: [
     CategoryCompanyService,
     SkillService,
-    JobCategories
+    JobCategories,
+    JobService
   ]
 })
 export class JobsModule { }
