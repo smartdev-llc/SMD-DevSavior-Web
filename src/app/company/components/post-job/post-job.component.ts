@@ -94,7 +94,7 @@ export class PostJobComponent implements OnInit {
       skillIds: [null, Validators.required],
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
-      jobRequirements: ['', Validators.required],
+      requirements: ['', Validators.required],
       salaryForm: this.salaryForm
     });
   }

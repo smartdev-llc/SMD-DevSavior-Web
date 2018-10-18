@@ -100,10 +100,10 @@
                 [modules]="quillModules"
                 [required]="true"
                 [style]="{height: '150px'}"
-                formControlName="jobRequirements">
+                formControlName="requirements">
               </quill-editor>
-              <div *ngIf="submitted && f.jobRequirements.errors">
-                <em *ngIf="submitted && f.jobRequirements.errors.required" class="ng-select help-block">Field is Required</em>
+              <div *ngIf="submitted && f.requirements.errors">
+                <em *ngIf="submitted && f.requirements.errors.required" class="ng-select help-block">Field is Required</em>
               </div>
             </div>
           </div>

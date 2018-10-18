@@ -17,6 +17,16 @@
     border: 0;
     border-top: 1px solid #eee;
   }
+
+  .has-error {
+    .error.help-block {
+      font-size: 13px;
+    }
+  }
+  .ng-select.help-block {
+    font-size: 13px;
+    color: #a94442;
+  }
 }
 
 .box-content {

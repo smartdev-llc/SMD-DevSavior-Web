@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -19,6 +19,8 @@ import { UpdateProfileStep3Component } from './components/update-profile/step3/s
 import { UpdateProfileStep4Component } from './components/update-profile/step4/step4.component';
 import { UpdateProfileStep5Component } from './components/update-profile/step5/step5.component';
 
+import { StudentUserService }  from './services/student-user.serivce';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { UpdateProfileStep5Component } from './components/update-profile/step5/s
     FileUploadModule,
     NgSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     SharedModule
   ],
@@ -40,6 +43,9 @@ import { UpdateProfileStep5Component } from './components/update-profile/step5/s
     UpdateProfileStep3Component,
     UpdateProfileStep4Component,
     UpdateProfileStep5Component
+  ],
+  providers: [
+    StudentUserService
   ]
 })
 export class UserModule { }

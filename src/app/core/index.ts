@@ -8,6 +8,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 // Services
 import { AuthService } from './services/auth.service';
 import { JobService } from './services/job.service';
+import { InfoCompanyService } from './services/company/InfoCompany.service';
 import { AuthActions } from '../auth/actions/auth.actions';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HumanizePipe } from './pipes/humanize.pipe';
@@ -41,6 +42,7 @@ import { CompanyLoggedGuard } from './guards/company-logged.guard';
     NgProgressHttpModule,
   ],
   providers: [
+    InfoCompanyService,
     AuthService,
     JobService,
     AuthActions,
