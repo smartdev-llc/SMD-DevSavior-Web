@@ -15,4 +15,10 @@ export class InfoCompanyService {
       map((response: any) => response),
     )
   }
+  getInfoAllCompany(): Observable<Company> {
+    return this.http.get('/companies')
+    .pipe(
+      map((response: any) => response),
+    )
+  }
 }
