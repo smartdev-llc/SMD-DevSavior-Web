@@ -1,4 +1,6 @@
-<div class="container m-t-lg">
+<app-home-company></app-home-company>
+
+<div class="container main m-t-lg">
     <div class="row">
         <div _ngcontent-c4="" id="loadessr" *ngIf="loading">
             <div _ngcontent-c4="" id="loader">
@@ -49,7 +51,7 @@
                                         <ng-container formGroupName="passwordGroup">
                                             <div class="form-group">
                                                 <label class="control-label required" for="password" aria-required="true">Mật khẩu (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
-                                                <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control"  aria-required="true"> -->
+                                                <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" aria-required="true"> -->
                                                 <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
                                                 <div *ngIf="p.password.invalid" class="error-input">
                                                     <div *ngIf="submitted && p.password.errors?.required">
@@ -105,11 +107,11 @@
                                         <div class="form-group">
                                             <label class="control-label required" for="cp_location" aria-required="true">Công Ty</label>
                                             <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city">
-                                                <option value="DN">DN</option>
-                                                <option value="HN">HN</option>
-                                                <option value="HCM">HCM</option>
-                                            </select>
-                                            <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control"  aria-required="true"> -->
+                        <option value="DN">DN</option>
+                        <option value="HN">HN</option>
+                        <option value="HCM">HCM</option>
+                      </select>
+                                            <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" aria-required="true"> -->
                                             <div *ngIf="submitted && f.city.invalid" class="error-input">
                                                 <div *ngIf="f.city.errors.required">
                                                     Location is required.
@@ -145,8 +147,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="#user_termsAccepted" style="display: content;">
-                                            <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}" >
-                                            Tôi đã đọc và đồng ý với các <a routerLink="/privacy-policy">Quy định bảo mật</a> và <a routerLink="/privacy-policy">Thỏa thuận sử dụng </a></label>
+                        <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}">
+                        Tôi đã đọc và đồng ý với các <a routerLink="/privacy-policy">Quy định bảo mật</a> và <a routerLink="/privacy-policy">Thỏa thuận sử dụng </a></label>
                                             <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
                                                 <div *ngIf="f.checkbox.errors.required">
                                                     <p style="display: inline-block;">
@@ -171,3 +173,5 @@
         </div>
     </div>
 </div>
+
+<app-footer></app-footer>

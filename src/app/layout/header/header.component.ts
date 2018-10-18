@@ -13,7 +13,7 @@ import { LanguageService } from '../services/language.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isEnLang: boolean = false;
   user: any;
-  subscription: Subscription
+  subscription: Subscription;
 
   constructor(
     private authService: AuthService,
@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(_ => {
         this.authService.signOut();
         localStorage.removeItem('user');
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
       })
   }
 

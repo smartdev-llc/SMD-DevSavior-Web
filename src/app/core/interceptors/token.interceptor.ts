@@ -1,21 +1,29 @@
 import { environment } from './../../../environments/environment';
 import { Injectable, Injector } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpSentEvent,
+  HttpHeaderResponse,
+  HttpProgressEvent,
+  HttpResponse,
+  HttpUserEvent,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private injector: Injector) { }
+  constructor(
+    private injector: Injector,
+    private router: Router) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
     const auth = this.injector.get(AuthService);
 
     const clonedRequest = request.clone({
@@ -23,7 +31,18 @@ export class TokenInterceptor implements HttpInterceptor {
       url: this.fixUrl(request.url)
     });
 
-    return next.handle(clonedRequest);
+    return next.handle(clonedRequest).pipe(
+      catchError(error => {
+        // handle if got 401 status it maybe token is token is expired
+        if (error.status === 401) {
+          //remove users in local storage
+          auth.removeTokens();
+          //redirect to the signin page or show login modal here
+          this.router.navigate(['/login']);
+        }
+        return throwError(error);
+      })
+    );
   }
 
   private fixUrl(url: string) {
