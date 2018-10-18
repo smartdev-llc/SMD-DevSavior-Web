@@ -277,5 +277,5 @@ export class AuthService {
 
   removeTokens(): void {
     localStorage.removeItem('user');
-  };
+  }
 }
