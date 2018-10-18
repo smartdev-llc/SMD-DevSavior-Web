@@ -1,6 +1,6 @@
 <div class="article box-shadow">
-  <a href="#">
-    <img src="../../../../assets/images/company-logo.png" alt="">
-    <p class="article__title">Company name</p>
-  </a>
+    <a class="avatar-company" routerLink="/detail-company/{{company.id}}">
+        <img src="{{company.logoUrl || '/assets/images/company-logo.png'}}" alt="">
+        <p class="article__title">{{ company.name || 'Empty name'}}</p>
+    </a>
 </div>

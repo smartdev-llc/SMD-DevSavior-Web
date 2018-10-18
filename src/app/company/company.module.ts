@@ -22,6 +22,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../core/services/skill/SkillService';
+import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { SkillService } from '../core/services/skill/SkillService';
     DetailCandidateComponent,
     CpRegisterComponent,
     StatisticComponent,
-    PostJobComponent
+    PostJobComponent,
+    DetailCompanyComponent,
   ],
   providers: [
     CategoryCompanyService,
