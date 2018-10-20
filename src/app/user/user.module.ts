@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/index';
 import { SharedModule } from '../shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { UserRoutes as routes } from './user.routes';
 
@@ -26,6 +27,7 @@ import { StudentUserService }  from './services/student-user.serivce';
     CommonModule,
     RouterModule.forChild(routes),
     ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     FileUploadModule,
     NgSelectModule,
     FormsModule,
