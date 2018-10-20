@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../../core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
 import { AppErrors } from '../../../../core/error/app-errors';
@@ -25,6 +26,7 @@ export class UpdateProfileStep1Component implements OnInit {
   isSubmittingPersonal = false;
   basicInfo: BasicInfo;
   personalInfo: PersonalInfo;
+  profileImageURL: string = 'assets/images/profile-placeholder.png';
 
   jobsLevel: Array<any>  = [
     { id: 'FIRST_TO_THIRD_YEAR', name: 'Sinh Viên năm 1 đến năm 3' },
@@ -36,18 +38,23 @@ export class UpdateProfileStep1Component implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private studentUserService: StudentUserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService,
   ) {
+    let currentUser = this.authService.getCurrentUser();
     this.uploader = new FileUploader({
       url: environment.apiEndpoint + '/profile/me/avatar',
+      method: 'PUT',
       disableMultipart: false,
-      autoUpload: true
+      autoUpload: true,
+      headers: [
+        { name: "Authorization", value: "Bearer " + currentUser.access_token }
+      ]
     });
 
     this.uploader.response.subscribe(res => {
       console.log(res);
-      // this.url = 'http://localhost:9090/get/' + JSON.parse(res).id;
-      // this.urlChange.emit(this.url);
+      this.profileImageURL = res.profileImageURL ? environment.apiEndpoint + res.profileImageURL : this.profileImageURL;
     });
   }
 
@@ -59,6 +66,8 @@ export class UpdateProfileStep1Component implements OnInit {
   preLoadData(): void {
     this.studentUserService.getMyProfile()
       .subscribe(response => {
+        this.profileImageURL = response.owner.profileImageURL ? environment.apiEndpoint + response.owner.profileImageURL : this.profileImageURL;
+
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);
         from(this.jobsLevel)
