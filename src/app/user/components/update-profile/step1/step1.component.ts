@@ -53,8 +53,10 @@ export class UpdateProfileStep1Component implements OnInit {
     });
 
     this.uploader.response.subscribe(res => {
-      console.log(res);
-      this.profileImageURL = res.profileImageURL ? environment.apiEndpoint + res.profileImageURL : this.profileImageURL;
+      try {
+        const data = JSON.parse(res);
+        this.profileImageURL = data.profileImageURL ? environment.apiEndpoint + data.profileImageURL : this.profileImageURL;
+      } catch(error) { }
     });
   }
 
