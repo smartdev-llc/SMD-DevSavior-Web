@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
 import { AppErrors } from '../../../../core/error/app-errors';
 import { ToastrService } from 'ngx-toastr';
 import { BasicInfo, PersonalInfo } from '../../../../core/models/student-profile';
 import { from } from 'rxjs';
 import { find } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'update-profile-step1',
@@ -37,13 +39,13 @@ export class UpdateProfileStep1Component implements OnInit {
     private toastr: ToastrService
   ) {
     this.uploader = new FileUploader({
-      url: '',
+      url: environment.apiEndpoint + '/profile/me/avatar',
       disableMultipart: false,
       autoUpload: true
     });
 
     this.uploader.response.subscribe(res => {
-      console.log(res)
+      console.log(res);
       // this.url = 'http://localhost:9090/get/' + JSON.parse(res).id;
       // this.urlChange.emit(this.url);
     });
@@ -63,7 +65,7 @@ export class UpdateProfileStep1Component implements OnInit {
           .pipe(
             find((item) => item.id === this.basicInfo.educationalStatus)
           ).subscribe(val => {
-            this.basicInfo.educationalStatus = val;
+            this.basicInfo.educationalStatus = val || null;
           });
         this.basicInfoFormGroup.setValue(this.basicInfo);
 
@@ -129,7 +131,12 @@ export class UpdateProfileStep1Component implements OnInit {
       return;
     }
 
-    this.studentUserService.updatePersonalInfo(this.personalInfoFormGroup.value)
+    this.isSubmittingPersonal = true;
+    const params = {
+      ...this.personalInfoFormGroup.value,
+      dateOfBirth: moment(this.personalInfoFormGroup.value.dateOfBirth).format("DD-MM-YYYY")
+    };
+    this.studentUserService.updatePersonalInfo(params)
     .subscribe((response) => {
       this.isSubmittingPersonal = false;
       this.submittedPersonal = false;
@@ -152,8 +159,6 @@ export class UpdateProfileStep1Component implements OnInit {
   showBasicError(error: any) {
     this.toastr.error('Something went wrong please try again later', 'Update Profile');
   }
-
-
 
   public fileOver(e: any): void {
     console.log(e)

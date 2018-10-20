@@ -127,9 +127,18 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.dateOfBirth.errors }">
             <label for="email" class="required">Ngày sinh</label>
-            <input type="text" class="form-control" formControlName="dateOfBirth">
+             <input
+              type="text"
+              class="form-control"
+              placeholder="Date of birth"
+              [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+              bsDatepicker
+              formControlName="dateOfBirth" />
+              <div *ngIf="submittedPersonal && piF.dateOfBirth.errors">
+                <em *ngIf="piF.dateOfBirth.errors.required" class="error help-block">Field is Required</em>
+              </div>
           </div>
         </div>
       </div>
@@ -190,7 +199,11 @@
         <div class="col-md-12">
           <hr>
           <div class="pull-right">
-            <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Cập nhật</button>
+            <button type="submit" class="btn btn-defaut bg-submit">
+              <i *ngIf="!isSubmittingPersonal" class="fa fa-check-circle" aria-hidden="true"></i>
+              <i *ngIf="isSubmittingPersonal" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              Cập nhật
+            </button>
           </div>
         </div>
       </div>
