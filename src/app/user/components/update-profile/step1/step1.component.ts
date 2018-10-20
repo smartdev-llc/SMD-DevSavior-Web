@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
 import { AppErrors } from '../../../../core/error/app-errors';
 import { ToastrService } from 'ngx-toastr';
@@ -38,13 +39,13 @@ export class UpdateProfileStep1Component implements OnInit {
     private toastr: ToastrService
   ) {
     this.uploader = new FileUploader({
-      url: '',
+      url: environment.apiEndpoint + '/profile/me/avatar',
       disableMultipart: false,
       autoUpload: true
     });
 
     this.uploader.response.subscribe(res => {
-      console.log(res)
+      console.log(res);
       // this.url = 'http://localhost:9090/get/' + JSON.parse(res).id;
       // this.urlChange.emit(this.url);
     });
