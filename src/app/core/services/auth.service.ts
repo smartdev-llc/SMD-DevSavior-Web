@@ -209,6 +209,7 @@ export class AuthService {
 
   }
 
+  //TODO: Move handleError() in each Service class into one Class
   private handleError(error) {
     if (error.status === 403) {
       return throwError(new Forbidden(error.error.message));

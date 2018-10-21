@@ -59,27 +59,17 @@
         <div class="widget w1">
           <ul>
             <li>
-              <a href="#" data-toggle="modal" data-target="#myModal"><span class="label job-type apply-job">APPLY FOR JOB</span></a>
-              <div class="modal fade" id="myModal" role="dialog">
-                <!-- Popup Model-->
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h2 class="modal-title">Apply For This Job</h2>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-group">
-                        <label>Message</label>
-                        <textarea></textarea>
-                      </div>
-                    </div>
-                    <div class="modal-footer" style="margin-top: 100px">
-                      <a href="#"><span class="label job-type apply-job">Send Aplications</span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="#" data-toggle="modal">
+
+
+
+                <span *ngIf=" !isStudentRole && !isCompanyRole"
+                  class="label job-type apply-job" (click)="redirectToLogin()">APPLY FOR JOB</span>
+
+                <span *ngIf="isStudentRole" (click)="applyJob()" class="label job-type apply-job" >APPLY FOR JOB</span>
+
+              </a>
               <!-- Popup Model-->
               <span class="label job-type apply-link">APPLY FOR JOB<i class="fa fa-linkedin"></i></span>
 

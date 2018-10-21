@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+
 import {
   HttpClient,
   HttpRequest,
@@ -9,6 +10,11 @@ import {
   HttpParams
 } from '@angular/common/http';
 import { map, tap, catchError } from 'rxjs/operators';
+import {AppErrors} from '../error/app-errors';
+import {Forbidden} from '../error/forbidden';
+import {InternalServer} from '../error/internal-server';
+import {Unauthorized} from '../error/unauthorized';
+import {Duplicate} from '../error/duplicate';
 
 @Injectable()
 export class JobService {
@@ -33,8 +39,7 @@ export class JobService {
     );
   }
 
-  getDetailJob (jobId){
-    console.log('go here');
+  getDetailJob (jobId) {
     return this.http.get('/jobs/' + jobId)
       .pipe(
         map( response => {
@@ -42,6 +47,34 @@ export class JobService {
           return response;
         })
       );
+  }
+
+  applyJobForStudent (jobId: string) {
+    return this.http
+      .post('/jobs/' + jobId + '/applications', '')
+      .pipe(
+        map( response => {
+          return response;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  //TODO: Move handleError() in each Service class into one Class
+  private handleError(error) {
+    if (error.status === 403) {
+      return throwError(new Forbidden(error.error.message));
+    }
+    if (error.status === 500) {
+      return throwError(new InternalServer(error.error.message));
+    }
+    if (error.status === 401) {
+      return throwError(new Unauthorized(error.error.message));
+    }
+    if ( error.status === 409) {
+      return throwError (new Duplicate(error.error.message));
+    }
+    return throwError(new AppErrors(error.error.message));
   }
 
   getListCompanyJobs(params: HttpParams) {

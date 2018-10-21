@@ -23,6 +23,10 @@
           </div>
         </label>
         <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (fileOver)="fileOver($event)" id="uploader-input" />
+        <ngx-loading
+          [show]="uploader.isUploading"
+          [config]="{ animationType: ngxLoadingAnimationTypes.threeBounce, backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.3)' }">
+        </ngx-loading>
       </div>
 
       <div class="col-sm-9 col-md-10">
