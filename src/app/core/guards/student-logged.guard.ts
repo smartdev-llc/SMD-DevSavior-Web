@@ -2,12 +2,14 @@ import { Subscription, Observable } from 'rxjs';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { User, Role } from '../models/user';
 
 // If user logged we block they back login, register,.. pages
 
 @Injectable()
 export class StudentLoggedGuard implements CanActivate {
-  isLoggedIn: boolean;
+  user: User;
+  isStudentRole: boolean;
 
   constructor(
     private router: Router,
@@ -16,12 +18,13 @@ export class StudentLoggedGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.user = this.authService.getCurrentUser();
+    this.isStudentRole = !!this.user && this.user.role === Role.Student;
 
-    if (this.isLoggedIn) {
+    if (this.isStudentRole) {
       this.router.navigate(['/']);
     }
 
-    return !this.isLoggedIn;
+    return !this.isStudentRole;
   }
 }

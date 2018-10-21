@@ -72,7 +72,7 @@
               </li>
 
               <li>
-                <a href="#">
+                <a role="button" (click)="logout()">
                   <i class="fa fa-sign-out" aria-hidden="true"></i>
                   <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
                 </a>
@@ -154,7 +154,7 @@
                 </a>
               </li>
 
-              <a routerLink="/post-job" class="post_job">
+              <a routerLink="/employer/post-job" class="post_job">
                 <span class="label job-type partytime">
                   <i class="fa fa-plus-circle"></i>
                   {{ 'header.post_job' | translate }}
@@ -221,7 +221,7 @@
                   </li>
 
                   <li>
-                    <a href="#">
+                    <a role="button" (click)="logout()">
                       <i class="fa fa-sign-out" aria-hidden="true"></i>
                       <strong>&nbsp;&nbsp;{{ 'header.log_out' | translate }}</strong>
                     </a>

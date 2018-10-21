@@ -5,7 +5,7 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
           <div class="logo">
-            <a routerLink="/">
+            <a routerLink="/employer/home">
               <img src="../../../assets/images/logoEmployer.png" alt="Photo" />
             </a>
           </div>
@@ -18,21 +18,25 @@
               </span>
             </a>
             <!-- not logged in -->
-            <a routerLink="/employer/login" class="student-login">
-              <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
-            </a>
-            <a routerLink="/employer/register" class="student-register">
-              <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
-            </a>
+            <ng-container *ngIf="!user">
+              <a routerLink="/employer/login" class="student-login">
+                <span class="label job-type partytime">{{ 'header.login' | translate }}</span>
+              </a>
+              <a routerLink="/employer/register" class="student-register">
+                <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
+              </a>
+            </ng-container>
             <!-- not logged in -->
 
             <!-- logging -->
-            <!-- <a routerLink="/" class="student-login">
-              <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
-            </a>
-            <a routerLink="/employer/statistic" class="student-register">
-              <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
-            </a> -->
+            <ng-container *ngIf="user">
+              <a (click)="logout()" class="student-login">
+                <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
+              </a>
+              <a routerLink="/employer/statistic" class="student-register">
+                <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
+              </a>
+            </ng-container>
             <!-- logging -->
 
             <a routerLink="/" class="employer">
@@ -66,26 +70,30 @@
                 <a routerLink="/list-company">{{ 'header.services_product' | translate }}</a>
               </li>
               <!-- not logged in -->
-              <li class="mobile-menu">
-                <a routerLink="/login">{{ 'header.login' | translate }}</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/register">{{ 'header.register' | translate }}</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/">{{ 'header.jobseeker_mobile' | translate }}</a>
-              </li>
+              <ng-container *ngIf="!user">
+                <li class="mobile-menu">
+                  <a routerLink="/login">{{ 'header.login' | translate }}</a>
+                </li>
+                <li class="mobile-menu">
+                  <a routerLink="/register">{{ 'header.register' | translate }}</a>
+                </li>
+                <li class="mobile-menu">
+                  <a routerLink="/">{{ 'header.jobseeker_mobile' | translate }}</a>
+                </li>
+              </ng-container>
               <!-- not logged in -->
 
 
               <!-- logging -->
-              <!-- <li class="mobile-menu">
-                <a routerLink="/">{{ 'header.log_out' | translate }}</a>
-              </li>
-              <li class="mobile-menu">
-                <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
-              </li>
-            <!-- logging -->
+              <ng-container *ngIf="user">
+                <li class="mobile-menu">
+                  <a (click)="logout()">{{ 'header.log_out' | translate }}</a>
+                </li>
+                <li class="mobile-menu">
+                  <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
+                </li>
+              </ng-container>
+              <!-- logging -->
 
             </ul>
           </div>

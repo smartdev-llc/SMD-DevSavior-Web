@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { InfoCompanyService } from '../../../core/services/company/InfoCompany.service'
+import { Company } from '../../../core/models/company';
 @Component({
   selector: 'list-company',
   templateUrl: './list-company.component.html',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCompanyComponent implements OnInit {
 
-  constructor() {
+  companies:Company;
+  constructor(
+    private infoCompanyService : InfoCompanyService
+  ) {
   }
-
   ngOnInit() {
+    this.getIdcompany();
   }
+  getIdcompany (){
+    this.infoCompanyService.getInfoAllCompany().subscribe(companies => this.companies = companies);
+    
+  } 
 }

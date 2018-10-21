@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { QuillModule } from 'ngx-quill';
+import { SharedModule } from '../shared/shared.module';
 import { CompanyRoutes } from './company.routes';
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component';
@@ -14,19 +16,26 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
-import {BlackListCandidateComponent} from './components/blacklist-candidate/blacklist-candidate.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
 import { CarouselModule } from 'ngx-bootstrap';
 
+import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
+import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
+import { SkillService } from '../core/services/skill/SkillService';
+import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
+import {BlackListCandidateComponent} from './components/blacklist-candidate/blacklist-candidate.component';
 @NgModule({
   imports: [
-  CommonModule,
+    CommonModule,
     RouterModule.forChild(CompanyRoutes),
+    CarouselModule.forRoot(),
+    QuillModule,
     LayoutModule,
     NgSelectModule,
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    CarouselModule.forRoot()
+    SharedModule
   ],
   declarations: [
     HomeComponent,
@@ -37,8 +46,14 @@ import { CarouselModule } from 'ngx-bootstrap';
     DetailCandidateComponent,
     CpRegisterComponent,
     StatisticComponent,
+    PostJobComponent,
+    DetailCompanyComponent,
     BlackListCandidateComponent
   ],
-  bootstrap: [ HomeComponent ]
+  providers: [
+    CategoryCompanyService,
+    PostJobCompanyService,
+    SkillService
+  ]
 })
 export class CompanyModule { }

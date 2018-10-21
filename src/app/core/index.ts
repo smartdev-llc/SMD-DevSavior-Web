@@ -8,6 +8,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 // Services
 import { AuthService } from './services/auth.service';
 import { JobService } from './services/job.service';
+import { InfoCompanyService } from './services/company/InfoCompany.service';
 import { AuthActions } from '../auth/actions/auth.actions';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HumanizePipe } from './pipes/humanize.pipe';
@@ -16,6 +17,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from '../auth/effects/auth.effects';
 import { StudentUserAuthGuard } from './guards/student-user.guard';
 import { StudentLoggedGuard } from './guards/student-logged.guard';
+import { CompanyUserAuthGuard } from './guards/company-user.guard';
+import { CompanyLoggedGuard } from './guards/company-logged.guard';
 
 @NgModule({
   declarations: [
@@ -39,11 +42,14 @@ import { StudentLoggedGuard } from './guards/student-logged.guard';
     NgProgressHttpModule,
   ],
   providers: [
+    InfoCompanyService,
     AuthService,
     JobService,
     AuthActions,
     StudentUserAuthGuard,
     StudentLoggedGuard,
+    CompanyUserAuthGuard,
+    CompanyLoggedGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ]
 })

@@ -8,19 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   slides = [
     {
-      image: '../../../../assets/images/slide01.jpg',
+      image: '../../../../assets/images/slide01.png',
       mainTitle: 'Keep in touch & stay updated',
       bigTitle: 'WITH MARKET\nTRENDS',
       buttonTitle: 'SUBCTIBE TO NEWSLETTER'
     },
     {
-      image: '../../../../assets/images/slide02.jpg',
+      image: '../../../../assets/images/slide02.png',
       mainTitle: 'Stuck in a ‘career rut’?',
       bigTitle: 'HELP US MATCH TO\nYOUR HR  ROLE',
       buttonTitle: 'SUBCTIBE TO NEWSLETTER'
     },
     {
-      image: '../../../../assets/images/slide03.jpg',
+      image: '../../../../assets/images/slide03.png',
       mainTitle: 'Launch Your recruitment career',
       bigTitle: 'WITH INNOVATE\nСONSULTANCY',
       buttonTitle: 'JOHN OUR HR'
