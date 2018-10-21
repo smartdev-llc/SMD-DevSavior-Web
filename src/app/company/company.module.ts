@@ -18,6 +18,8 @@ import { CpRegisterComponent } from './components/cp-register/cp-register.compon
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { CarouselModule } from 'ngx-bootstrap';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
@@ -35,7 +37,9 @@ import { DetailCompanyComponent } from './components/detail-company/detail-compa
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    PaginationModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   declarations: [
     HomeComponent,

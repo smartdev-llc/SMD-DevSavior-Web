@@ -43,4 +43,11 @@ export class JobService {
         })
       );
   }
+
+  getListCompanyJobs(params: HttpParams) {
+    return this.http.get('/jobs', {params})
+      .pipe(
+        map((respone: any) => respone)
+      )
+  }
 }
