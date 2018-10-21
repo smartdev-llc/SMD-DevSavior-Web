@@ -63,56 +63,111 @@
   border: 1px #ebebeb solid;
 }
 
-@media (max-width:767px) {
+.btn-group{
+  .customize{
+    padding: 7px 12px 7px 12px;
+    margin-right: 20px;
+  }
+  .input-level {
+    width: 30%;
+    span {
+      button {
+        height: 36px;
+      }
+    }
+  }
+}
+.table-row{
+  margin: 20px 4px 5px 4px;
+  .table{
+    thead{
+      tr{
+        th{
+          position: relative;
+          right: 10px;
+          font-size: 16px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    }
+    tbody{
+      tr{
+        td{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width:1200px) {
   .ibox-content {
     border-width: 1px;
     border-color: #ebebeb;
   }
+  .btn-group{
+    .input-level{
+      width: 70%;
+    }
+  }
 }
 
+
+
 /* col-lg-3 candidate-sidebar */
+
 .candidate-sidebar {
   z-index: 0;
   .panel {
+    box-shadow: none;
     margin-bottom: 20px;
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    outline: 0;
   }
   .panel-default {
     border-color: #ddd;
     >.panel-heading {
-      color: #333;
-      background-color: #f5f5f5;
-      border-color: #ddd;
       padding: 10px 15px;
       border-bottom: 1px solid transparent;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
+      color: #333;
+      background-color: #f5f5f5;
+      border-color: #ddd;
     }
-
     .panel-body {
       padding: 15px;
-      .no-padding {
-        padding: 0 ;
-      }      
+      .folder-list {
+        padding-left: 0;
+        li {
+          border-bottom: 1px solid #e5e6e7;
+          display: block;
+          a {
+            color: #666;
+            display: block;
+            padding: 5px 0;
+            i {
+              margin-right: 8px;
+              color: #3d4d5d;
+              color: #f8ac59;
+              font-size: 16px;
+            }
+          }
+        }
+      }
     }
-
-    .small{
+    .small {
+      font-size: 85%;
       .pull-left {
-        float: left
+        float: left;
       }
     }
   }
-  .folder-list {
-    padding-left: 0;
-  }
 }
-
-
 
 .panel-body:after,
 .panel-body:before,
@@ -127,7 +182,6 @@
   clear: both;
 }
 
-
 a {
   font-size: 16px;
   color: #12cd6a;
@@ -136,6 +190,3 @@ a {
 a:hover {
   color: #0d6134;
 }
-/* col-lg-3 candidate-sidebar */
-
-

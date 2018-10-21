@@ -12,7 +12,7 @@ import { CandidateListComponent } from './components/candidate-list/candidate-li
 import { LayoutModule } from '../layout/index';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
@@ -23,7 +23,11 @@ import { CategoryCompanyService } from '../core/services/category/CategoryCompan
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../core/services/skill/SkillService';
 import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
-import {BlackListCandidateComponent} from './components/blacklist-candidate/blacklist-candidate.component';
+import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
+import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
+import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
+import { ByJobsComponent } from './components/by-jobs/by-jobs.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +52,10 @@ import {BlackListCandidateComponent} from './components/blacklist-candidate/blac
     StatisticComponent,
     PostJobComponent,
     DetailCompanyComponent,
-    BlackListCandidateComponent
+    BlackListCandidateComponent,
+    ProfileDeletedComponent,
+    ByResumeSearchComponent,
+    ByJobsComponent
   ],
   providers: [
     CategoryCompanyService,
