@@ -9,7 +9,7 @@ export class BasicInfo implements Deserializable {
     Object.assign(this, {
       jobTitle: input.jobTitle || '',
       yearsOfExperience: input.yearsOfExperience || '',
-      educationalStatus: input.educationalStatus || ''
+      educationalStatus: input.educationalStatus || null
     });
     return this;
   }
@@ -19,7 +19,7 @@ export class PersonalInfo implements Deserializable {
   fullName: string;
   phoneNumber: string;
   email: string;
-  dateOfBirth: string;
+  dateOfBirth: any;
   gender: string;
   maritalStatus: string;
   country: string;

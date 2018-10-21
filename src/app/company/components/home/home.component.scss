@@ -43,8 +43,8 @@
     padding: 14px 30px;
     margin-top: 80px;
     &:hover {
-        background-color: #55bce7;
-        border-color: #55bce7;
+        background-color: #15aa5b;
+        border-color: #15aa5b;
     }
 }
 
@@ -58,12 +58,12 @@
 }
 
 .bottom-slider {
-    background-color: #414971;
+    background-color: #15aa5b;
     z-index: 3;
     position: relative;
     .info-block {
         p {
-            color: #55bce7;
+            color: #a9f43f;
             font-weight: 700;
             margin: 2px 0 1px;
             text-transform: uppercase;
@@ -87,8 +87,8 @@
         animation: moveInTop 3s ease-out;
         margin-top: 180px;
         h2 {
-            background: -webkit-linear-gradient(#55bce7, #736fb3);
-            background: linear-gradient(#55bce7, #736fb3);
+            background: -webkit-linear-gradient(#a9f43f, #15aa5b);
+            background: linear-gradient(#a9f43f, #15aa5b);
             -webkit-background-clip: text;
             -moz-background-clip: text;
             float: left;
@@ -140,7 +140,7 @@
             }
             span {
                 display: inline;
-                color: #55bce7;
+                color: #a9f43f;
                 font-size: 30px;
                 font-weight: 600;
                 margin-right: 5px;
@@ -200,7 +200,7 @@
             height: 100px;
             top: -59px;
             color: #fff;
-            background: linear-gradient(to bottom, #55bce7 0%, #736fb3 100%);
+            background: linear-gradient(to bottom, #a9f43f 0%, #15aa5b 100%);
             .fa {
                 padding-top: 35px;
             }
@@ -238,7 +238,7 @@
 }
 
 .main-contact-form {
-    background-image: url(../../../../assets/images/slide03.jpg);
+    background-image: url(../../../../assets/images/slide03.png);
     width: 100%;
     height: auto;
     background-attachment: fixed;
@@ -298,8 +298,8 @@
             -webkit-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
             &:hover {
-                background-color: #55bce7;
-                border-color: #55bce7;
+                background-color: #12cd6a;
+                border-color: #12cd6a;
             }
         }
     }

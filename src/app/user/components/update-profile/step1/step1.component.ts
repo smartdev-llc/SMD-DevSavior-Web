@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../../core/services/auth.service';
+import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
 import { AppErrors } from '../../../../core/error/app-errors';
 import { ToastrService } from 'ngx-toastr';
 import { BasicInfo, PersonalInfo } from '../../../../core/models/student-profile';
 import { from } from 'rxjs';
 import { find } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'update-profile-step1',
@@ -23,6 +26,7 @@ export class UpdateProfileStep1Component implements OnInit {
   isSubmittingPersonal = false;
   basicInfo: BasicInfo;
   personalInfo: PersonalInfo;
+  profileImageURL: string = 'assets/images/profile-placeholder.png';
 
   jobsLevel: Array<any>  = [
     { id: 'FIRST_TO_THIRD_YEAR', name: 'Sinh Viên năm 1 đến năm 3' },
@@ -34,18 +38,25 @@ export class UpdateProfileStep1Component implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private studentUserService: StudentUserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService,
   ) {
+    let currentUser = this.authService.getCurrentUser();
     this.uploader = new FileUploader({
-      url: '',
+      url: environment.apiEndpoint + '/profile/me/avatar',
+      method: 'PUT',
       disableMultipart: false,
-      autoUpload: true
+      autoUpload: true,
+      headers: [
+        { name: "Authorization", value: "Bearer " + currentUser.access_token }
+      ]
     });
 
     this.uploader.response.subscribe(res => {
-      console.log(res)
-      // this.url = 'http://localhost:9090/get/' + JSON.parse(res).id;
-      // this.urlChange.emit(this.url);
+      try {
+        const data = JSON.parse(res);
+        this.profileImageURL = data.profileImageURL ? environment.apiEndpoint + data.profileImageURL : this.profileImageURL;
+      } catch(error) { }
     });
   }
 
@@ -57,13 +68,15 @@ export class UpdateProfileStep1Component implements OnInit {
   preLoadData(): void {
     this.studentUserService.getMyProfile()
       .subscribe(response => {
+        this.profileImageURL = response.owner.profileImageURL ? environment.apiEndpoint + response.owner.profileImageURL : this.profileImageURL;
+
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);
         from(this.jobsLevel)
           .pipe(
             find((item) => item.id === this.basicInfo.educationalStatus)
           ).subscribe(val => {
-            this.basicInfo.educationalStatus = val;
+            this.basicInfo.educationalStatus = val || null;
           });
         this.basicInfoFormGroup.setValue(this.basicInfo);
 
@@ -129,7 +142,12 @@ export class UpdateProfileStep1Component implements OnInit {
       return;
     }
 
-    this.studentUserService.updatePersonalInfo(this.personalInfoFormGroup.value)
+    this.isSubmittingPersonal = true;
+    const params = {
+      ...this.personalInfoFormGroup.value,
+      dateOfBirth: moment(this.personalInfoFormGroup.value.dateOfBirth).format("DD-MM-YYYY")
+    };
+    this.studentUserService.updatePersonalInfo(params)
     .subscribe((response) => {
       this.isSubmittingPersonal = false;
       this.submittedPersonal = false;
@@ -152,8 +170,6 @@ export class UpdateProfileStep1Component implements OnInit {
   showBasicError(error: any) {
     this.toastr.error('Something went wrong please try again later', 'Update Profile');
   }
-
-
 
   public fileOver(e: any): void {
     console.log(e)
