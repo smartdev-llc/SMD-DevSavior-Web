@@ -14,7 +14,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import {BlackListCandidateComponent} from './components/blacklist-candidate/blacklist-candidate.component';
 import { CarouselModule } from 'ngx-bootstrap';
+
 @NgModule({
   imports: [
   CommonModule,
@@ -34,7 +36,8 @@ import { CarouselModule } from 'ngx-bootstrap';
     CandidateListComponent,
     DetailCandidateComponent,
     CpRegisterComponent,
-    StatisticComponent
+    StatisticComponent,
+    BlackListCandidateComponent
   ],
   bootstrap: [ HomeComponent ]
 })

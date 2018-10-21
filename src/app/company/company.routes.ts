@@ -7,6 +7,7 @@ import { CandidateListComponent } from "./components/candidate-list/candidate-li
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 
 export const CompanyRoutes = [
     {
@@ -20,6 +21,7 @@ export const CompanyRoutes = [
             { path: 'candidates', component: CandidateListComponent},
             { path: 'register', component: CpRegisterComponent},
             { path: 'statistic', component: StatisticComponent},
+            { path: 'blacklist-candidate', component: BlackListCandidateComponent}
         ]
     },
     { path : 'detail-candidate', component: DetailCandidateComponent}
