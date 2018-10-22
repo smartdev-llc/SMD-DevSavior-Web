@@ -76,4 +76,11 @@ export class JobService {
     }
     return throwError(new AppErrors(error.error.message));
   }
+
+  getListCompanyJobs(params: HttpParams) {
+    return this.http.get('/jobs', {params})
+      .pipe(
+        map((respone: any) => respone)
+      )
+  }
 }
