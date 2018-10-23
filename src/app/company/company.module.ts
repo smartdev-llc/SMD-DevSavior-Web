@@ -26,7 +26,6 @@ import { CategoryCompanyService } from '../core/services/category/CategoryCompan
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../core/services/skill/SkillService';
 import { ProfileService } from './services/profile.service';
-// import { CoreModule } from '../core';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
@@ -43,7 +42,6 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     NgbModule,
     ReactiveFormsModule,
     SharedModule,
-    // CoreModule,
     PaginationModule.forRoot(),
     ScrollToModule.forRoot()
   ],
@@ -69,4 +67,5 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     ProfileService
   ]
 })
+
 export class CompanyModule { }
