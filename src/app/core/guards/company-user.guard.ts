@@ -1,7 +1,7 @@
 import { Subscription, Observable } from 'rxjs';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { User, Role } from '../models/user';
 
 @Injectable()
