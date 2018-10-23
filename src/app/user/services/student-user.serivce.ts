@@ -49,6 +49,30 @@ export class StudentUserService {
     )
   }
 
+  createWorkingExperience(resource: any) {
+    return this.http.post('/profile/me/working-experiences', resource)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  updateWorkingExperience(resource: any, id: any) {
+    return this.http.put(`/profile/me/working-experiences/${id}`, resource)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteWorkingExperience(id: any) {
+    return this.http.delete(`/profile/me/working-experiences/${id}`)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError (error: Response) {
     console.log('error in data service', error);
     return throwError( new AppErrors(error));

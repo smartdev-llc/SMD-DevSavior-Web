@@ -4,7 +4,7 @@ import { FormBuilder,
          FormGroup,
          Validators} from '@angular/forms';
 import { Role } from '../../../core/models/user';
-import { delay } from '../../../../../node_modules/rxjs/operators';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-st-lost-pasword',

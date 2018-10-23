@@ -5,7 +5,7 @@ import {
   Validators,
   ValidationErrors
 } from '@angular/forms';
-import { ActivatedRoute, Params } from '../../../../../node_modules/@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { StRegisterComponent } from '../st-register/st-register.component';
 import { matchingPasswordValidator } from '../../validators/matching-password.directive';
 import { AuthService } from '../../../core/services/auth.service';

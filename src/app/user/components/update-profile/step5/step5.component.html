@@ -15,9 +15,38 @@
         <button class="btn btn-link pull-right" (click)="eplHistoryModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
       </h4>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <p class="not-update-alert">Vui lòng hoàn thiện kinh nghiệm làm việc.</p>
+
+    <div class="list-working" *ngIf="workingExperiences">
+      <div class="row" *ngIf="!workingExperiences.length">
+        <div class="col-md-12">
+          <p class="not-update-alert">Vui lòng hoàn thiện kinh nghiệm làm việc.</p>
+        </div>
+      </div>
+
+      <div class="item" *ngFor="let working of workingExperiences">
+        <div class="row">
+          <div class="col-xs-3 col-md-1">
+            <img src="assets/images/company-buiding-icon.png" class="img-responsive" alt="company">
+          </div>
+          <div class="col-xs-6 col-md-8">
+            <p class="working-title">
+              {{ working.company }}
+              <span class="working-description">(Từ {{ working.fromMonth }} - {{ working.toMonth }})</span>
+            </p>
+            <p class="working-title">
+              Vị trí:
+              <span class="working-description">{{ working.jobTitle }}</span>
+            </p>
+            <p class="working-title">Mô tả công việc:</p>
+            <p class="working-description">{{ working.additionalInformation }}</p>
+          </div>
+          <div class="col-xs-3 col-md-3 pull-right">
+            <div class="pull-right">
+            <button type="button" class="btn btn-modify mr-2" (click)="deleteWorkingExperience(working.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Xoá</button>
+            <button type="button" class="btn btn-modify" (click)="editWorkingExperience(working.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -34,21 +63,27 @@
           </button>
         </div>
         <div class="modal-body">
-          <form class="update-form">
+          <form class="update-form" [formGroup]="workingExperienceFormGroup" (ngSubmit)="workingExperienceSubmit()">
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group">
+                <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && weF.jobTitle.errors }">
                   <label for="subject" class="required">Chức danh</label>
-                  <input type="text" id="subject" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                  <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer" formControlName="jobTitle">
+                  <div *ngIf="submittedWorking && weF.jobTitle.errors">
+                    <em *ngIf="weF.jobTitle.errors.required" class="error help-block">Field is Required</em>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group">
+                <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && weF.company.errors }">
                   <label for="subject" class="required">Công ty</label>
-                  <input type="text" id="subject" class="form-control" placeholder="VD: JuniorViec">
+                  <input type="text" id="subject" class="form-control" placeholder="VD: JuniorViec" formControlName="company">
+                  <div *ngIf="submittedWorking && weF.company.errors">
+                    <em *ngIf="weF.company.errors.required" class="error help-block">Field is Required</em>
+                  </div>
                 </div>
               </div>
             </div>
@@ -57,13 +92,13 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="fromMonth">Từ tháng</label>
-                  <input type="text" id="fromMonth" class="form-control">
+                  <input type="text" id="fromMonth" class="form-control" formControlName="fromMonth">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="toMonth">Đến tháng</label>
-                  <input type="text" id="toMonth" class="form-control">
+                  <input type="text" id="toMonth" class="form-control" formControlName="toMonth">
                 </div>
               </div>
               <div class="col-md-4">
@@ -77,7 +112,12 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="subject">Thông tin bổ sông</label>
-                  <textarea class="textarea" placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)" rows="4"></textarea>
+                  <textarea
+                    class="textarea"
+                    placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)"
+                    rows="4"
+                    formControlName="additionalInformation">
+                  </textarea>
                 </div>
               </div>
             </div>
@@ -87,7 +127,11 @@
                 <hr>
                 <div class="pull-right">
                   <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="eplHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
-                  <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
+                  <button type="submit" class="btn btn-defaut bg-submit">
+                    <i *ngIf="!isSubmittingWorking" class="fa fa-check-circle" aria-hidden="true"></i>
+                    <i *ngIf="isSubmittingWorking" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                    Cập nhật
+                  </button>
                 </div>
             </div>
             </div>

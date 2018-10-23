@@ -6,11 +6,11 @@ import { Role } from '../../../core/models/user';
 import { EmailValidator, Form, FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-st-verify-account',
-  templateUrl: './st-verify-account.component.html',
-  styleUrls: ['./st-verify-account.component.css']
+  selector: 'app-company-verify-account',
+  templateUrl: './company-verify-account.component.html',
+  styleUrls: ['./company-verify-account.component.css']
 })
-export class StVerifyAccountComponent implements OnInit {
+export class CompanyVerifyAccountComponent implements OnInit {
   isVerified = false;
   loading = true;
   verifyFailed = false;
@@ -56,7 +56,7 @@ export class StVerifyAccountComponent implements OnInit {
         this.loading = false;
         return;
       }
-      this.authService.resendVerificationEmail(this.resendverificationForm.value.email, Role.Student)
+      this.authService.resendVerificationEmail(this.resendverificationForm.value.email, Role.Company)
                       .subscribe(data => {
                         this.loading = false;
                         this.isSent = true;

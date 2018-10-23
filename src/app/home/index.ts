@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { LayoutModule } from '../layout/index';
+import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 // Components
 import { HomeComponent } from './home.component';
