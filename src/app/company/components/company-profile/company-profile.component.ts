@@ -24,6 +24,22 @@ export class CompanyProfileComponent implements OnInit {
   {key: 'HCM', value: City.HMC},
   {key: 'HN', value: City.HN},
   {key: 'OTHER', value: City.OTHER}];
+  quillModules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'align': [] }],
+
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],
+      ['blockquote'],
+
+      ['link']
+    ]
+  };
 
   constructor(private profileService: ProfileService, 
               private formBuilder: FormBuilder, 
