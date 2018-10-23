@@ -22,6 +22,17 @@
   .mr-2 {
     margin-right: 1rem;
   }
+
+  .has-error {
+    .error.help-block {
+      font-size: 13px;
+    }
+  }
+
+  .ng-select.help-block {
+    font-size: 13px;
+    color: #a94442;
+  }
 }
 
 .box-content {
@@ -102,6 +113,39 @@
 
   label.lb-radio {
     line-height: 1.9;
+  }
+}
+
+.list-working {
+  .item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px 15px 10px 12px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #eee;
+  }
+
+  .working-title {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .working-description {
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .btn.btn-modify {
+    border: 1px #aaa solid;
+    background: white;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 8px;
+    &:hover {
+      border: 1px #12cd6a solid;
+      color: #12cd6a;
+    }
   }
 }
 
