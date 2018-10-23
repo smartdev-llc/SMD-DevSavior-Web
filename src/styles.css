@@ -2328,10 +2328,11 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
 }
 
 .blocks .block {
-  box-shadow: 0 0 46px 0 #f0f0f0;
+  box-shadow: 0 0 46px 0 #d1d1d1;
   float: left;
   width: 100%;
   padding: 30px;
+  margin: 10px;
 }
 
 .blocks h3 {
@@ -2570,11 +2571,11 @@ ul.alphabet li {
 
 .contact_us .form-group input[type="submit"],
 #register,
+.btn-black,
 #signin {
   width: initial;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  ;
   border: none;
   font-size: 14px;
   background: #333;
@@ -2583,6 +2584,7 @@ ul.alphabet li {
   color: #fff;
   text-decoration: none;
   border-radius: 33px;
+  outline: none;
 }
 
 #form-style-2 .form-group {
@@ -3933,7 +3935,7 @@ span.login-ins {
   background: transparent;
 }
 
-#loader-wrapper {
+#loader-wrapper, .loader-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -3942,7 +3944,7 @@ span.login-ins {
   z-index: 1000;
 }
 
-#loader {
+#loader, .loader {
   display: block;
   position: absolute;
   left: 50%;
@@ -3959,7 +3961,7 @@ span.login-ins {
   /* Chrome, Firefox 16+, IE 10+, Opera */
 }
 
-#loader:before {
+#loader:before, .loader:before {
   content: "";
   position: absolute;
   top: 5px;
@@ -3975,7 +3977,7 @@ span.login-ins {
   /* Chrome, Firefox 16+, IE 10+, Opera */
 }
 
-#loader:after {
+#loader:after, .loader:after {
   content: "";
   position: absolute;
   top: 15px;
@@ -3991,12 +3993,15 @@ span.login-ins {
   /* Chrome, Firefox 16+, IE 10+, Opera */
 }
 
-#loadessr {
+#loadessr, .loadessr {
   background: #d9d9d9;
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 999999;
+}
+.blur-loading {
+  background-color: rgba(224,224,224,0.6)
 }
 
 @-webkit-keyframes spin {
@@ -4208,4 +4213,33 @@ span.login-ins {
 }
 .icon-with-text i {
   margin: 5px;
+}
+.j-table-horizontal {
+  width: 100%;
+}
+.j-table-horizontal tr th {
+  width: 25%;
+}
+.j-table-horizontal td, .j-table-horizontal th {
+  padding: 10px;
+}
+.j-table-horizontal .form-group {
+  display: none;
+}
+.j-table-horizontal.is-edit tr > .field-content {
+  display: none;
+}
+.j-table-horizontal.is-edit .form-group {
+  display: block;
+}
+.j-table-horizontal.is-edit th.required:after {
+  content: "*";
+  color: red;
+}
+.j-table-horizontal.is-edit td .row-content {
+  display: none;
+}
+.block .header-block {
+  color: #12cd6a;
+  border-bottom: 1px solid #d1d1d1;
 }

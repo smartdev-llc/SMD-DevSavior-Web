@@ -7,11 +7,12 @@ import { DetailCandidateComponent } from './components/detail-candidate/detail-c
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
-
+import { CompanyProfileComponent } from "./components/company-profile/company-profile.component";
 
 // Guards
 import { CompanyUserAuthGuard } from '../core/guards/company-user.guard';
 import { CompanyLoggedGuard } from '../core/guards/company-logged.guard';
+import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 
 export const CompanyRoutes = [
     {
@@ -25,7 +26,9 @@ export const CompanyRoutes = [
             { path: 'jobs', component: JobListComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'candidates', component: CandidateListComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'statistic', component: StatisticComponent, canActivate: [CompanyUserAuthGuard] },
-            { path: 'post-job', component: PostJobComponent, canActivate: [CompanyUserAuthGuard] }
+            { path: 'post-job', component: PostJobComponent, canActivate: [CompanyUserAuthGuard] }, 
+            { path: 'profile', component: CompanyProfileComponent, canActivate: [CompanyUserAuthGuard] },
+            { path: 'verify-account', component: CompanyVerifyAccountComponent, canActivate: [CompanyLoggedGuard]}
         ]
     },
     { path : 'detail-candidate', component: DetailCandidateComponent, canActivate: [CompanyUserAuthGuard]}

@@ -18,15 +18,18 @@ import { StudentUserAuthGuard } from './guards/student-user.guard';
 import { StudentLoggedGuard } from './guards/student-logged.guard';
 import { CompanyUserAuthGuard } from './guards/company-user.guard';
 import { CompanyLoggedGuard } from './guards/company-logged.guard';
+import { PhotoURLConverterPipe } from './pipes/photo-urlconverter.pipe';
 
 @NgModule({
   declarations: [
-    HumanizePipe
+    HumanizePipe,
+    PhotoURLConverterPipe
   ],
   exports: [
     // components
     // DummyService
-    NgProgressModule
+    NgProgressModule, 
+    PhotoURLConverterPipe
   ],
   imports: [
     // Were not working on modules sice update to rc-5

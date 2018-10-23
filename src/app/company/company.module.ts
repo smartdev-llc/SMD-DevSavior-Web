@@ -9,7 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FindResumesComponent } from './components/find-resumes/find-resumes.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { CandidateListComponent } from './components/candidate-list/candidate-list.component';
-import { LayoutModule } from '../layout/index';
+import { LayoutModule } from '../layout';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -17,11 +17,15 @@ import { DetailCandidateComponent } from './components/detail-candidate/detail-c
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
+import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
 import { CarouselModule } from 'ngx-bootstrap';
 
 import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../core/services/skill/SkillService';
+import { ProfileService } from './services/profile.service';
+import { CoreModule } from '../core';
+import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 
 @NgModule({
   imports: [
@@ -34,7 +38,8 @@ import { SkillService } from '../core/services/skill/SkillService';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   declarations: [
     HomeComponent,
@@ -45,12 +50,15 @@ import { SkillService } from '../core/services/skill/SkillService';
     DetailCandidateComponent,
     CpRegisterComponent,
     StatisticComponent,
-    PostJobComponent
+    PostJobComponent,
+    CompanyProfileComponent,
+    CompanyVerifyAccountComponent
   ],
   providers: [
     CategoryCompanyService,
     PostJobCompanyService,
-    SkillService
+    SkillService,
+    ProfileService
   ]
 })
 export class CompanyModule { }
