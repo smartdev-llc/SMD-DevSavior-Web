@@ -1,0 +1,19 @@
+.blocks .block {
+    margin: 10px auto;
+}
+.block a.no-margin {
+    margin: 0;
+}
+.j-table.is-edit .btn-feature {
+    display: none;
+}
+.container-fluid.header_area > .row {
+    position: relative;
+}
+form .controls button {
+    margin: 0 5px;
+}
+#loadessr.is-edit{
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1000;
+}

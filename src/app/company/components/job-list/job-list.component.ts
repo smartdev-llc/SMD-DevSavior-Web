@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '../../../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 

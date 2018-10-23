@@ -11,7 +11,7 @@ import {
 } from '@angular/common/http';
 import { AuthActions } from '../../auth/actions/auth.actions';
 import { AppState } from '../../interfaces';
-import { Store } from '../../../../node_modules/@ngrx/store';
+import { Store } from '@ngrx/store';
 import { map, tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppErrors } from '../error/app-errors';
@@ -160,17 +160,18 @@ export class AuthService {
    * @memberof AuthService
    */
   getTokenHeader(request: HttpRequest<any>): HttpHeaders {
-    const user: User = ['undefined', null]
-      .indexOf(localStorage.getItem('user')) === -1 ?
-      JSON.parse(localStorage.getItem('user')) : {};
+    
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
-      'Authorization': this.getAccessTokenFromUser(user)
+      'Authorization': this.getAccessToken()
     });
   }
 
-  getAccessTokenFromUser(user) {
+  getAccessToken() {
+    const user: User = ['undefined', null]
+    .indexOf(localStorage.getItem('user')) === -1 ?
+    JSON.parse(localStorage.getItem('user')) : {};
     if (user !== undefined) {
       return AuthService.PREFIX_AUTHORIZATION + user.access_token;
     }

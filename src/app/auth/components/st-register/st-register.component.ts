@@ -22,7 +22,6 @@ export class StRegisterComponent implements OnInit {
   passwordGroup: FormGroup;
   submitted: boolean;
   loading: boolean;
-  genders: Gender[];
   constructor( private router: Router,
                private authService: AuthService,
                private formBuilder: FormBuilder) {
@@ -87,10 +86,8 @@ export class StRegisterComponent implements OnInit {
       passwordGroup: this.passwordGroup,
       firstName: ['', [Validators.required, Validators.pattern(this.LETTER_ONLY_PATTERN)]],
       lastName: ['', [Validators.required, Validators.pattern(this.LETTER_ONLY_PATTERN)]],
-      role: [Role.Student],
-      gender: [Gender.UNKNOWN]
+      role: [Role.Student]
   });
-  this.genders = [Gender.UNKNOWN, Gender.MALE, Gender.FEMALE, Gender.OTHER];
   this.loading = false ;
   }
 
@@ -100,7 +97,6 @@ export class StRegisterComponent implements OnInit {
     user.password = this.passwordGroup.value.password;
     user.firstName = this.registerForm.value.firstName || '';
     user.lastName = this.registerForm.value.lastName || '';
-    user.gender = this.registerForm.value.gender || Gender.UNKNOWN;
     user.role = Role.Student;
     return user;
   }

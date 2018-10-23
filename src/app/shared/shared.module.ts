@@ -20,6 +20,9 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
+import { FileUploadModule } from 'ng2-file-upload';
+import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     HotJobItemComponent,
     LoadmoreButtonComponent,
     CompanyItemComponent,
-    JVDropDownComponent
+    JVDropDownComponent,
+    UploadfileComponent
   ],
   exports: [
     CommonModule,
@@ -41,12 +45,14 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     TranslateCacheModule,
     SocialLoginModule,
     JVDropDownComponent,
-    NgxLoadingModule
+    NgxLoadingModule, 
+    UploadfileComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxInputStarRatingModule,
+    FileUploadModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
       backdropBackgroundColour: 'transparent',
