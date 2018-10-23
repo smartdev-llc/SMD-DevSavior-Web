@@ -14,6 +14,7 @@ export class CompanyProfileComponent implements OnInit {
   public COVER_UPLOADING_URL = "/my-company/cover";
   public LOGO_UPLOADING_URL = "/my-company/logo";
   private PHONE_NUMBER_PATTERN = '^[0-9\+]{1,}[0-9\-]{3,15}$';
+  private WEBSITE_PATTERN = '^(http(s)?:\/\/)[\\w\\.\\-]+(\\.[\\w\.\\-]+)+[\\w\\-\\.\_\~\:\/?#\\[\\]\@\!\$\&\'\(\)\*\\+\,\;\=\\.]+$';
 
   public isEdit= false;
   public isLoading = true;
@@ -59,7 +60,7 @@ export class CompanyProfileComponent implements OnInit {
       city: ['', [Validators.required]],
       contactName: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required, Validators.pattern(this.PHONE_NUMBER_PATTERN)]],
-      website: [''],
+      website: ['', [Validators.pattern(this.WEBSITE_PATTERN)]],
       description: ['', [Validators.required]]
     });
   }

@@ -138,7 +138,7 @@
                       <th >Website</th>
                       <td>  
                         <div class="row-content" *ngIf="company.website">
-                          <a class="no-margin" href="{{company.website}}">{{company.website}}</a> 
+                          <a class="no-margin" href="{{company.website}}" target="_blank" >{{company.website}}</a> 
                         </div>
                         <div class="form-group required" >
                             <div class="input-container">
@@ -146,6 +146,11 @@
                                     formControlName="website"
                                     [ngClass]="{ 'has-error': submitted && f.website.errors }" />
                             
+                                    <div *ngIf="submitted && f.website.invalid" class="error-input">
+                                      <div *ngIf="f.website.errors.pattern">
+                                        Wrong website URL format.
+                                      </div>
+                                    </div>
                             </div>
                           </div></td>
                     </tr>
