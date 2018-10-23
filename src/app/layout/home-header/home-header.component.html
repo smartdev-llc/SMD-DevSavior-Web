@@ -47,32 +47,47 @@
               </span>
             </a>
             <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="label job-type partytime profile-head">
-              <i class="fa fa-user"></i>
-              <span>{{ user.displayName }}</span>
-              <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
-            </span>
+              <span class="label job-type partytime profile-head">
+                <i class="fa fa-user"></i>
+                <span>{{ user.displayName || user.name }}</span>
+                <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
+              </span>
             </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a routerLink="/my-career-center">My Profile</a>
-              </li>
-              <li>
-                <a href="#">My Works</a>
-              </li>
-              <li>
-                <a href="#">Job Announcement</a>
-              </li>
-              <li>
-                <a href="#">Companies seen</a>
-              </li>
-              <li>
-                <a href="#">My Account</a>
-              </li>
-              <li>
-                <a role="button" (click)="logout()">Logout</a>
-              </li>
-            </ul>
+            <ng-container *ngIf="user.role == 'student'">
+              <ul class="dropdown-menu">
+                <li>
+                  <a routerLink="/my-career-center">My Profile</a>
+                </li>
+                <li>
+                  <a href="#">My Works</a>
+                </li>
+                <li>
+                  <a href="#">Job Announcement</a>
+                </li>
+                <li>
+                  <a href="#">Companies seen</a>
+                </li>
+                <li>
+                  <a href="#">My Account</a>
+                </li>
+                <li>
+                  <a role="button" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+            </ng-container>
+            <ng-container *ngIf="user.role == 'company'">
+              <ul class="dropdown-menu">
+                <li>
+                  <a routerLink="/employer/home">Company Home</a>
+                </li>
+                <li>
+                  <a href="/employer/statistic">Dashboard</a>
+                </li>
+                <li>
+                  <a role="button" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+            </ng-container>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -119,27 +134,42 @@
                 <a routerLink="/list-company">{{ 'header.companies' | translate }}</a>
               </li>
               <li  class="mobile-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.displayName }}</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a routerLink="/my-career-center">My Profile</a>
-                  </li>
-                  <li>
-                    <a href="#">My Works</a>
-                  </li>
-                  <li>
-                    <a href="#">Job Announcement</a>
-                  </li>
-                  <li>
-                    <a href="#">Companies seen</a>
-                  </li>
-                  <li>
-                    <a href="#">My Account</a>
-                  </li>
-                  <li>
-                    <a role="button" (click)="logout()">Logout</a>
-                  </li>
-                </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.displayName || user.name }}</a>
+                <ng-container *ngIf="user.role == 'student'">
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a routerLink="/my-career-center">My Profile</a>
+                    </li>
+                    <li>
+                      <a href="#">My Works</a>
+                    </li>
+                    <li>
+                      <a href="#">Job Announcement</a>
+                    </li>
+                    <li>
+                      <a href="#">Companies seen</a>
+                    </li>
+                    <li>
+                      <a href="#">My Account</a>
+                    </li>
+                    <li>
+                      <a role="button" (click)="logout()">Logout</a>
+                    </li>
+                  </ul>
+                </ng-container>
+                <ng-container *ngIf="user.role == 'company'">
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a routerLink="/employer/home">Company Home</a>
+                    </li>
+                    <li>
+                      <a routerLink="/employer/statistic">Dashboard</a>
+                    </li>
+                    <li>
+                      <a role="button" (click)="logout()">Logout</a>
+                    </li>
+                  </ul>
+                </ng-container>
               </li>
             </ul>
           </div>

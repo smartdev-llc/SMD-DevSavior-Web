@@ -8,6 +8,7 @@ import { CpRegisterComponent } from './components/cp-register/cp-register.compon
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { CompanyProfileComponent } from "./components/company-profile/company-profile.component";
+import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
 
 // Guards
 import { CompanyUserAuthGuard } from '../core/guards/company-user.guard';
@@ -31,5 +32,6 @@ export const CompanyRoutes = [
             { path: 'verify-account', component: CompanyVerifyAccountComponent, canActivate: [CompanyLoggedGuard]}
         ]
     },
+    { path: 'detail-company/:id', component: DetailCompanyComponent },
     { path : 'detail-candidate', component: DetailCandidateComponent, canActivate: [CompanyUserAuthGuard]}
 ];

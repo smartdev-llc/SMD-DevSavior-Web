@@ -210,6 +210,7 @@ export class AuthService {
 
   }
 
+  //TODO: Move handleError() in each Service class into one Class
   private handleError(error) {
     if (error.status === 403) {
       return throwError(new Forbidden(error.error.message));
@@ -273,5 +274,10 @@ export class AuthService {
     return this.http.get('/jobs')
     .pipe(
       map((response: Response) => response),
-    )}
+    )
+  }
+
+  removeTokens(): void {
+    localStorage.removeItem('user');
+  }
 }

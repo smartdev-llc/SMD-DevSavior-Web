@@ -49,5 +49,4 @@ export class UserCompany {
   city: string;
   website: string;
   access_token: string;
-
 }

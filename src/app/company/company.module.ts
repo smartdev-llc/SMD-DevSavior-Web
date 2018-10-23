@@ -19,6 +19,8 @@ import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
 import { CarouselModule } from 'ngx-bootstrap';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
@@ -26,6 +28,7 @@ import { SkillService } from '../core/services/skill/SkillService';
 import { ProfileService } from './services/profile.service';
 import { CoreModule } from '../core';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
+import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
 
 @NgModule({
   imports: [
@@ -39,7 +42,9 @@ import { CompanyVerifyAccountComponent } from './components/company-verify-accou
     NgbModule,
     ReactiveFormsModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    PaginationModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   declarations: [
     HomeComponent,
@@ -52,7 +57,8 @@ import { CompanyVerifyAccountComponent } from './components/company-verify-accou
     StatisticComponent,
     PostJobComponent,
     CompanyProfileComponent,
-    CompanyVerifyAccountComponent
+    CompanyVerifyAccountComponent,
+    DetailCompanyComponent,
   ],
   providers: [
     CategoryCompanyService,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Address model
  * Detailed info http://guides.spreecommerce.org/developer/addresses.html
  * Public API's http://guides.spreecommerce.org/api/addresses.html
@@ -29,3 +30,4 @@ export class UpdateCompanyProfileRequest {
   website: string;
   description: string;
 }
+  
