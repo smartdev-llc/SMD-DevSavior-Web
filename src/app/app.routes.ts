@@ -1,5 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
+// components
+import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 // Guards
 import { StudentUserAuthGuard } from './core/guards/student-user.guard';
 import { StudentLoggedGuard } from './core/guards/student-logged.guard';
@@ -30,5 +32,13 @@ export const routes: Routes = [
     path: '',
     loadChildren: './user/user.module#UserModule',
     canActivate: [StudentUserAuthGuard]
+  },
+  {
+    path: 'not-found',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found'
   }
 ];
