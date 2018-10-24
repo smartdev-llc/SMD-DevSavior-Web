@@ -26,7 +26,7 @@ import { DetailCompanyComponent } from './components/detail-company/detail-compa
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
-import { ByJobsComponent } from './components/by-jobs/by-jobs.component';
+
 
 @NgModule({
   imports: [
@@ -54,8 +54,7 @@ import { ByJobsComponent } from './components/by-jobs/by-jobs.component';
     DetailCompanyComponent,
     BlackListCandidateComponent,
     ProfileDeletedComponent,
-    ByResumeSearchComponent,
-    ByJobsComponent
+    ByResumeSearchComponent
   ],
   providers: [
     CategoryCompanyService,

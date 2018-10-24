@@ -80,11 +80,11 @@
 .table-row{
   margin: 20px 4px 5px 4px;
   .table{
+    width: 100%;
+    height: auto;
     thead{
       tr{
         th{
-          position: relative;
-          right: 10px;
           font-size: 16px;
           border-bottom: 1px solid #ddd;
         }
@@ -94,12 +94,29 @@
       tr{
         td{
           font-size: 16px;
+          .search-purpose {
+            input[type=checkbox] {
+              margin-left: 10px;
+              width: 18px;
+              height: 1em;
+            }
+          }
+          .day-updated{
+            .btn{
+              padding: 2px 12px;
+            }
+          }
+          .btn-default{
+            padding: 2px 15px;
+            .fa{
+              margin-right: 4px;
+            }
+          }
         }
       }
     }
   }
 }
-
 
 @media (max-width:1200px) {
   .ibox-content {

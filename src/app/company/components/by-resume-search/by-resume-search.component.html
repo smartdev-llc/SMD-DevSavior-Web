@@ -20,37 +20,66 @@
                   </button>
                 </span>
 
-                <ng-select [items]="users" bindLabel="name" bindValue="id" [addTag]="addCustomUser" [multiple]="false" placeholder="Select level"
-                  [(ngModel)]="selectedUserIds">
+                <ng-select [items]="users" bindLabel="name" bindValue="id" [addTag]="addCustomUser" [multiple]="false"
+                  placeholder="Select level" [(ngModel)]="selectedUserIds">
                 </ng-select>
               </div>
             </div>
 
-            <div class="row table-row">
-              <table class="table">
+            <div class="table-responsive table-row">
+              <table class="col-md-12 table">
                 <thead>
                   <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th>Select</th>
+                    <th>Candidate name</th>
+                    <th>Job Title</th>
+                    <th>Day store</th>
+                    <th>Day updated</th>
+                    <th>Operation</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
+                    <td>
+                      <div class="form-check search-purpose">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                      </div>
+                    </td>
+                    <td>Quoc Viet Nguyen</td>
+                    <td>Junior AngularJs</td>
+                    <td>7-1-2018</td>
+                    <td>
+                      <div class="day-updated">
+                        <p>23-10-2018 <button type="button" class="btn btn-danger">New</button></p>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-default">
+                        <i class="fa fa-sticky-note"></i> Note
+                      </button>
+                    </td>
                   </tr>
+
                   <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
+                      <td>
+                        <div class="form-check search-purpose">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        </div>
+                      </td>
+                      <td>Nguyen Van Vu</td>
+                      <td>Junior reactJs</td>
+                      <td>04-01-2018</td>
+                      <td>
+                        <div class="day-updated">
+                          <p>04-08-2018 <button type="button" class="btn btn-danger">New</button></p>
+                        </div>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-default">
+                          <i class="fa fa-sticky-note"></i> Note
+                        </button>
+                      </td>
+                    </tr>
                 </tbody>
               </table>
             </div>
