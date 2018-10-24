@@ -55,8 +55,6 @@
                   <label for="qualification" class="required">Bằng cấp</label>
                   <ng-select
                     class="jv"
-                    formControlName="educationalStatus"
-                    [ngClass]="{ 'ng-touched': submittedBasic && biF.educationalStatus.errors }"
                     [items]="qualifications"
                     [closeOnSelect]="true"
                     [hideSelected]="true"
@@ -70,8 +68,6 @@
                   <label for="school" class="required">Xếp loại</label>
                   <ng-select
                     class="jv"
-                    formControlName="educationalStatus"
-                    [ngClass]="{ 'ng-touched': submittedBasic && biF.educationalStatus.errors }"
                     [items]="classificationOfDegrees"
                     [closeOnSelect]="true"
                     [hideSelected]="true"
