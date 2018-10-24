@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // components
 import { JobListComponent } from './components/jobs/jobs-list/job-list.component';
@@ -12,6 +13,7 @@ import { LoadmoreButtonComponent } from './components/loadmore-button/loadmore-b
 import { CompanyItemComponent } from './components/company/company-item.component';
 import { HotJobItemComponent } from './components/jobs/hotjob-item/hotjob-item.component';
 import { JVDropDownComponent } from './components/custom-dropdown/jv-dropdown.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 // import ngx-translate and the http loader
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -20,6 +22,9 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
+import { FileUploadModule } from 'ng2-file-upload';
+import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,9 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     HotJobItemComponent,
     LoadmoreButtonComponent,
     CompanyItemComponent,
-    JVDropDownComponent
+    JVDropDownComponent,
+    UploadfileComponent,
+    ConfirmDialogComponent
   ],
   exports: [
     CommonModule,
@@ -41,12 +48,16 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
     TranslateCacheModule,
     SocialLoginModule,
     JVDropDownComponent,
-    NgxLoadingModule
+    NgxLoadingModule,
+    UploadfileComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxInputStarRatingModule,
+    FileUploadModule,
+    ModalModule.forRoot(),
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
       backdropBackgroundColour: 'transparent',

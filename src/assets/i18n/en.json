@@ -1,4 +1,10 @@
 {
+  "common": {
+    "yesDialog": "Yes",
+    "noDialog": "No",
+    "titleDialog": "Confirm dialog",
+    "descriptionDialog": "Do you want to confirm?"
+  },
   "header": {
     "jobs": "All Jobs",
     "companies": "Company Reviews",
@@ -30,5 +36,20 @@
     "faq" : "FAQ",
     "log_out" : "Log Out",
     "recruitment_center" : "Recruitment center"
+  },
+  "company": {
+    "joblist": "Jobs",
+    "information": "Company's information",
+    "introduction": "Company's overview",
+    "photos": "Photos",
+    "address": "Address",
+    "company" :"Company",
+    "email": "Email",
+    "phoneNumber": "Phone number",
+    "website": "Website"
+  },
+  "userProfile": {
+    "titleDeleteWorking": "Delete working experience",
+    "descriptionDeleteWorking": "Do you want to delete the working experience?"
   }
 }

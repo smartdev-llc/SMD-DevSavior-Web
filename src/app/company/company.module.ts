@@ -9,7 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FindResumesComponent } from './components/find-resumes/find-resumes.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { CandidateListComponent } from './components/candidate-list/candidate-list.component';
-import { LayoutModule } from '../layout/index';
+import { LayoutModule } from '../layout';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,16 +17,25 @@ import { DetailCandidateComponent } from './components/detail-candidate/detail-c
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
+import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
 import { CarouselModule } from 'ngx-bootstrap';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { CategoryCompanyService } from '../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../core/services/skill/SkillService';
+import { ProfileService } from './services/profile.service';
+import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
+<<<<<<< HEAD
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
 
+=======
+import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
+>>>>>>> 91948c0850516b7876723a07183b1ebfb5961160
 
 @NgModule({
   imports: [
@@ -39,7 +48,9 @@ import { ByResumeSearchComponent } from './components/by-resume-search/by-resume
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    PaginationModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   declarations: [
     HomeComponent,
@@ -51,15 +62,23 @@ import { ByResumeSearchComponent } from './components/by-resume-search/by-resume
     CpRegisterComponent,
     StatisticComponent,
     PostJobComponent,
+    CompanyProfileComponent,
+    CompanyVerifyAccountComponent,
     DetailCompanyComponent,
+<<<<<<< HEAD
     BlackListCandidateComponent,
     ProfileDeletedComponent,
     ByResumeSearchComponent
+=======
+    PhotoURLConverterPipe
+>>>>>>> 91948c0850516b7876723a07183b1ebfb5961160
   ],
   providers: [
     CategoryCompanyService,
     PostJobCompanyService,
-    SkillService
+    SkillService,
+    ProfileService
   ]
 })
+
 export class CompanyModule { }

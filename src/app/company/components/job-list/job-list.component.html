@@ -3,7 +3,7 @@
   <div class="row j-filter-search">
     <div class="col-lg-6 col-xs-12">
       <div class="tab_filters">
-      
+
         <ul class="nav nav-pills">
           <li class="active">
             <a  href="">online
@@ -54,7 +54,7 @@
     </button>
   </div>
   <div class="col-xs-12 j-list">
-    <table class="j-table">
+    <table class="j-table" id="listJobs">
       <thead class="j-table-header">
         <th class="col-xs-5">Job Title - ID</th>
         <th class="col-xs-2">Services</th>
@@ -64,16 +64,16 @@
       </thead>
       <tbody class="j-table-body">
         <!-- start list job -->
-        <tr>
+        <tr *ngFor="let job of listCompanyJobs">
           <td>
             <div>
               <div class="j-title">
-                <a href="">job title</a>
-                <span>12343334</span>
+                <a href="">{{job.title}}</a>
+                <span>{{job.id}}</span>
               </div>
-              <div class="j-location">Da Nang</div>
+              <div class="j-location">{{job.location || "No mention location"}}</div>
               <div class="j-actions">
-                <a href="">View Online</a>
+                <a routerLink="/jobs/{{job.id}}" target="_blank">View Online</a>
                 <a href="">Edit</a>
                 <a href="">Copy</a>
                 <a href="">Inactive</a>
@@ -93,19 +93,19 @@
 
           <td>
             <div class="expiration">
-              <div>17 days</div>
-              <div class="time">Online: 24 Aug 2018</div>
-              <div  class="time">Expired: 30 Sep 2018</div>
+              <div>7 days</div>
+              <div class="time">Online: {{convertTimeStampToDate(job.createdAt)}}</div>
+              <div  class="time">Expired: {{getExpiredDate(job.createdAt)}}</div>
             </div>
           </td>
 
           <td>
             <div>
               <span >98</span>
-              
+
             </div>
           </td>
-          
+
           <td>
             <div class="text-center">
                 <a routerLink="/employer/candidates">4</a>
@@ -115,6 +115,11 @@
         <!-- end list job -->
       </tbody>
     </table>
-
+    <div class="row" *ngIf="totalItems > 0">
+      <div class="col-xs-12 jv-pagination">
+        <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
+      </div>
+    </div>
   </div>
+  <ngx-loading [show]="loading"></ngx-loading>
 </div>

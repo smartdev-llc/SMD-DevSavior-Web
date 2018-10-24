@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
-import { ActivatedRoute, Router } from '../../../../../node_modules/@angular/router';
-import { pipe } from '../../../../../node_modules/rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { pipe } from 'rxjs';
 import { Role } from '../../../core/models/user';
-import { EmailValidator, Form, FormBuilder, Validators, FormGroup } from '../../../../../node_modules/@angular/forms';
+import { EmailValidator, Form, FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-st-verify-account',

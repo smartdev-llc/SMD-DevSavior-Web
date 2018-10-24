@@ -1,14 +1,33 @@
+
+/* Address model
+ * Detailed info http://guides.spreecommerce.org/developer/addresses.html
+ * Public API's http://guides.spreecommerce.org/api/addresses.html
+ */
+
 export class Company {
-    id: number;
-    contactName: string;
-    description: string;
-    email: string;
-    address: string;
-    city: string;
-    logoURL: string;
-    phoneNumber: string;
-    name: string;
-    videoURL: string;
-    website: string;
-  }
+  id: number;
+  email: string;
+  name: string;
+  address: string;
+  city: string;
+  contactName: string;
+  phoneNumber: string;
+  website: string;
+  description: string;
+  logoURL: string;
+  coverURL: string;
+  videoURL: string;
+}
+
+export class UpdateCompanyProfileRequest {
+  id: number;
+  email: string;
+  name: string;
+  address: string;
+  city: string;
+  contactName: string;
+  phoneNumber: string;
+  website: string;
+  description: string;
+}
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
 import { AuthService } from '../../../../core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
@@ -17,6 +18,7 @@ import * as moment from 'moment';
   styleUrls: ['./step1.component.scss']
 })
 export class UpdateProfileStep1Component implements OnInit {
+  ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
   uploader: FileUploader;
   basicInfoFormGroup: FormGroup;
   personalInfoFormGroup: FormGroup;

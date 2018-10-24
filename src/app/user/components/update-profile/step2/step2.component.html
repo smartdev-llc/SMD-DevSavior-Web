@@ -35,7 +35,13 @@
         <div class="modal-body">
           <form class="update-form">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="school" class="required">Trường</label>
+                  <input type="text" id="school" class="form-control" placeholder="Nhận tên trường">
+                </div>
+              </div>
+              <div class="col-sm-6">
                 <div class="form-group">
                   <label for="subject" class="required">Chuyên ngành</label>
                   <input type="text" id="subject" class="form-control" placeholder="VD: Công nghệ thông tin, Mạng máy tính...">
@@ -46,14 +52,28 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="school" class="required">Trường</label>
-                  <input type="text" id="school" class="form-control" placeholder="Nhận tên trường">
+                  <label for="qualification" class="required">Bằng cấp</label>
+                  <ng-select
+                    class="jv"
+                    [items]="qualifications"
+                    [closeOnSelect]="true"
+                    [hideSelected]="true"
+                    bindLabel="name"
+                    placeholder="Select ...">
+                 </ng-select>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="qualification" class="required">Bằng cấp</label>
-                  <input type="text" id="qualification" class="form-control">
+                  <label for="school" class="required">Xếp loại</label>
+                  <ng-select
+                    class="jv"
+                    [items]="classificationOfDegrees"
+                    [closeOnSelect]="true"
+                    [hideSelected]="true"
+                    bindLabel="name"
+                    placeholder="Select ...">
+                 </ng-select>
                 </div>
               </div>
             </div>

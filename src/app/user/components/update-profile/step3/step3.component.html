@@ -14,9 +14,18 @@
         <button class="btn btn-link pull-right" (click)="keySkillsModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kỹ năng</button>
       </h4>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" *ngIf="currentSkills">
+      <div class="col-md-12" *ngIf="!currentSkills.length">
         <p class="not-update-alert">Vui lòng hoàn thiện thông tin kỹ năng.</p>
+      </div>
+      <div class="col-sm-12" *ngIf="currentSkills.length" (click)="keySkillsModal.show()">
+        <div class="position-relative">
+          <div id="tags-edit">
+            <span class="tag-xs" title="Javascript" *ngFor="let skill of currentSkills; index as i">
+              <span class="tag-name">{{ skill }}</span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,20 +55,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <form class="update-form">
+          <form class="update-form" [formGroup]="skillsFormGroup" (ngSubmit)="onSubmitSkills()">
             <div class="row">
               <div class="col-sm-12">
                 <div class="position-relative">
-                  <div id="tags-edit">
-                    <span class="tag-xs" title="Javascript">
-                      <span class="tag-name">Javascript</span>
-                      <a class="ic-close" href="#"><i class="fa fa-fw fa-remove"></i></a>
-                      <input class="input-tag-name" type="hidden" name="skills[]" value="99" data-tag-name="Javascript">
-                    </span>
-                    <span class="tag-xs" title="HTML/CSS">
-                      <span class="tag-name">HTML/CSS</span>
-                      <a class="ic-close" href="#"><i class="fa fa-fw fa-remove"></i></a>
-                      <input class="input-tag-name" type="hidden" name="skills[]" value="7913" data-tag-name="HTML/CSS">
+                  <div id="tags-edit" formArrayName="skills">
+                    <span class="tag-xs" title="Javascript" *ngFor="let skill of skills.controls; index as i">
+                      <span class="tag-name">{{ skill.value }}</span>
+                      <a class="ic-close" (click)="handleRemoveSkill(i)"><i class="fa fa-fw fa-remove"></i></a>
+                      <input class="input-tag-name" type="hidden" [formControlName]="i" data-tag-name="skill.value">
                     </span>
                   </div>
                   <div hidden="" id="key-skill-limit-error" style=""><em class="text-orange">You have reached the maximum number of skills. Please delete one to add another.</em></div>
@@ -67,10 +71,19 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-xs-8">
                 <div class="form-group">
-                  <input type="text" id="school" class="form-control" placeholder="Hãy điền thông tin về lĩnh vực chuyên môn của bạn.">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
+                    [(ngModel)]="skillInput"
+                    [ngModelOptions]="{standalone: true}"
+                    (keydown.enter)="handleAddSkill($event)">
                 </div>
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-defaut bg-submit" (click)="handleAddSkill($event)"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
               </div>
             </div>
 
@@ -78,8 +91,12 @@
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right">
-                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
-                  <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Thêm mới</button>
+                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="submit" class="btn btn-defaut bg-submit">
+                    <i *ngIf="!skillsSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
+                    <i *ngIf="skillsSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                    Cập nhật
+                  </button>
                 </div>
             </div>
             </div>

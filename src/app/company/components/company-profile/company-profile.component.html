@@ -1,0 +1,226 @@
+<app-home-company-logged></app-home-company-logged>
+<div class="container-fluid header_area">
+  <div class="row">
+    <div  id="loadessr" *ngIf="isLoading" [class.is-edit]="isEdit" >
+        <div id="loader"></div>
+    </div>
+    <div class="container main-container">
+      <div class="blocks">
+          <div class="block">
+            <div class="row header-block">
+              <h2 class="col-xs-10 glyphicon glyphicon-envelope icon-primary">Account information </h2>
+            </div>
+            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+              <table class="j-table-horizontal">
+                <tr>
+                  <th class="required">Email Address</th>
+                  <td>
+                    <div class="row-content">{{company.email}}</div>
+                  </td>
+                </tr>            
+              </table>
+            </div>
+          </div>
+
+          <div class="block">
+              <div class="row header-block">
+                <h2 class="col-xs-10 glyphicon glyphicon-file icon-primary">Company information </h2>
+                <div>
+                  <button class="btn btn-default" (click)="changeToEditMode()" *ngIf="!isEdit">
+                    <span class="col-xs-2 glyphicon glyphicon-pencil icon-primary"></span>
+                      Edit
+                  </button>
+                </div>
+                
+              </div>
+              <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                <form class="validation-form" 
+                      [formGroup]="updateProfileForm"
+                      (ngSubmit)="updateProfile()">
+                  <table class="j-table-horizontal"
+                        [class.is-edit]="isEdit">
+                    <tr>
+                      <th class="row-content required">Company name</th>
+                      <td>
+                        <div class="row-content">{{company.name}}</div>
+                        <div class="form-group required">
+                            <div class="input-container">
+                            <input type="text" name="name" 
+                                  formControlName="name"
+                                  [ngClass]="{ 'has-error': submitted && f.name.errors }" />
+                              <div *ngIf="submitted && f.name.invalid" class="error-input">
+                                <div *ngIf="f.name.errors.required">
+                                  Company name is required.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="required">Company Address</th>
+                      <td>
+                        <div class="row-content required">{{company.address}}</div>
+                        <div class="form-group required">
+                            <div class="input-container">
+                            <input type="text" name="address" 
+                                  formControlName="address"
+                                  [ngClass]="{ 'has-error': submitted && f.address.errors }" />
+                              <div *ngIf="submitted && f.address.invalid" class="error-input">
+                                <div *ngIf="f.address.errors.required">
+                                  Email is required.
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="required">City</th>
+                      <td>
+                        <div class="row-content required">{{getCityName(company.city)}}</div>
+                        <div class="form-group required" >
+                          <div class="input-container">
+                            <select formControlName="city" >
+                                <option *ngFor="let city of cities" [value]="city.key">{{city.value}}</option>
+                            </select>
+                            <div *ngIf="submitted && f.city.invalid" class="error-input">
+                              <div *ngIf="f.city.errors.required">
+                                City is required.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="required">Contact Name</th>
+                      <td>
+                        <div class="row-content required">{{company.contactName}}</div>
+                        <div class="form-group required" >
+                            <div class="input-container">
+                            <input type="text" name="contact-name" 
+                            formControlName="contactName"
+                                  [ngClass]="{ 'has-error': submitted && f.contactName.errors }" />
+                              <div *ngIf="submitted && f.contactName.invalid" class="error-input">
+                                <div *ngIf="f.contactName.errors.required">
+                                  Contact name is required.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="required">Phone Number</th>
+                      <td><div class="row-content required">{{company.phoneNumber}}</div>
+                        <div class="form-group required" >
+                            <div class="input-container">
+                            <input type="text" name="phone-number" 
+                                  formControlName="phoneNumber"
+                                  [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors }" />
+                              <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
+                                <div *ngIf="f.phoneNumber.errors.required">
+                                  Phone number is required.
+                                </div>
+                                <div *ngIf="f.phoneNumber.errors.pattern">
+                                  Wrong phone number.
+                                </div>
+                              </div>
+                            </div>
+                          </div></td>
+                    </tr>
+
+                    <tr>
+                      <th >Website</th>
+                      <td>  
+                        <div class="row-content" *ngIf="company.website">
+                          <a class="no-margin" href="{{company.website}}" target="_blank" >{{company.website}}</a> 
+                        </div>
+                        <div class="form-group required" >
+                            <div class="input-container">
+                              <input type="text" name="website" 
+                                    formControlName="website"
+                                    [ngClass]="{ 'has-error': submitted && f.website.errors }" />
+                            
+                                    <div *ngIf="submitted && f.website.invalid" class="error-input">
+                                      <div *ngIf="f.website.errors.pattern">
+                                        Wrong website URL format.
+                                      </div>
+                                    </div>
+                            </div>
+                          </div></td>
+                    </tr>
+
+                    <tr>
+                      <th class="required">Company description</th>
+                      <td>
+                          <div class="row-content required" [innerHtml]="company.description"></div>
+                          <div class="form-group required" >
+                              <div class="input-container">
+                                  <quill-editor
+                                  [modules]="quillModules"
+                                  [style]="{height: '150px'}"
+                                  [required]="true"
+                                  formControlName="description">
+                                </quill-editor>
+                                <div *ngIf="submitted && f.description.invalid" class="error-input">
+                                  <div *ngIf="f.description.errors.required">
+                                    description is required.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="row text-right controls" *ngIf="isEdit">
+                    <button class="btn-black" type="submit" >Update</button>
+                    <button class="btn-black" (click)="isEdit=!isEdit">Cancel</button>
+
+                  </div>
+              </form>
+              </div>
+            </div>
+            <div class="block">
+                <div class="row header-block">
+                  <h2 class="col-xs-10 glyphicon glyphicon-file icon-primary">Company information </h2>
+                </div>
+                <div class="col-xs-12">
+                  <table class="j-table-horizontal is-edit">
+                    <tr>
+                      <th>Company Logo</th>
+                      <td>
+                        <div class="form-group file-type">
+                          <app-uploadfile [imageURL]="company.logoURL | photoURLConverter" 
+                                          [uploadURL]="logoUploadURL"
+                                          [maxSizeInByte]="5242880"
+                                          [fileType]="['PNG', 'JPG', 'JPEG']">
+                        </app-uploadfile>
+                        </div>
+                      </td>
+                    </tr>
+      
+                    <tr>
+                      <th>Company Cover photo</th>
+                      <td>
+                        <div class="form-group file-type">
+                          <app-uploadfile [imageURL]="company.coverURL | photoURLConverter"
+                                          [uploadURL]="coverUploadURL"
+                                          [maxSizeInByte]="5242880"
+                                          [fileType]="['PNG', 'JPG', 'JPEG']">
+                          </app-uploadfile>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+      </div>
+    </div>
+  </div>  
+</div>
