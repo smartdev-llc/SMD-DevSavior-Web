@@ -6,6 +6,7 @@ import { AppErrors } from '../../../../core/error/app-errors';
 import { ModalDirective } from 'ngx-bootstrap';
 import { filter, toArray } from 'rxjs/operators';
 import { from } from 'rxjs';
+import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'update-profile-step5',
@@ -14,12 +15,14 @@ import { from } from 'rxjs';
 })
 export class UpdateProfileStep5Component implements OnInit {
 
+  @ViewChild('deleteWorkingDialog') deleteWorkingDialog: ConfirmDialogComponent;
   @ViewChild('eplHistoryModal') eplHistoryModal: ModalDirective;
   workingExperienceFormGroup: FormGroup;
   isSubmittingWorking: boolean = false;
   isDeletingWorking: boolean = false;
   submittedWorking: boolean = false;
   workingExperiences: Array<any> = null;
+  workingIdSelected: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -73,27 +76,34 @@ export class UpdateProfileStep5Component implements OnInit {
   }
 
   deleteWorkingExperience(id: any): void {
-    this.isDeletingWorking = true;
-    this.studentUserService.deleteWorkingExperience(id)
-      .subscribe(res => {
-        from(this.workingExperiences)
-          .pipe(
-            filter((item) => item.id !== id),
-            toArray()
-          ).subscribe(val => {
-            this.workingExperiences = val || [];
-          });
-        this.isDeletingWorking = false;
-        this.showWorkingSuccess();
-      },
-      (error: AppErrors) => {
-        this.isDeletingWorking = false;
-        this.showWorkingError(error);
-      });
+    this.deleteWorkingDialog.openModal();
+    this.workingIdSelected = id;
   }
 
   editWorkingExperience(id: any): void {
 
+  }
+
+  handleConfirm(isConfirm: boolean) {
+    if (isConfirm) {
+      this.isDeletingWorking = true;
+      this.studentUserService.deleteWorkingExperience(this.workingIdSelected)
+        .subscribe(res => {
+          from(this.workingExperiences)
+            .pipe(
+              filter((item) => item.id !== this.workingIdSelected),
+              toArray()
+            ).subscribe(val => {
+              this.workingExperiences = val || [];
+            });
+          this.isDeletingWorking = false;
+          this.showWorkingSuccess();
+        },
+        (error: AppErrors) => {
+          this.isDeletingWorking = false;
+          this.showWorkingError(error);
+        });
+    }
   }
 
   get weF() {
