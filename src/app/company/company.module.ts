@@ -28,14 +28,10 @@ import { SkillService } from '../core/services/skill/SkillService';
 import { ProfileService } from './services/profile.service';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
-<<<<<<< HEAD
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
-
-=======
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
->>>>>>> 91948c0850516b7876723a07183b1ebfb5961160
 
 @NgModule({
   imports: [
@@ -65,13 +61,10 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     CompanyProfileComponent,
     CompanyVerifyAccountComponent,
     DetailCompanyComponent,
-<<<<<<< HEAD
     BlackListCandidateComponent,
     ProfileDeletedComponent,
-    ByResumeSearchComponent
-=======
+    ByResumeSearchComponent,
     PhotoURLConverterPipe
->>>>>>> 91948c0850516b7876723a07183b1ebfb5961160
   ],
   providers: [
     CategoryCompanyService,
