@@ -30,16 +30,5 @@
     "faq" : "FAQ",
     "log_out" : "Log Out",
     "recruitment_center" : "Recruitment center"
-  }, 
-  "company": {
-    "joblist": "Jobs",
-    "information": "Company's information",
-    "introduction": "Company's overview",
-    "photos": "Photos",
-    "address": "Address",
-    "company" :"Company",
-    "email": "Email",
-    "phoneNumber": "Phone number",
-    "website": "Website"
   }
 }
