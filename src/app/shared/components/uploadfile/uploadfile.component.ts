@@ -117,7 +117,7 @@ export class UploadfileComponent implements OnInit {
   onSuccessItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {
     this.stopLoading();
     this.previewImage = null;
-    this.imageURL = this.photoURLConverter.transform(JSON.parse(response).photoUrl);
+    this.imageURL = this.photoURLConverter.transform(JSON.parse(response).photoURL);
   }
 
   onErrorItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {

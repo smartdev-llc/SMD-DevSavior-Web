@@ -24,16 +24,16 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#info-company">{{'company.information' | translate}}</a>
+                                <a href="#info-company">Thông tin</a>
                             </li>
                             <li>
-                                <a href="#recruitment-company">{{'company.joblist' | translate}}</a>
+                                <a href="#recruitment-company">Tuyển dụng</a>
                             </li>
                             <li>
-                                <a href="#introduce-company">{{'company.introduction' | translate}}</a>
+                                <a href="#introduce-company">Giới thiệu</a>
                             </li>
                             <li>
-                                <a href="#images-company">{{'company.photos' | translate}}</a>
+                                <a href="#images-company">Hình ảnh</a>
                             </li>
 
 
@@ -69,11 +69,11 @@
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-6 mt-20">
-                    <h4 class="media-heading fs-20 ">{{'company.company' | translate}} {{ company.name || ''}}</h4>
-                    <p class="help-block fs-16"><i class="glyphicon glyphicon-map-marker"></i> {{'company.address' | translate}}: {{ company.address || ''}}</p>
-                    <p class="help-block fs-16"><i class="glyphicon glyphicon-envelope"></i> {{'company.email' | translate}}: {{ company.email || ''}}</p>
-                    <p class="help-block fs-16"><i class="glyphicon glyphicon-earphone"></i> {{'company.phoneNumber' | translate}}: <a href="tel:+{{ company.phoneNumber || ''}}">{{ company.phoneNumber || ''}}</a></p>
-                    <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> {{'company.website' | translate}}: <a href="{{ company.website || ''}}">{{ company.website || ''}}</a></p>
+                    <h4 class="media-heading fs-20 ">Công ty {{ company.name || ''}}</h4>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-map-marker"></i> Địa chỉ: {{ company.address || ''}}</p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-envelope"></i> Email: {{ company.email || ''}}</p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-earphone"></i> Điện thoại: <a href="tel:+{{ company.phoneNumber || ''}}">{{ company.phoneNumber || ''}}</a></p>
+                    <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> Website: <a href="{{ company.website || ''}}">{{ company.website || ''}}</a></p>
                 </div>
 
 
@@ -87,7 +87,7 @@
                 <div class="jobs-result">
                     <!--Search Result 01-->
                     <div class="col-md-12">
-                        <h3 class="title-company-w fs-20">{{'company.joblist' | translate}}</h3>
+                        <h3 class="title-company-w fs-20">Vị trí tuyển dụng</h3>
 
                         <a href="#">
                             <div class="filter-result 03">
@@ -178,9 +178,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-company-w fs-20">{{'company.introduction' | translate}}</h3>
+                    <h3 class="title-company-w fs-20">Giới thiệu công ty</h3>
                 </div>
-                <div class="col-md-7 fs-16" [innerHtml]="company.description || 'There is no information!'">
+                <div class="col-md-7 fs-16">
+                    {{ company.description || 'hiện tại chưa có thông tin về công ty bạn ưi'}}
                 </div>
                 <div class="col-md-5">
                     <img src="https://brand.mywork.com.vn/img/intro/2.jpg" style="width: 100%; border-radius: 3px;">
@@ -193,7 +194,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-company-w fs-20">{{'company.photos' | translate}}</h3>
+                    <h3 class="title-company-w fs-20">Một số hình ảnh</h3>
                 </div>
                 <div class="mb-20 col-md-4 img-company">
                     <img src="https://brand.mywork.com.vn/img/office/14.jpg">
