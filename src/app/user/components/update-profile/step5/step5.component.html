@@ -42,7 +42,11 @@
           </div>
           <div class="col-xs-3 col-md-3 pull-right">
             <div class="pull-right">
-            <button type="button" class="btn btn-modify mr-2" (click)="deleteWorkingExperience(working.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Xoá</button>
+            <button type="button" class="btn btn-modify mr-2" (click)="deleteWorkingExperience(working.id)">
+              <i *ngIf="!isDeletingWorking" class="fa fa-trash-o" aria-hidden="true"></i>
+              <i *ngIf="isDeletingWorking" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              Xoá
+            </button>
             <button type="button" class="btn btn-modify" (click)="editWorkingExperience(working.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
             </div>
           </div>
@@ -141,6 +145,14 @@
     </div>
   </div>
   <!-- End Modal Add Employment History -->
+
+  <!-- Confirm Delete workingExperience modal dialog -->
+    <confirm-dialog
+      #deleteWorkingDialog
+      [config]="{title: 'userProfile.titleDeleteWorking', description: 'userProfile.descriptionDeleteWorking'}"
+      (handleConfirm)="handleConfirm($event)">
+    </confirm-dialog>
+  <!-- End Confirm Delete workingExperience modal dialog -->
 </div>
 <!-- Footer Section -->
 <app-footer></app-footer>
