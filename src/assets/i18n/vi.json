@@ -30,5 +30,17 @@
     "faq" : "Hỏi đáp",
     "log_out" : "Thoát",
     "recruitment_center" : "Quản lý tuyển dụng"
+  },
+  "company": {
+    "joblist": "Công việc",
+    "information": "Thông tin công ty",
+    "introduction": "Giới thiệu công ty",
+    "photos": "Hình ảnh",
+    "address": "Địa chỉ",
+    "company" :"Công ty",
+    "email": "Email",
+    "phoneNumber": "Số điện thoại",
+    "website": "Website"
+
   }
 }
