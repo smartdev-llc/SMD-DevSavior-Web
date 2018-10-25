@@ -120,8 +120,7 @@ export class UploadfileComponent implements OnInit {
     this.stopLoading();
     this.previewImage = null;
     this.imageURL = JSON.parse(response).photoUrl;
-    this.toastrService.success("Upload", "Upload successfully!")
-
+    this.toastrService.success("Upload", "Upload successfully!");
   }
 
   onErrorItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {
