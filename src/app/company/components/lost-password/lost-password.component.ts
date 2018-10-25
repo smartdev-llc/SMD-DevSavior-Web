@@ -4,14 +4,13 @@ import { FormBuilder,
          FormGroup,
          Validators} from '@angular/forms';
 import { Role } from '../../../core/models/user';
-import { delay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-st-lost-pasword',
-  templateUrl: './st-lost-password.component.html',
-  styleUrls: ['./st-lost-password.component.scss']
+  selector: 'app-lost-pasword',
+  templateUrl: './lost-password.component.html',
+  styleUrls: ['./lost-password.component.scss']
 })
-export class StLostPasswordComponent implements OnInit {
+export class LostPasswordComponent implements OnInit {
 
   lostPasswordForm: FormGroup;
   requested = false;
@@ -39,7 +38,7 @@ export class StLostPasswordComponent implements OnInit {
       this.loading = false;
       return ;
     }
-    this.authService.forgotPassword(this.lostPasswordForm.value.email, Role.Student)
+    this.authService.forgotPassword(this.lostPasswordForm.value.email, Role.Company)
                     .subscribe(
                       data => {
                         this.requested = true;
@@ -49,9 +48,8 @@ export class StLostPasswordComponent implements OnInit {
                         if(error.status >= 500) {
                           this.lostPasswordForm.setErrors({globalError: 'Oops! Something bad happened. Please come back later!'})
                         } else {
-                          this.lostPasswordForm.controls.email.setErrors({nonExisted: true});
+                          this.lostPasswordForm.controls.email.setErrors({nonExisted: true})
                         }
-                        
                         this.loading = false;
                       });
   }

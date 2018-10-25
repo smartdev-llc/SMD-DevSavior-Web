@@ -24,6 +24,7 @@ import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
 import { FileUploadModule } from 'ng2-file-upload';
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
+import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
     CompanyItemComponent,
     JVDropDownComponent,
     UploadfileComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    PhotoURLConverterPipe
   ],
   exports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
     JVDropDownComponent,
     NgxLoadingModule,
     UploadfileComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    PhotoURLConverterPipe
   ],
   imports: [
     CommonModule,

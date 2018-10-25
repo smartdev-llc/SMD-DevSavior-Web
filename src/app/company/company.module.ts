@@ -32,6 +32,8 @@ import { ProfileDeletedComponent } from './components/profile-deleted/profile-de
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
+import { LostPasswordComponent } from './components/lost-password/lost-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,8 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     ReactiveFormsModule,
     SharedModule,
     PaginationModule.forRoot(),
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    
   ],
   declarations: [
     HomeComponent,
@@ -64,7 +67,8 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     BlackListCandidateComponent,
     ProfileDeletedComponent,
     ByResumeSearchComponent,
-    PhotoURLConverterPipe
+    LostPasswordComponent,
+    ResetPasswordComponent
   ],
   providers: [
     CategoryCompanyService,
