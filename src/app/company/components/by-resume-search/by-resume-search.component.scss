@@ -1,0 +1,209 @@
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.ibox:after,
+.ibox:before {
+  display: table;
+}
+
+.ibox-content {
+  background-color: #fff;
+  color: inherit;
+  padding: 15px 20px 20px 20px;
+  border-color: #e5e6e7;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0;
+  clear: both;
+  h2,
+  h3 {
+    margin-top: 5px;
+  }
+}
+
+.ibox-content h3 {
+  color: #12cd6a;
+  font-size: 24px
+}
+
+.ibox-content h2 {
+  font-weight: 300
+}
+
+.m-t {
+  margin-top: 15px;
+}
+
+.m-b-lg {
+  margin-bottom: 30px;
+}
+
+.empty-box {
+  width: 100%;
+  text-align: center;
+  border: 2px dotted #ccc;
+  color: #aaa;
+  padding: 10% 0;
+}
+
+.empty-box .fa {
+  font-size: 45px;
+}
+
+.candidate .candidate-list {
+  z-index: 1;
+}
+
+.ibox .ibox-content {
+  padding: 20px;
+  border: 1px #ebebeb solid;
+}
+
+.btn-group{
+  .customize{
+    padding: 7px 12px 7px 12px;
+    margin-right: 20px;
+  }
+  .input-level {
+    width: 30%;
+    span {
+      button {
+        height: 36px;
+      }
+    }
+  }
+}
+.table-row{
+  margin: 20px 4px 5px 4px;
+  .table{
+    width: 100%;
+    height: auto;
+    thead{
+      tr{
+        th{
+          font-size: 16px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    }
+    tbody{
+      tr{
+        td{
+          font-size: 16px;
+          .search-purpose {
+            input[type=checkbox] {
+              margin-left: 10px;
+              width: 18px;
+              height: 1em;
+            }
+          }
+          .day-updated{
+            .btn{
+              padding: 2px 12px;
+            }
+          }
+          .btn-default{
+            padding: 2px 15px;
+            .fa{
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:1200px) {
+  .ibox-content {
+    border-width: 1px;
+    border-color: #ebebeb;
+  }
+  .btn-group{
+    .input-level{
+      width: 70%;
+    }
+  }
+}
+
+
+
+/* col-lg-3 candidate-sidebar */
+
+.candidate-sidebar {
+  z-index: 0;
+  .panel {
+    box-shadow: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .panel-default {
+    border-color: #ddd;
+    >.panel-heading {
+      padding: 10px 15px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      color: #333;
+      background-color: #f5f5f5;
+      border-color: #ddd;
+    }
+    .panel-body {
+      padding: 15px;
+      .folder-list {
+        padding-left: 0;
+        li {
+          border-bottom: 1px solid #e5e6e7;
+          display: block;
+          a {
+            color: #666;
+            display: block;
+            padding: 5px 0;
+            i {
+              margin-right: 8px;
+              color: #3d4d5d;
+              color: #f8ac59;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .small {
+      font-size: 85%;
+      .pull-left {
+        float: left;
+      }
+    }
+  }
+}
+
+.panel-body:after,
+.panel-body:before,
+.row:after,
+.row:before {
+  display: table;
+  content: " ";
+}
+
+.panel-body:after,
+.row:after {
+  clear: both;
+}
+
+a {
+  font-size: 16px;
+  color: #12cd6a;
+}
+
+a:hover {
+  color: #0d6134;
+}
