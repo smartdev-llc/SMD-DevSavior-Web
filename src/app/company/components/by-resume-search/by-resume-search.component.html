@@ -1,0 +1,156 @@
+<app-home-company-logged></app-home-company-logged>
+
+<div class="container-fluid main-container header_area">
+  <div class="candidate-list col-sm-12 col-md-9 col-lg-9">
+    <div class="ibox">
+      <div class="ibox-content">
+        <div class="tab-content">
+          <div class="m-t candidate-sub-content">
+            <h3 class="m-b-lg">Hồ Sơ Đã Xem Thông Tin Liên Hệ</h3>
+
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default customize" aria-haspopup="true">
+                <i class="fa fa-trash"></i>
+                Xóa
+              </button>
+              <div class="input-group input-level">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                    <i class="fa fa-folder-open"></i>
+                  </button>
+                </span>
+
+                <ng-select [items]="users" bindLabel="name" bindValue="id" [addTag]="addCustomUser" [multiple]="false"
+                  placeholder="Select level" [(ngModel)]="selectedUserIds">
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="table-responsive table-row">
+              <table class="col-md-12 table">
+                <thead>
+                  <tr>
+                    <th>Select</th>
+                    <th>Candidate name</th>
+                    <th>Job Title</th>
+                    <th>Day store</th>
+                    <th>Day updated</th>
+                    <th>Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check search-purpose">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                      </div>
+                    </td>
+                    <td>Quoc Viet Nguyen</td>
+                    <td>Junior AngularJs</td>
+                    <td>7-1-2018</td>
+                    <td>
+                      <div class="day-updated">
+                        <p>23-10-2018 <button type="button" class="btn btn-danger">New</button></p>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-default">
+                        <i class="fa fa-sticky-note"></i> Note
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                        <div class="form-check search-purpose">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        </div>
+                      </td>
+                      <td>Nguyen Van Vu</td>
+                      <td>Junior reactJs</td>
+                      <td>04-01-2018</td>
+                      <td>
+                        <div class="day-updated">
+                          <p>04-08-2018 <button type="button" class="btn btn-danger">New</button></p>
+                        </div>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-default">
+                          <i class="fa fa-sticky-note"></i> Note
+                        </button>
+                      </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!--No data box-->
+            <!-- <div class="empty-box">
+              <span class="fa fa-inbox"></span>
+              <h2>Hiện tại không có hồ sơ đã xem thông tin liên hệ nào</h2>
+            </div> -->
+            <!--End No data box-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate-sidebar col-sm-12 col-md-3 col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="job-ajax-link" routerLink="/" data-href="/" data-title="Hồ Sơ Đã Xem Thông Tin Liên Hệ">
+          HỒ SƠ ĐÃ XEM THÔNG TIN LIÊN HỆ
+        </a>
+        <br>
+        <small>( hồ sơ chưa xem)</small>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="folder-list no-padding">
+              <li>
+                <a class="job-ajax-link nearly-expired-resume" routerLink="/" data-href="/">
+                  <i class="fa fa-clock-o"></i>
+                  <strong>Hồ sơ sắp hết hạn</strong>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="small">
+          <span class="pull-left">
+            <a routerLink="/">
+              <i class="fa fa-edit"></i> Quản lý thư mục</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="job-ajax-link" routerLink="/" data-href="/" data-title="Hồ Sơ Đã Lưu">
+          HỒ SƠ ĐÃ LƯU</a>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="folder-list no-padding">
+            </ul>
+          </div>
+        </div>
+
+        <div class="small">
+          <span class="pull-left">
+            <a routerLink="/">
+              <i class="fa fa-edit"></i> Quản lý thư mục
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

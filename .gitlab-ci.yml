@@ -21,7 +21,7 @@ deploy:
     - sshpass -V
     - export SSHPASS=$USER_PASS
     - sshpass -e scp -o stricthostkeychecking=no -r . root@164.132.226.137:/var/www/juniorviec-web
-    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web; pm2 delete juniorviec-web; pm2 start pm2.json"
+    - sshpass -p 'Mbxfd1Wm' ssh -o StrictHostKeyChecking=no root@164.132.226.137 "cd /root/juniorviec/juniorviec-web; ./deploy.sh"
 
   environment: staging
   only:
