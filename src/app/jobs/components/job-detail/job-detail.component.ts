@@ -9,6 +9,11 @@ import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import {Duplicate} from '../../../core/error/duplicate';
+import {ProfileService} from '../../../company/services/profile.service';
+import {combineLatest, Observable} from 'rxjs';
+import {Company} from '../../../core/models/company';
+import {environment} from '../../../../environments/environment';
+
 
 
 @Component({
@@ -23,8 +28,13 @@ export class JobDetailComponent implements OnInit {
   jobId: string;
   isStudentRole: boolean;
   isCompanyRole: boolean;
+  company: Company;
+  enviromentObj = environment;
+  logoCompany: string;
+  coverCompany: string;
 
   constructor(
+    private profileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
     private jobService: JobService,
@@ -35,10 +45,20 @@ export class JobDetailComponent implements OnInit {
   ngOnInit() {
     this.jobId = this.route.snapshot.paramMap.get('id');
     console.log('[QueryParam]', this.router.url);
+
     this.jobService.getDetailJob(this.jobId).subscribe(data => {
       this.job = data;
-    });
+      this.company = <Company> data['company'];
 
+      this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL;
+      this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL;
+
+      console.log('[JobDetailComponent][ngOnInit()]', data);
+
+      /*this.profileService.getPofileCompanyId(data.company).subscribe( responseData =>{
+        console.log('[Company Detail]', responseData);
+      });*/
+    });
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
