@@ -1,38 +1,9 @@
 .container.main {
   padding-top: 65px;
 }
-
-.ibox {
-    clear: both;
-    margin-bottom: 25px;
-    margin-top: 0;
-    padding: 0;
-}
-
-.m-t-lg {
-    margin-top: 30px;
-}
-
 h1 {
     font-size: 30px;
     font-weight: 300;
-}
-
-.m-b-lg {
-    margin-bottom: 30px;
-}
-
-.m-t-lg {
-    margin-top: 30px;
-}
-
-.jnv-logo {
-    width: 245px;
-    height: auto;
-}
-
-.ibox-content {
-    background-color: #fff;
 }
 
 .form-group label {

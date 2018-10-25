@@ -6,11 +6,11 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class PhotoURLConverterPipe implements PipeTransform {
 
-  transform(value: string): any {
+  transform(value: string, defaultImage?: string): any {
     if (value) {
       return this.fixUrl(value);
     } else {
-      return value;
+      return defaultImage ?  defaultImage : value;
     }
     
   }
