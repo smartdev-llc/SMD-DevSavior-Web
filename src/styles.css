@@ -1954,7 +1954,9 @@ ul.simple li {
 /*//////////////Page title with bg image//////////////////*/
 
 .title-image .page-title {
-  background: rgba(0, 0, 0, 0) url("assets/images/bgimage.png") repeat scroll 0 0 / cover;
+  background:url("assets/images/bgimage.jpg");
+  width: 100%;
+  height: auto
 }
 
 .section-jobcategories {
@@ -1976,7 +1978,7 @@ ul.simple li {
 }
 
 .title-image .section-title .main-container {
-  padding: 68px 0 67px;
+  padding: 68px 0 210px;
 }
 
 .title-image .user-data .user-tag,
