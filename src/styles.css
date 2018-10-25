@@ -2603,6 +2603,9 @@ ul.alphabet li {
   border-radius: 33px;
   outline: none;
 }
+.btn-black:hover {
+  color: white;
+}
 
 #form-style-2 .form-group {
   float: left;
@@ -3953,12 +3956,7 @@ span.login-ins {
 }
 
 #loader-wrapper, .loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
+  position: relative;
 }
 
 #loader, .loader {
@@ -4259,4 +4257,26 @@ span.login-ins {
 .block .header-block {
   color: #12cd6a;
   border-bottom: 1px solid #d1d1d1;
+}
+.ibox-content {
+  background-color: #fff;
+}
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+.jnv-logo {
+  width: 245px;
+  height: auto;
+}
+.m-t-lg {
+  margin-top: 30px;
+}
+.m-b-lg {
+  margin-bottom: 30px;
+}
+.m-t-lg {
+  margin-top: 30px;
 }
