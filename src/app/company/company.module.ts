@@ -12,7 +12,7 @@ import { CandidateListComponent } from './components/candidate-list/candidate-li
 import { LayoutModule } from '../layout';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
@@ -28,6 +28,9 @@ import { SkillService } from '../core/services/skill/SkillService';
 import { ProfileService } from './services/profile.service';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
 import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
+import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
+import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
+import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 
 @NgModule({
@@ -58,6 +61,9 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     CompanyProfileComponent,
     CompanyVerifyAccountComponent,
     DetailCompanyComponent,
+    BlackListCandidateComponent,
+    ProfileDeletedComponent,
+    ByResumeSearchComponent,
     PhotoURLConverterPipe
   ],
   providers: [
