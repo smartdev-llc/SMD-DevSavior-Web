@@ -96,7 +96,6 @@ export class CompanyProfileComponent implements OnInit {
       this.isLoading = true;
       this.submitted = true;
       if(this.updateProfileForm.invalid) {
-        console.log(this.updateProfileForm.errors)
         this.isLoading = false;
         return;
       }

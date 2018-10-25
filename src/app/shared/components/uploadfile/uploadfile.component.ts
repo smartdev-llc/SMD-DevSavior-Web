@@ -10,6 +10,7 @@ import { FileUploader, ParsedResponseHeaders, FileItem } from 'ng2-file-upload';
 import { environment } from '../../../../environments/environment.prod';
 import { AuthService } from '../../../core/services/auth.service';
 import { PhotoURLConverterPipe } from '../../../core/pipes/photo-urlconverter.pipe';
+import { ToastrService } from '../../../../../node_modules/ngx-toastr';
 
 @Component({
   selector: 'app-uploadfile',
@@ -41,7 +42,8 @@ export class UploadfileComponent implements OnInit {
   public fileUploader: FileUploader;
   
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService,
+              private toastrService: ToastrService) { 
     this.photoURLConverter = new PhotoURLConverterPipe();
   }
 
@@ -117,7 +119,9 @@ export class UploadfileComponent implements OnInit {
   onSuccessItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {
     this.stopLoading();
     this.previewImage = null;
-    this.imageURL = this.photoURLConverter.transform(JSON.parse(response).photoUrl);
+    this.imageURL = JSON.parse(response).photoUrl;
+    this.toastrService.success("Upload", "Upload successfully!")
+
   }
 
   onErrorItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {
