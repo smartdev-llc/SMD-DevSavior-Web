@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, } from '@angular/router'
 import { InfoCompanyService } from '../../../core/services/company/InfoCompany.service'
 import { Company } from '../../../core/models/company'
+import { LanguageService } from '../../../layout/services/language.service';
 declare var $: any;
 @Component({
   selector: 'app-detail-company',
@@ -26,9 +27,11 @@ export class DetailCompanyComponent implements OnInit {
   company : Company;
   constructor(
     private route: ActivatedRoute,
-    private infoCompanyService : InfoCompanyService
+    private infoCompanyService : InfoCompanyService,
+    private languageService: LanguageService
   ) {
-    
+    const lang = languageService.getCachedLanguage()
+    languageService.setDefaultLang()
    }
 
   ngOnInit() {
