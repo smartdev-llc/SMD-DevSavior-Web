@@ -1954,7 +1954,7 @@ ul.simple li {
 /*//////////////Page title with bg image//////////////////*/
 
 .title-image .page-title {
-  background:url("assets/images/bgimage.jpg");
+  background: url("assets/images/bgimage.jpg");
   width: 100%;
   height: auto
 }
