@@ -51,5 +51,16 @@
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",
     "descriptionDeleteWorking": "Bạn có chắc chắn muốn xóa kinh nghiệm này?"
+  },
+  "education": {
+    "highSchool": "Trung học",
+    "associateDegree": "Trung cấp",
+    "college": "Cao đẳng",
+    "bachelors": "Cử nhân",
+    "masters": "Thạc sĩ",
+    "doctorate": "Tiến sĩ",
+    "average": "Trung bình",
+    "good": "Khá",
+    "excellent": "Giỏi"
   }
 }

@@ -36,7 +36,7 @@
     "faq" : "FAQ",
     "log_out" : "Log Out",
     "recruitment_center" : "Recruitment center"
-  }, 
+  },
   "company": {
     "joblist": "Jobs",
     "information": "Company's information",
@@ -51,5 +51,16 @@
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",
     "descriptionDeleteWorking": "Do you want to delete the working experience?"
+  },
+  "education": {
+    "highSchool": "High school",
+    "associateDegree": "Associate’s degree",
+    "college": "College",
+    "bachelors": "Bachelors",
+    "masters": "Masters",
+    "doctorate": "Doctorate",
+    "average": "Average",
+    "good": "Good",
+    "excellent": "Excellent"
   }
 }

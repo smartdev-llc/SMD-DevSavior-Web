@@ -12,7 +12,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Kinh nghiệm làm việc
-        <button class="btn btn-link pull-right" (click)="eplHistoryModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
+        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
       </h4>
     </div>
 
@@ -47,7 +47,7 @@
               <i *ngIf="isDeletingWorking" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               Xoá
             </button>
-            <button type="button" class="btn btn-modify" (click)="editWorkingExperience(working.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
+            <button type="button" class="btn btn-modify" (click)="editWorkingExperience(working)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
             </div>
           </div>
         </div>
@@ -68,6 +68,7 @@
         </div>
         <div class="modal-body">
           <form class="update-form" [formGroup]="workingExperienceFormGroup" (ngSubmit)="workingExperienceSubmit()">
+            <input type="text"class="hidden" formControlName="idWorking">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && weF.jobTitle.errors }">

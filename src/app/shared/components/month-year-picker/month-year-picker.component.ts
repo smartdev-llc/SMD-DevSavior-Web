@@ -77,6 +77,7 @@ export class MonthYearPickerComponent implements OnInit, ControlValueAccessor {
       this.currentMonth = null;
       this.currentYear = null;
     }
+    this.valueChanged();
   }
 
   registerOnChange(fn) {
@@ -133,9 +134,10 @@ export class MonthYearPickerComponent implements OnInit, ControlValueAccessor {
     return date;
   }
 
-  private parteMothYearObj(date: Date): any {
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+  private parteMothYearObj(date: string): any {
+    const dateSplit = date.split('-');
+    const month = Number(dateSplit[0]);
+    const year = Number(dateSplit[1]);
     return { month, year };
   }
 }

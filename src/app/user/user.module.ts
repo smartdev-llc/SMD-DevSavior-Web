@@ -21,6 +21,7 @@ import { UpdateProfileStep4Component } from './components/update-profile/step4/s
 import { UpdateProfileStep5Component } from './components/update-profile/step5/step5.component';
 
 import { StudentUserService }  from './services/student-user.serivce';
+import { EducationDegrees } from '../core/pipes/education-degrees.pipe';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { StudentUserService }  from './services/student-user.serivce';
     UpdateProfileStep2Component,
     UpdateProfileStep3Component,
     UpdateProfileStep4Component,
-    UpdateProfileStep5Component
+    UpdateProfileStep5Component,
+    EducationDegrees
   ],
   providers: [
     StudentUserService

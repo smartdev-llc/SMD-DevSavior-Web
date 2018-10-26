@@ -73,6 +73,30 @@ export class StudentUserService {
     )
   }
 
+  createEducationDegrees(resource: any) {
+    return this.http.post('/profile/me/education-degrees', resource)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  updateEducationDegrees(resource: any, id: any) {
+    return this.http.put(`/profile/me/education-degrees/${id}`, resource)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteEducationDegrees(id: any) {
+    return this.http.delete(`/profile/me/education-degrees/${id}`)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError (error: Response) {
     console.log('error in data service', error);
     return throwError( new AppErrors(error));
