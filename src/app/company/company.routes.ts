@@ -17,6 +17,8 @@ import { ByResumeSearchComponent } from './components/by-resume-search/by-resume
 import { CompanyUserAuthGuard } from '../core/guards/company-user.guard';
 import { CompanyLoggedGuard } from '../core/guards/company-logged.guard';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { LostPasswordComponent } from './components/lost-password/lost-password.component';
 
 export const CompanyRoutes = [
     {
@@ -33,10 +35,12 @@ export const CompanyRoutes = [
             { path: 'post-job', component: PostJobComponent, canActivate: [CompanyUserAuthGuard] }, 
             { path: 'profile', component: CompanyProfileComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'verify-account', component: CompanyVerifyAccountComponent, canActivate: [CompanyLoggedGuard]},
-            { path: 'blacklist-candidate', component: BlackListCandidateComponent },
-            { path: 'profile-deleted', component: ProfileDeletedComponent },
-            { path: 'by-resume-search', component: ByResumeSearchComponent }
-          ]
+            { path: 'blacklist-candidate', component: BlackListCandidateComponent, canActivate: [CompanyLoggedGuard]},
+            { path: 'profile-deleted', component: ProfileDeletedComponent, canActivate: [CompanyLoggedGuard] },
+            { path: 'by-resume-search', component: ByResumeSearchComponent, canActivate: [CompanyLoggedGuard] },
+            { path: 'reset-password', component: ResetPasswordComponent},
+            { path: 'lost-password', component: LostPasswordComponent}
+        ]
     },
     { path: 'detail-company/:id', component: DetailCompanyComponent },
     { path : 'detail-candidate', component: DetailCandidateComponent, canActivate: [CompanyUserAuthGuard]}

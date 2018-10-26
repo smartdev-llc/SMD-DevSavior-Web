@@ -195,7 +195,7 @@
                       <th>Company Logo</th>
                       <td>
                         <div class="form-group file-type">
-                          <app-uploadfile [imageURL]="company.logoURL | photoURLConverter" 
+                          <app-uploadfile [imageURL]="company.logoURL" 
                                           [uploadURL]="logoUploadURL"
                                           [maxSizeInByte]="5242880"
                                           [fileType]="['PNG', 'JPG', 'JPEG']">
@@ -208,7 +208,7 @@
                       <th>Company Cover photo</th>
                       <td>
                         <div class="form-group file-type">
-                          <app-uploadfile [imageURL]="company.coverURL | photoURLConverter"
+                          <app-uploadfile [imageURL]="company.coverURL"
                                           [uploadURL]="coverUploadURL"
                                           [maxSizeInByte]="5242880"
                                           [fileType]="['PNG', 'JPG', 'JPEG']">

@@ -18,7 +18,7 @@
   </div>
   <div class="row" >
     <div class="image-preview col-xs-8" *ngIf="image">
-      <img [src]="image" />
+      <img [src]="image | photoURLConverter" />
       <div class="bg-change">
           <div class="change-image" (click)="triggerEventInputFile()">
               <span class="glyphicon glyphicon-pencil"></span>

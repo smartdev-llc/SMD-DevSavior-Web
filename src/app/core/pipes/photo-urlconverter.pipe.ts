@@ -6,21 +6,25 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class PhotoURLConverterPipe implements PipeTransform {
 
-  transform(value: string): any {
+  transform(value: string, defaultImage?: string): any {
     if (value) {
       return this.fixUrl(value);
     } else {
-      return value;
+      return defaultImage ?  defaultImage : value;
     }
     
   }
 
   private fixUrl(url: string) {
-    if (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) {
+    if (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0 || this.isDataUrl(url)) {
       return url;
     } else {
       return environment.apiEndpoint + url;
     }
+  }
+
+  private isDataUrl(url: string): boolean {
+    return url.startsWith("data:");
   }
 
 }
