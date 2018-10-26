@@ -2,8 +2,10 @@ import { environment } from '../../environments/environment';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { NgModule } from '@angular/core';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 // components
@@ -13,6 +15,7 @@ import { LoadmoreButtonComponent } from './components/loadmore-button/loadmore-b
 import { CompanyItemComponent } from './components/company/company-item.component';
 import { HotJobItemComponent } from './components/jobs/hotjob-item/hotjob-item.component';
 import { JVDropDownComponent } from './components/custom-dropdown/jv-dropdown.component';
+import { MonthYearPickerComponent } from './components/month-year-picker/month-year-picker.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 // import ngx-translate and the http loader
@@ -34,6 +37,7 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
     LoadmoreButtonComponent,
     CompanyItemComponent,
     JVDropDownComponent,
+    MonthYearPickerComponent,
     UploadfileComponent,
     ConfirmDialogComponent
   ],
@@ -48,15 +52,19 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
     TranslateCacheModule,
     SocialLoginModule,
     JVDropDownComponent,
+    MonthYearPickerComponent,
     NgxLoadingModule,
     UploadfileComponent,
     ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     NgxInputStarRatingModule,
     FileUploadModule,
+    NgSelectModule,
     ModalModule.forRoot(),
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
