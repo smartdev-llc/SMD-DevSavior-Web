@@ -92,23 +92,35 @@
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-4">
+            <div class="row" formGroupName="timeWorkingAt">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label for="fromMonth">Từ tháng</label>
-                  <input type="text" id="fromMonth" class="form-control" formControlName="fromMonth">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <label class="required" for="fromMonth">Từ tháng</label>
+                    </div>
+                  </div>
+                  <month-year-picker formControlName="fromMonth"></month-year-picker>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6" *ngIf="!twaF.isCurrentJob.value">
                 <div class="form-group">
-                  <label for="toMonth">Đến tháng</label>
-                  <input type="text" id="toMonth" class="form-control" formControlName="toMonth">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <label class="required" for="toMonth">Đến tháng</label>
+                    </div>
+                  </div>
+                  <month-year-picker formControlName="toMonth"></month-year-picker>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="checkbox">
-                 <label class="no-work-experience"><input type="checkbox"> Công việc hiện tại</label>
-                </div>
+              <div class="col-xs-12">
+                 <label class="no-work-experience"><input type="checkbox" formControlName="isCurrentJob"> Công việc hiện tại</label>
+              </div>
+
+              <div class="col-xs-12" [ngClass]="{ 'has-error': submittedWorking && timeWorkingAt.errors }" *ngIf="submittedWorking && timeWorkingAt.errors">
+                <em *ngIf="timeWorkingAt.errors.fromRequired" class="error help-block">The from month field is required</em>
+                <em *ngIf="timeWorkingAt.errors.toRequired" class="error help-block">The to month field is required</em>
+                <em *ngIf="timeWorkingAt.errors.difference" class="error help-block">The from month must be before to month</em>
               </div>
             </div>
 
@@ -130,7 +142,7 @@
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right">
-                  <button type="submit" class="btn btn-defaut bg-white mr-2" (click)="eplHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="eplHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
                   <button type="submit" class="btn btn-defaut bg-submit">
                     <i *ngIf="!isSubmittingWorking" class="fa fa-check-circle" aria-hidden="true"></i>
                     <i *ngIf="isSubmittingWorking" class="fa fa-spinner fa-spin" aria-hidden="true"></i>

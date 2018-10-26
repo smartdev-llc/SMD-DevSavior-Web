@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-6">
+    <ng-select
+      class="jv"
+      [(ngModel)]="currentMonth"
+      [ngModelOptions]="{standalone: true}"
+      (change)="onChangeMonth($event)"
+      [items]="listMonths"
+      [closeOnSelect]="true"
+      [hideSelected]="true"
+      bindLabel="name"
+      bindValue="value"
+      placeholder="Select ...">
+   </ng-select>
+  </div>
+  <div class="col-sm-6 toField">
+    <ng-select
+      class="jv"
+      [(ngModel)]="currentYear"
+      [ngModelOptions]="{standalone: true}"
+      (change)="onChangeYear($event)"
+      [items]="listYears"
+      [closeOnSelect]="true"
+      [hideSelected]="true"
+      bindLabel="name"
+      bindValue="value"
+      placeholder="Select ...">
+   </ng-select>
+  </div>
+</div>

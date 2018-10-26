@@ -7,6 +7,8 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { filter, toArray } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
+import * as moment from 'moment';
+import { fromToMothDifference } from '../../../validators/from-to-moth-difference.validator';
 
 @Component({
   selector: 'update-profile-step5',
@@ -18,6 +20,7 @@ export class UpdateProfileStep5Component implements OnInit {
   @ViewChild('deleteWorkingDialog') deleteWorkingDialog: ConfirmDialogComponent;
   @ViewChild('eplHistoryModal') eplHistoryModal: ModalDirective;
   workingExperienceFormGroup: FormGroup;
+  timeWorkingAt: FormGroup;
   isSubmittingWorking: boolean = false;
   isDeletingWorking: boolean = false;
   submittedWorking: boolean = false;
@@ -36,12 +39,19 @@ export class UpdateProfileStep5Component implements OnInit {
   }
 
   initForms(): void {
+    this.timeWorkingAt = this.formBuilder.group({
+      fromMonth: [''],
+      toMonth: [''],
+      isCurrentJob: [false]
+    }, {
+      validator: fromToMothDifference
+    });
+
     this.workingExperienceFormGroup = this.formBuilder.group({
       jobTitle: ['', Validators.required],
       company: ['', Validators.required],
-      fromMonth: ['', Validators.required],
-      toMonth: ['', Validators.required],
-      additionalInformation: ['']
+      additionalInformation: [''],
+      timeWorkingAt: this.timeWorkingAt
     });
   }
 
@@ -54,13 +64,20 @@ export class UpdateProfileStep5Component implements OnInit {
 
   workingExperienceSubmit(): void {
     this.submittedWorking = true;
-    console.log(this.workingExperienceFormGroup.value);
     if (this.workingExperienceFormGroup.invalid) {
       return;
     }
+    
+    const { fromMonth, toMonth } = this.timeWorkingAt.value;
+    const params = {
+      ...this.workingExperienceFormGroup.value,
+      fromMonth: this.partMonthYearFromDateObj(fromMonth),
+      toMonth: this.partMonthYearFromDateObj(toMonth, true)
+    };
+    delete params.timeWorkingAt;
 
     this.isSubmittingWorking = true;
-    this.studentUserService.createWorkingExperience(this.workingExperienceFormGroup.value)
+    this.studentUserService.createWorkingExperience(params)
       .subscribe(res => {
         this.isSubmittingWorking = false;
         this.submittedWorking = false;
@@ -110,6 +127,10 @@ export class UpdateProfileStep5Component implements OnInit {
     return this.workingExperienceFormGroup.controls;
   }
 
+  get twaF() {
+    return this.timeWorkingAt.controls;
+  }
+
   resetWorkingForm() {
     this.workingExperienceFormGroup.reset();
   }
@@ -120,5 +141,12 @@ export class UpdateProfileStep5Component implements OnInit {
 
   showWorkingError(error: any) {
     this.toastr.error('Something went wrong please try again later', 'Working Experience');
+  }
+
+  private partMonthYearFromDateObj(date: Date, isToMonth: boolean = false) {
+    if (!moment(date).isValid() && isToMonth) {
+      return 'NOW';
+    }
+    return moment(date).format('MM-YYYY');
   }
 }
