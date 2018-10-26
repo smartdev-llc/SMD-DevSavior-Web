@@ -9,7 +9,8 @@ import { ConfirmDialogComponent } from '../../../../shared/components/confirm-di
 import { ModalDirective } from 'ngx-bootstrap';
 import { AppErrors } from '../../../../core/error/app-errors';
 import { from } from 'rxjs';
-import { filter, toArray } from 'rxjs/operators';
+import { filter, toArray, map } from 'rxjs/operators';
+import { EducationDegrees } from '../../../../core/models/student-profile';
 
 @Component({
   selector: 'update-profile-step2',
@@ -73,6 +74,7 @@ export class UpdateProfileStep2Component implements OnInit {
     });
 
     this.educationDegreesFormGroup = this.formBuilder.group({
+      idEducation: [''],
       university: ['', Validators.required],
       major: ['', Validators.required],
       degreeType: [null, Validators.required],
@@ -101,9 +103,21 @@ export class UpdateProfileStep2Component implements OnInit {
       fromMonth: this.partMonthYearFromDateObj(fromMonth),
       toMonth: this.partMonthYearFromDateObj(toMonth, true)
     };
+
+    const { idEducation } = this.educationDegreesFormGroup.value;
     delete params.studyTimeAt;
+    delete params.idEducation;
 
     this.isSubmittingEducation = true;
+    if (idEducation) {
+      this.updateEducationDegrees(params, idEducation);
+    } else {
+      this.createEducationDegrees(params);
+    }
+
+  }
+
+  createEducationDegrees(params: any): void {
     this.studentUserService.createEducationDegrees(params)
     .subscribe(res => {
       this.isSubmittingEducation = false;
@@ -119,13 +133,39 @@ export class UpdateProfileStep2Component implements OnInit {
     });
   }
 
+  updateEducationDegrees(params: any, id: any): void {
+    this.studentUserService.updateEducationDegrees(params, id)
+    .subscribe(res => {
+      this.isSubmittingEducation = false;
+      this.submittedEducation = false;
+      this.resetEducationForm();
+      this.showEducationSuccess();
+      this.eduHistoryModal.hide();
+      from(this.educationDegrees)
+        .pipe(
+          map(item => {
+            if (item.id === res.id) return res;
+            return item;
+          }),
+          toArray()
+        )
+        .subscribe(value => this.educationDegrees = value);
+    },
+    (error: AppErrors) => {
+      this.isSubmittingEducation = false;
+      this.showEducationError(error);
+    });
+  }
+
   deleteEducationDegrees(id: any): void {
     this.deleteEducationDialog.openModal();
     this.educationIdSelected = id;
   }
 
-  editEducationDegrees(id: any): void {
-
+  editEducationDegrees(education: any): void {
+    const educationDegrees = new EducationDegrees().deserialize(education);
+    this.educationDegreesFormGroup.setValue(educationDegrees);
+    this.eduHistoryModal.show();
   }
 
   handleConfirm(isConfirm: boolean) {
@@ -156,6 +196,11 @@ export class UpdateProfileStep2Component implements OnInit {
 
   get stF() {
     return this.studyTimeAt.controls;
+  }
+
+  openModalCreateNew() {
+    this.educationDegreesFormGroup.reset();
+    this.eduHistoryModal.show();
   }
 
   resetEducationForm() {

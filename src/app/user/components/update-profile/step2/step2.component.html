@@ -12,7 +12,7 @@
   <div class="box-content box">
     <div>
       <h4 class="heading-title">Học vấn và bằng cấp
-        <button class="btn btn-link pull-right" (click)="eduHistoryModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
+        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
       </h4>
     </div>
 
@@ -55,7 +55,7 @@
               <i *ngIf="isDeletingWorkingEducation" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               Xoá
             </button>
-            <button type="button" class="btn btn-modify" (click)="editEducationDegrees(education.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
+            <button type="button" class="btn btn-modify" (click)="editEducationDegrees(education)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
             </div>
           </div>
         </div>
@@ -75,6 +75,7 @@
         </div>
         <div class="modal-body">
           <form class="update-form" [formGroup]="educationDegreesFormGroup" (ngSubmit)="educationDegreesSubmit()">
+            <input type="text"class="hidden" formControlName="idEducation">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedEducation && edF.university.errors }">

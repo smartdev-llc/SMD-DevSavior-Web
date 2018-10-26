@@ -41,3 +41,75 @@ export class PersonalInfo implements Deserializable {
     return this;
   }
 }
+
+export class TimeWorkingAt implements Deserializable {
+  fromMonth: string;
+  toMonth: number;
+  isCurrentJob: object;
+
+  deserialize(input: any) {
+    Object.assign(this, {
+      fromMonth: input.fromMonth || '',
+      toMonth: input.toMonth || '',
+      isCurrentJob: input.toMonth === 'NOW' ? true : false
+    });
+    return this;
+  }
+}
+
+export class WorkingExperience implements Deserializable {
+  idWorking: any;
+  jobTitle: string;
+  company: string;
+  additionalInformation: string;
+  timeWorkingAt: TimeWorkingAt;
+
+  deserialize(input: any) {
+    const timeWorkingAt = new TimeWorkingAt();
+    Object.assign(this, {
+      idWorking: input.id || '',
+      jobTitle: input.jobTitle || '',
+      company: input.company || '',
+      additionalInformation: input.additionalInformation || '',
+      timeWorkingAt: timeWorkingAt.deserialize(input)
+    });
+    return this;
+  }
+}
+
+export class StudyTimeAt implements Deserializable {
+  fromMonth: string;
+  toMonth: number;
+
+  deserialize(input: any) {
+    Object.assign(this, {
+      fromMonth: input.fromMonth || '',
+      toMonth: input.toMonth || ''
+    });
+    return this;
+  }
+}
+
+export class EducationDegrees implements Deserializable {
+  idEducation: number;
+  university: string;
+  major: string;
+  degreeType: any;
+  degreeClassification: any;
+  additionalInformation: string;
+  studyTimeAt: StudyTimeAt;
+
+  deserialize(input: any) {
+    const timeWorkingAt = new StudyTimeAt();
+    Object.assign(this, {
+      idEducation: input.id || '',
+      university: input.university || '',
+      major: input.major || '',
+      degreeType: input.degreeType || '',
+      degreeClassification: input.degreeClassification || '',
+      additionalInformation: input.additionalInformation || '',
+      studyTimeAt: timeWorkingAt.deserialize(input)
+    });
+    return this;
+  }
+}
