@@ -67,7 +67,7 @@ export class UpdateProfileStep5Component implements OnInit {
     if (this.workingExperienceFormGroup.invalid) {
       return;
     }
-    
+
     const { fromMonth, toMonth } = this.timeWorkingAt.value;
     const params = {
       ...this.workingExperienceFormGroup.value,
