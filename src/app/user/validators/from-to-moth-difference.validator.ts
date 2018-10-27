@@ -7,7 +7,7 @@ import {
 import * as moment from 'moment';
 
 export const fromToMothDifference: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
-  const { fromMonth, toMonth, isCurrentJob} = formGroup.value;
+  const { fromMonth, toMonth, isCurrentJob } = formGroup.value;
 
   if (!fromMonth) {
     return {

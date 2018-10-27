@@ -113,3 +113,39 @@ export class EducationDegrees implements Deserializable {
     return this;
   }
 }
+
+
+export class Salary implements Deserializable {
+  expectedSalaryFrom: number;
+  expectedSalaryTo: number;
+  isNegotiableSalary: boolean;
+
+  deserialize(input: any) {
+    Object.assign(this, {
+      expectedSalaryFrom: input.expectedSalaryFrom || '',
+      expectedSalaryTo: input.expectedSalaryTo || '',
+      isNegotiableSalary: input.isNegotiableSalary || false
+    });
+    return this;
+  }
+}
+
+export class WorkingPreference implements Deserializable {
+  preferredWorkingLocation: string;
+  willingToRelocate: boolean;
+  jobType: any;
+  careerObjectives: string;
+  salaryForm: Salary;
+
+  deserialize(input: any) {
+    const salary = new Salary();
+    Object.assign(this, {
+      preferredWorkingLocation: input.preferredWorkingLocation || '',
+      willingToRelocate: input.willingToRelocate || false,
+      jobType: input.jobType || '',
+      careerObjectives: input.careerObjectives || '',
+      salaryForm: salary.deserialize(input)
+    });
+    return this;
+  }
+}
