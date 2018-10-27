@@ -5,6 +5,11 @@
     "titleDialog": "Confirm dialog",
     "descriptionDialog": "Do you want to confirm?"
   },
+  "validation": {
+    "fieldRequired": "Field is Required",
+    "salaryNumber": "Salary must be number",
+    "salaryDifference": "To salary must be greater than or equal to from salary"
+  },
   "header": {
     "jobs": "All Jobs",
     "companies": "Company Reviews",
@@ -62,5 +67,26 @@
     "average": "Average",
     "good": "Good",
     "excellent": "Excellent"
+  },
+  "jobType": {
+    "fullTime": "Full time",
+    "partTime": "Part time",
+    "contract": "Contract",
+    "intership": "Internship"
+  },
+  "postJob": {
+    "postAJob": "Post A Job",
+    "introduction": "Our database gives you access to millions of active candidates",
+    "jobTitle": "Job Title",
+    "jobCategory": "Job category",
+    "skills": "Skills",
+    "typeOfWork": "Type of work",
+    "jobDescription": "Job Description",
+    "jobRequirements": "Job Requirements",
+    "benefit": "Benefit",
+    "salary": "Salary",
+    "from": "From",
+    "to": "To",
+    "postJobSubmit": "Post job"
   }
 }

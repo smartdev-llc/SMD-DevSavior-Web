@@ -5,6 +5,11 @@
     "titleDialog": "Yêu cầu xác nhận",
     "descriptionDialog": "Bạn có chắc chắn?"
   },
+  "validation": {
+    "fieldRequired": "Thông tin bắt buộc",
+    "salaryNumber": "Mức lương phải là số",
+    "salaryDifference": "Mức lương đến không được thấp hơn mức lương bắt đầu"
+  },
   "header": {
     "jobs": "Tất Cả Việc Làm",
     "companies": "Các Công Ty Hàng Đầu",
@@ -62,5 +67,26 @@
     "average": "Trung bình",
     "good": "Khá",
     "excellent": "Giỏi"
+  },
+  "jobType": {
+    "fullTime": "Toàn thời gian cố định",
+    "partTime": "Bán thời gian",
+    "contract": "Theo hợp đồng / thoả thuận",
+    "intership": "Thực tập"
+  },
+  "postJob": {
+    "postAJob": "Đăng tuyển dụng",
+    "introduction": "Dịch vụ dữ liệu của chúng tôi sẽ giúp bạn tiếp cận được nhiều ứng viên phù hợp",
+    "jobTitle": "Tiêu đề công việc",
+    "jobCategory": "Thể loại của việc",
+    "skills": "Kỹ năng yêu cầu",
+    "typeOfWork": "Loại hình công việc",
+    "jobDescription": "Thông tin về công việc",
+    "jobRequirements": "Yêu cầu của công việc",
+    "benefit": "Những quyền lợi",
+    "salary": "Mức lương",
+    "from": "Từ",
+    "to": "Đến",
+    "postJobSubmit": "Đăng tin"
   }
 }
