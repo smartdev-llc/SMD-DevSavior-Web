@@ -4,10 +4,10 @@
   <div class="row green-banner">
     <div class="container main-container">
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <h3 class="white-heading">Post A Job</h3>
+        <h3 class="white-heading">{{ 'postJob.postAJob' | translate }}</h3>
       </div>
       <div class="col-lg-9 col-md-8 col-sm-6 colxs-12 capital">
-        <h5>Our database gives you access to millions of active candidates </h5>
+        <h5>{{ 'postJob.introduction' | translate }}</h5>
       </div>
     </div>
   </div>
@@ -22,18 +22,18 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Job Title</label>
+              <label class="required">{{ 'postJob.jobTitle' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" [ngClass]="{ 'has-error': submitted && f.title.errors }">
               <input type="text" class="form-control" formControlName="title" />
               <div *ngIf="submitted && f.title.errors">
-                <em *ngIf="f.title.errors.required" class="error help-block">Field is Required</em>
+                <em *ngIf="f.title.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Job category</label>
+              <label class="required">{{ 'postJob.jobCategory' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <ng-select
@@ -49,13 +49,13 @@
               >
               </ng-select>
               <div *ngIf="submitted && f.categoryId.errors">
-                <em *ngIf="submitted && f.categoryId.errors.required" class="ng-select help-block">Field is Required</em>
+                <em *ngIf="submitted && f.categoryId.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Skills</label>
+              <label class="required">{{ 'postJob.skills' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <ng-select
@@ -73,14 +73,14 @@
               >
               </ng-select>
               <div *ngIf="submitted && f.skillIds.errors">
-                <em *ngIf="submitted && f.skillIds.errors.required" class="ng-select help-block">Field is Required</em>
+                <em *ngIf="submitted && f.skillIds.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Type of work</label>
+              <label class="required">{{ 'postJob.typeOfWork' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <ng-select
@@ -96,14 +96,14 @@
               >
               </ng-select>
               <div *ngIf="submitted && f.jobType.errors">
-                <em *ngIf="submitted && f.jobType.errors.required" class="ng-select help-block">Field is Required</em>
+                <em *ngIf="submitted && f.jobType.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Job Description</label>
+              <label class="required">{{ 'postJob.jobDescription' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <quill-editor
@@ -113,14 +113,14 @@
                 formControlName="description">
               </quill-editor>
               <div *ngIf="submitted && f.description.errors">
-                <em *ngIf="submitted && f.description.errors.required" class="ng-select help-block">Field is Required</em>
+                <em *ngIf="submitted && f.description.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Job Requirements</label>
+              <label class="required">{{ 'postJob.jobRequirements' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <quill-editor
@@ -130,14 +130,14 @@
                 formControlName="requirements">
               </quill-editor>
               <div *ngIf="submitted && f.requirements.errors">
-                <em *ngIf="submitted && f.requirements.errors.required" class="ng-select help-block">Field is Required</em>
+                <em *ngIf="submitted && f.requirements.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label>Benefit</label>
+              <label>{{ 'postJob.benefit' | translate }}</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <quill-editor
@@ -146,9 +146,6 @@
                 [style]="{height: '150px'}"
                 formControlName="benefits">
               </quill-editor>
-              <div *ngIf="submitted && f.benefits.errors">
-                <em *ngIf="submitted && f.benefits.errors.required" class="ng-select help-block">Field is Required</em>
-              </div>
             </div>
           </div>
 
@@ -156,30 +153,30 @@
             <div class="form-group">
               <hr class="salary">
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                <label class="required">Salary(USD)</label>
+                <label class="required">{{ 'postJob.salary' | translate }}(USD)</label>
               </div>
               <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group" [ngClass]="{ 'has-error': submitted && salaryF.fromSalary.errors }">
-                      <label class="required salary" for="from">From</label>
+                      <label class="required salary" for="from">{{ 'postJob.from' | translate }}</label>
                       <input type="text" id="from" class="form-control" formControlName="fromSalary">
                       <div *ngIf="submitted && salaryF.fromSalary.errors">
-                        <em *ngIf="salaryF.fromSalary.errors.required" class="error help-block">Field is Required</em>
-                        <em *ngIf="salaryF.fromSalary.errors.pattern" class="error help-block">Salary must be number</em>
+                        <em *ngIf="salaryF.fromSalary.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                        <em *ngIf="salaryF.fromSalary.errors.pattern" class="error help-block">{{ 'validation.salaryNumber' | translate }}</em>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group" [ngClass]="{ 'has-error': submitted && (salaryF.toSalary.errors || salaryForm.errors) }">
-                      <label class="required salary" for="to">To</label>
+                      <label class="required salary" for="to">{{ 'postJob.to' | translate }}</label>
                       <input type="text" id="to" class="form-control" formControlName="toSalary">
                       <div *ngIf="submitted && salaryF.toSalary.errors">
-                        <em *ngIf="salaryF.toSalary.errors.required" class="error help-block">Field is Required</em>
-                        <em *ngIf="salaryF.toSalary.errors.pattern" class="error help-block">Salary must be number</em>
+                        <em *ngIf="salaryF.toSalary.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                        <em *ngIf="salaryF.toSalary.errors.pattern" class="error help-block">{{ 'validation.salaryNumber' | translate }}</em>
                       </div>
                       <div *ngIf="submitted && salaryForm.errors">
-                        <em *ngIf="salaryForm.errors.difference" class="error help-block">To salary must be greater than or equal to from salary</em>
+                        <em *ngIf="salaryForm.errors.difference" class="error help-block">{{ 'validation.salaryDifference' | translate }}</em>
                       </div>
                     </div>
                   </div>
@@ -195,7 +192,7 @@
                 <button type="submit" class="btn btn-defaut bg-submit" [disabled]="isSubmitting">
                   <i *ngIf="!isSubmitting" class="fa fa-check-circle" aria-hidden="true"></i>
                   <i *ngIf="isSubmitting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                  Đăng tin</button>
+                  {{ 'postJob.postJobSubmit' | translate }}</button>
               </div>
             </div>
           </div>

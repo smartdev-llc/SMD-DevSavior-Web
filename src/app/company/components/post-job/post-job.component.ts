@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { CategoryCompanyService } from '../../../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../../../core/services/post-job/PostJobCompanyService';
@@ -34,12 +35,7 @@ export class PostJobComponent implements OnInit {
     ]
   };
 
-  jobTypeList: Array<any>  = [
-    { value: 'FULL_TIME', name: 'Full time' },
-    { value: 'PART_TIME', name: 'Part time' },
-    { value: 'CONTRACT', name: 'Contract' },
-    { value: 'INTERNSHIP', name: 'Internship' }
-  ];
+  jobTypeList: Array<any>  = [];
 
   submitted = false;
   isSubmitting = false;
@@ -53,10 +49,21 @@ export class PostJobComponent implements OnInit {
     private jobService: PostJobCompanyService,
     private skillService: SkillService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private translate: TranslateService
+  ) {
+    // translate for ng select qualifications and classificationOfDegrees
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      const { jobType } = event.translations;
+      this.translatejobTypesSelect(jobType);
+    });
   }
 
   ngOnInit() {
+    this.translate.get('jobType').subscribe((jobTypes: any) => {
+      this.translatejobTypesSelect(jobTypes);
+    });
+
     this.skillService.getAll().subscribe(response => {
       this.listSkills = response as Array<any>;
     });
@@ -103,7 +110,7 @@ export class PostJobComponent implements OnInit {
       jobType: [null, Validators.required],
       description: ['', Validators.required],
       requirements: ['', Validators.required],
-      benefits: ['', Validators.required],
+      benefits: [''],
       salaryForm: this.salaryForm
     });
   }
@@ -135,5 +142,14 @@ export class PostJobComponent implements OnInit {
         this.isSubmitting = false;
         this.showError(error);
       });
+  }
+
+  private translatejobTypesSelect(jobTypes: any): void {
+    this.jobTypeList = [
+      { value: 'FULL_TIME', name: jobTypes.fullTime },
+      { value: 'PART_TIME', name: jobTypes.partTime },
+      { value: 'CONTRACT', name: jobTypes.contract },
+      { value: 'INTERNSHIP', name: jobTypes.intership }
+    ];
   }
 }
