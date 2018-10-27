@@ -28,6 +28,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
 import { FileUploadModule } from 'ng2-file-upload';
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
+import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
+import { ParseSkill } from '../core/pipes/parse-skill.pipe';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     MonthYearPickerComponent,
     UploadfileComponent,
     ConfirmDialogComponent,
-    PhotoURLConverterPipe
+    PhotoURLConverterPipe,
+    ParseSkill,
+    TypeOfJobTime
   ],
   exports: [
     CommonModule,
@@ -58,7 +62,8 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
     NgxLoadingModule,
     UploadfileComponent,
     ConfirmDialogComponent,
-    PhotoURLConverterPipe
+    PhotoURLConverterPipe,
+    ParseSkill
   ],
   imports: [
     CommonModule,

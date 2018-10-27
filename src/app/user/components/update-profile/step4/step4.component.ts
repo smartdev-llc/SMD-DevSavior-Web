@@ -121,7 +121,7 @@ export class UpdateProfileStep4Component implements OnInit {
       { value: 'FULL_TIME', name: jobTypes.fullTime },
       { value: 'PART_TIME', name: jobTypes.partTime },
       { value: 'CONTRACT', name: jobTypes.contract },
-      { value: 'INTERNSHIP', name: jobTypes.intership }
+      { value: 'INTERNSHIP', name: jobTypes.internship }
     ];
   }
 }
