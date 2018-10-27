@@ -43,6 +43,7 @@
                 [closeOnSelect]="true"
                 [hideSelected]="true"
                 bindLabel="name"
+                bindValue="id"
                 placeholder="Select category"
                 formControlName="categoryId"
               >
@@ -66,6 +67,7 @@
                 [searchable]="true"
                 [hideSelected]="true"
                 bindLabel="name"
+                bindValue="id"
                 placeholder="Select skills"
                 formControlName="skillIds"
               >
@@ -75,9 +77,33 @@
               </div>
             </div>
           </div>
+
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">Description</label>
+              <label class="required">Type of work</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <ng-select
+                class="custom"
+                [ngClass]="{ 'ng-touched': submitted && f.jobType.errors }"
+                [items]="jobTypeList"
+                [closeOnSelect]="true"
+                [hideSelected]="true"
+                bindLabel="name"
+                bindValue="value"
+                placeholder="Select category"
+                formControlName="jobType"
+              >
+              </ng-select>
+              <div *ngIf="submitted && f.jobType.errors">
+                <em *ngIf="submitted && f.jobType.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label class="required">Job Description</label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <quill-editor
@@ -91,6 +117,7 @@
               </div>
             </div>
           </div>
+
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <label class="required">Job Requirements</label>
@@ -107,6 +134,24 @@
               </div>
             </div>
           </div>
+
+          <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <label>Benefit</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <quill-editor
+                [modules]="quillModules"
+                [required]="true"
+                [style]="{height: '150px'}"
+                formControlName="benefits">
+              </quill-editor>
+              <div *ngIf="submitted && f.benefits.errors">
+                <em *ngIf="submitted && f.benefits.errors.required" class="ng-select help-block">Field is Required</em>
+              </div>
+            </div>
+          </div>
+
           <ng-container formGroupName="salaryForm">
             <div class="form-group">
               <hr class="salary">
