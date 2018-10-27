@@ -12,41 +12,97 @@
     <div>
       <h4 class="heading-title">Công việc mong muốn</h4>
     </div>
-    <form class="update-form">
+    <form class="update-form" [formGroup]="workingPreferenceForm" (ngSubmit)="workingPreferenceSubmit()">
       <div class="row">
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && f.preferredWorkingLocation.errors }">
             <label for="email" class="required">Nơi làm việc</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="preferredWorkingLocation">
+            <div *ngIf="submittedWorking && f.preferredWorkingLocation.errors">
+              <em *ngIf="f.preferredWorkingLocation.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="checkbox">
-           <label class="no-work-experience"><input type="checkbox"> Có thể thay đổi nơi làm việc</label>
+           <label class="no-work-experience"><input type="checkbox" formControlName="willingToRelocate"> Có thể thay đổi nơi làm việc</label>
          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="email" class="required">Ngành nghề</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="email" class="required">Cấp bậc mong muốn</label>
-            <input type="text" class="form-control">
-          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-md-12">
           <div class="form-group">
-            <label for="email" class="required">Mức lương mong muốn</label>
-            <input type="text" class="form-control">
+            <label class="required">Loại hình công việc</label>
+            <ng-select
+              class="jv"
+              [ngClass]="{ 'ng-touched': submittedWorking && f.jobType.errors }"
+              [items]="jobTypeList"
+              [closeOnSelect]="true"
+              [hideSelected]="true"
+              bindLabel="name"
+              bindValue="value"
+              placeholder="Select category"
+              formControlName="jobType">
+            </ng-select>
+            <div *ngIf="submittedWorking && f.jobType.errors">
+              <em *ngIf="submittedWorking && f.jobType.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-container formGroupName="salaryForm">
+        <div class="row form-group">
+          <div class="col-lg-2 col-md-3 col-xs-12">
+            <label class="required">{{ 'postJob.salary' | translate }}(USD)</label>
+          </div>
+          <div class="col-lg-10 col-md-9 col-xs-12" *ngIf="!salaryForm.value.isNegotiableSalary">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && salaryForm.errors }">
+                  <label class="required salary" for="from">{{ 'postJob.from' | translate }}</label>
+                  <input type="text" id="from" class="form-control" formControlName="expectedSalaryFrom">
+
+                  <div *ngIf="submittedWorking && salaryForm.errors">
+                    <em *ngIf="salaryForm.errors.fromNotNumber" class="error help-block">{{ 'validation.salaryNumber' | translate }}</em>
+                    <em *ngIf="salaryForm.errors.fromRequired" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && salaryForm.errors }">
+                  <label class="required salary" for="to">{{ 'postJob.to' | translate }}</label>
+                  <input type="text" id="to" class="form-control" formControlName="expectedSalaryTo">
+
+                  <div *ngIf="submittedWorking && salaryForm.errors">
+                    <em *ngIf="salaryForm.errors.toNotNumber" class="error help-block">{{ 'validation.salaryNumber' | translate }}</em>
+                    <em *ngIf="salaryForm.errors.toRequired" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                    <em *ngIf="salaryForm.errors.difference" class="error help-block">{{ 'validation.salaryDifference' | translate }}</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-10 col-sm-offset-2">
+            <div class="checkbox">
+              <label><input type="checkbox" formControlName="isNegotiableSalary">Thương lượng</label>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <div class="form-group">
+            <label for="subject">Mô tả mục tiêu nghề nghiệp</label>
+            <textarea
+              class="textarea"
+              placeholder="Mô tả, giới thiệu về định hướng công việc của bản thân trong tương lai ngắn hạn hoặc dài hạn."
+              rows="4"
+              formControlName="careerObjectives">
+            </textarea>
           </div>
         </div>
       </div>
@@ -55,7 +111,11 @@
         <div class="col-md-12">
           <hr>
           <div class="pull-right">
-            <button type="submit" class="btn btn-defaut bg-submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Cập nhật</button>
+            <button type="submit" class="btn btn-defaut bg-submit">
+              <i *ngIf="!isSubmittingWorking" class="fa fa-check-circle" aria-hidden="true"></i>
+              <i *ngIf="isSubmittingWorking" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              Cập nhật
+            </button>
           </div>
         </div>
       </div>

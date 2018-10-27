@@ -95,7 +95,6 @@ export class PostJobComponent implements OnInit {
   }
 
   initPostJobForm() {
-
     this.salaryForm = this.formBuilder.group({
       fromSalary: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
       toSalary: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]]
