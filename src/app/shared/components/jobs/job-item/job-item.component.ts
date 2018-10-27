@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { environment } from '../../../../../environments/environment';
 
 
 @Component({
@@ -9,9 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class JobItemComponent implements OnInit {
   @Input() job: any;
+  urlEndpoint: string = environment.apiEndpoint;
 
-
-  constructor(){ 
+  constructor(){
   }
 
   ngOnInit() {}
