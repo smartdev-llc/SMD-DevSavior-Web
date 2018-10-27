@@ -53,25 +53,24 @@
                     </div>
                   </div>
                 </div>
-
-                <a
-                  *ngIf="isNotVerified"
-                  (click)="resendEmail(email)"
-                  class="form-group text-center error-input">
-                  Confirm your email address to active your account
-                </a>
-                <p
-                  *ngIf="isResendEmailSuccess"
-                  class="font-size-20 text-center">
-                  We just sent you an verification to your email
-                </p>
-
-                <div class="form-group submit">
-                  <div class="col-lg-offset-2 cbox">
-                    <input type="checkbox" name="checkbox" />
-                    <span>Remember me</span>
+                <div class="form-group" *ngIf="isNotVerified">
+                  <label></label>
+                  <div class="input-container">
+                      <div class="error-input">
+                        Please verify your account. Or click 
+                          <a class="w-u-link l-pointer"  (click)="resendEmail(email)">here</a> to resend a new verification email.
+                      </div>
                   </div>
                 </div>
+                <div class="form-group" *ngIf="isResendEmailSuccess">
+                  <label></label>
+                  <div class="input-container">
+                    <p>
+                        We just sent you an verification to your email
+                    </p>
+                  </div>
+                </div>
+
                 <div class="form-group submit">
                   <label>Submit</label>
                   <input type="submit" name="submit" value="Sign in" class="signin" id="signin">
