@@ -84,7 +84,7 @@ export class CpRegisterComponent implements OnInit {
       checkbox:['',[Validators.required]],
       role:[Role.Company],
     });
-    this.loading = false ;
+    this.loading = false;
 
   }
   

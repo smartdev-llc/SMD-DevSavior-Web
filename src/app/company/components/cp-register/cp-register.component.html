@@ -2,11 +2,11 @@
 
 <div class="container main m-t-lg">
     <div class="row">
-        <!-- <div _ngcontent-c4="" id="loadessr" *ngIf="loading">
-            <div _ngcontent-c4="" id="loader">
+        <div class="col-sm-8 col-sm-offset-2 loader-wrapper">
+            <div class="loadessr blur-loading lower-header-loading" *ngIf="loading">
+                <div class="loader">
+                </div>
             </div>
-        </div> -->
-        <div class="col-sm-8 col-sm-offset-2">
             <div class="text-center m-t-lg m-b-lg">
                 <a href="/">
                     <img src="../../../../assets/images/logo.png" alt="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam." title="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam." class="jnv-logo"></a>
@@ -105,11 +105,11 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label required" for="cp_location" aria-required="true">Công Ty</label>
+                                            <label class="control-label required" for="cp_location" aria-required="true">Thành Phố</label>
                                             <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city">
-                        <option value="DN">DN</option>
-                        <option value="HN">HN</option>
-                        <option value="HCM">HCM</option>
+                        <option value="DN">Da Nang</option>
+                        <option value="HN">Ha Noi</option>
+                        <option value="HCM">Ho Chi Minh</option>
                       </select>
                                             <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" aria-required="true"> -->
                                             <div *ngIf="submitted && f.city.invalid" class="error-input">

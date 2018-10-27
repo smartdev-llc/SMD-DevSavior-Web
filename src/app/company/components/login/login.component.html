@@ -8,7 +8,11 @@
       </div>
       <div class="ibox">
         <div class="ibox-content fadeInRight animated">
-          <div class="row">
+          <div class="row loader-wrapper">
+            <div class="loadessr blur-loading" *ngIf="isLoading">
+              <div  class="loader">
+              </div>
+            </div>
             <div class="col-sm-12">
               <div class="row section-form em-log-in">
                 <div class="col-sm-10 col-sm-offset-1">
@@ -23,7 +27,7 @@
                       </div>
                     </div>
                   </div>
-                  <form class="m-t-lg" id="loginForm" [formGroup]="loginInForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
+                  <form class="m-t-lg contact_us" id="loginForm" [formGroup]="loginInForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
                     <div class="form-group">
                       <label>Địa chỉ email</label>
                       <input class="form-control valid" formControlName="email" type="email" id="username" name="name" placeholder="Nhập địa chỉ email của bạn" value="" aria-required="true" aria-invalid="false">
@@ -47,9 +51,15 @@
                         Đăng Nhập
                       </button>
                     </div>
-                    <a *ngIf="isNotVerified" (click)="resendEmail(email)" class="form-group text-center error-input">
-                      Confirm your email address to active your account
-                    </a>
+                    <div class="form-group" *ngIf="isNotVerified">
+                      <div class="error-input">
+                        <p class="login-error-message text-danger">
+                        Please verify your account. Or click 
+                          <a class="l-pointer" (click)="resendEmail(email)">here</a> to resend a new verification email.
+                        </p>
+                      </div>
+                    </div>
+                    
                     <p *ngIf="isResendEmailSuccess" class="font-size-20 text-center">
                       We just sent you an verification to your email
                     </p>
