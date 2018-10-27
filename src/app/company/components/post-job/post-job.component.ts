@@ -34,6 +34,13 @@ export class PostJobComponent implements OnInit {
     ]
   };
 
+  jobTypeList: Array<any>  = [
+    { value: 'FULL_TIME', name: 'Full time' },
+    { value: 'PART_TIME', name: 'Part time' },
+    { value: 'CONTRACT', name: 'Contract' },
+    { value: 'INTERNSHIP', name: 'Internship' }
+  ];
+
   submitted = false;
   isSubmitting = false;
   listSkills: Array<any> = [];
@@ -93,8 +100,10 @@ export class PostJobComponent implements OnInit {
       title: ['', Validators.required],
       skillIds: [null, Validators.required],
       categoryId: [null, Validators.required],
+      jobType: [null, Validators.required],
       description: ['', Validators.required],
       requirements: ['', Validators.required],
+      benefits: ['', Validators.required],
       salaryForm: this.salaryForm
     });
   }
@@ -105,20 +114,10 @@ export class PostJobComponent implements OnInit {
       return;
     }
 
-    let skillIds = [];
-    let { salaryForm: { fromSalary, toSalary }, categoryId } = this.postAJobForm.value;
-
-    from(this.postAJobForm.value.skillIds).pipe(
-      map(({id}) => id),
-      toArray()
-    ).subscribe((value) => {
-      skillIds = value;
-    });
+    let { salaryForm: { fromSalary, toSalary } } = this.postAJobForm.value;
 
     const params = {
       ...this.postAJobForm.value,
-      skillIds,
-      categoryId: categoryId.id,
       fromSalary: Number(fromSalary),
       toSalary: Number(toSalary)
     };
@@ -137,17 +136,4 @@ export class PostJobComponent implements OnInit {
         this.showError(error);
       });
   }
-}
-
-interface Category {
-  createdAt: string;
-  updatedAt: string;
-  id: number;
-  name: string;
-}
-interface Skill {
-  createdAt: string;
-  updatedAt: string;
-  id: number;
-  name: string;
 }
