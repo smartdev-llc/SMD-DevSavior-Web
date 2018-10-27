@@ -43,24 +43,14 @@ export class UpdateProfileStep2Component implements OnInit {
     // translate for ng select qualifications and classificationOfDegrees
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       const { education } = event.translations;
-      this.qualifications  = [
-        { id: 'HIGH_SCHOOL', name: education.highSchool },
-        { id: 'ASSOCIATE_DEGREE', name: education.associateDegree },
-        { id: 'COLLEGE', name: education.college },
-        { id: 'BACHELORS', name: education.bachelors },
-        { id: 'MASTERS', name: education.masters },
-        { id: 'DOCTORATE', name: education.doctorate }
-      ];
-
-      this.classificationOfDegrees = [
-        { id: 'AVERAGE', name: education.average },
-        { id: 'GOOD', name: education.good },
-        { id: 'EXCELLENT', name: education.excellent }
-      ]
+      this.translateEducationSelect(education);
     });
   }
 
   ngOnInit() {
+    this.translate.get('education').subscribe((educations: string) => {
+      this.translateEducationSelect(educations);
+    });
     this.initForms();
     this.preLoadData();
   }
@@ -220,6 +210,23 @@ export class UpdateProfileStep2Component implements OnInit {
       return 'NOW';
     }
     return moment(date).format('MM-YYYY');
+  }
+
+  private translateEducationSelect(education: any): void {
+    this.qualifications  = [
+      { id: 'HIGH_SCHOOL', name: education.highSchool },
+      { id: 'ASSOCIATE_DEGREE', name: education.associateDegree },
+      { id: 'COLLEGE', name: education.college },
+      { id: 'BACHELORS', name: education.bachelors },
+      { id: 'MASTERS', name: education.masters },
+      { id: 'DOCTORATE', name: education.doctorate }
+    ];
+
+    this.classificationOfDegrees = [
+      { id: 'AVERAGE', name: education.average },
+      { id: 'GOOD', name: education.good },
+      { id: 'EXCELLENT', name: education.excellent }
+    ];
   }
 
 }
