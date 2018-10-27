@@ -32,8 +32,7 @@ import {ProfileService} from '../company/services/profile.service';
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
-    ContactUsComponent,
-    ParseSkill
+    ContactUsComponent
   ],
   exports: [
     BrowseJobsComponent,
