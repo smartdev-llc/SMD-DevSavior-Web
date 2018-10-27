@@ -79,6 +79,10 @@
   -webkit-transition-timing-function: cubic-bezier(0, 1, .5, 1);
   transition-timing-function: cubic-bezier(0, 1, .5, 1);
 }
+.resend-success {
+  color: white;
+  font-size: 20px;
+}
 
 @mixin btn-social-resize {
   margin-top: 10px;
