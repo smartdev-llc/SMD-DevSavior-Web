@@ -47,7 +47,7 @@
         <div class="post-image">
 
           <!--Cover Image-->
-          <img src="{{coverCompany || 'assets/images/job-image.png'}}" alt=""/>
+          <img src="{{coverCompany}}" alt="" style="max-height: 28vh"/>
         </div>
         <div *ngIf="job" class="content">
           <h3>{{job.title}}</h3>
@@ -62,9 +62,7 @@
         <div class="widget w1">
           <ul>
             <li>
-              <a
-                href="#">
-
+              <a>
                 <!--Apply job button-->
                 <span *ngIf=" !isStudentRole && !isCompanyRole"
                   class="label job-type apply-job" (click)="redirectToLogin()">APPLY FOR JOB</span>
@@ -74,7 +72,7 @@
             </li>
             <li>
               <!--Logo Image-->
-              <img class="img-responsive circle-logo-image" src="{{logoCompany || 'assets/images/widget1image.png'}}" alt=""/>
+              <img class="img-responsive circle-logo-image" src="{{logoCompany}}" alt=""/>
             </li>
           </ul>
           <ul class="social">
