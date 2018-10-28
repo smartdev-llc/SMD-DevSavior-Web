@@ -12,7 +12,10 @@
   "validation": {
     "fieldRequired": "Field is Required",
     "salaryNumber": "Salary must be number",
-    "salaryDifference": "To salary must be greater than or equal to from salary"
+    "salaryDifference": "To salary must be greater than or equal to from salary",
+    "fromMonthRequired": "The from month field is required",
+    "toMonthRequired": "The from month field is required",
+    "fromLessThanToMonth": "The from month must be before to month"
   },
   "header": {
     "jobs": "All Jobs",
@@ -137,5 +140,19 @@
     "fourthYear": "Fourth year student",
     "finalYear": "Final year student",
     "graduated": "Graduated"
+  },
+  "educationHistory": {
+    "addEducationHistory": "Add new Education History",
+    "educationHistory": "Education History",
+    "school": "School",
+    "qualification": "Qualification",
+    "degreeClassification": "Degree classification",
+    "achievements": "Achievements",
+    "subject": "Subject",
+    "fromMonth": "From month",
+    "toMonth": "To month",
+    "plsComplete": "Please complete your education history!",
+    "schoolPlaceHolder": "e.g. International Business",
+    "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City"
   }
 }

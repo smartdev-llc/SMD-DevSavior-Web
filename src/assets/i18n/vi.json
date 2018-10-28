@@ -12,7 +12,10 @@
   "validation": {
     "fieldRequired": "Thông tin bắt buộc",
     "salaryNumber": "Mức lương phải là số",
-    "salaryDifference": "Mức lương đến không được thấp hơn mức lương bắt đầu"
+    "salaryDifference": "Mức lương đến không được thấp hơn mức lương bắt đầu",
+    "fromMonthRequired": "Tháng bắt đầu không được bỏ Trống",
+    "toMonthRequired": "Tháng đến không được bỏ Trống",
+    "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu"
   },
   "header": {
     "jobs": "Tất Cả Việc Làm",
@@ -137,5 +140,19 @@
     "fourthYear": "Sinh Viên năm 4",
     "finalYear": "Sinh Viên năm cuối",
     "graduated": "Đã ra trường"
+  },
+  "educationHistory": {
+    "addEducationHistory": "Thêm học vấn/bằng cấp",
+    "educationHistory": "Học Vấn và Bằng Cấp",
+    "school": "Trường",
+    "qualification": "Bằng cấp",
+    "degreeClassification": "Xếp loại",
+    "achievements": "Thành tựu",
+    "subject": "Chuyên ngành",
+    "fromMonth": "Từ tháng",
+    "toMonth": "Đến tháng",
+    "plsComplete": "Vui lòng hoàn thiện thông tin học vấn / bằng cấp.",
+    "schoolPlaceHolder": "VD: Trường đại học Bách Khoa Đà Nẵng",
+    "subjectPlaceHolder": "VD: Công nghệ thông tin, Mạng máy tính..."
   }
 }
