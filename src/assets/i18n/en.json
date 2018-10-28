@@ -173,5 +173,16 @@
     "to": "To",
     "negotiable": "Negotiable",
     "describeCareerGoals": "Describe career goals"
+  },
+  "workingExperience": {
+    "workingExperience": "Working experience",
+    "addWorkingExperien": "Add new working experience",
+    "position": "Position",
+    "describeTheob": "Describe the job",
+    "company": "Company",
+    "fromMonth": "From month",
+    "toMonth": "To month",
+    "currentJob": "Current Job",
+    "from": "from"
   }
 }

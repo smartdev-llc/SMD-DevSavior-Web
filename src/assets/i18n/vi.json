@@ -173,5 +173,16 @@
     "to": "Đến",
     "negotiable": "Thương lượng",
     "describeCareerGoals": "Mô tả mục tiêu nghề nghiệp"
+  },
+  "workingExperience": {
+    "workingExperience": "Kinh nghiệm làm việc",
+    "addWorkingExperien": "Thêm kinh nghiệm làm việc",
+    "position": "Vị trí",
+    "describeTheob": "Mô tả công việc",
+    "company": "Công ty",
+    "fromMonth": "Từ tháng",
+    "toMonth": "Đến tháng",
+    "currentJob": "Công việc hiện tại",
+    "from": "Từ"
   }
 }
