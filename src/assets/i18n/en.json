@@ -153,6 +153,14 @@
     "toMonth": "To month",
     "plsComplete": "Please complete your education history!",
     "schoolPlaceHolder": "e.g. International Business",
-    "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City"
+    "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City",
+    "from": "From"
+  },
+  "skill": {
+    "keySkills": "Key Skills",
+    "skillAndLanguage": "Skill/Language",
+    "addKeySkill": "Add more key skills",
+    "btnAdd": "Add",
+    "inputPlaceHolder": "Type your area of expertise."
   }
 }

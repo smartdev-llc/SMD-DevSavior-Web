@@ -153,6 +153,14 @@
     "toMonth": "Đến tháng",
     "plsComplete": "Vui lòng hoàn thiện thông tin học vấn / bằng cấp.",
     "schoolPlaceHolder": "VD: Trường đại học Bách Khoa Đà Nẵng",
-    "subjectPlaceHolder": "VD: Công nghệ thông tin, Mạng máy tính..."
+    "subjectPlaceHolder": "VD: Công nghệ thông tin, Mạng máy tính...",
+    "from": "Từ"
+  },
+  "skill": {
+    "keySkills": "Kỹ năng",
+    "skillAndLanguage": "Kỹ năng/Ngoại ngữ",
+    "addKeySkill": "Thêm kỹ năng",
+    "btnAdd": "Thêm",
+    "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
   }
 }
