@@ -162,5 +162,16 @@
     "addKeySkill": "Thêm kỹ năng",
     "btnAdd": "Thêm",
     "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
+  },
+  "workingPreferences": {
+    "workingPreferences": "Công việc mong muốn",
+    "preferredWorkingLocation": "Nơi làm việc",
+    "willingRelocate": "Có thể thay đổi nơi làm việc",
+    "typeOfWork": "Loại hình công việc",
+    "salary": "Mức lương",
+    "from": "Từ",
+    "to": "Đến",
+    "negotiable": "Thương lượng",
+    "describeCareerGoals": "Mô tả mục tiêu nghề nghiệp"
   }
 }

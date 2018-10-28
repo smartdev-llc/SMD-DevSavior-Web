@@ -162,5 +162,16 @@
     "addKeySkill": "Add more key skills",
     "btnAdd": "Add",
     "inputPlaceHolder": "Type your area of expertise."
+  },
+  "workingPreferences": {
+    "workingPreferences": "Working preferences",
+    "preferredWorkingLocation": "Preferred Working Location",
+    "willingRelocate": "Willing to relocate",
+    "typeOfWork": "Type of work",
+    "salary": "Salary",
+    "from": "From",
+    "to": "To",
+    "negotiable": "Negotiable",
+    "describeCareerGoals": "Describe career goals"
   }
 }
