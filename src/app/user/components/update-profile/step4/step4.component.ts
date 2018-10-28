@@ -77,8 +77,8 @@ export class UpdateProfileStep4Component implements OnInit {
     const { expectedSalaryFrom, expectedSalaryTo, isNegotiableSalary } = this.salaryForm.value;
     const params = {
       ...this.workingPreferenceForm.value,
-      expectedSalaryFrom,
-      expectedSalaryTo,
+      expectedSalaryFrom: Number(expectedSalaryFrom),
+      expectedSalaryTo:  Number(expectedSalaryTo),
       isNegotiableSalary
     };
     delete params.salaryForm;
