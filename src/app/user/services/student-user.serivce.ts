@@ -105,6 +105,14 @@ export class StudentUserService {
     )
   }
 
+  updateLanguages(resource: any) {
+    return this.http.put('/profile/me/languages', resource)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError (error: Response) {
     console.log('error in data service', error);
     return throwError( new AppErrors(error));

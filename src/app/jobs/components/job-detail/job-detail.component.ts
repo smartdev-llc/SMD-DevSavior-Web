@@ -30,8 +30,8 @@ export class JobDetailComponent implements OnInit {
   isCompanyRole: boolean;
   company: Company;
   enviromentObj = environment;
-  logoCompany: string;
-  coverCompany: string;
+  coverCompany = 'assets/images/job-image.png';
+  logoCompany =  'assets/images/widget1image.png';
 
   constructor(
     private profileService: ProfileService,
@@ -50,14 +50,10 @@ export class JobDetailComponent implements OnInit {
       this.job = data;
       this.company = <Company> data['company'];
 
-      this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL;
-      this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL;
+      this.company.logoURL &&  (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
+      this.company.coverURL &&  (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
 
       console.log('[JobDetailComponent][ngOnInit()]', data);
-
-      /*this.profileService.getPofileCompanyId(data.company).subscribe( responseData =>{
-        console.log('[Company Detail]', responseData);
-      });*/
     });
 
     this.user = this.authService.getCurrentUser();

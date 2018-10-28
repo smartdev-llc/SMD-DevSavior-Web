@@ -3,7 +3,11 @@
     "yesDialog": "Yes",
     "noDialog": "No",
     "titleDialog": "Confirm dialog",
-    "descriptionDialog": "Do you want to confirm?"
+    "descriptionDialog": "Do you want to confirm?",
+    "btnUpdate": "Update",
+    "btnCancel": "Cancel",
+    "btnEdit": "Edit",
+    "btnDelete": "Delete"
   },
   "validation": {
     "fieldRequired": "Field is Required",
@@ -88,5 +92,22 @@
     "from": "From",
     "to": "To",
     "postJobSubmit": "Post job"
+  },
+  "language": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "native": "Native",
+    "no": "No",
+    "languages": "Languages",
+    "level": "Level",
+    "english": "English",
+    "french": "French",
+    "german": "German",
+    "spanish": "Spanish",
+    "russian": "Russian",
+    "korean": "Korean",
+    "chinese": "Chinese",
+    "japanese": "Japanese"
   }
 }

@@ -32,13 +32,187 @@
 
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Ngoại ngữ
-        <button class="btn btn-link pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm ngoại ngữ</button>
-      </h4>
+      <h4 class="heading-title">{{ 'language.languages' | translate }}</h4>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p class="not-update-alert">Vui lòng hoàn thiện thông tin ngoại ngữ.</p>
+        <form [formGroup]="LanguagesFromGroup" (ngSubmit)="onSubmitLanguages()">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>{{ 'language.languages' | translate }}</th>
+                <th width="50%" class="text-right">{{ 'language.level' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pln"><span>{{ 'language.english' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="ENGLISH"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.french' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="FRENCH"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.german' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="GERMAN"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.spanish' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="SPANISH"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.russian' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="RUSSIAN"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.korean' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="KOREAN"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.chinese' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="CHINESE"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="pln"><span>{{ 'language.japanese' | translate }}</span></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-7 pull-right">
+                      <ng-select
+                        class="jv"
+                        formControlName="JAPANESE"
+                        [items]="languagesLevel"
+                        [closeOnSelect]="true"
+                        [hideSelected]="true"
+                        bindLabel="name"
+                        bindValue="value"
+                        placeholder="{{ 'language.no' | translate }}">
+                      </ng-select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="row">
+            <div class="col-md-12">
+              <hr>
+              <div class="pull-right">
+                <button type="submit" class="btn btn-defaut bg-submit">
+                  <i *ngIf="!isSubmittingPersonal" class="fa fa-check-circle" aria-hidden="true"></i>
+                  <i *ngIf="isSubmittingPersonal" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                  {{ 'common.btnUpdate' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -91,11 +265,11 @@
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right">
-                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> {{ 'common.btnCancel' | translate }}</button>
                   <button type="submit" class="btn btn-defaut bg-submit">
-                    <i *ngIf="!skillsSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
-                    <i *ngIf="skillsSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                    Cập nhật
+                    <i *ngIf="!languagesSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
+                    <i *ngIf="languagesSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                    {{ 'common.btnUpdate' | translate }}
                   </button>
                 </div>
             </div>

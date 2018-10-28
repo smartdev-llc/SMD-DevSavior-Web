@@ -84,7 +84,7 @@
             <button type="submit" class="btn btn-defaut bg-submit">
               <i *ngIf="!isSubmittingBasic" class="fa fa-check-circle" aria-hidden="true"></i>
               <i *ngIf="isSubmittingBasic" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-              Cập nhật
+              {{ 'common.btnUpdate' | translate }}
             </button>
           </div>
         </form>
@@ -149,17 +149,23 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.gender.errors }">
             <label class="lb-radio required">Giới tính</label>
             <label class="radio-inline lb-radio"><input type="radio" value="MALE" name="gender" formControlName="gender" checked> Nam</label>
             <label class="radio-inline lb-radio"><input type="radio" value="FEMALE" name="gender" formControlName="gender"> Nữ</label>
+            <div class="col-xs-12" *ngIf="submittedPersonal && piF.gender.errors">
+              <em *ngIf="piF.gender.errors.required" class="error help-block">Field is Required</em>
+            </div>
           </div>
         </div>
         <div class="col-md-6 clear-both-sm">
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.maritalStatus.errors }">
             <label class="lb-radio required">Trình trạng hôn nhân</label>
             <label class="radio-inline lb-radio clear-both-sm"><input type="radio" value="SINGLE" name="maritalStatus" formControlName="maritalStatus" checked> Độc thân</label>
             <label class="radio-inline lb-radio"><input type="radio" name="maritalStatus" value="MARRIED" formControlName="maritalStatus"> Đã kết hôn</label>
+            <div class="col-xs-12" *ngIf="submittedPersonal && piF.maritalStatus.errors">
+              <em *ngIf="piF.maritalStatus.errors.required" class="error help-block">Field is Required</em>
+            </div>
           </div>
         </div>
       </div>
@@ -206,7 +212,7 @@
             <button type="submit" class="btn btn-defaut bg-submit">
               <i *ngIf="!isSubmittingPersonal" class="fa fa-check-circle" aria-hidden="true"></i>
               <i *ngIf="isSubmittingPersonal" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-              Cập nhật
+              {{ 'common.btnUpdate' | translate }}
             </button>
           </div>
         </div>
