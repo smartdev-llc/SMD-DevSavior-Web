@@ -205,8 +205,8 @@
               <hr>
               <div class="pull-right">
                 <button type="submit" class="btn btn-defaut bg-submit">
-                  <i *ngIf="!isSubmittingPersonal" class="fa fa-check-circle" aria-hidden="true"></i>
-                  <i *ngIf="isSubmittingPersonal" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                  <i *ngIf="!languagesSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
+                  <i *ngIf="languagesSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                   {{ 'common.btnUpdate' | translate }}
                 </button>
               </div>
@@ -267,8 +267,8 @@
                 <div class="pull-right">
                   <button type="button" class="btn btn-defaut bg-white mr-2" (click)="keySkillsModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> {{ 'common.btnCancel' | translate }}</button>
                   <button type="submit" class="btn btn-defaut bg-submit">
-                    <i *ngIf="!languagesSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
-                    <i *ngIf="languagesSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                    <i *ngIf="!skillsSummiting" class="fa fa-check-circle" aria-hidden="true"></i>
+                    <i *ngIf="skillsSummiting" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                     {{ 'common.btnUpdate' | translate }}
                   </button>
                 </div>
