@@ -11,7 +11,7 @@
 
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Thông tin cơ bản</h4>
+      <h4 class="heading-title">{{ 'personalInfo.basicInfo' | translate }}</h4>
     </div>
     <div class="row">
       <div class="col-sm-3 col-md-2 container-overlay" for="uploader-input">
@@ -19,7 +19,7 @@
         <label class="overlay" for="uploader-input">
           <div class="icon" for="uploader-input"><i class="fa fa-camera" aria-hidden="true"></i></div>
           <div class="content">
-            <p class="text">Thay đổi ảnh đại diện</p>
+            <p class="text">{{ 'personalInfo.changeAvatar' | translate }}</p>
           </div>
         </label>
         <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (fileOver)="fileOver($event)" id="uploader-input" />
@@ -34,29 +34,29 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group" [ngClass]="{ 'has-error': submittedBasic && biF.jobTitle.errors }">
-                <label for="email" class="required">Vị trí/việc làm cần ứng tuyển:</label>
+                <label for="email" class="required">{{ 'personalInfo.professionalTitle' | translate }}:</label>
                 <input type="text" class="form-control" formControlName="jobTitle">
                 <div *ngIf="submittedBasic && biF.jobTitle.errors">
-                  <em *ngIf="biF.jobTitle.errors.required" class="error help-block">Field is Required</em>
+                  <em *ngIf="biF.jobTitle.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label class="required">Trình độ học vấn:</label>
+                <label class="required">{{ 'personalInfo.academicLevel' | translate }}:</label>
                 <ng-select
                   class="jv"
                   formControlName="educationalStatus"
                   [ngClass]="{ 'ng-touched': submittedBasic && biF.educationalStatus.errors }"
-                  [items]="jobsLevel"
+                  [items]="academicLevel"
                   [closeOnSelect]="true"
                   [hideSelected]="true"
                   bindLabel="name"
                   placeholder="Select ...">
                </ng-select>
                <div *ngIf="submittedBasic && biF.educationalStatus.errors">
-                 <em *ngIf="biF.educationalStatus.errors.required" class="ng-select help-block">Field is Required</em>
+                 <em *ngIf="biF.educationalStatus.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
                </div>
               </div>
             </div>
@@ -65,17 +65,17 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group" [ngClass]="{ 'has-error': submittedBasic && biF.yearsOfExperience.errors }">
-                <label class="required" for="email">Số năm kinh nghiệm:</label>
+                <label class="required" for="email">{{ 'personalInfo.yearsExperience' | translate }}:</label>
                 <input type="number" class="form-control" formControlName="yearsOfExperience">
                 <div *ngIf="submittedBasic && biF.yearsOfExperience.errors">
-                  <em *ngIf="biF.yearsOfExperience.errors.required" class="error help-block">Field is Required</em>
+                  <em *ngIf="biF.yearsOfExperience.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                   <em *ngIf="piF.phoneNumber.errors.pattern" class="error help-block">Invalid years of experience</em>
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="checkbox">
-               <label class="no-work-experience"><input type="checkbox"> Tôi chưa có kinh nghiệm</label>
+               <label class="no-work-experience"><input type="checkbox"> {{ 'personalInfo.haveNoWorkExperience' | translate }}</label>
              </div>
             </div>
           </div>
@@ -94,25 +94,25 @@
 
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Thông tin cá nhân</h4>
+      <h4 class="heading-title">{{ 'personalInfo.personalInfo' | translate }}</h4>
     </div>
     <form class="update-form" [formGroup]="personalInfoFormGroup" (ngSubmit)="onSubmitPersonalInfo()">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.fullName.errors }">
-            <label for="email" class="required">Họ tên</label>
+            <label for="email" class="required">{{ 'personalInfo.fullName' | translate }}</label>
             <input type="text" class="form-control" formControlName="fullName">
             <div *ngIf="submittedPersonal && piF.fullName.errors">
-              <em *ngIf="piF.fullName.errors.required" class="error help-block">Field is Required</em>
+              <em *ngIf="piF.fullName.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.phoneNumber.errors }">
-            <label for="email" class="required">Số điện thoại</label>
+            <label for="email" class="required">{{ 'personalInfo.cellNumber' | translate }}</label>
             <input type="text" class="form-control" formControlName="phoneNumber">
             <div *ngIf="submittedPersonal && piF.phoneNumber.errors">
-              <em *ngIf="piF.phoneNumber.errors.required" class="error help-block">Field is Required</em>
+              <em *ngIf="piF.phoneNumber.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               <em *ngIf="piF.phoneNumber.errors.pattern" class="error help-block">Invalid phone number</em>
             </div>
           </div>
@@ -122,17 +122,17 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.email.errors }">
-            <label for="email" class="required">Địa chỉ email</label>
+            <label for="email" class="required">{{ 'personalInfo.email' | translate }}</label>
             <input type="email" class="form-control" formControlName="email">
             <div *ngIf="submittedPersonal && piF.email.errors">
-              <em *ngIf="piF.email.errors.required" class="error help-block">Field is Required</em>
+              <em *ngIf="piF.email.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               <em *ngIf="piF.email.errors.email" class="error help-block">Invalid email address</em>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.dateOfBirth.errors }">
-            <label for="email" class="required">Ngày sinh</label>
+            <label for="email" class="required">{{ 'personalInfo.dateOfBirth' | translate }}</label>
              <input
               type="text"
               class="form-control"
@@ -141,7 +141,7 @@
               bsDatepicker
               formControlName="dateOfBirth" />
               <div *ngIf="submittedPersonal && piF.dateOfBirth.errors">
-                <em *ngIf="piF.dateOfBirth.errors.required" class="error help-block">Field is Required</em>
+                <em *ngIf="piF.dateOfBirth.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
           </div>
         </div>
@@ -150,21 +150,21 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.gender.errors }">
-            <label class="lb-radio required">Giới tính</label>
-            <label class="radio-inline lb-radio"><input type="radio" value="MALE" name="gender" formControlName="gender" checked> Nam</label>
-            <label class="radio-inline lb-radio"><input type="radio" value="FEMALE" name="gender" formControlName="gender"> Nữ</label>
+            <label class="lb-radio required">{{ 'personalInfo.gender' | translate }}</label>
+            <label class="radio-inline lb-radio"><input type="radio" value="MALE" name="gender" formControlName="gender" checked> {{ 'personalInfo.male' | translate }}</label>
+            <label class="radio-inline lb-radio"><input type="radio" value="FEMALE" name="gender" formControlName="gender"> {{ 'personalInfo.female' | translate }}</label>
             <div class="col-xs-12" *ngIf="submittedPersonal && piF.gender.errors">
-              <em *ngIf="piF.gender.errors.required" class="error help-block">Field is Required</em>
+              <em *ngIf="piF.gender.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
             </div>
           </div>
         </div>
         <div class="col-md-6 clear-both-sm">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.maritalStatus.errors }">
-            <label class="lb-radio required">Trình trạng hôn nhân</label>
-            <label class="radio-inline lb-radio clear-both-sm"><input type="radio" value="SINGLE" name="maritalStatus" formControlName="maritalStatus" checked> Độc thân</label>
-            <label class="radio-inline lb-radio"><input type="radio" name="maritalStatus" value="MARRIED" formControlName="maritalStatus"> Đã kết hôn</label>
+            <label class="lb-radio required">{{ 'personalInfo.maritalStatus' | translate }}</label>
+            <label class="radio-inline lb-radio clear-both-sm"><input type="radio" value="SINGLE" name="maritalStatus" formControlName="maritalStatus" checked> {{ 'personalInfo.single' | translate }}</label>
+            <label class="radio-inline lb-radio"><input type="radio" name="maritalStatus" value="MARRIED" formControlName="maritalStatus"> {{ 'personalInfo.married' | translate }}</label>
             <div class="col-xs-12" *ngIf="submittedPersonal && piF.maritalStatus.errors">
-              <em *ngIf="piF.maritalStatus.errors.required" class="error help-block">Field is Required</em>
+              <em *ngIf="piF.maritalStatus.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
             </div>
           </div>
         </div>
@@ -174,19 +174,19 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.country.errors }">
-              <label for="country" class="required">Quốc tịch</label>
+              <label for="country" class="required">{{ 'personalInfo.nationality' | translate }}</label>
               <input type="text" class="form-control" formControlName="country">
               <div *ngIf="submittedPersonal && piF.country.errors">
-                <em *ngIf="piF.country.errors.required" class="error help-block">Field is Required</em>
+                <em *ngIf="piF.country.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.city.errors }">
-              <label for="email" class="required">Thành phố</label>
+              <label for="email" class="required">{{ 'personalInfo.city' | translate }}</label>
               <input type="text" class="form-control" formControlName="city">
               <div *ngIf="submittedPersonal && piF.city.errors">
-                <em *ngIf="piF.city.errors.required" class="error help-block">Field is Required</em>
+                <em *ngIf="piF.city.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>
@@ -195,10 +195,10 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.currentAddress.errors }">
-              <label for="email" class="required">Địa chỉ</label>
+              <label for="email" class="required">{{ 'personalInfo.address' | translate }}</label>
               <input type="text" class="form-control" formControlName="currentAddress">
               <div *ngIf="submittedPersonal && piF.currentAddress.errors">
-                <em *ngIf="piF.currentAddress.errors.required" class="error help-block">Field is Required</em>
+                <em *ngIf="piF.currentAddress.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
               </div>
             </div>
           </div>

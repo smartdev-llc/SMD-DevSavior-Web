@@ -12,7 +12,10 @@
   "validation": {
     "fieldRequired": "Field is Required",
     "salaryNumber": "Salary must be number",
-    "salaryDifference": "To salary must be greater than or equal to from salary"
+    "salaryDifference": "To salary must be greater than or equal to from salary",
+    "fromMonthRequired": "The from month field is required",
+    "toMonthRequired": "The from month field is required",
+    "fromLessThanToMonth": "The from month must be before to month"
   },
   "header": {
     "jobs": "All Jobs",
@@ -109,5 +112,77 @@
     "korean": "Korean",
     "chinese": "Chinese",
     "japanese": "Japanese"
+  },
+  "personalInfo": {
+    "basicInfo": "Basic information",
+    "professionalTitle": "Professional title",
+    "academicLevel": "Academic level",
+    "changeAvatar": "Change avatar",
+    "yearsExperience": "Years of Experience",
+    "haveNoWorkExperience": "I am a new graduate / have no work experience",
+    "personalInfo": "Personal information",
+    "fullName": "Full name",
+    "cellNumber": "Cell Number",
+    "email": "Email address",
+    "dateOfBirth": "Date of birth",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "maritalStatus": "Marital Status",
+    "single": "Single",
+    "married": "Married",
+    "nationality": "Nationality",
+    "city": "City",
+    "address": "Address"
+  },
+  "academicLevel": {
+    "firstToThirdYear": "First to third year",
+    "fourthYear": "Fourth year student",
+    "finalYear": "Final year student",
+    "graduated": "Graduated"
+  },
+  "educationHistory": {
+    "addEducationHistory": "Add new Education History",
+    "educationHistory": "Education History",
+    "school": "School",
+    "qualification": "Qualification",
+    "degreeClassification": "Degree classification",
+    "achievements": "Achievements",
+    "subject": "Subject",
+    "fromMonth": "From month",
+    "toMonth": "To month",
+    "plsComplete": "Please complete your education history!",
+    "schoolPlaceHolder": "e.g. International Business",
+    "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City",
+    "from": "From"
+  },
+  "skill": {
+    "keySkills": "Key Skills",
+    "skillAndLanguage": "Skill/Language",
+    "addKeySkill": "Add more key skills",
+    "btnAdd": "Add",
+    "inputPlaceHolder": "Type your area of expertise."
+  },
+  "workingPreferences": {
+    "workingPreferences": "Working preferences",
+    "preferredWorkingLocation": "Preferred Working Location",
+    "willingRelocate": "Willing to relocate",
+    "typeOfWork": "Type of work",
+    "salary": "Salary",
+    "from": "From",
+    "to": "To",
+    "negotiable": "Negotiable",
+    "describeCareerGoals": "Describe career goals"
+  },
+  "workingExperience": {
+    "workingExperience": "Working experience",
+    "addWorkingExperien": "Add new working experience",
+    "position": "Position",
+    "describeTheob": "Describe the job",
+    "company": "Company",
+    "fromMonth": "From month",
+    "toMonth": "To month",
+    "currentJob": "Current Job",
+    "from": "from"
   }
 }

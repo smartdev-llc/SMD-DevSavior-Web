@@ -11,8 +11,8 @@
 
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Kinh nghiệm làm việc
-        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kinh nghiệm làm việc</button>
+      <h4 class="heading-title">{{ 'workingExperience.workingExperience' | translate }}
+        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ 'workingExperience.addWorkingExperien' | translate }}</button>
       </h4>
     </div>
 
@@ -31,13 +31,13 @@
           <div class="col-xs-6 col-md-8">
             <p class="working-title">
               {{ working.company }}
-              <span class="working-description">(Từ {{ working.fromMonth }} - {{ working.toMonth }})</span>
+              <span class="working-description">({{ 'workingExperience.from' | translate }} {{ working.fromMonth }} - {{ working.toMonth }})</span>
             </p>
             <p class="working-title">
-              Vị trí:
+              {{ 'workingExperience.position' | translate }}:
               <span class="working-description">{{ working.jobTitle }}</span>
             </p>
-            <p class="working-title">Mô tả công việc:</p>
+            <p class="working-title">{{ 'workingExperience.describeTheob' | translate }}:</p>
             <p class="working-description">{{ working.additionalInformation }}</p>
           </div>
           <div class="col-xs-3 col-md-3 pull-right">
@@ -61,7 +61,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm kinh nghiệm làm việc</h4>
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">{{ 'workingExperience.addWorkingExperien' | translate }}</h4>
           <button type="button" class="close pull-right" (click)="eplHistoryModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -72,10 +72,10 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && weF.jobTitle.errors }">
-                  <label for="subject" class="required">Chức danh</label>
+                  <label for="subject" class="required">{{ 'workingExperience.position' | translate }}</label>
                   <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer" formControlName="jobTitle">
                   <div *ngIf="submittedWorking && weF.jobTitle.errors">
-                    <em *ngIf="weF.jobTitle.errors.required" class="error help-block">Field is Required</em>
+                    <em *ngIf="weF.jobTitle.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                   </div>
                 </div>
               </div>
@@ -84,10 +84,10 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && weF.company.errors }">
-                  <label for="subject" class="required">Công ty</label>
+                  <label for="subject" class="required">{{ 'workingExperience.company' | translate }}</label>
                   <input type="text" id="subject" class="form-control" placeholder="VD: JuniorViec" formControlName="company">
                   <div *ngIf="submittedWorking && weF.company.errors">
-                    <em *ngIf="weF.company.errors.required" class="error help-block">Field is Required</em>
+                    <em *ngIf="weF.company.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-xs-12">
-                      <label class="required" for="fromMonth">Từ tháng</label>
+                      <label class="required" for="fromMonth">{{ 'workingExperience.fromMonth' | translate }}</label>
                     </div>
                   </div>
                   <month-year-picker formControlName="fromMonth"></month-year-picker>
@@ -108,30 +108,29 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-xs-12">
-                      <label class="required" for="toMonth">Đến tháng</label>
+                      <label class="required" for="toMonth">{{ 'workingExperience.toMonth' | translate }}</label>
                     </div>
                   </div>
                   <month-year-picker formControlName="toMonth"></month-year-picker>
                 </div>
               </div>
               <div class="col-xs-12">
-                 <label class="no-work-experience"><input type="checkbox" formControlName="isCurrentJob"> Công việc hiện tại</label>
+                 <label class="no-work-experience"><input type="checkbox" formControlName="isCurrentJob"> {{ 'workingExperience.currentJob' | translate }}</label>
               </div>
 
               <div class="col-xs-12" [ngClass]="{ 'has-error': submittedWorking && timeWorkingAt.errors }" *ngIf="submittedWorking && timeWorkingAt.errors">
-                <em *ngIf="timeWorkingAt.errors.fromRequired" class="error help-block">The from month field is required</em>
-                <em *ngIf="timeWorkingAt.errors.toRequired" class="error help-block">The to month field is required</em>
-                <em *ngIf="timeWorkingAt.errors.difference" class="error help-block">The from month must be before to month</em>
+                <em *ngIf="timeWorkingAt.errors.fromRequired" class="error help-block">{{ 'validation.fromMonthRequired' | translate }}</em>
+                <em *ngIf="timeWorkingAt.errors.toRequired" class="error help-block">{{ 'validation.toMonthRequired' | translate }}</em>
+                <em *ngIf="timeWorkingAt.errors.difference" class="error help-block">{{ 'validation.fromLessThanToMonth' | translate }}</em>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="subject">Thông tin bổ sông</label>
+                  <label for="subject">{{ 'workingExperience.describeTheob' | translate }}</label>
                   <textarea
                     class="textarea"
-                    placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)"
                     rows="4"
                     formControlName="additionalInformation">
                   </textarea>

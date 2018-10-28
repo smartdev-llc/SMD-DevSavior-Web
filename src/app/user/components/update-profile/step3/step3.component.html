@@ -10,8 +10,8 @@
   <steps-update-profile currentPage="3"></steps-update-profile>
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Kỹ năng
-        <button class="btn btn-link pull-right" (click)="keySkillsModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm kỹ năng</button>
+      <h4 class="heading-title">{{ 'skill.keySkills' | translate }}
+        <button class="btn btn-link pull-right" (click)="keySkillsModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ 'skill.addKeySkill' | translate }}</button>
       </h4>
     </div>
     <div class="row" *ngIf="currentSkills">
@@ -223,7 +223,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm kỹ năng</h4>
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">{{ 'skill.addKeySkill' | translate }}</h4>
           <button type="button" class="close pull-right" (click)="keySkillsModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -250,14 +250,14 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
+                    placeholder="{{ 'skill.inputPlaceHolder' | translate }}"
                     [(ngModel)]="skillInput"
                     [ngModelOptions]="{standalone: true}"
                     (keydown.enter)="handleAddSkill($event)">
                 </div>
               </div>
               <div class="col-xs-4">
-                <button type="button" class="btn btn-defaut bg-submit" (click)="handleAddSkill($event)"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                <button type="button" class="btn btn-defaut bg-submit" (click)="handleAddSkill($event)"><i class="fa fa-plus" aria-hidden="true"></i> {{ 'skill.btnAdd' | translate }}</button>
               </div>
             </div>
 

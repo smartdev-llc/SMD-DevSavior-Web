@@ -10,13 +10,13 @@
   <steps-update-profile currentPage="4"></steps-update-profile>
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Công việc mong muốn</h4>
+      <h4 class="heading-title">{{ 'workingPreferences.workingPreferences' | translate }}</h4>
     </div>
     <form class="update-form" [formGroup]="workingPreferenceForm" (ngSubmit)="workingPreferenceSubmit()">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && f.preferredWorkingLocation.errors }">
-            <label for="email" class="required">Nơi làm việc</label>
+            <label for="email" class="required">{{ 'workingPreferences.preferredWorkingLocation' | translate }}</label>
             <input type="text" class="form-control" formControlName="preferredWorkingLocation">
             <div *ngIf="submittedWorking && f.preferredWorkingLocation.errors">
               <em *ngIf="f.preferredWorkingLocation.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
@@ -25,7 +25,7 @@
         </div>
         <div class="col-sm-6">
           <div class="checkbox">
-           <label class="no-work-experience"><input type="checkbox" formControlName="willingToRelocate"> Có thể thay đổi nơi làm việc</label>
+           <label class="no-work-experience"><input type="checkbox" formControlName="willingToRelocate"> {{ 'workingPreferences.willingRelocate' | translate }}</label>
          </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-            <label class="required">Loại hình công việc</label>
+            <label class="required">{{ 'workingPreferences.typeOfWork' | translate }}</label>
             <ng-select
               class="jv"
               [ngClass]="{ 'ng-touched': submittedWorking && f.jobType.errors }"
@@ -55,13 +55,13 @@
       <ng-container formGroupName="salaryForm">
         <div class="row form-group">
           <div class="col-lg-2 col-md-3 col-xs-12">
-            <label class="required">{{ 'postJob.salary' | translate }}(USD)</label>
+            <label class="required">{{ 'workingPreferences.salary' | translate }}(USD)</label>
           </div>
           <div class="col-lg-10 col-md-9 col-xs-12" *ngIf="!salaryForm.value.isNegotiableSalary">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && salaryForm.errors }">
-                  <label class="required salary" for="from">{{ 'postJob.from' | translate }}</label>
+                  <label class="required salary" for="from">{{ 'workingPreferences.from' | translate }}</label>
                   <input type="text" id="from" class="form-control" formControlName="expectedSalaryFrom">
 
                   <div *ngIf="submittedWorking && salaryForm.errors">
@@ -72,7 +72,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedWorking && salaryForm.errors }">
-                  <label class="required salary" for="to">{{ 'postJob.to' | translate }}</label>
+                  <label class="required salary" for="to">{{ 'workingPreferences.to' | translate }}</label>
                   <input type="text" id="to" class="form-control" formControlName="expectedSalaryTo">
 
                   <div *ngIf="submittedWorking && salaryForm.errors">
@@ -86,7 +86,7 @@
           </div>
           <div class="col-sm-10 col-sm-offset-2">
             <div class="checkbox">
-              <label><input type="checkbox" formControlName="isNegotiableSalary">Thương lượng</label>
+              <label><input type="checkbox" formControlName="isNegotiableSalary">{{ 'workingPreferences.negotiable' | translate }}</label>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@
         <div class="col-md-12">
           <hr>
           <div class="form-group">
-            <label for="subject">Mô tả mục tiêu nghề nghiệp</label>
+            <label for="subject">{{ 'workingPreferences.describeCareerGoals' | translate }}</label>
             <textarea
               class="textarea"
               placeholder="Mô tả, giới thiệu về định hướng công việc của bản thân trong tương lai ngắn hạn hoặc dài hạn."

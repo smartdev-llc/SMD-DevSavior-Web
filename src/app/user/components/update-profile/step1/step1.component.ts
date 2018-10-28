@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ngxLoadingAnimationTypes } from 'ngx-loading';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
 import { AuthService } from '../../../../core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import { StudentUserService }  from '../../../services/student-user.serivce';
@@ -30,18 +32,14 @@ export class UpdateProfileStep1Component implements OnInit {
   personalInfo: PersonalInfo;
   profileImageURL: string = 'assets/images/profile-placeholder.png';
 
-  jobsLevel: Array<any>  = [
-    { id: 'FIRST_TO_THIRD_YEAR', name: 'Sinh Viên năm 1 đến năm 3' },
-    { id: 'FOURTH_YEAR', name: 'Sinh Viên năm 4' },
-    { id: 'FINAL_YEAR', name: 'Sinh Viên năm cuối' },
-    { id: 'GRADUATED', name: 'Đã ra trường' }
-  ]
+  academicLevel: Array<any>  = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private studentUserService: StudentUserService,
     private toastr: ToastrService,
     private authService: AuthService,
+    private translate: TranslateService
   ) {
     let currentUser = this.authService.getCurrentUser();
     this.uploader = new FileUploader({
@@ -60,9 +58,19 @@ export class UpdateProfileStep1Component implements OnInit {
         this.profileImageURL = data.profileImageURL ? environment.apiEndpoint + data.profileImageURL : this.profileImageURL;
       } catch(error) { }
     });
+
+    // translate for ng select qualifications and classificationOfDegrees
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      const { academicLevel } = event.translations;
+      this.translateAcademicLevelSelect(academicLevel);
+    });
   }
 
   ngOnInit() {
+    this.translate.get('academicLevel').subscribe((academicLevel: any) => {
+      this.translateAcademicLevelSelect(academicLevel);
+    });
+
     this.initForms();
     this.preLoadData();
   }
@@ -74,7 +82,7 @@ export class UpdateProfileStep1Component implements OnInit {
 
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);
-        from(this.jobsLevel)
+        from(this.academicLevel)
           .pipe(
             find((item) => item.id === this.basicInfo.educationalStatus)
           ).subscribe(val => {
@@ -175,5 +183,14 @@ export class UpdateProfileStep1Component implements OnInit {
 
   public fileOver(e: any): void {
     console.log(e)
+  }
+
+  private translateAcademicLevelSelect(academicLevel: any): void {
+    this.academicLevel = [
+      { id: 'FIRST_TO_THIRD_YEAR', name: academicLevel.firstToThirdYear },
+      { id: 'FOURTH_YEAR', name: academicLevel.fourthYear },
+      { id: 'FINAL_YEAR', name: academicLevel.finalYear },
+      { id: 'GRADUATED', name: academicLevel.graduated }
+    ];
   }
 }

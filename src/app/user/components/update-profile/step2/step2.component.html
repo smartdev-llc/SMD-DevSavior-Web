@@ -11,15 +11,15 @@
 
   <div class="box-content box">
     <div>
-      <h4 class="heading-title">Học vấn và bằng cấp
-        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thêm học vấn/bằng cấp</button>
+      <h4 class="heading-title">{{ 'educationHistory.educationHistory' | translate }}
+        <button class="btn btn-link pull-right" (click)="openModalCreateNew()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ 'educationHistory.addEducationHistory' | translate }}</button>
       </h4>
     </div>
 
     <div class="list-working" *ngIf="educationDegrees">
       <div class="row" *ngIf="!educationDegrees.length">
         <div class="col-md-12">
-          <p class="not-update-alert">Vui lòng hoàn thiện thông tin học vấn / bằng cấp.</p>
+          <p class="not-update-alert">{{ 'educationHistory.plsComplete' | translate }}</p>
         </div>
       </div>
 
@@ -31,21 +31,21 @@
           <div class="col-xs-6 col-md-8">
             <p class="working-title">
               {{ education.major }}
-              <span class="working-description">(Từ {{ education.fromMonth }} - {{ education.toMonth }})</span>
+              <span class="working-description">({{ 'educationHistory.from' | translate }} {{ education.fromMonth }} - {{ education.toMonth }})</span>
             </p>
             <p class="working-title">
-              Trường:
+              {{ 'educationHistory.school' | translate }}:
               <span class="working-description">{{ education.university }}</span>
             </p>
             <p class="working-title">
-              Bằng cấp:
+              {{ 'educationHistory.qualification' | translate }}:
               <span class="working-description">{{ education.degreeType | educationDegrees | translate }}</span>
             </p>
             <p class="working-title">
-              Xếp loại:
+              {{ 'educationHistory.degreeClassification' | translate }}:
               <span class="working-description">{{ education.degreeClassification | educationDegrees | translate }}</span>
             </p>
-            <p class="working-title">Mô tả công việc:</p>
+            <p class="working-title">{{ 'educationHistory.achievements' | translate }}:</p>
             <p class="working-description">{{ education.additionalInformation }}</p>
           </div>
           <div class="col-xs-3 col-md-3 pull-right">
@@ -68,7 +68,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thêm mới học vấn/bằng cấp</h4>
+          <h4 id="dialog-sizes-name1" class="modal-title pull-left">{{ 'educationHistory.addEducationHistory' | translate }}</h4>
           <button type="button" class="close pull-right" (click)="eduHistoryModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -79,19 +79,19 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedEducation && edF.university.errors }">
-                  <label for="school" class="required">Trường</label>
-                  <input type="text" class="form-control" placeholder="Nhận tên trường" formControlName="university">
+                  <label for="school" class="required">{{ 'educationHistory.school' | translate }}</label>
+                  <input type="text" class="form-control" placeholder="{{ 'educationHistory.schoolPlaceHolder' | translate }}" formControlName="university">
                   <div *ngIf="submittedEducation && edF.university.errors">
-                    <em *ngIf="edF.university.errors.required" class="error help-block">Field is Required</em>
+                    <em *ngIf="edF.university.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                   </div>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedEducation && edF.major.errors }">
-                  <label for="subject" class="required">Chuyên ngành</label>
-                  <input type="text" class="form-control" placeholder="VD: Công nghệ thông tin, Mạng máy tính..." formControlName="major">
+                  <label for="subject" class="required">{{ 'educationHistory.subject' | translate }}</label>
+                  <input type="text" class="form-control" placeholder="{{ 'educationHistory.subjectPlaceHolder' | translate }}" formControlName="major">
                   <div *ngIf="submittedEducation && edF.major.errors">
-                    <em *ngIf="edF.major.errors.required" class="error help-block">Field is Required</em>
+                    <em *ngIf="edF.major.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="qualification" class="required">Bằng cấp</label>
+                  <label for="qualification" class="required">{{ 'educationHistory.qualification' | translate }}</label>
                   <ng-select
                     class="jv"
                     [ngClass]="{ 'ng-touched': submittedEducation && edF.degreeType.errors }"
@@ -113,13 +113,13 @@
                     formControlName="degreeType">
                  </ng-select>
                  <div *ngIf="submittedEducation && edF.degreeType.errors">
-                   <em *ngIf="edF.degreeType.errors.required" class="ng-select help-block">Field is Required</em>
+                   <em *ngIf="edF.degreeType.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
                  </div>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="school" class="required">Xếp loại</label>
+                  <label for="school" class="required">{{ 'educationHistory.degreeClassification' | translate }}</label>
                   <ng-select
                     class="jv"
                     [ngClass]="{ 'ng-touched': submittedEducation && edF.degreeClassification.errors }"
@@ -132,7 +132,7 @@
                     formControlName="degreeClassification">
                  </ng-select>
                  <div *ngIf="submittedEducation && edF.degreeClassification.errors">
-                   <em *ngIf="edF.degreeClassification.errors.required" class="ng-select help-block">Field is Required</em>
+                   <em *ngIf="edF.degreeClassification.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
                  </div>
                 </div>
               </div>
@@ -143,7 +143,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-xs-12">
-                      <label class="required" for="fromMonth">Từ tháng</label>
+                      <label class="required" for="fromMonth">{{ 'educationHistory.fromMonth' | translate }}</label>
                     </div>
                   </div>
                   <month-year-picker formControlName="fromMonth"></month-year-picker>
@@ -153,7 +153,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-xs-12">
-                      <label class="required" for="toMonth">Đến tháng</label>
+                      <label class="required" for="toMonth">{{ 'educationHistory.toMonth' | translate }}</label>
                     </div>
                   </div>
                   <month-year-picker formControlName="toMonth"></month-year-picker>
@@ -161,19 +161,18 @@
               </div>
 
               <div class="col-xs-12" [ngClass]="{ 'has-error': submittedEducation && studyTimeAt.errors }" *ngIf="submittedEducation && studyTimeAt.errors">
-                <em *ngIf="studyTimeAt.errors.fromRequired" class="error help-block">The from month field is required</em>
-                <em *ngIf="studyTimeAt.errors.toRequired" class="error help-block">The to month field is required</em>
-                <em *ngIf="studyTimeAt.errors.difference" class="error help-block">The from month must be before to month</em>
+                <em *ngIf="studyTimeAt.errors.fromRequired" class="error help-block">{{ 'validation.fromMonthRequired' | translate }}</em>
+                <em *ngIf="studyTimeAt.errors.toRequired" class="error help-block">{{ 'validation.toMonthRequired' | translate }}</em>
+                <em *ngIf="studyTimeAt.errors.difference" class="error help-block">{{ 'validation.fromLessThanToMonth' | translate }}</em>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="subject">Thông tin bổ sông</label>
+                  <label for="subject">{{ 'educationHistory.achievements' | translate }}</label>
                   <textarea
                     class="textarea"
-                    placeholder="Thông tin chi tiết quá trình học tập, hoạt động ngoại khóa... (nếu có)"
                     rows="4"
                     formControlName="additionalInformation">
                 </textarea>
