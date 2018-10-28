@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AppErrors } from '../../../core/error/app-errors';
 import { Forbidden } from '../../../core/error/forbidden';
 import { InternalServer } from '../../../core/error/internal-server';
+import { LanguageService } from '../../../layout/services/language.service';
 import { Unauthorized } from '../../../core/error/unauthorized';
 
 @Component({
@@ -21,14 +22,20 @@ export class LoginComponent implements OnInit {
   isSubmited = false;
   formErrorMessage: string;
   isResendEmailSuccess = false;
+  isEnLang: boolean = false;
   returnUrl: string;
 
   constructor(
+    private languageService: LanguageService,
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private route: ActivatedRoute
-  ) { }
+  ) { const lang = languageService.getCachedLanguage()
+    languageService.setDefaultLang()
+    if (lang === 'en') {
+      this.isEnLang = true
+    } }
 
   ngOnInit() {
     this.initForm();
@@ -40,6 +47,12 @@ export class LoginComponent implements OnInit {
       'password': ['', Validators.required]
     });
   }
+    changeLanguage(language: string): void {
+    this.languageService.changeLanguage(language).subscribe(() => {
+      language === 'en' ? this.isEnLang = true : this.isEnLang = false;
+    });
+  }
+
   get email() {
     return this.loginInForm.get('email');
   }

@@ -3,6 +3,7 @@ import {  FormBuilder,  FormGroup,  Validators } from '@angular/forms';
 import { UserCompany,  Role } from '../../../core/models/user';
 import { matchingPasswordValidator } from '../../../auth/validators/matching-password.directive';
 import { AuthService } from '../../../core/services/auth.service';
+import { LanguageService } from '../../../layout/services/language.service';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -12,6 +13,8 @@ import { Router, NavigationExtras } from '@angular/router';
   providers: [ AuthService ]
 })
 export class CpRegisterComponent implements OnInit {
+  isEnLang: boolean = false;
+
   static MIN_LENGTH_PASSWORD = 8;
   static DEFAULT_MESSAGE = 'Oops! Something bad happened. Please come back later.';
   registerForm: FormGroup;
@@ -19,9 +22,21 @@ export class CpRegisterComponent implements OnInit {
   submitted: boolean;
   loading: boolean;
   constructor(
+    private languageService: LanguageService,
     private router: Router,
     private authService: AuthService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+      const lang = languageService.getCachedLanguage()
+    languageService.setDefaultLang()
+    if (lang === 'en') {
+      this.isEnLang = true
+    }
+     }
+     changeLanguage(language: string): void {
+      this.languageService.changeLanguage(language).subscribe(() => {
+        language === 'en' ? this.isEnLang = true : this.isEnLang = false;
+      });
+    }
   registerNewUser() {
     this.loading = true;
     this.submitted = true;
