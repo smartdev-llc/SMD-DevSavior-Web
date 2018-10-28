@@ -15,7 +15,8 @@
     "salaryDifference": "To salary must be greater than or equal to from salary",
     "fromMonthRequired": "The from month field is required",
     "toMonthRequired": "The from month field is required",
-    "fromLessThanToMonth": "The from month must be before to month"
+    "fromLessThanToMonth": "The from month must be before to month",
+    "existedKeySkill": "The key skill already exists in the your skills"
   },
   "header": {
     "jobs": "All Jobs",

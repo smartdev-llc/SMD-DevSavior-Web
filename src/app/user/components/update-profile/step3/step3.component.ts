@@ -19,6 +19,7 @@ export class UpdateProfileStep3Component implements OnInit {
   skillInput: string = '';
   skillsSummiting: boolean = false;
   languagesSummiting: boolean = false;
+  isAlreadyExistedKeySkill: boolean = false;
   currentSkills: Array<any> = null;
 
   languagesLevel: Array<any>  = [];
@@ -111,10 +112,18 @@ export class UpdateProfileStep3Component implements OnInit {
   }
 
   handleAddSkill(event) {
+    this.isAlreadyExistedKeySkill = false;
+
     if (this.skillInput) {
-      this.skills.push(new FormControl(this.skillInput));
-      this.skillInput = '';
+      const isIndexOfSkill = this.skills.value.indexOf(this.skillInput);
+      if (isIndexOfSkill === -1) {
+        this.skills.push(new FormControl(this.skillInput));
+        this.skillInput = '';
+      } else {
+        this.isAlreadyExistedKeySkill = true;
+      }
     }
+    // To prevent submit form -> close modal
     return false;
   }
 
