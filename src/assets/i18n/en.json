@@ -109,5 +109,33 @@
     "korean": "Korean",
     "chinese": "Chinese",
     "japanese": "Japanese"
+  },
+  "personalInfo": {
+    "basicInfo": "Basic information",
+    "professionalTitle": "Professional title",
+    "academicLevel": "Academic level",
+    "changeAvatar": "Change avatar",
+    "yearsExperience": "Years of Experience",
+    "haveNoWorkExperience": "I am a new graduate / have no work experience",
+    "personalInfo": "Personal information",
+    "fullName": "Full name",
+    "cellNumber": "Cell Number",
+    "email": "Email address",
+    "dateOfBirth": "Date of birth",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "maritalStatus": "Marital Status",
+    "single": "Single",
+    "married": "Married",
+    "nationality": "Nationality",
+    "city": "City",
+    "address": "Address"
+  },
+  "academicLevel": {
+    "firstToThirdYear": "First to third year",
+    "fourthYear": "Fourth year student",
+    "finalYear": "Final year student",
+    "graduated": "Graduated"
   }
 }

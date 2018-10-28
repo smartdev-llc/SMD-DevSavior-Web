@@ -109,5 +109,33 @@
     "korean": "Tiếng Hàn",
     "chinese": "Tiếng Trung",
     "japanese": "Tiếng Nhật"
+  },
+  "personalInfo": {
+    "basicInfo": "Thông tin cơ bản",
+    "professionalTitle": "Vị trí/việc làm cần ứng tuyển",
+    "academicLevel": "Trình độ học vấn",
+    "changeAvatar": "Thay đổi ảnh đại diện",
+    "yearsExperience": "Số năm kinh nghiệm",
+    "haveNoWorkExperience": "Tôi mới tốt nghiệp/chưa có kinh nghiệm làm việc",
+    "personalInfo": "Thông tin cá nhân",
+    "fullName": "Họ tên",
+    "cellNumber": "Số điện thoại",
+    "email": "Địa chỉ email",
+    "dateOfBirth": "Ngày sinh",
+    "gender": "Giới tính",
+    "male": "Nam",
+    "female": "Nữ",
+    "maritalStatus": "Trình trạng hôn nhân",
+    "single": "Độc thân",
+    "married": "Đã kết hôn",
+    "nationality": "Quốc tịch",
+    "city": "Thành phố",
+    "address": "Địa chỉ"
+  },
+  "academicLevel": {
+    "firstToThirdYear": "Sinh Viên năm 1 đến năm 3",
+    "fourthYear": "Sinh Viên năm 4",
+    "finalYear": "Sinh Viên năm cuối",
+    "graduated": "Đã ra trường"
   }
 }
