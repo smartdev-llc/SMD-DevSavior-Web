@@ -1,15 +1,29 @@
 import { Deserializable } from "./deserializable.model";
 
-export class BasicInfo implements Deserializable {
-  jobTitle: string;
-  yearsOfExperience: number;
-  educationalStatus: object;
+export class YearsExperience implements Deserializable {
+  yearsOfExperience: string;
+  noWorkExperience: boolean;
 
   deserialize(input: any) {
     Object.assign(this, {
-      jobTitle: input.jobTitle || '',
       yearsOfExperience: input.yearsOfExperience || '',
-      educationalStatus: input.educationalStatus || null
+      noWorkExperience: input.yearsOfExperience === 0 ? true : false,
+    });
+    return this;
+  }
+}
+
+export class BasicInfo implements Deserializable {
+  jobTitle: string;
+  educationalStatus: object;
+  yearsExperienceForm: YearsExperience;
+
+  deserialize(input: any) {
+    const yearsExperience = new YearsExperience();
+    Object.assign(this, {
+      jobTitle: input.jobTitle || '',
+      educationalStatus: input.educationalStatus || null,
+      yearsExperienceForm: yearsExperience.deserialize(input)
     });
     return this;
   }

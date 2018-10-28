@@ -13,6 +13,7 @@ import { BasicInfo, PersonalInfo } from '../../../../core/models/student-profile
 import { from } from 'rxjs';
 import { find } from 'rxjs/operators';
 import * as moment from 'moment';
+import { yearOfExperience } from '../../../validators/year-of-experience.validator';
 
 @Component({
   selector: 'update-profile-step1',
@@ -23,6 +24,7 @@ export class UpdateProfileStep1Component implements OnInit {
   ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
   uploader: FileUploader;
   basicInfoFormGroup: FormGroup;
+  yearsExperienceForm: FormGroup;
   personalInfoFormGroup: FormGroup;
   submittedBasic = false;
   isSubmittingBasic = false;
@@ -82,12 +84,6 @@ export class UpdateProfileStep1Component implements OnInit {
 
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);
-        from(this.academicLevel)
-          .pipe(
-            find((item) => item.id === this.basicInfo.educationalStatus)
-          ).subscribe(val => {
-            this.basicInfo.educationalStatus = val || null;
-          });
         this.basicInfoFormGroup.setValue(this.basicInfo);
 
         // personalInfo form
@@ -97,10 +93,17 @@ export class UpdateProfileStep1Component implements OnInit {
   }
 
   initForms(): void {
+    this.yearsExperienceForm = this.formBuilder.group({
+      yearsOfExperience: [''],
+      noWorkExperience: [false]
+    }, {
+      validator: yearOfExperience
+    });
+
     this.basicInfoFormGroup = this.formBuilder.group({
       jobTitle: ['', Validators.required],
       educationalStatus: [null, Validators.required],
-      yearsOfExperience: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      yearsExperienceForm: this.yearsExperienceForm
     });
 
     this.personalInfoFormGroup = this.formBuilder.group({
@@ -129,11 +132,14 @@ export class UpdateProfileStep1Component implements OnInit {
     if (this.basicInfoFormGroup.invalid) {
       return;
     }
-    this.isSubmittingBasic = true;
+    const { yearsOfExperience, noWorkExperience } = this.yearsExperienceForm.value;
     const params = {
       ...this.basicInfoFormGroup.value,
-      educationalStatus: this.basicInfoFormGroup.value.educationalStatus.id
+      yearsOfExperience: noWorkExperience ? 0 : yearsOfExperience
     };
+    delete params.yearsExperienceForm;
+
+    this.isSubmittingBasic = true;
     this.studentUserService.updateBasicInfo(params)
     .subscribe((response) => {
       this.isSubmittingBasic = false;

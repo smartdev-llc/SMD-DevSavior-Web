@@ -53,6 +53,7 @@
                   [closeOnSelect]="true"
                   [hideSelected]="true"
                   bindLabel="name"
+                  bindValue="id"
                   placeholder="Select ...">
                </ng-select>
                <div *ngIf="submittedBasic && biF.educationalStatus.errors">
@@ -61,24 +62,25 @@
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group" [ngClass]="{ 'has-error': submittedBasic && biF.yearsOfExperience.errors }">
-                <label class="required" for="email">{{ 'personalInfo.yearsExperience' | translate }}:</label>
-                <input type="number" class="form-control" formControlName="yearsOfExperience">
-                <div *ngIf="submittedBasic && biF.yearsOfExperience.errors">
-                  <em *ngIf="biF.yearsOfExperience.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
-                  <em *ngIf="piF.phoneNumber.errors.pattern" class="error help-block">Invalid years of experience</em>
+          <ng-container formGroupName="yearsExperienceForm">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group" [ngClass]="{ 'has-error': submittedBasic && yearsExperienceForm.errors }">
+                  <label class="required" for="email">{{ 'personalInfo.yearsExperience' | translate }}:</label>
+                  <input type="text" class="form-control" formControlName="yearsOfExperience" *ngIf="!yearsExperienceForm.value.noWorkExperience">
+                  <div *ngIf="submittedBasic && yearsExperienceForm.errors">
+                    <em *ngIf="yearsExperienceForm.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                    <em *ngIf="yearsExperienceForm.errors.notANumber" class="error help-block">Invalid years of experience</em>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="checkbox">
+                  <label class="no-work-experience"><input type="checkbox" formControlName="noWorkExperience"> {{ 'personalInfo.haveNoWorkExperience' | translate }}</label>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="checkbox">
-               <label class="no-work-experience"><input type="checkbox"> {{ 'personalInfo.haveNoWorkExperience' | translate }}</label>
-             </div>
-            </div>
-          </div>
+          </ng-container>
           <hr>
           <div class="pull-right">
             <button type="submit" class="btn btn-defaut bg-submit">

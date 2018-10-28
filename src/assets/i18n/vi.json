@@ -15,7 +15,8 @@
     "salaryDifference": "Mức lương đến không được thấp hơn mức lương bắt đầu",
     "fromMonthRequired": "Tháng bắt đầu không được bỏ Trống",
     "toMonthRequired": "Tháng đến không được bỏ Trống",
-    "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu"
+    "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu",
+    "existedKeySkill": "Kỹ năng vừa nhập đã tồn tại trong kho kỹ năng của bạn"
   },
   "header": {
     "jobs": "Tất Cả Việc Làm",

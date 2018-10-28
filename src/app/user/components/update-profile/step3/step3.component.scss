@@ -22,6 +22,17 @@
   .mr-2 {
     margin-right: 1rem;
   }
+
+  .has-error {
+    .error.help-block {
+      font-size: 13px;
+    }
+  }
+
+  .ng-select.help-block {
+    font-size: 13px;
+    color: #a94442;
+  }
 }
 
 .box-content {
