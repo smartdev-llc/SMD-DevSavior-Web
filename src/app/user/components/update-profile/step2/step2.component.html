@@ -53,9 +53,9 @@
             <button type="button" class="btn btn-modify mr-2" (click)="deleteEducationDegrees(education.id)">
               <i *ngIf="!isDeletingWorkingEducation" class="fa fa-trash-o" aria-hidden="true"></i>
               <i *ngIf="isDeletingWorkingEducation" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-              Xoá
+              {{ 'common.btnDelete' | translate }}
             </button>
-            <button type="button" class="btn btn-modify" (click)="editEducationDegrees(education)"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</button>
+            <button type="button" class="btn btn-modify" (click)="editEducationDegrees(education)"><i class="fa fa-pencil" aria-hidden="true"></i> {{ 'common.btnEdit' | translate }}</button>
             </div>
           </div>
         </div>
@@ -185,11 +185,11 @@
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right">
-                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="eduHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> Huỷ</button>
+                  <button type="button" class="btn btn-defaut bg-white mr-2" (click)="eduHistoryModal.hide()"><i class="fa fa-times-circle" aria-hidden="true"></i> {{ 'common.btnCancel' | translate }}</button>
                   <button type="submit" class="btn btn-defaut bg-submit">
                     <i *ngIf="!isSubmittingEducation" class="fa fa-check-circle" aria-hidden="true"></i>
                     <i *ngIf="isSubmittingEducation" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                    Cập nhật
+                    {{ 'common.btnUpdate' | translate }}
                   </button>
                 </div>
               </div>
