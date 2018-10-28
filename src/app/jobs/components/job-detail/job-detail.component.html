@@ -53,8 +53,11 @@
           <h3>{{job.title}}</h3>
           <div [innerHTML]="job.description"></div>
 
-          <h2>Requirement</h2>
+          <h2 *ngIf="job.requirements">Requirement</h2>
           <div [innerHTML]="job.requirements" ></div>
+
+          <h2 *ngIf="job.benefits">Benefits</h2>
+          <div [innerHTML]="job.benefits" ></div>
         </div>
       </div>
 
