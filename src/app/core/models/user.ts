@@ -23,6 +23,7 @@ export enum Role {
 }
 
 export class User {
+  profileImageURL: string;
   id: number;
   email: string;
   password: string;
