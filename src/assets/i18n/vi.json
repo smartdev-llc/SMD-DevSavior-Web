@@ -3,7 +3,11 @@
     "yesDialog": "Đồng ý",
     "noDialog": "Bỏ qua",
     "titleDialog": "Yêu cầu xác nhận",
-    "descriptionDialog": "Bạn có chắc chắn?"
+    "descriptionDialog": "Bạn có chắc chắn?",
+    "btnUpdate": "Cập nhật",
+    "btnCancel": "Hủy",
+    "btnEdit": "Sửa",
+    "btnDelete": "Xóa"
   },
   "validation": {
     "fieldRequired": "Thông tin bắt buộc",
@@ -88,5 +92,22 @@
     "from": "Từ",
     "to": "Đến",
     "postJobSubmit": "Đăng tin"
+  },
+  "language": {
+    "beginner": "Sơ cấp",
+    "intermediate": "Trung cấp",
+    "advanced": "Cao cấp",
+    "native": "Bản ngữ",
+    "no": "Không",
+    "languages": "Ngoại ngữ",
+    "level": "Trình độ",
+    "english": "Tiếng Anh",
+    "french": "Tiếng Pháp",
+    "german": "Tiếng Đức",
+    "spanish": "Tiếng Tây Ban Nha",
+    "russian": "Tiếng Nga",
+    "korean": "Tiếng Hàn",
+    "chinese": "Tiếng Trung",
+    "japanese": "Tiếng Nhật"
   }
 }
