@@ -2,189 +2,188 @@
 
 <!-- Page Title-->
 <div class="container-fluid page-title">
-  <div class="row green-banner">
-    <div class="container main-container">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="row green-banner">
+        <div class="container main-container">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-        <!--Job Name-->
-        <h3 class="white-heading">{{job?.category.name}}</h3>
+                <!--Job Name-->
+                <h3 class="white-heading">{{job?.category.name}}</h3>
 
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right" >
-        <div class="favourite">Save Job<i class="fa fa-star-o"></i><span>Posted on March 2016</span></div>
-      </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right">
+                <div class="favourite">Save Job<i class="fa fa-star-o"></i><span>Posted on March 2016</span></div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="row dashboard">
-    <div class="container main-container gery-bg">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
-        <div class="seprator ">
-          <div class="no-padding user-image"><img src="assets/images/job-admin.png" alt=""/></div>
-          <div class="user-tag">{{company?.name}}<span>{{company?.contactName}}</span></div>
-          <div class="job-status"><span class="label job-type job-partytime">{{job?.category.name}}</span></div>
+    <div class="row dashboard">
+        <div class="container main-container gery-bg">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
+                <div class="seprator ">
+                    <div class="no-padding user-image"><img src="assets/images/job-admin.png" alt="" /></div>
+                    <div class="user-tag">{{company?.name}}<span>{{company?.contactName}}</span></div>
+                    <div class="job-status"><span class="label job-type job-partytime">{{job?.category.name}}</span></div>
+                </div>
+                <div class="seprator">
+                    <div class="user-tag" *ngIf="job"><label>Sallary<span>${{ job.fromSalary }} - ${{ job.toSalary }}</span></label></div>
+                </div>
+                <div class="seprator">
+                    <!--<div class="user-tag"><label>Hours<span>44h / week</span></label></div>-->
+                </div>
+                <div class="seprator">
+                    <div class="user-tag"><label>Locations<span>{{company?.address}}</span></label></div>
+                </div>
+            </div>
         </div>
-        <div class="seprator">
-          <div class="user-tag" *ngIf="job"><label>Sallary<span>${{ job.fromSalary }} - ${{ job.toSalary }}</span></label></div>
-        </div>
-        <div class="seprator">
-          <!--<div class="user-tag"><label>Hours<span>44h / week</span></label></div>-->
-        </div>
-        <div class="seprator">
-          <div class="user-tag"><label>Locations<span>{{company?.address}}</span></label></div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 <!--Page Title-->
 
 <!-- Job Data -->
 <div class="container-fluid jpd-data white-bg">
-  <div class="row">
-    <div class="container main-container-job">
-      <div class="col-lg-9 col-md-9 col-sm-8">
-        <div class="post-image">
+    <div class="row">
+        <div class="container main-container-job">
+            <div class="col-lg-9 col-md-9 col-sm-8">
+                <div class="post-image">
 
-          <!--Cover Image-->
-          <img src="{{coverCompany}}" alt="" style="max-height: 28vh"/>
+                    <!--Cover Image-->
+                    <img src="{{coverCompany}}" alt="" style="max-height: 28vh" />
+                </div>
+                <div *ngIf="job" class="content">
+                    <h3>{{job.title}}</h3>
+                    <div [innerHTML]="job.description"></div>
+
+                    <h2 *ngIf="job.requirements">Requirement</h2>
+                    <div [innerHTML]="job.requirements"></div>
+
+                    <h2 *ngIf="job.benefits">Benefits</h2>
+                    <div [innerHTML]="job.benefits"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 sidebar">
+                <div class="widget w1">
+                    <ul>
+                        <li>
+                            <a>
+                                <!--Apply job button-->
+                                <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job" (click)="redirectToLogin()">APPLY FOR JOB</span>
+                                <span *ngIf="isStudentRole" (click)="applyJob()" class="label job-type apply-job">APPLY FOR JOB</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <!--Logo Image-->
+                            <img class="img-responsive circle-logo-image" src="{{logoCompany}}" alt="" />
+                        </li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="{{company?.website}}"><i class="fa fa-link display-inline"></i>{{company?.website}}</a></li>
+                        <li><a href="#"><i class="fa fa-envelope display-inline"></i>{{company?.email}}</a></li>
+                        <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company?.phoneNumber}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-        <div *ngIf="job" class="content">
-          <h3>{{job.title}}</h3>
-          <div [innerHTML]="job.description"></div>
-
-          <h2 *ngIf="job.requirements">Requirement</h2>
-          <div [innerHTML]="job.requirements" ></div>
-
-          <h2 *ngIf="job.benefits">Benefits</h2>
-          <div [innerHTML]="job.benefits" ></div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-4 sidebar">
-        <div class="widget w1">
-          <ul>
-            <li>
-              <a>
-                <!--Apply job button-->
-                <span *ngIf=" !isStudentRole && !isCompanyRole"
-                  class="label job-type apply-job" (click)="redirectToLogin()">APPLY FOR JOB</span>
-                <span *ngIf="isStudentRole" (click)="applyJob()" class="label job-type apply-job" >APPLY FOR JOB</span>
-
-              </a>
-            </li>
-            <li>
-              <!--Logo Image-->
-              <img class="img-responsive circle-logo-image" src="{{logoCompany}}" alt=""/>
-            </li>
-          </ul>
-          <ul class="social">
-            <li><a href="{{company?.website}}"><i class="fa fa-link display-inline"></i>{{company?.website}}</a></li>
-            <li><a href="#"><i class="fa fa-envelope display-inline"></i>{{company?.email}}</a></li>
-            <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company?.phoneNumber}}</a></li>
-          </ul>
-        </div>
-
-      </div>
     </div>
-  </div>
 
 </div>
 <!--Job Data-->
 
 <!-- Recommended Jobs-->
 <div class="container-fluid  job-recom">
-  <div class="row">
-    <div class="main-container">
-      <div class="col-lg-12 text-center">
-        <h3>Recommended Jobs</h3>
+    <div class="row">
+        <div class="main-container">
+            <div class="col-lg-12 text-center">
+                <h3>Recommended Jobs</h3>
 
-      </div>
-      <div id="recommended-job" class="owl-carousel owl-template">
-        <!--Recomended job-->
-        <div class="item recom-job 01">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+            </div>
+            <div id="recommended-job" class="owl-carousel owl-template">
+                <!--Recomended job-->
+                <div class="item recom-job 01">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
 
-          </div>
+                    </div>
+                </div>
+                <!--Recomended job-->
+                <!--Recomended job-->
+                <div class="item recom-job 02">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+
+                    </div>
+                </div>
+                <!--Recomended job-->
+                <!--Recomended job-->
+                <div class="item recom-job 03">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+
+                    </div>
+                </div>
+                <!--Recomended job-->
+                <!--Recomended job-->
+                <div class="item recom-job 04">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+
+                    </div>
+                </div>
+                <!--Recomended job-->
+                <!--Recomended job-->
+                <div class="item recom-job 05">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+                    </div>
+                </div>
+                <!--Recomended job-->
+                <div class="item recom-job 06">
+                    <div class="related_jos">
+                        <h4>Web Designer at Google inc </h4>
+                        <span class="label job-type job-partytime">Party Time</span>
+                        <p>New Yourk<br />Google INC opening</p>
+                        <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+
+                    </div>
+                </div>
+                <!--Recomended job-->
+            </div>
+
+
         </div>
-        <!--Recomended job-->
-        <!--Recomended job-->
-        <div class="item recom-job 02">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-          </div>
-        </div>
-        <!--Recomended job-->
-        <!--Recomended job-->
-        <div class="item recom-job 03">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-          </div>
-        </div>
-        <!--Recomended job-->
-        <!--Recomended job-->
-        <div class="item recom-job 04">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-          </div>
-        </div>
-        <!--Recomended job-->
-        <!--Recomended job-->
-        <div class="item recom-job 05">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-          </div>
-        </div>
-        <!--Recomended job-->
-        <div class="item recom-job 06">
-          <div class="related_jos">
-            <h4>Web Designer at Google inc </h4>
-            <span class="label job-type job-partytime">Party Time</span>
-            <p>New Yourk<br />Google INC opening</p>
-            <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-          </div>
-        </div>
-        <!--Recomended job-->
-      </div>
-
-
     </div>
-  </div>
 </div>
 <!--Job Recoended-->
 
 <!--Blue Secions -->
 <div class="container-fluid green-banner" style="background:#12cd6a">
-  <div class="row">
-    <div class="container main-container v-middle" id="style-2">
-      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-12  ">
-        <h3 class="white-heading">Got a question?<span class="call-us">send us an email or <strong>call us at 1 (800) 555-5555</strong></span></h3>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-        <a href="#" class="btn btn-getstarted bg-red">get started now</a>
-      </div>
+    <div class="row">
+        <div class="container main-container v-middle" id="style-2">
+            <div class="col-lg-10 col-md-8 col-sm-8 col-xs-12  ">
+                <h3 class="white-heading">Got a question?<span class="call-us">send us an email or <strong>call us at 0905509951</strong></span></h3>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+                <!-- <a href="#" class="btn btn-getstarted bg-red">get started now</a> -->
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!--blue Section -->
 
