@@ -48,8 +48,6 @@ export class JobsFiltersComponent implements OnInit {
       location,
       qs
     }
-    if (category || location || qs) {
-      this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
-    }
+    this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
   }
 }
