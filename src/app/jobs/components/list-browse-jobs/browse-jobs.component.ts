@@ -17,7 +17,7 @@ import { JobService } from '../../../core/services/job.service';
 export class BrowseJobsComponent implements OnInit {
 
   totalItems: number = 0;
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 10;
   currentPage: number = 1;
   listJobs: Array<any> = [];
   searchJobForm: FormGroup;
@@ -75,13 +75,11 @@ export class BrowseJobsComponent implements OnInit {
     const { category, location, qs } = this.searchJobForm.value
     this.queryParams = {
       category: category ? category.id : '',
-      location,
-      qs
+      location: location ? location : '',
+      qs: qs ? qs : ''
     }
-    if (category || location || qs) {
-      this.router.navigate(['/browse-jobs'], { queryParams: this.queryParams, queryParamsHandling: 'merge', replaceUrl: true });
-      this.loadJobs();
-    }
+    this.router.navigate(['/browse-jobs'], { queryParams: this.queryParams, queryParamsHandling: 'merge', replaceUrl: true });
+    this.loadJobs();
   }
 
   loadJobs(): void {

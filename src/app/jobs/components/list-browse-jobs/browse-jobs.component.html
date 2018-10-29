@@ -45,9 +45,21 @@
         <!-- col-lg-5 filter_width -->
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 filter_width bgicon location">
           <div class="form-group">
-            <input formControlName="location" type="text" class="form-control" placeholder="Location">
-            <span class="glyphicon fa fa-location-arrow" aria-hidden="true"></span>
+            <div class="dropdown">
+              <button class="filters_feilds btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Da Nang
+                <span class="glyphicon fa fa-location-arrow"></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <ul class="tiny_scrolling" id="style-3">
+                  <li>
+                    <a>Da Nang</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
+
           <span>e.g. New York</span>
         </div>
         <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 filter_width bgicon submit">
