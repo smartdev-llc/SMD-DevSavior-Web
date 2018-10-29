@@ -7,6 +7,7 @@ import {AppErrors} from '../../../core/error/app-errors';
 import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
+import { LanguageService } from '../../../layout/services/language.service';
 
 @Component({
   selector: 'login',
@@ -21,18 +22,28 @@ export class StLoginComponent implements OnInit, OnDestroy {
   isResendEmailSuccess = false;
   isSubmited = false;
   formErrorMessage: string;
+  isEnLang: boolean = false;
   returnUrl: string;
 
-  constructor(
+  constructor(private languageService: LanguageService,
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private route: ActivatedRoute
-  ){}
+  ){ const lang = languageService.getCachedLanguage()
+    languageService.setDefaultLang()
+    if (lang === 'en') {
+      this.isEnLang = true
+    }}
 
   ngOnInit() {
     this.initForm();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+  changeLanguage(language: string): void {
+    this.languageService.changeLanguage(language).subscribe(() => {
+      language === 'en' ? this.isEnLang = true : this.isEnLang = false;
+    });
   }
 
   get email() {
