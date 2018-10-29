@@ -31,7 +31,6 @@ import { DetailCompanyComponent } from './components/detail-company/detail-compa
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
-import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { LostPasswordComponent } from './components/lost-password/lost-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 

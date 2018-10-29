@@ -59,7 +59,9 @@
     "company" :"Company",
     "email": "Email",
     "phoneNumber": "Phone number",
-    "website": "Website"
+    "website": "Website",
+    "no_jobs_found": "No jobs found",
+    "loadmore_jobs": "Show more Jobs"
   },
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",
