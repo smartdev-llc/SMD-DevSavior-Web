@@ -11,8 +11,8 @@ export class AboutUsComponent implements OnInit {
       name: 'Le Vu Nguyen',
       avatar: '../../../../assets/images/nguyen.jpg',
       linkFB: 'https://www.facebook.com/le.v.nguyen.18',
-      decsription: 'Founder and CEO JuniorViec',
-      position:' CEO JuniorViec'
+      decsription: 'Founder and Sales Manager JuniorViec',
+      position:' Sales Manager'
     },
     {
       name: 'Tran Tien Dung',
@@ -36,9 +36,9 @@ export class AboutUsComponent implements OnInit {
       position:'Front-end Developer'
     },
     {
-      name: 'Nguyen Khanh Duy',
+      name: 'Le Khanh Duy',
       avatar: '../../../../assets/images/duy.jpg',
-      linkFB: 'https://www.facebook.com/aibietcaij',
+      linkFB: 'https://www.facebook.com/khanhduy.179',
       decsription: 'Back-end Developer of JuniorViec',
       position:'Back-end Developer'
     },
