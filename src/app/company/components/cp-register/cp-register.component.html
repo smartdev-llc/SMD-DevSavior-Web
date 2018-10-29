@@ -19,7 +19,7 @@
                             <div class="row section-form">
                                 <div class="col-sm-10 col-sm-offset-1">
                                     <div class="text-center m-t-lg m-b-lg">
-                                        <h1>Hãy tham gia cùng hàng ngàn công ty đang sử dụng Juniorviec mỗi ngày</h1>
+                                        <h1>{{'register.titleCp' | translate }}</h1>
                                     </div>
                                     <form [formGroup]="registerForm" (ngSubmit)="registerNewUser()" novalidate="novalidate" id="formSignUp" class="m-t-lg" role="form">
                                         <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
@@ -34,7 +34,7 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="user_email" aria-required="true">Địa Chỉ Email</label>
+                                            <label class="control-label required" for="user_email" aria-required="true">{{ 'register.mail' | translate }}</label>
                                             <input type="email" formControlName="email" id="user_email" name="email" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.email.invalid" class="error-input">
                                                 <div *ngIf="f.email.errors.required">
@@ -50,7 +50,7 @@
                                         </div>
                                         <ng-container formGroupName="passwordGroup">
                                             <div class="form-group">
-                                                <label class="control-label required" for="password" aria-required="true">Mật khẩu (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
+                                                <label class="control-label required" for="password" aria-required="true">{{ 'register.pass' | translate }} (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
                                                 <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" aria-required="true"> -->
                                                 <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
                                                 <div *ngIf="p.password.invalid" class="error-input">
@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label required" for="user_password_second" aria-required="true">Nhập Lại Mật Khẩu</label>
+                                                <label class="control-label required" for="user_password_second" aria-required="true">{{ 'register.cPass' | translate }}</label>
                                                 <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control" [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}" formControlName="repeatPassword"
                                                     aria-required="true">
                                                 <div *ngIf="passwordGroup.invalid " class="error-input">
@@ -75,16 +75,16 @@
                                                     </div>
 
                                                 </div>
-                                                <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.
+                                                <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> {{ 'register.pPass' | translate }}
                                                 </p>
                                             </div>
                                         </ng-container>
                                         <div class="form-group">
-                                            <label class="control-label required" for="company_name" aria-required="true">Tên Công Ty</label>
+                                            <label class="control-label required" for="company_name" aria-required="true">{{ 'register.nameCp' | translate }}</label>
                                             <input type="text" id="company_name" name="name" [ngClass]="{ 'has-error': submitted && f.name.errors}" formControlName="name" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.name.invalid" class="error-input">
                                                 <div *ngIf="f.name.errors.required">
-                                                    First name is required.
+                                                     name is required.
                                                 </div>
                                                 <div *ngIf="f.name.errors.pattern">
                                                     No special characters or numbers
@@ -92,11 +92,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="user_company_name" aria-required="true">Tên Người Tuyển Dụng Của Công Ty</label>
+                                            <label class="control-label required" for="user_company_name" aria-required="true">{{ 'register.nameHR' | translate }}</label>
                                             <input type="text" id="user_company_name" name="contactName" [ngClass]="{ 'has-error': submitted && f.contactName.errors}" formControlName="contactName" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.contactName.invalid" class="error-input">
                                                 <div *ngIf="f.contactName.errors.required">
-                                                    Last name is required.
+                                                     name is required.
                                                 </div>
                                                 <div *ngIf="f.contactName.errors.pattern">
                                                     No special characters or numbers
@@ -105,7 +105,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label required" for="cp_location" aria-required="true">Thành Phố</label>
+                                            <label class="control-label required" for="cp_location" aria-required="true">{{ 'register.city' | translate }}</label>
                                             <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city">
                         <option value="DN">Da Nang</option>
                         <option value="HN">Ha Noi</option>
@@ -119,7 +119,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="cp_address" aria-required="true">Địa chỉ</label>
+                                            <label class="control-label required" for="cp_address" aria-required="true">{{ 'register.address' | translate }}</label>
                                             <input type="text" name="address" [ngClass]="{ 'has-error': submitted && f.address.errors}" formControlName="address" id="cp_address" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.address.invalid" class="error-input">
                                                 <div *ngIf="f.address.errors.required">
@@ -128,7 +128,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="user_phone" aria-required="true">Điện Thoại</label>
+                                            <label class="control-label required" for="user_phone" aria-required="true">{{ 'register.phone' | translate }}</label>
                                             <input type="text" id="user_phone" name="phoneNumber" [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors}" formControlName="phoneNumber" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
                                                 <div *ngIf="f.phoneNumber.errors.required">
@@ -137,7 +137,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label required" for="cp_website" aria-required="true">Website</label>
+                                            <label class="control-label required" for="cp_website" aria-required="true">{{ 'register.web' | translate }}</label>
                                             <input type="text" id="cp_website" name="website" [ngClass]="{ 'has-error': submitted && f.website.errors}" formControlName="website" required="required" class="form-control form-control" aria-required="true">
                                             <div *ngIf="submitted && f.website.invalid" class="error-input">
                                                 <div *ngIf="f.website.errors.required">
@@ -148,7 +148,7 @@
                                         <div class="form-group">
                                             <label for="#user_termsAccepted" style="display: content;">
                         <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}">
-                        Tôi đã đọc và đồng ý với các <a routerLink="/privacy-policy">Quy định bảo mật</a> và <a routerLink="/privacy-policy">Thỏa thuận sử dụng </a></label>
+                        {{ 'register.isRead' | translate }} <a routerLink="/privacy-policy"> {{ 'register.policy' | translate }} </a></label>
                                             <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
                                                 <div *ngIf="f.checkbox.errors.required">
                                                     <p style="display: inline-block;">
@@ -158,10 +158,10 @@
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-top: 50px;">
-                                            <input type="submit" value="Đăng ký" class=" btn btn-success btn-dk">
+                                            <input type="submit" value="{{ 'register.signUp' | translate }}" class=" btn btn-success btn-dk">
                                         </div>
                                         <div class="form-group">
-                                            <p class="text-center">Bạn đã có tài khoản ? <a routerLink="/employer/login">Đăng nhập ngay</a></p>
+                                            <p class="text-center">{{ 'register.HaveAcc' | translate }}<a routerLink="/employer/login">{{ 'register.signInNow' | translate }}</a></p>
                                         </div>
                                     </form>
                                 </div>
