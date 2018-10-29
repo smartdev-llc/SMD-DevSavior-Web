@@ -59,7 +59,9 @@
     "company" :"Công ty",
     "email": "Email",
     "phoneNumber": "Số điện thoại",
-    "website": "Website"
+    "website": "Website",
+    "no_jobs_found": "Không có công việc nào",
+    "loadmore_jobs": "Hiển thị thêm"
   },
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",
@@ -185,5 +187,54 @@
     "toMonth": "Đến tháng",
     "currentJob": "Công việc hiện tại",
     "from": "Từ"
+  },
+  "footer":{
+    "About":"Về JuniorViec",
+    "Partner":"Công ty",
+    "AboutUs":"Đội ngũ",
+    "TermsOfUse":"Quy định sử dụng",
+    "Privacy":"Chính sách bảo mật",
+    "Contact":"Liên hệ với chúng tôi",
+    "address":" 05 Tân Lập 1, Phường Thạch Thang, Quận Hải Châu, TP Đà Nẵng",
+    "Copyright":"Copyright © Công Ty Cổ Phần JuniorViec "
+  },
+  "login":{
+    "titleCp":"Đăng Nhập Vào Trang Quản Lý Tuyển Dụng",
+    "titleSt":"Đăng Nhập Vào Tài Khoản Ứng Viên",
+    "mail":"Địa chỉ Email",
+    "paMail":"Nhập vào địa chỉ email của bạn",
+    "pass":"Mật khẩu",
+    "paPass":"Nhập vào mật khẩu của bạn",
+    "signIn":"Đăng Nhập",
+    "LostPass":"Quên mật khẩu ?",
+    "signUpNow":"Đăng ký ngay !",
+    "socialFB":"Đăng nhập với Facebook",
+    "socialGG":"Đăng nhập với Google",
+    "verify":"Chúng tôi vừa gửi cho bạn một xác minh tới email của bạn",
+    "resend": "Vui lòng xác thực tài khoản của bạn hoặc click vào ",
+    "resend2":"đây",
+    "resend3":"để chúng tôi gửi lại mã xác nhận",
+    "dontHaveAcc":"Bạn chưa có tài khoản?"
+  },
+  "register":{
+    "titleCp":"Hãy tham gia cùng hàng ngàn công ty đang sử dụng Juniorviec mỗi ngày",
+    "titleSt":"Đăng ký tài khoản ứng viên của bạn",
+    "mail":"Địa Chỉ Email",
+    "pass":"Mật khẩu",
+    "cPass":"Nhập lại mật khẩu",
+    "signUp":"Đăng ký",
+    "nameCp":"Tên công ty",
+    "signInNow":"Đăng nhập ngay",
+    "nameHR":"Tên người tuyển dụng của công ty",
+    "city":"Thành phố",
+    "address":"Địa chỉ",
+    "phone": "Điện thoại",
+    "web":"Website",
+    "HaveAcc":"Bạn đã có tài khoản?",
+    "isRead":"Tôi đã đọc và đồng ý với các",
+    "policy":" Quy định bảo mật ",
+    "pPass":"Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.",
+    "fName":"Họ",
+    "lName":"Tên"
   }
 }

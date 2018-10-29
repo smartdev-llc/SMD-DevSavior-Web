@@ -14,7 +14,7 @@
         <div class="tab-content">
           <div id="login" class="white-text">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
-              <p>Login to your Candidate account.</p>
+              <p>{{ 'login.titleSt' | translate }} </p>
               <form name="contact_us" class="contact_us validation-form" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
 
                 <!--Form Error-->
@@ -29,13 +29,13 @@
 
                 <!--Email-->
                 <div class="form-group required">
-                  <label>Name</label>
+                  <label>{{ 'login.mail' | translate }}</label>
                   <div class="input-container">
-                    <input formControlName="email" type="email" name="email" />
+                    <input formControlName="email" type="email" name="email" placeholder="{{ 'login.paMail' | translate }}"/>
                     <div
                       *ngIf="(email.invalid && email.touched) || isSubmited"
                       class="error-input" >
-                      <div *ngIf="email.getError('required')">Field is required</div>
+                      <div *ngIf="email.getError('required')">{{ 'validation.fieldRequired' | translate }}</div>
                       <div *ngIf="email.getError('email')">Email is required</div>
                     </div>
                   </div>
@@ -43,13 +43,13 @@
 
                 <!--Password-->
                 <div class="form-group required">
-                  <label>Password</label>
+                  <label>{{ 'login.pass' | translate }}</label>
                   <div class="input-container">
-                    <input required type="password" name="password" id="password" formControlName="password"/>
+                    <input required type="password" name="password" id="password" formControlName="password" placeholder="{{ 'login.paPass' | translate }}"/>
                     <div
                       *ngIf="(password.invalid && password.touched) || isSubmited"
                       class="error-input" >
-                      <div *ngIf="password.getError('required')">Field is required</div>
+                      <div *ngIf="password.getError('required')">{{ 'validation.fieldRequired' | translate }}</div>
                     </div>
                   </div>
                 </div>
@@ -57,33 +57,34 @@
                   <label></label>
                   <div class="input-container">
                       <div class="error-input">
-                        Please verify your account. Or click 
-                          <a class="w-u-link l-pointer"  (click)="resendEmail(email)">here</a> to resend a new verification email.
+                        {{ 'login.resend' | translate }}
+                          <a class="w-u-link l-pointer"  (click)="resendEmail(email)">{{ 'login.resend2' | translate }}</a> {{ 'login.resend3' | translate }}
                       </div>
                   </div>
                 </div>
                 <div class="form-group resend-success" *ngIf="isResendEmailSuccess">
                   <label></label>
                   <div class="input-container">
-                    We just sent you an verification to your email
+
+                    {{ 'login.verify' | translate }}
                   </div>
                 </div>
 
                 <div class="form-group submit">
-                  <label>Submit</label>
-                  <input type="submit" name="submit" value="Sign in" class="signin" id="signin">
-                  <a href="/lost-password" class="lost_password">Lost Password?</a>
+                  <label></label>
+                  <input type="submit" name="submit" value="{{ 'login.signIn' | translate }}" class="signin" id="signin">
+                  <a href="/lost-password" class="lost_password">{{ 'login.LostPass' | translate }}</a>
                 </div>
 
                 <div class="form-group">
                   <a class="col-lg-offset-2 btn btn-social btn-fb" (click)="socialLogin('facebook')">
                     <i class="fa fa-facebook-square"></i>
-                    <span>Sign in with Facebook</span>
+                    <span>{{ 'login.socialFB' | translate }}</span>
                   </a>
 
                   <a class="col-lg-offset-2 btn btn-social btn-gg" (click)="socialLogin('google')">
                     <i class="fa fa-google-plus"></i>
-                    <span>Sign in with Google</span>
+                    <span>{{ 'login.socialGG' | translate }}</span>
                   </a>
                 </div>
 
@@ -102,7 +103,7 @@
                     <p>A member of our Sales team will contact you shortly.</p>
                   </li>
                   <li>
-                    <a routerLink="/register" class="label job-type register">Register</a>
+                    <a routerLink="/register" class="label job-type register">{{ 'login.signUpNow' | translate }}</a>
                   </li>
                 </ul>
               </div>

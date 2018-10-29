@@ -796,19 +796,22 @@ ul.dropdown-menu li:last-child a {
   float: left;
 }
 
-.job-type.job-parttime {
+.job-type.PART_TIME {
   background: #31ce8a;
 }
 
-.job-type.job-internship {
+.job-type.CONTRACT {
   background: #efc36e;
 }
 
-.job-type.job-fulltime {
+.job-type.FULL_TIME {
+  background: #31ce8a;
+}
+.job-type.INTERNSHIP {
   background: #31ce8a;
 }
 
-.label.job-partytime {
+.label.job-parttime {
   background: #f71212 none repeat scroll 0 0;
   border-radius: 33px;
   text-transform: none;
@@ -4290,4 +4293,8 @@ span.login-ins {
 }
 .l-pointer {
   cursor: pointer;
+}
+.company-logo-job {
+  width: 40px;
+  height: 40px;
 }

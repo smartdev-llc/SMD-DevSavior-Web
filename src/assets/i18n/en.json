@@ -59,7 +59,9 @@
     "company" :"Company",
     "email": "Email",
     "phoneNumber": "Phone number",
-    "website": "Website"
+    "website": "Website",
+    "no_jobs_found": "No jobs found",
+    "loadmore_jobs": "Show more Jobs"
   },
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",
@@ -185,5 +187,54 @@
     "toMonth": "To month",
     "currentJob": "Current Job",
     "from": "from"
+  },
+  "footer":{
+    "About":"About JuniorViec",
+    "Partner":"Partner",
+    "AboutUs":"About us",
+    "TermsOfUse":"Terms Of Use",
+    "Privacy":"Privacy Statement",
+    "Contact":"Contact with us",
+    "address":" 05 Tan Lap 1, Thach Thang Ward, Hai Chau District, Da Nang City",
+    "Copyright":"Copyright © JuniorViec JSC"
+  },
+  "login":{
+    "titleCp":"Login and Recruit your staff now",
+    "titleSt":"Login to your Candidate account.",
+    "paMail":"Enter your email",
+    "mail":"Email",
+    "paPass":"Enter your password",
+    "pass":"Password",
+    "signIn":"Sign In",
+    "LostPass":"forgot password",
+    "signUpNow":"Register now",
+    "socialFB":"Sign in with Facebook",
+    "socialGG":"Sign in with Google",
+    "verify":"We just sent you an verification to your email",
+    "resend": "Please verify your account. Or click  ",
+    "resend2":"here",
+    "resend3":"to resend a new verification email.",
+    "dontHaveAcc":"DON'T HAVE AN ACCOUNT?"
+  },
+  "register":{
+    "titleCp":"Register and Recruit your staff now",
+    "titleSt":"Register your Candidate account.",
+    "mail":"Email",
+    "pass":"Password",
+    "cPass":"Confirm Password",
+    "signUp":"Sign Up",
+    "nameCp":"Company Name",
+    "signInNow":"Login Now",
+    "nameHR":"HR name",
+    "city":"City",
+    "address":"Address",
+    "phone": "Phone",
+    "web":"Website",
+    "HaveAcc":"DO YOU HAVE AN ACCOUNT?",
+    "isRead":"I have read & accept",
+    "policy":"  Privacy Policy and Terms of Use ",
+    "pPass":"Your passwords at JuniorViec are encrypted and secured.",
+    "fName":"First Name",
+    "lName":"Last Name"
   }
 }
