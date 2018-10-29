@@ -59,7 +59,9 @@
     "company" :"Công ty",
     "email": "Email",
     "phoneNumber": "Số điện thoại",
-    "website": "Website"
+    "website": "Website", 
+    "no_jobs_found": "Không có công việc nào",
+    "loadmore_jobs": "Hiển thị thêm"
   },
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",

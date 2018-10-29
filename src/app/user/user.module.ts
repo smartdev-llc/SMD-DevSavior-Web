@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LayoutModule } from '../layout/index';
+import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';

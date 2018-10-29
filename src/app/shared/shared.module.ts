@@ -30,6 +30,7 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
+import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
     ParseSkill,
-    TypeOfJobTime
+    TypeOfJobTime,
+    SalaryConverterPipe
   ],
   exports: [
     CommonModule,
@@ -63,7 +65,9 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
     UploadfileComponent,
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
-    ParseSkill
+    ParseSkill,
+    TypeOfJobTime,
+    SalaryConverterPipe
   ],
   imports: [
     CommonModule,

@@ -83,4 +83,15 @@ export class JobService {
         map((respone: any) => respone)
       )
   }
+
+  getJobsOfCompany(companyId: string, size: number, page: number) {
+    return this.http.get('/companies/'+ companyId + '/jobs', {params: {
+                                                                'size': size.toString(),
+                                                                'page': page.toString() }}
+                    )
+                    .pipe(
+                      map((response:any) => response),
+                      catchError(this.handleError)
+                    )
+  }
 }

@@ -64,7 +64,7 @@
                 <div class="media-left col-md-3 col-sm-6">
                     <div class="avatar">
                         <!-- <img src="https://cdn1.mywork.com.vn/company-logo-medium/102018/10a072eb032fac5febce029ee8cec33d.png" class="media-object" alt="Công ty TNHH LOGIFORM" width="100%"> -->
-                        <img src="{{ company.logoURL || 'https://cdn1.mywork.com.vn/company-logo-medium/102018/10a072eb032fac5febce029ee8cec33d.png' }}" alt="">
+                        <img src="{{ company.logoURL | photoURLConverter:'/assets/images/company-logo.png' }}" alt="">
 
                     </div>
                 </div>
@@ -88,86 +88,52 @@
                     <!--Search Result 01-->
                     <div class="col-md-12">
                         <h3 class="title-company-w fs-20">{{'company.joblist' | translate}}</h3>
+                        <p *ngIf="!jobs">{{ 'company.no_jobs_found' | translate}}</p>
+                        <div class="col-md-12 ">
+                            <ng-template ngFor let-job [ngForOf]="jobs" let-i="index" [ngForTrackBy]="trackByFn">
+                                <a >
+                                <div class="filter-result 03">
+                                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
+                                        <div class="company-left-info pull-left">
+                                            <img class="company-logo-job" src="{{ company.logoURL | photoURLConverter:'/assets/images/company-logo.png' }}" alt="">
 
-                        <a href="#">
-                            <div class="filter-result 03">
-                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-                                    <div class="company-left-info pull-left">
-                                        <img src="assets/images/company-logo.png" alt="">
-
+                                        </div>
+                                        <div class="desig">
+                                            <h3>{{ job.title }} </h3>
+                                            <h4>{{ job.skills | parseskill }}</h4>
+                                        </div>
                                     </div>
-                                    <div class="desig">
-                                        <h3>Full Stack Web Developer</h3>
-                                        <h4>C# / ASP.NET / MVC</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-                                    <div class="pull-right location">
-                                        <p>Loss Angeles</p>
-                                    </div>
-                                    <div class="data-job">
-                                        <h3>£10 - £12 an hour</h3>
-                                        <span class="label job-type job-internship ">Internship</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                        <!--jobs result-->
-                        <a href="#">
-                            <div class="filter-result 04">
-                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-                                    <div class="company-left-info pull-left">
-                                        <img src="assets/images/company-logo.png" alt="">
-                                    </div>
-                                    <div class="desig">
-                                        <h3>Web Developer / PHP &amp; Drupal Ninja!</h3>
-                                        <h4>PHP, MySQL, Linux, Wordpress</h4>
+                                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
+                                        <div class="pull-right location">
+                                            <p>
+                                            <i _ngcontent-c8="" class="fa fa-map-marker"></i>
+                                            {{ company.address }}
+                                            </p>
+                                        </div>
+                                        <div class="data-job">
+                                            <h3> 
+                                                <i _ngcontent-c7="" class="fa fa-money"></i>
+                                                {{job.fromSalary | salaryConverter:job.toSalary:'$'}}
+                                            </h3>
+                                            <span class="label job-type {{job.jobType}} ">{{job.jobType | typeOfJobTime}}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-                                    <div class="pull-right location">
-                                        <p>Loss Angeles</p>
-                                    </div>
-                                    <div class="data-job">
-                                        <h3>£10 - £12 an hour</h3>
-                                        <span class="label job-type job-fulltime ">Full Time</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                        <!--jobs result-->
-                        <a href="#">
-                            <div class="filter-result 02">
-                                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pull-left">
-                                    <div class="company-left-info pull-left">
-                                        <img src="assets/images/company-logo.png" alt="">
-                                    </div>
-                                    <div class="desig">
-                                        <h3>Front-End UI Web Developer - ReactJS</h3>
-                                        <h4>PHP, MySQL, Linux, Wordpress</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pull-right">
-                                    <div class="pull-right location">
-                                        <p>Loss Angeles</p>
-                                    </div>
-                                    <div class="data-job">
-                                        <h3>£10 - £12 an hour</h3>
-                                        <span class="label job-type job-partytime">Party Time</span>
-                                    </div>
-
-                                </div>
-                            </div>
+                            </a>
+                            </ng-template>
                             <div class="clearfix"></div>
-                            <div class="col-lg-12">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="load_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">   Show more Jobs <span class="glyphicon glyphicon-menu-down"></span>
-                               </button> </div>
-
-                        </a>
+                            <div class="col-lg-12 loader-wrapper">
+                                <div class="loadessr blur-loading" style="background: transparent" *ngIf="isLoadJob">
+                                    <div class="loader">
+                                    </div>
+                                </div>
+                                <button [style.visibility]="hideShowMoreButton ?  'hidden' : 'visible'" class="btn btn-default"  id="load_more" type="button" (click)="loadMoreJob()"> 
+                                    {{ 'company.loadmore_jobs' | translate }}<span class="glyphicon glyphicon-menu-down"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <!--jobs result-->
                     </div>
-                    <a href="#"> </a>
                     <!--Search Result 01-->
                 </div>
             </div>

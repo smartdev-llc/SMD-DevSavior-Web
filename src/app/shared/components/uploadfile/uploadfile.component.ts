@@ -10,7 +10,7 @@ import { FileUploader, ParsedResponseHeaders, FileItem } from 'ng2-file-upload';
 import { environment } from '../../../../environments/environment.prod';
 import { AuthService } from '../../../core/services/auth.service';
 import { PhotoURLConverterPipe } from '../../../core/pipes/photo-urlconverter.pipe';
-import { ToastrService } from '../../../../../node_modules/ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-uploadfile',

@@ -21,8 +21,6 @@ import { CategoryCompanyService } from '../core/services/category/CategoryCompan
 import { SkillService } from '../core/services/skill/SkillService';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
-
-import { ParseSkill } from '../core/pipes/parse-skill.pipe';
 import {JobService} from '../core/services/job.service';
 import {ProfileService} from '../company/services/profile.service';
 
