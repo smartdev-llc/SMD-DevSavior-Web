@@ -11,7 +11,7 @@ export class SalaryConverterPipe {
    * @param {any} value
    * @returns
    *
-   * @memberof ParseSkill
+   * @memberof SalaryConverterPipe
    */
   transform(minSalary: any, maxSalary:any, currency = 'USD'): string {
     if (!minSalary && !maxSalary) {

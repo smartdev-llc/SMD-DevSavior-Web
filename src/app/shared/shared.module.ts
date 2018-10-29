@@ -31,6 +31,7 @@ import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
 import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
+import { CityPipe } from '../core/pipes/city.pipe';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
     PhotoURLConverterPipe,
     ParseSkill,
     TypeOfJobTime,
-    SalaryConverterPipe
+    SalaryConverterPipe,
+    CityPipe
   ],
   exports: [
     CommonModule,
@@ -67,7 +69,8 @@ import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
     PhotoURLConverterPipe,
     ParseSkill,
     TypeOfJobTime,
-    SalaryConverterPipe
+    SalaryConverterPipe,
+    CityPipe
   ],
   imports: [
     CommonModule,

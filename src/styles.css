@@ -807,8 +807,11 @@ ul.dropdown-menu li:last-child a {
 .job-type.FULL_TIME {
   background: #31ce8a;
 }
+.job-type.INTERNSHIP {
+  background: #31ce8a;
+}
 
-.label.INTERNSHIP {
+.label.job-parttime {
   background: #f71212 none repeat scroll 0 0;
   border-radius: 33px;
   text-transform: none;
