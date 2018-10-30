@@ -34,7 +34,8 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(clonedRequest).pipe(
       catchError(error => {
         // handle if got 401 status it maybe token is token is expired
-        if (error.status === 401) {
+        const exceptRouters = ['/login', '/employer/login'];
+        if (error.status === 401 && (exceptRouters.indexOf(this.router.url) === -1)) {
           //remove users in local storage
           auth.removeTokens();
           //redirect to the signin page or show login modal here
