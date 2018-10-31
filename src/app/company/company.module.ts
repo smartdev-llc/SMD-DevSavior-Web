@@ -27,7 +27,6 @@ import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyS
 import { SkillService } from '../core/services/skill/SkillService';
 import { ProfileService } from './services/profile.service';
 import { CompanyVerifyAccountComponent } from './components/company-verify-account/company-verify-account.component';
-import { DetailCompanyComponent } from './components/detail-company/detail-company.component';
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
@@ -48,7 +47,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     SharedModule,
     PaginationModule.forRoot(),
     ScrollToModule.forRoot(),
-    
+
   ],
   declarations: [
     HomeComponent,
@@ -62,7 +61,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     PostJobComponent,
     CompanyProfileComponent,
     CompanyVerifyAccountComponent,
-    DetailCompanyComponent,
     BlackListCandidateComponent,
     ProfileDeletedComponent,
     ByResumeSearchComponent,

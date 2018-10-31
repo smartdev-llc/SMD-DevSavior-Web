@@ -6,9 +6,9 @@ import { LanguageService } from '../../../layout/services/language.service';
 import { JobService } from '../../../core/services/job.service';
 declare var $: any;
 @Component({
-  selector: 'app-detail-company',
-  templateUrl: './detail-company.component.html',
-  styleUrls: ['./detail-company.component.scss']
+  selector: 'app-company-detail',
+  templateUrl: './company-detail.component.html',
+  styleUrls: ['./company-detail.component.scss']
 })
 export class DetailCompanyComponent implements OnInit {
   slides = [

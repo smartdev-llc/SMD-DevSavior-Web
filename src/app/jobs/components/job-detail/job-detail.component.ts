@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
-import {ActivatedRoute, Router, RouterStateSnapshot} from '@angular/router';
-import {Authenticate, Role, User} from '../../../core/models/user';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Role, User} from '../../../core/models/user';
 import {AuthService} from '../../../core/services/auth.service';
 import {ToastrService} from 'ngx-toastr';
 import {AppErrors} from '../../../core/error/app-errors';
@@ -10,10 +10,8 @@ import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import {Duplicate} from '../../../core/error/duplicate';
 import {ProfileService} from '../../../company/services/profile.service';
-import {combineLatest, Observable} from 'rxjs';
 import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
-
 
 
 @Component({
@@ -28,10 +26,12 @@ export class JobDetailComponent implements OnInit {
   jobId: string;
   isStudentRole: boolean;
   isCompanyRole: boolean;
+  isLoading: boolean;
   company: Company;
   enviromentObj = environment;
   coverCompany = 'assets/images/job-image.png';
-  logoCompany =  'assets/images/widget1image.png';
+  logoCompany = 'assets/images/widget1image.png';
+  btnApplyJob: HTMLElement;
 
   constructor(
     private profileService: ProfileService,
@@ -44,14 +44,17 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit() {
     this.jobId = this.route.snapshot.paramMap.get('id');
+    this.isLoading = true;
     console.log('[QueryParam]', this.router.url);
 
+    //TODO: Add handle error for getDetailJob()
     this.jobService.getDetailJob(this.jobId).subscribe(data => {
-      this.job = data;
+      this.job =  data;
       this.company = <Company> data['company'];
+      this.isLoading = false;
 
-      this.company.logoURL &&  (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
-      this.company.coverURL &&  (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
+      this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
+      this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
 
       console.log('[JobDetailComponent][ngOnInit()]', data);
     });
@@ -59,15 +62,23 @@ export class JobDetailComponent implements OnInit {
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
     this.isCompanyRole = (this.user && this.user.role) === Role.Company;
-
-    console.log('role', this.isStudentRole);
   }
 
   redirectToLogin() {
     this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.url}});
   }
 
-  applyJob() {
+  applyJob(isApplied, btnApplyJobElement: HTMLElement) {
+    if (isApplied) {
+      return false;
+    }
+
+    //Change style for btn
+    btnApplyJobElement.className = 'label job-type pointer isApplied';
+    btnApplyJobElement.innerText = this.renderTextForBtnApplyJob(!isApplied);
+
+    this.btnApplyJob = btnApplyJobElement;
+
     this.jobService
       .applyJobForStudent(this.jobId)
       .subscribe(
@@ -81,6 +92,9 @@ export class JobDetailComponent implements OnInit {
 
   handleErrorJobDetailComponent(error: AppErrors) {
     console.log('[JobDetailComponent][handleErrorJobDetailComponent()]');
+    this.btnApplyJob.className = 'label job-type pointer apply-job';
+    this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
+
     if (error instanceof InternalServer) {
       console.log('Internal server', error.originalError);
     }
@@ -92,7 +106,7 @@ export class JobDetailComponent implements OnInit {
     }
     else if (error instanceof Duplicate) {
       console.log('Duplicate ', error.originalError);
-      this.toastr.error (error.originalError, 'Apply Job');
+      this.toastr.error(error.originalError, 'Apply Job');
     }
     else {
       console.log('app error', error);
@@ -100,4 +114,8 @@ export class JobDetailComponent implements OnInit {
     }
   }
 
+  renderTextForBtnApplyJob(isApplied): string {
+    if (isApplied) return 'Job Is Applied';
+    return 'Apply Job';
+  }
 }
