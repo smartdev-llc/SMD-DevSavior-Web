@@ -8,6 +8,7 @@ import { DetailCompanyComponent } from './components/company-detail/company-deta
 
 import { ListCompanyComponent } from './components/companies/companies.component';
 import { CompaniesRoutes as routes } from './companies.routes';
+import { CompanyDetailResolve } from './components/company-detail/company-detail.resolve';
 
 @NgModule({
   imports: [
@@ -21,6 +22,9 @@ import { CompaniesRoutes as routes } from './companies.routes';
   declarations: [
     ListCompanyComponent,
     DetailCompanyComponent
+  ],
+  providers: [
+    CompanyDetailResolve
   ]
 })
 export class CompaniesModule { }
