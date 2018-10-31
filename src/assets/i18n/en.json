@@ -48,7 +48,8 @@
     "buy_more_services" : "Buy More Services",
     "faq" : "FAQ",
     "log_out" : "Log Out",
-    "recruitment_center" : "Recruitment center"
+    "recruitment_center" : "Recruitment center",
+    "candidate_list": "Job's candidates"
   },
   "company": {
     "joblist": "Jobs",
@@ -61,7 +62,8 @@
     "phoneNumber": "Phone number",
     "website": "Website",
     "no_jobs_found": "No jobs found",
-    "loadmore_jobs": "Show more Jobs"
+    "loadmore_jobs": "Show more Jobs",
+    "no_candidates_found": "No Candidates found."
   },
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",

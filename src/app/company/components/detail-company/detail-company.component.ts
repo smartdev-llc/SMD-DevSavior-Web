@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { InfoCompanyService } from '../../../core/services/company/InfoCompany.service'
 import { Company } from '../../../core/models/company'
 import { LanguageService } from '../../../layout/services/language.service';
@@ -25,6 +25,7 @@ export class DetailCompanyComponent implements OnInit {
      
     }
   ];
+  isLoadingPage = true;
   company : Company;
   jobs: any[];
   isLoadJob = false;
@@ -33,7 +34,8 @@ export class DetailCompanyComponent implements OnInit {
   companyId: string;
   hideShowMoreButton = true;
   constructor(
-    private route: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
+    private router: Router,
     private infoCompanyService : InfoCompanyService,
     private languageService: LanguageService,
     private jobService: JobService
@@ -46,10 +48,26 @@ export class DetailCompanyComponent implements OnInit {
     this.getCompanyInformation();
   }
   getCompanyInformation (){
-    this.companyId = this.route.snapshot.paramMap.get('id');
-    this.infoCompanyService.getInfoCompany(this.companyId).subscribe(company => this.company = company);
-    this.getJobsOfCompany(this.companyId);
+    this.companyId = this.activatedRouter.snapshot.paramMap.get('id');
+    if (this.companyId) {
+      this.infoCompanyService.getInfoCompany(this.companyId)
+                             .subscribe( companyInfo => this.onGetInfoSuccess(companyInfo), 
+                                        error => this.goToNotFoundPage());
+      
+    } else {
+      this.goToNotFoundPage();
+    }
   } 
+
+  onGetInfoSuccess(companyInfo: Company) {
+    this.company = companyInfo; 
+    this.isLoadingPage = false;
+    this.getJobsOfCompany(this.companyId);
+  }
+
+  goToNotFoundPage() {
+    this.router.navigate(['/not-found']);
+  }
 
   async getJobsOfCompany(id: any) {
     this.getJob();

@@ -2,28 +2,26 @@
 <div class="container filter-result">
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <a href="#" class="main-title ">
-        <p>Software Engineer - San Francisco OR Remote - USA</p>
+      <a  routerLink="/detail-job/{{job.id}}" class="main-title ">
+        <p>{{job.title}}</p>
       </a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <p class="position">Full time</p>
+      <p class="position">{{ job.jobType | typeOfJobTime }}</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-7">
-      <p class="language">PHP, MySQL, Linux, Wordpress</p>
-    </div>
+    <div class="col-md-7"></div>
     <div class="col-md-5">
-      <p class="salary">$600 - $1500 </p>
+      <p class="salary">{{ job.fromSalary | salaryConverter:job.toSalary:'$' }}</p>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <a href="#" class="job-apply">
-        <span class="label">Apply now</span>
+      <a routerLink="/detail-job/{{job.id}}" class="job-apply">
+        <span class="label">More detail</span>
       </a>
     </div>
   </div>

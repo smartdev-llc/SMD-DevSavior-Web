@@ -1,5 +1,6 @@
 <div id="header" class="container-fluid pages">
     <div class="row">
+        
         <!-- Header Image Or May be Slider-->
         <div class="top_header">
             <nav class="navbar navbar-fixed-top">
@@ -47,7 +48,10 @@
     </div>
 </div>
 
-<div class="container-fluid main-container">
+<div class="container-fluid main-container loader-wrapper">
+    <div class="loadessr" *ngIf="isLoadingPage">
+        <div class="loader"></div>
+    </div>
     <carousel>
         <slide *ngFor="let slide of slides; let index=index" class="carousel-fix-he">
             <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
@@ -95,7 +99,7 @@
                             </ng-template>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 loader-wrapper">
-                                <div class="loadessr blur-loading" style="background: transparent" *ngIf="isLoadJob">
+                                <div class="loadessr no-bg-loader" *ngIf="isLoadJob">
                                     <div class="loader">
                                     </div>
                                 </div>
