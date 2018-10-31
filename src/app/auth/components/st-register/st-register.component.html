@@ -4,169 +4,144 @@
 
 <!--maine container Section -->
 <div class="container-fluid login_register header_area deximJobs_tabs">
-  <div class="row">
-    <div  id="loadessr" *ngIf="loading">
-      <div id="loader">
-      </div>
-    </div>
-    <div class="container main-container-home">
-      <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12 col-xs-12">
-        <div class="tab-content">
-          <div id="register-account" class="white-text">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
-              <p class="text-right">{{'register.titleSt' | translate }}</p>
-              <form name="contact_us" 
-                    class="contact_us validation-form" 
-                    [formGroup]="registerForm" 
-                    (ngSubmit)="registerNewUser()">
-
-                <div class="form-group global-error"
-                    [style.display]="hasServerError ? '' : 'none'">
-                  <label></label>
-                  <div *ngIf="submitted" class="error-input">
-                    <div *ngIf="submitted && registerForm.errors?.serverError">
-                      {{registerForm.errors.serverError}}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group required">
-                  <label>{{ 'register.mail' | translate }}</label>
-                  <div class="input-container">
-                    <input type="email" 
-                          name="email" 
-                          formControlName="email" 
-                          [ngClass]="{ 'has-error': submitted && f.email.errors }" />
-                    <div *ngIf="submitted && f.email.invalid" class="error-input">
-
-                      <div *ngIf="f.email.errors.required">
-                        Email is required.
-                      </div>
-                      <div *ngIf="f.email.errors.email">
-                        Invalid email.
-                      </div>
-                      <div *ngIf="f.email.errors.existed">
-                        This email already registered!
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <ng-container formGroupName="passwordGroup">
-                  <div class="form-group required">
-                    <label>{{ 'register.pass' | translate }}</label>
-                    <div class="input-container">
-                      <input type="password" name="password"
-                      id="password"
-                      [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}"
-                      formControlName="password"/>
-                      <div *ngIf="p.password.invalid"
-                            class="error-input">
-                        <div *ngIf="submitted && p.password.errors?.required">
-                          Password is required.
-                        </div>
-                        <div *ngIf="p.password.errors.minlength">
-                          The password is at least {{p.password.errors?.minlength.requiredLength}} characters.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group required">
-                    <label>{{ 'register.cPass' | translate }}</label>
-                    <div class="input-container">
-                      <input type="password"
-                              name="cpassword"
-                              id="cpassword"
-                              [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}"
-                              formControlName="repeatPassword"/>
-                      <div *ngIf="passwordGroup.invalid "
-                            class="error-input">
-                        <div *ngIf="passwordGroup.errors?.matchedPassword">
-                          Password doesn't match.
-                        </div>
-                        <div *ngIf="submitted && p.repeatPassword.errors?.required">
-                          Password required.
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </ng-container>
-
-                <div class="form-group required">
-                  <label>{{ 'register.fName' | translate }}</label>
-                  <div class="input-container">
-                    <input type="text"
-                            name="firstname"
-                            id="firstname"
-                            [ngClass]="{ 'has-error': submitted && f.firstName.errors}"
-                            formControlName="firstName" />
-                    <div *ngIf="submitted && f.firstName.invalid" class="error-input">
-                      <div *ngIf="f.firstName.errors.required">
-                        First name is required.
-                      </div>
-                      <div *ngIf="f.firstName.errors.pattern">
-                        No special characters or numbers
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group required">
-                  <label>{{ 'register.lName' | translate }}</label>
-                  <div class="input-container">
-                    <input type="text" name="lastname" id="lastname"
-                    [ngClass]="{ 'has-error': submitted && f.lastName.errors}"
-                    formControlName="lastName" />
-                    <div *ngIf="submitted && f.lastName.invalid" class="error-input">
-                      <div *ngIf="f.lastName.errors.required">
-                        Last name is required.
-                      </div>
-                      <div *ngIf="f.lastName.errors.pattern">
-                        No special characters or numbers
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="form-group submit">
-                  <label>Submit</label>
-                  <input type="submit"
-                          name="submit"
-                          value="{{ 'register.signUp' | translate }}"
-                          class="register" />
-                  <a routerLink="/lost-password" class="lost_password">{{ 'login.lostPass' | translate }}</a>
-                </div>
-              </form>
+    <div class="row">
+        <div id="loadessr" *ngIf="loading">
+            <div id="loader">
             </div>
-
-            <!-- sidebar right -->
-            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12  pull-right sidebar">
-              <div class="widget">
-                <h3>Why to have an account in JuniorViec? </h3>
-                <ul>
-                  <li>
-                    <p>
-                      <i class="fa fa-clock-o"></i>Fast applying for offers the necessary documents are always at hand</p>
-                  </li>
-                  <li>
-                    <p>
-                      <i class="fa fa-child"></i>Effectively target employers You can share your profile and CV recruiters</p>
-                  </li>
-
-                  <li>
-                    <p>
-                      <i class="fa fa-check-circle-o"></i>Matching jobs We will suggest you offer to fit your needs on e-mail</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="container main-container-home">
+            <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                <div class="tab-content">
+                    <div id="register-account" class="white-text">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
+                            <p class="text-right">{{'register.titleSt' | translate }}</p>
+                            <form name="contact_us" class="contact_us validation-form" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
+
+                                <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
+                                    <label></label>
+                                    <div *ngIf="submitted" class="error-input">
+                                        <div *ngIf="submitted && registerForm.errors?.serverError">
+                                            {{registerForm.errors.serverError}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group required">
+                                    <label>{{ 'register.mail' | translate }}</label>
+                                    <div class="input-container">
+                                        <input type="email" name="email" formControlName="email" [ngClass]="{ 'has-error': submitted && f.email.errors }" />
+                                        <div *ngIf="submitted && f.email.invalid" class="error-input">
+
+                                            <div *ngIf="f.email.errors.required">
+                                                Email is required.
+                                            </div>
+                                            <div *ngIf="f.email.errors.email">
+                                                Invalid email.
+                                            </div>
+                                            <div *ngIf="f.email.errors.existed">
+                                                This email already registered!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ng-container formGroupName="passwordGroup">
+                                    <div class="form-group required">
+                                        <label>{{ 'register.pass' | translate }}</label>
+                                        <div class="input-container">
+                                            <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
+                                            <div *ngIf="p.password.invalid" class="error-input">
+                                                <div *ngIf="submitted && p.password.errors?.required">
+                                                    Password is required.
+                                                </div>
+                                                <div *ngIf="p.password.errors.minlength">
+                                                    The password is at least {{p.password.errors?.minlength.requiredLength}} characters.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group required">
+                                        <label>{{ 'register.cPass' | translate }}</label>
+                                        <div class="input-container">
+                                            <input type="password" name="cpassword" id="cpassword" [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}" formControlName="repeatPassword" />
+                                            <div *ngIf="passwordGroup.invalid " class="error-input">
+                                                <div *ngIf="passwordGroup.errors?.matchedPassword">
+                                                    Password doesn't match.
+                                                </div>
+                                                <div *ngIf="submitted && p.repeatPassword.errors?.required">
+                                                    Password required.
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <div class="form-group required">
+                                    <label>{{ 'register.fName' | translate }}</label>
+                                    <div class="input-container">
+                                        <input type="text" name="firstname" id="firstname" [ngClass]="{ 'has-error': submitted && f.firstName.errors}" formControlName="firstName" />
+                                        <div *ngIf="submitted && f.firstName.invalid" class="error-input">
+                                            <div *ngIf="f.firstName.errors.required">
+                                                First name is required.
+                                            </div>
+                                            <div *ngIf="f.firstName.errors.pattern">
+                                                No special characters or numbers
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group required">
+                                    <label>{{ 'register.lName' | translate }}</label>
+                                    <div class="input-container">
+                                        <input type="text" name="lastname" id="lastname" [ngClass]="{ 'has-error': submitted && f.lastName.errors}" formControlName="lastName" />
+                                        <div *ngIf="submitted && f.lastName.invalid" class="error-input">
+                                            <div *ngIf="f.lastName.errors.required">
+                                                Last name is required.
+                                            </div>
+                                            <div *ngIf="f.lastName.errors.pattern">
+                                                No special characters or numbers
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group submit">
+                                    <label>Submit</label>
+                                    <input type="submit" name="submit" value="{{ 'register.signUp' | translate }}" class="register" />
+                                    <a routerLink="/lost-password" class="lost_password">{{ 'login.LostPass' | translate }}</a>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- sidebar right -->
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12  pull-right sidebar">
+                            <div class="widget">
+                                <h3>Why to have an account in JuniorViec? </h3>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <i class="fa fa-clock-o"></i>Fast applying for offers the necessary documents are always at hand</p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <i class="fa fa-child"></i>Effectively target employers You can share your profile and CV recruiters</p>
+                                    </li>
+
+                                    <li>
+                                        <p>
+                                            <i class="fa fa-check-circle-o"></i>Matching jobs We will suggest you offer to fit your needs on e-mail</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!--maine container Section -->
 
