@@ -37,11 +37,13 @@ export class DetailCompanyComponent implements OnInit {
   ngOnInit() {
     this.getCompanyInformation();
   }
+
   getCompanyInformation() {
     this.route.data.subscribe(({ companyDetail }) => {
       this.company = companyDetail;
     });
 
+    this.companyId = this.route.snapshot.paramMap.get('id');
     this.getJobsOfCompany(this.companyId);
   }
 
