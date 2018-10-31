@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { InfoCompanyService } from '../../../core/services/company/InfoCompany.service'
 import { Company } from '../../../core/models/company';
 @Component({
-  selector: 'list-company',
-  templateUrl: './list-company.component.html',
-  styleUrls: ['./list-company.component.scss']
+  selector: 'companies',
+  templateUrl: './companies.component.html',
+  styleUrls: ['./companies.component.scss']
 })
 export class ListCompanyComponent implements OnInit {
 
