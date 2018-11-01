@@ -12,6 +12,7 @@ import {Duplicate} from '../../../core/error/duplicate';
 import {ProfileService} from '../../../company/services/profile.service';
 import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
+import {NotFound} from '../../../core/error/not-found';
 
 
 @Component({
@@ -19,6 +20,7 @@ import {environment} from '../../../../environments/environment';
   templateUrl: './job-detail.component.html',
   styleUrls: ['./job-detail.component.scss']
 })
+
 export class JobDetailComponent implements OnInit {
 
   job: any;
@@ -47,17 +49,17 @@ export class JobDetailComponent implements OnInit {
     this.isLoading = true;
     console.log('[QueryParam]', this.router.url);
 
-    //TODO: Add handle error for getDetailJob()
-    this.jobService.getDetailJob(this.jobId).subscribe(data => {
+    this.jobService.getDetailJob(this.jobId)
+      .subscribe(data => {
       this.job =  data;
       this.company = <Company> data['company'];
       this.isLoading = false;
 
       this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
       this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
-
       console.log('[JobDetailComponent][ngOnInit()]', data);
-    });
+
+    }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
@@ -92,8 +94,6 @@ export class JobDetailComponent implements OnInit {
 
   handleErrorJobDetailComponent(error: AppErrors) {
     console.log('[JobDetailComponent][handleErrorJobDetailComponent()]');
-    this.btnApplyJob.className = 'label job-type pointer apply-job';
-    this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
 
     if (error instanceof InternalServer) {
       console.log('Internal server', error.originalError);
@@ -106,7 +106,14 @@ export class JobDetailComponent implements OnInit {
     }
     else if (error instanceof Duplicate) {
       console.log('Duplicate ', error.originalError);
+      this.btnApplyJob.className = 'label job-type pointer apply-job';
+      this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
       this.toastr.error(error.originalError, 'Apply Job');
+    }
+    else if (error instanceof NotFound) {
+      this.isLoading = false;
+      this.router.navigate(['not-found']);
+      console.log('Not found ', error.originalError);
     }
     else {
       console.log('app error', error);
