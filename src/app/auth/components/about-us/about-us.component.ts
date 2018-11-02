@@ -12,7 +12,7 @@ export class AboutUsComponent implements OnInit {
       avatar: '../../../../assets/images/nguyen.jpg',
       linkFB: 'https://www.facebook.com/le.v.nguyen.18',
       decsription: 'Founder and Sales Manager JuniorViec',
-      position: ' Sales Manager'
+      position: 'Sales Manager'
     },
     {
       name: 'Tran Tien Dung',
