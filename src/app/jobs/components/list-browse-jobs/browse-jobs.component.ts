@@ -1,8 +1,6 @@
 import { Injectable, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { from } from 'rxjs';
-import { find } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
@@ -26,6 +24,7 @@ export class BrowseJobsComponent implements OnInit {
   loading = false;
   configDropDown = {
     displayKey: 'name',
+    bindValue: 'id',
     placeholder: 'Select'
   };
 
@@ -53,15 +52,9 @@ export class BrowseJobsComponent implements OnInit {
 
   initSearcForm() {
     const { category, qs, location } = this.queryParams;
-    let objCategory = null;
-    from(this.jobCategories)
-      .pipe(
-        find((item) => item.id == category)
-      )
-      .subscribe(value => objCategory = value)
 
     this.searchJobForm = this.formBuilder.group({
-      'category': [objCategory],
+      'category': [category],
       'qs': [qs],
       'location': [location]
     });
@@ -74,7 +67,7 @@ export class BrowseJobsComponent implements OnInit {
   onSubmitSearch(): void {
     const { category, location, qs } = this.searchJobForm.value
     this.queryParams = {
-      category: category ? category.id : '',
+      category: category,
       location: location ? location : '',
       qs: qs ? qs : ''
     }

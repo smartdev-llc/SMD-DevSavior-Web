@@ -12,8 +12,9 @@ export class JobsFiltersComponent implements OnInit {
 
   searchJobForm: FormGroup;
 
-  public configDropDown = {
+  configDropDown = {
     displayKey: 'name',
+    bindValue: 'id',
     placeholder: 'Select'
   };
 
@@ -44,7 +45,7 @@ export class JobsFiltersComponent implements OnInit {
   onSubmitSearch(): void {
     const { category, location, qs } = this.searchJobForm.value
     const params = {
-      category: category.id,
+      category: category,
       location,
       qs
     }
