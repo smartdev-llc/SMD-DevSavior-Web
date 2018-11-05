@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     this.isResendEmailSuccess = false;
 
     if (this.loginInForm.invalid) {
-      console.log('error', this.loginInForm);
+      // console.log('error', this.loginInForm);
 
     } else {
       this.isLoading = true;
@@ -108,18 +108,18 @@ export class LoginComponent implements OnInit {
     this.isLoading = false;
 
     if (error instanceof InternalServer) {
-      console.log('Internal server', error);
+      // console.log('Internal server', error);
     }
     else if (error instanceof Unauthorized) {
-      console.log('Unauthorized ', error.originalError);
+      // console.log('Unauthorized ', error.originalError);
       this.formErrorMessage = error.originalError;
     }
     else if (error instanceof Forbidden) {
-      console.log('Forbidden ', error.originalError);
+      // console.log('Forbidden ', error.originalError);
       this.isNotVerified = true;
     }
     else {
-      console.log('app error', error);
+      // console.log('app error', error);
       throw error;
     }
   }

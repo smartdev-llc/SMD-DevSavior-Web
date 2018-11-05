@@ -47,7 +47,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit() {
     this.jobId = this.route.snapshot.paramMap.get('id');
     this.isLoading = true;
-    console.log('[QueryParam]', this.router.url);
+    // console.log('[QueryParam]', this.router.url);
 
     this.jobService.getDetailJob(this.jobId)
       .subscribe(data => {
@@ -57,7 +57,7 @@ export class JobDetailComponent implements OnInit {
 
       this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
       this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
-      console.log('[JobDetailComponent][ngOnInit()]', data);
+      // console.log('[JobDetailComponent][ngOnInit()]', data);
 
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
@@ -86,26 +86,26 @@ export class JobDetailComponent implements OnInit {
       .subscribe(
         data => {
           this.toastr.success('Applied Job Success', 'Apply Job');
-          console.log('[JobDetailComponent][applyJob()]');
+          // console.log('[JobDetailComponent][applyJob()]');
         },
         (error: AppErrors) => this.handleErrorJobDetailComponent(error)
       );
   }
 
   handleErrorJobDetailComponent(error: AppErrors) {
-    console.log('[JobDetailComponent][handleErrorJobDetailComponent()]');
+    // console.log('[JobDetailComponent][handleErrorJobDetailComponent()]');
 
     if (error instanceof InternalServer) {
-      console.log('Internal server', error.originalError);
+      // console.log('Internal server', error.originalError);
     }
     else if (error instanceof Unauthorized) {
-      console.log('Unauthorized ', error.originalError);
+      // console.log('Unauthorized ', error.originalError);
     }
     else if (error instanceof Forbidden) {
-      console.log('Forbidden ', error.originalError);
+      // console.log('Forbidden ', error.originalError);
     }
     else if (error instanceof Duplicate) {
-      console.log('Duplicate ', error.originalError);
+      // console.log('Duplicate ', error.originalError);
       this.btnApplyJob.className = 'label job-type pointer apply-job';
       this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
       this.toastr.error(error.originalError, 'Apply Job');
@@ -113,10 +113,10 @@ export class JobDetailComponent implements OnInit {
     else if (error instanceof NotFound) {
       this.isLoading = false;
       this.router.navigate(['not-found']);
-      console.log('Not found ', error.originalError);
+      // console.log('Not found ', error.originalError);
     }
     else {
-      console.log('app error', error);
+      // console.log('app error', error);
       throw error;
     }
   }
