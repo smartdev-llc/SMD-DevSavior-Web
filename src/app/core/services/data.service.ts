@@ -25,7 +25,6 @@ export class DataService {
   }
 
   private handleError (error: Response) {
-    console.log('error in data service', error);
     return throwError( new AppErrors(error));
   }
 }
