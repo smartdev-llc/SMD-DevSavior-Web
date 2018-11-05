@@ -15,6 +15,7 @@ import {Forbidden} from '../error/forbidden';
 import {InternalServer} from '../error/internal-server';
 import {Unauthorized} from '../error/unauthorized';
 import {Duplicate} from '../error/duplicate';
+import {NotFound} from '../error/not-found';
 
 @Injectable()
 export class JobService {
@@ -43,9 +44,9 @@ export class JobService {
     return this.http.get('/jobs/' + jobId)
       .pipe(
         map( response => {
-          console.log('response', response);
           return response;
-        })
+        }),
+        catchError(this.handleError)
       );
   }
 
@@ -73,6 +74,9 @@ export class JobService {
     }
     if ( error.status === 409) {
       return throwError (new Duplicate(error.error.message));
+    }
+    if ( error.status === 404) {
+      return throwError (new NotFound(error.error.message));
     }
     return throwError(new AppErrors(error.error.message));
   }
