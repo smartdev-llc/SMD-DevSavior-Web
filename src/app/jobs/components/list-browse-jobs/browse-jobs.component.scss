@@ -16,6 +16,15 @@
   min-height: 500px;
 }
 
+.company-logo {
+  width: 65px;
+  object-fit: cover;
+}
+
+.brows-job-sallery {
+  font-size: 15px;
+}
+
 @media (max-width: 500px) {
   .desig {
     width: 100%;
