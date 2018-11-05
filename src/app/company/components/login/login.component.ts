@@ -108,18 +108,14 @@ export class LoginComponent implements OnInit {
     this.isLoading = false;
 
     if (error instanceof InternalServer) {
-      // console.log('Internal server', error);
     }
     else if (error instanceof Unauthorized) {
-      // console.log('Unauthorized ', error.originalError);
       this.formErrorMessage = error.originalError;
     }
     else if (error instanceof Forbidden) {
-      // console.log('Forbidden ', error.originalError);
       this.isNotVerified = true;
     }
     else {
-      // console.log('app error', error);
       throw error;
     }
   }

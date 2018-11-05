@@ -44,7 +44,6 @@ export class JobService {
     return this.http.get('/jobs/' + jobId)
       .pipe(
         map( response => {
-          // console.log('response', response);
           return response;
         }),
         catchError(this.handleError)
