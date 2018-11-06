@@ -28,6 +28,10 @@ export class JobsFiltersComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ jobCategories }) => {
+      jobCategories.unshift({
+        id: '',
+        name: 'All categories'
+      });
       this.jobCategories = jobCategories;
     });
     this.initSearcForm();

@@ -87,13 +87,13 @@ export class JVDropDownComponent implements OnInit, OnChanges, ControlValueAcces
 
     this.config = { ...config, ...this.config };
     this.selectedDisplayText = this.config['placeholder'];
-    if (this.value) {
+    if (this.value || this.value === '') {
       this.selectItem(this.getInitItemObj(this.value));
     }
   }
 
   writeValue(obj: any): void {
-    if (obj) {
+    if (obj || obj === '') {
       this.selectItem(this.getInitItemObj(obj));
     }
   }
