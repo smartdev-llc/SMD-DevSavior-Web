@@ -6,6 +6,7 @@ import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scrol
 
 import { Categories } from '../../../core/models/job';
 import { JobService } from '../../../core/services/job.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'browse-jobs',
@@ -46,6 +47,10 @@ export class BrowseJobsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ jobCategories }) => {
+      jobCategories.unshift({
+        id: '',
+        name: 'All categories'
+      });
       this.jobCategories = jobCategories;
     });
 
@@ -56,6 +61,8 @@ export class BrowseJobsComponent implements OnInit {
     this.initSearcForm();
 
     this.loadJobs();
+
+    this.handleValueChangesForm();
   }
 
   initSearcForm() {
@@ -72,7 +79,7 @@ export class BrowseJobsComponent implements OnInit {
     });
 
     this.searchJobForm = this.formBuilder.group({
-      category: category,
+      category: category || '',
       qs: qs,
       location: location,
       jobTypes: new FormArray(controlsJobTypes)
@@ -106,6 +113,15 @@ export class BrowseJobsComponent implements OnInit {
       this.listJobs = value.list;
       this.totalItems = value.total;
       this.loading = false;
+    });
+  }
+
+  handleValueChangesForm(): void {
+    this.searchJobForm.valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(values => {
+      this.onSubmitSearch();
     });
   }
 
