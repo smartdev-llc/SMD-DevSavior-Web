@@ -2,35 +2,33 @@
   <app-header></app-header>
 
   <!-- Page Title-->
-  <div class="container-fluid blue-banner page-title bg-image">
-    <div class="row section-title">
-      <div class="container main-container">
+  <form [formGroup]="searchJobForm" (ngSubmit)="onSubmitSearch()">
+    <div class="container-fluid blue-banner page-title bg-image">
+      <div class="row section-title">
+        <div class="container main-container">
 
+        </div>
       </div>
-    </div>
-    <div class="row section-jobcategories">
-      <div class="container main-container">
-        <div class="col-lg-12">
-          <ul class="top_filters">
-            <li><input name="freelance" type="checkbox"><label>Freelance</label></li>
-            <li><input name="Partytime" type="checkbox"><label>Fullime</label></li>
-            <li><input name="Partytime" type="checkbox"><label>Parttime</label></li>
-            <li><input name="Contract" type="checkbox"><label>Contract</label></li>
-            <li><input name="Internship" type="checkbox"><label>Internship</label></li>
-          </ul>
+      <div class="row section-jobcategories">
+        <div class="container main-container">
+          <div class="col-lg-12">
+            <ul class="top_filters">
+              <li formArrayName="jobTypes" *ngFor="let jobType of jobTypes.controls; let i = index">
+                <input type="checkbox" [formControlName]="i"><label>{{ jobTypesArr[i].name }}</label>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Page Title-->
+    <!-- Page Title-->
 
-  <!-- Job Categories Filters -->
-  <div class="jobs_filters" id="searchJobs">
-    <div class="container">
-      <form [formGroup]="searchJobForm" (ngSubmit)="onSubmitSearch()">
+    <!-- Job Categories Filters -->
+    <div class="jobs_filters" id="searchJobs">
+      <div class="container">
         <!--col-lg-3 filter_width -->
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 filter_width bgicon">
-          <jv-select-dropdown formControlName="category" (change)="selectionChanged($event)" [options]="jobCategories" [config]="configDropDown"></jv-select-dropdown>
+          <jv-select-dropdown formControlName="category" [options]="jobCategories" [config]="configDropDown"></jv-select-dropdown>
           <span>e.g. Developer</span>
         </div>
         <!--col-lg-3 filter_width -->
@@ -69,10 +67,10 @@
             </button>
           </div>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
   <!-- Job Categories Filters -->
+  </form>
 
   <!-- Job Results -->
   <div class="container main-container jobs">
@@ -86,8 +84,8 @@
       <!--jobs result-->
       <div class="filter-result" *ngFor="let job of listJobs ;let i = index">
         <div class="col-md-7 col-xs-12 pull-left">
-          <div class="company-left-info pull-left">
-            <img src="assets/images/company-logo.png" alt="" />
+          <div class="company-left-info company-logo pull-left">
+            <img class="img-responsive" src="{{ job.company.logoURL | photoURLConverter:'assets/images/company-logo.png' }}" />
           </div>
           <div class="desig">
             <a routerLink="/jobs/{{job._id}}">
@@ -101,8 +99,12 @@
             <p>Da nang</p>
           </div>
           <div class="data-job">
-            <h3>£10 - £12 an hour</h3>
-            <span class="label job-type job-fulltime ">Full Time</span>
+            <h3>
+              <span class="brows-job-sallery">
+                <i class="fa fa-money"></i> {{ job.fromSalary | salaryConverter:job.toSalary:'$' }}
+              </span>
+            </h3>
+            <span class="label job-type job-fulltime ">{{ job.jobType | typeOfJobTime }}</span>
           </div>
         </div>
       </div>
