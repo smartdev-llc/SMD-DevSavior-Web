@@ -217,7 +217,7 @@ export class UpdateProfileStep2Component implements OnInit {
       { id: 'HIGH_SCHOOL', name: education.highSchool },
       { id: 'ASSOCIATE_DEGREE', name: education.associateDegree },
       { id: 'COLLEGE', name: education.college },
-      { id: 'BACHELORS', name: education.bachelors },
+      { id: 'BACHELOR', name: education.bachelors },
       { id: 'MASTERS', name: education.masters },
       { id: 'DOCTORATE', name: education.doctorate }
     ];

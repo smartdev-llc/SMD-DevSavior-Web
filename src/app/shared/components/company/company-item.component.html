@@ -1,5 +1,5 @@
 <div class="article box-shadow">
-    <a class="avatar-company" routerLink="/detail-company/{{company.id}}">
+    <a class="avatar-company" routerLink="/company/{{company.id}}">
         <img src="{{company.logoURL | photoURLConverter:'/assets/images/company-logo.png'}}" alt="company.name" />
         <p class="article__title">{{ company.name || 'Empty name'}}</p>
     </a>

@@ -1,13 +1,12 @@
 import { Injectable, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { from } from 'rxjs';
-import { find } from 'rxjs/operators';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 import { Categories } from '../../../core/models/job';
 import { JobService } from '../../../core/services/job.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'browse-jobs',
@@ -17,7 +16,7 @@ import { JobService } from '../../../core/services/job.service';
 export class BrowseJobsComponent implements OnInit {
 
   totalItems: number = 0;
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 10;
   currentPage: number = 1;
   listJobs: Array<any> = [];
   searchJobForm: FormGroup;
@@ -26,8 +25,17 @@ export class BrowseJobsComponent implements OnInit {
   loading = false;
   configDropDown = {
     displayKey: 'name',
+    bindValue: 'id',
     placeholder: 'Select'
   };
+
+  jobTypesArr: Array <any> = [
+    { name: 'FULL TIME', id: 'FULL_TIME' },
+    { name: 'PART TIME', id: 'PART_TIME' },
+    { name: 'CONTRACT', id: 'CONTRACT' },
+    { name: 'INTERSHIP', id: 'INTERSHIP' },
+    { name: 'FREELANCE', id: 'FREELANCE' }
+  ];
 
   constructor(
     private router: Router,
@@ -39,49 +47,58 @@ export class BrowseJobsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ jobCategories }) => {
+      jobCategories.unshift({
+        id: '',
+        name: 'All categories'
+      });
       this.jobCategories = jobCategories;
     });
 
     this.route.queryParams.subscribe(params => {
-       this.queryParams = params;
+      this.queryParams = params;
     });
 
     this.initSearcForm();
 
     this.loadJobs();
+
+    this.handleValueChangesForm();
   }
 
   initSearcForm() {
-    const { category, qs, location } = this.queryParams;
-    let objCategory = null;
-    from(this.jobCategories)
-      .pipe(
-        find((item) => item.id == category)
-      )
-      .subscribe(value => objCategory = value)
+    const { category, qs, location, jobTypes } = this.queryParams;
+
+    // Init jobTypes FormArray from queryParams
+    const jobTypesParams: Array<string> = jobTypes || [];
+    const controlsJobTypes = this.jobTypesArr.map((jobType, index) => {
+      let value: boolean = false;
+      if (jobTypesParams.indexOf(jobType.id) > -1) {
+        value = true;
+      }
+      return new FormControl(value);
+    });
 
     this.searchJobForm = this.formBuilder.group({
-      'category': [objCategory],
-      'qs': [qs],
-      'location': [location]
+      category: category || '',
+      qs: qs,
+      location: location,
+      jobTypes: new FormArray(controlsJobTypes)
     });
   }
 
-  selectionChanged($event:any) {
-    // console.log($event);
-  }
+  get jobTypes(): FormArray { return this.searchJobForm.get('jobTypes') as FormArray; }
 
   onSubmitSearch(): void {
+    const jobTypes = this.getJobTypesValue();
     const { category, location, qs } = this.searchJobForm.value
     this.queryParams = {
-      category: category ? category.id : '',
-      location,
-      qs
+      category: category,
+      location: location ? location : '',
+      qs: qs ? qs : '',
+      jobTypes
     }
-    if (category || location || qs) {
-      this.router.navigate(['/browse-jobs'], { queryParams: this.queryParams, queryParamsHandling: 'merge', replaceUrl: true });
-      this.loadJobs();
-    }
+    this.router.navigate(['/browse-jobs'], { queryParams: this.queryParams, queryParamsHandling: 'merge', replaceUrl: true });
+    this.loadJobs();
   }
 
   loadJobs(): void {
@@ -99,6 +116,15 @@ export class BrowseJobsComponent implements OnInit {
     });
   }
 
+  handleValueChangesForm(): void {
+    this.searchJobForm.valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(values => {
+      this.onSubmitSearch();
+    });
+  }
+
   pageChanged(event: any): void {
     this.queryParams = {
       ...this.queryParams,
@@ -106,5 +132,13 @@ export class BrowseJobsComponent implements OnInit {
     };
     this.loadJobs();
     this.scrollToService.scrollTo({ target: 'searchJobs' });
+  }
+
+  private getJobTypesValue(): Array <any> {
+    const selectedJobTypesIds = this.searchJobForm.value.jobTypes
+      .map((v, i) => v ? this.jobTypesArr[i].id : null)
+      .filter(v => v !== null);
+
+    return selectedJobTypesIds;
   }
 }

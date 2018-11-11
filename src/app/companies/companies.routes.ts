@@ -1,5 +1,12 @@
-import { ListCompanyComponent } from './components/list-company/list-company.component';
+import { ListCompanyComponent } from './components/companies/companies.component';
+import { DetailCompanyComponent } from './components/company-detail/company-detail.component';
+import { CompanyDetailResolve } from './components/company-detail/company-detail.resolve';
 
 export const CompaniesRoutes = [
-  { path: 'list-company', component: ListCompanyComponent }
+  { path: 'companies', component: ListCompanyComponent },
+  { path: 'company/:id', component: DetailCompanyComponent,
+    resolve: {
+      companyDetail: CompanyDetailResolve
+    }
+  }
 ];

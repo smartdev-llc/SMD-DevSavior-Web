@@ -20,7 +20,7 @@ export class EducationDegrees {
         return 'education.associateDegree';
       case 'COLLEGE':
         return 'education.college';
-      case 'BACHELORS':
+      case 'BACHELOR':
         return 'education.bachelors';
       case 'MASTERS':
         return 'education.masters';

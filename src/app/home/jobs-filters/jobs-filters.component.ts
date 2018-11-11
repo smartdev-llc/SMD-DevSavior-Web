@@ -12,8 +12,9 @@ export class JobsFiltersComponent implements OnInit {
 
   searchJobForm: FormGroup;
 
-  public configDropDown = {
+  configDropDown = {
     displayKey: 'name',
+    bindValue: 'id',
     placeholder: 'Select'
   };
 
@@ -27,6 +28,10 @@ export class JobsFiltersComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ jobCategories }) => {
+      jobCategories.unshift({
+        id: '',
+        name: 'All categories'
+      });
       this.jobCategories = jobCategories;
     });
     this.initSearcForm();
@@ -44,12 +49,10 @@ export class JobsFiltersComponent implements OnInit {
   onSubmitSearch(): void {
     const { category, location, qs } = this.searchJobForm.value
     const params = {
-      category: category.id,
+      category: category,
       location,
       qs
     }
-    if (category || location || qs) {
-      this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
-    }
+    this.router.navigate(['/browse-jobs'], { queryParams: params, queryParamsHandling: 'merge' });
   }
 }
