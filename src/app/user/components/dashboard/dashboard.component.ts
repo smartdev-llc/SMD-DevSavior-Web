@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   jobs: any = [];
   profile: any = {};
   user: User;
-  profileImageURL: string = 'assets/images/profile-placeholder.png';
+  profileImageURL: string = '';
 
   constructor(
     private studentUserService: StudentUserService,
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   preLoadData(): void {
     this.user = this.authService.getCurrentUser();
-    this.profileImageURL = this.user.profileImageURL ? environment.apiEndpoint + this.user.profileImageURL : this.profileImageURL;
+    this.profileImageURL = this.user.profileImageURL;
     this.studentUserService.getMyProfile()
       .subscribe(res => {
         this.profile = res;

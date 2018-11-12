@@ -7,7 +7,7 @@
     <div class="profile-sidebar">
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic">
-        <img src="{{profileImageURL}}" class="img-responsive" alt="">
+        <img src="{{ profileImageURL | photoURLConverter:'assets/images/profile-placeholder.png' }}" class="img-responsive" alt="">
       </div>
       <!-- END SIDEBAR USERPIC -->
       <!-- SIDEBAR USER TITLE -->
