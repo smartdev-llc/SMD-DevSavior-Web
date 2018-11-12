@@ -28,10 +28,10 @@ export class DashboardComponent implements OnInit {
 
   preLoadData(): void {
     this.user = this.authService.getCurrentUser();
-    this.profileImageURL = this.user.profileImageURL;
     this.studentUserService.getMyProfile()
       .subscribe(res => {
         this.profile = res;
+        this.profileImageURL = res.owner.profileImageURL;
       })
   }
 
