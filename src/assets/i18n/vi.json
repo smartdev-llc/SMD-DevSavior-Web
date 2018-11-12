@@ -16,7 +16,8 @@
     "fromMonthRequired": "Tháng bắt đầu không được bỏ Trống",
     "toMonthRequired": "Tháng đến không được bỏ Trống",
     "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu",
-    "existedKeySkill": "Kỹ năng vừa nhập đã tồn tại trong kho kỹ năng của bạn"
+    "existedKeySkill": "Kỹ năng vừa nhập đã tồn tại trong kho kỹ năng của bạn",
+    "wrongEmail": "Email không chính xác"
   },
   "header": {
     "jobs": "Tất Cả Việc Làm",
@@ -208,7 +209,7 @@
     "pass":"Mật khẩu",
     "paPass":"Nhập vào mật khẩu của bạn",
     "signIn":"Đăng Nhập",
-    "lostpass":"Quên mật khẩu ?",
+    "lostPass":"Quên mật khẩu ?",
     "signUpNow":"Đăng ký ngay !",
     "socialFB":"Đăng nhập với Facebook",
     "socialGG":"Đăng nhập với Google",
@@ -216,7 +217,9 @@
     "resend": "Vui lòng xác thực tài khoản của bạn hoặc click vào ",
     "resend2":"đây",
     "resend3":"để chúng tôi gửi lại mã xác nhận",
-    "dontHaveAcc":"Bạn chưa có tài khoản?"
+    "dontHaveAcc":"Bạn chưa có tài khoản?",
+    "wrongEmailAndPassword": "Tài khoản bạn đã nhập không khớp với bất kỳ tài khoản nào"
+
   },
   "register":{
     "titleCp":"Hãy tham gia cùng hàng ngàn công ty đang sử dụng Juniorviec mỗi ngày",
