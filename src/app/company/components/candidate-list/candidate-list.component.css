@@ -5,6 +5,7 @@
 }
 .panel-body {
     background-color: #fff;
+    padding-bottom: 5%;
 }
 .dropdown button, .dropdown .dropdown-menu  {
     width: 100%;
@@ -48,4 +49,7 @@
     background-color: transparent;
     top: 17px;
     right: 15px;
+}
+.loadessr {
+    width: 98%;
 }

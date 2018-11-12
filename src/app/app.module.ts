@@ -1,5 +1,5 @@
 import { EffectsModule } from '@ngrx/effects';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 // Routes
 import { routes } from './app.routes';
 // Modules
-import { CoreModule } from './core/index';
+import { CoreModule } from './core';
 import { SharedModule } from './shared/shared.module';
 
 import { StoreModule } from '@ngrx/store';

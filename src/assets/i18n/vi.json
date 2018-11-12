@@ -48,7 +48,8 @@
     "buy_more_services" : "Mua gói dịch vụ",
     "faq" : "Hỏi đáp",
     "log_out" : "Thoát",
-    "recruitment_center" : "Quản lý tuyển dụng"
+    "recruitment_center" : "Quản lý tuyển dụng",
+    "candidate_list": "Job's candidates"
   },
   "company": {
     "joblist": "Công việc",
@@ -61,7 +62,8 @@
     "phoneNumber": "Số điện thoại",
     "website": "Website",
     "no_jobs_found": "Không có công việc nào",
-    "loadmore_jobs": "Hiển thị thêm"
+    "loadmore_jobs": "Hiển thị thêm",
+    "no_candidates_found": "Không tìm thấy ứng viên nào!"
   },
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",
