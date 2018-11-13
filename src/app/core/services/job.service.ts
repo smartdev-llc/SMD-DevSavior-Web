@@ -114,4 +114,11 @@ export class JobService {
                       catchError(this.handleError)
                     )
   }
+
+  sendContactAdmin(params: any) {
+    return this.http.post('/contact', params)
+      .pipe(
+        map((respone: any) => respone)
+      )
+  }
 }

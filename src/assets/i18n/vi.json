@@ -241,5 +241,11 @@
     "pPass":"Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.",
     "fName":"Họ",
     "lName":"Tên"
+  },
+  "contact": {
+    "name": "Tên",
+    "mail": "Email",
+    "subject": "Tiêu đề",
+    "message": "Nội dung"
   }
 }
