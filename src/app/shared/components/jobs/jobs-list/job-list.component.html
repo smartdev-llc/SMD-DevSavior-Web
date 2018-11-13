@@ -62,10 +62,15 @@
 
     <div class="col-xl-12 col-md-4 col-sm-12col-lg-4">
       <h3 class="jobs-title hot-jobs">Hot Jobs</h3>
-      <hotjob-item></hotjob-item>
-      <hotjob-item></hotjob-item>
-      <hotjob-item></hotjob-item>
-      <hotjob-item></hotjob-item>
+      <div class="loader-wrapper">
+        <div class="loadessr lower-header-loading no-bg-loader" *ngIf="isHotJobLoading">
+          <div class="loader small below-wrapper"></div>
+        </div>
+        <ng-template ngFor let-hotjob [ngForOf]="hotjobs">
+          <hotjob-item [job]="hotjob.job"></hotjob-item>
+        </ng-template>
+      </div>
+      
     </div>
 
   </div>

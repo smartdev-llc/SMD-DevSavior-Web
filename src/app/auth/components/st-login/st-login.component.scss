@@ -1,10 +1,10 @@
 @import "../../../../../libs/css/variables";
-.white-text p {
+.white-text .main-title p {
   font-size: 28px;
   font-weight: 500;
   color: #fff;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin: 40px 0 30px 0;
+  text-align: center
 }
 .w-u-link.l-pointer{
   color: #04ff00;
@@ -101,18 +101,23 @@
   margin-top: 20px
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1204px) {
   .btn-social{
     margin-top: 10px;
+    position: relative;
+    left: 8%;
+
   }
 }
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1203px) {
   .btn-social{
     margin-top: 10px;
+    position: relative;
+    left: 26%;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .deximJobs_tabs .contact_us .lost_password {
     @include padding-for-lost_password
   };
@@ -120,7 +125,9 @@
     @include margin-sidebar
   };
   .btn-social {
-    @include btn-social-resize;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
   }
 }
 

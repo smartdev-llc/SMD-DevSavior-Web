@@ -2,8 +2,8 @@
 <div class="container main-container header_area">
   <div class="row j-filter-search">
     <div class="col-lg-6 col-xs-12">
-      <div class="tab_filters">
-
+      <!-- The job filter has not been implemented yet -->
+      <!-- <div class="tab_filters">
         <ul class="nav nav-pills">
           <li class="active">
             <a  href="">online
@@ -31,7 +31,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
     <form class="form validation-form col-lg-6 col-xs-12">
       <div class="col-lg-offset-6 ">
@@ -77,7 +77,7 @@
                 <a href="">Edit</a>
                 <a href="">Copy</a>
                 <a href="">Inactive</a>
-                <a routerLink="/employer/candidates">View Candidates</a>
+                <a routerLink="/employer/jobs/{{job.id}}/candidates">View Candidates</a>
               </div>
             </div>
           </td>
@@ -93,22 +93,22 @@
 
           <td>
             <div class="expiration">
-              <div>7 days</div>
+              <!-- <div>7 days</div> -->
               <div class="time">Online: {{convertTimeStampToDate(job.createdAt)}}</div>
-              <div  class="time">Expired: {{getExpiredDate(job.createdAt)}}</div>
+              <!-- <div  class="time">Expired: {{getExpiredDate(job.createdAt)}}</div> -->
             </div>
           </td>
 
           <td>
-            <div>
+            <!-- <div>
               <span >98</span>
 
-            </div>
+            </div> -->
           </td>
 
           <td>
             <div class="text-center">
-                <a routerLink="/employer/candidates">4</a>
+                <a routerLink="/employer/candidates">{{job.students.length}}</a>
             </div>
           </td>
         </tr>

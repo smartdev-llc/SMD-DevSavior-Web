@@ -29,7 +29,7 @@ export const CompanyRoutes = [
             { path: 'home', component: HomeComponent },
             { path: 'find-resumes', component: FindResumesComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'jobs', component: JobListComponent, canActivate: [CompanyUserAuthGuard] },
-            { path: 'candidates', component: CandidateListComponent, canActivate: [CompanyUserAuthGuard] },
+            { path: 'jobs/:jobId/candidates', component: CandidateListComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'statistic', component: StatisticComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'post-job', component: PostJobComponent, canActivate: [CompanyUserAuthGuard] },
             { path: 'profile', component: CompanyProfileComponent, canActivate: [CompanyUserAuthGuard] },

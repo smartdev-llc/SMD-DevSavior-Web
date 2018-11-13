@@ -13,7 +13,7 @@
       <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12 col-xs-12">
         <div class="tab-content">
           <div id="login" class="white-text">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left main-title">
               <p>{{ 'login.titleSt' | translate }} </p>
               <form name="contact_us" class="contact_us validation-form" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
 
@@ -22,7 +22,7 @@
                   <label></label>
                   <div class="error-input">
                     <div *ngIf="formErrorMessage">
-                      {{formErrorMessage}}
+                      {{'login.wrongEmailAndPassword' | translate}}
                     </div>
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                       *ngIf="(email.invalid && email.touched) || isSubmited"
                       class="error-input" >
                       <div *ngIf="email.getError('required')">{{ 'validation.fieldRequired' | translate }}</div>
-                      <div *ngIf="email.getError('email')">Email is required</div>
+                      <div *ngIf="email.getError('email')">{{'validation.wrongEmail' | translate}}</div>
                     </div>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="form-group submit">
                   <label></label>
                   <input type="submit" name="submit" value="{{ 'login.signIn' | translate }}" class="signin" id="signin">
-                  <a href="/lost-password" class="lost_password">{{ 'login.LostPass' | translate }}</a>
+                  <a href="/lost-password" class="lost_password">{{ 'login.lostPass' | translate }}</a>
                 </div>
 
                 <div class="form-group">
