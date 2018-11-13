@@ -2401,6 +2401,7 @@ ul.top_filters li input[type="checkbox"]:checked+label:after {
     width: 100%;
     padding: 30px;
     margin: 10px;
+    background-color: white;
 }
 
 .blocks h3 {
@@ -4075,6 +4076,13 @@ span.login-ins {
     animation: spin 1.5s linear infinite;
     /* Chrome, Firefox 16+, IE 10+, Opera */
 }
+.loader.small {
+    width: 80px;
+    height: 80px;
+}
+.loader.below-wrapper {
+    margin-top: 0px;
+}
 
 #loadessr,
 .loadessr {
@@ -4087,6 +4095,9 @@ span.login-ins {
 
 .blur-loading {
     background-color: rgba(224, 224, 224, 0.6)
+}
+.no-bg-loader {
+    background: transparent
 }
 
 

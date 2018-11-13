@@ -14,6 +14,7 @@ deploy:
     - apt-get update -qq && apt-get install -y -qq sshpass
     - npm i -g pm2
   script:
+    # - npm rebuild node-sass
     - npm install
     - ./node_modules/@angular/cli/bin/ng build --progress false --prod
     - cd dist/

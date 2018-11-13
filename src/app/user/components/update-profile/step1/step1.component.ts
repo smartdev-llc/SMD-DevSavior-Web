@@ -32,7 +32,7 @@ export class UpdateProfileStep1Component implements OnInit {
   isSubmittingPersonal = false;
   basicInfo: BasicInfo;
   personalInfo: PersonalInfo;
-  profileImageURL: string = 'assets/images/profile-placeholder.png';
+  profileImageURL: string = '';
 
   academicLevel: Array<any>  = [];
 
@@ -57,7 +57,7 @@ export class UpdateProfileStep1Component implements OnInit {
     this.uploader.response.subscribe(res => {
       try {
         const data = JSON.parse(res);
-        this.profileImageURL = data.profileImageURL ? environment.apiEndpoint + data.profileImageURL : this.profileImageURL;
+        this.profileImageURL = data.photoUrl;
       } catch(error) { }
     });
 
@@ -80,7 +80,7 @@ export class UpdateProfileStep1Component implements OnInit {
   preLoadData(): void {
     this.studentUserService.getMyProfile()
       .subscribe(response => {
-        this.profileImageURL = response.owner.profileImageURL ? environment.apiEndpoint + response.owner.profileImageURL : this.profileImageURL;
+        this.profileImageURL = response.owner.profileImageURL;
 
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);

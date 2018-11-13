@@ -98,4 +98,20 @@ export class JobService {
                       catchError(this.handleError)
                     )
   }
+
+  getCandidateForJob(jobId: string) {
+    return this.http.get('/jobs/'+ jobId + '/applications')
+                    .pipe(
+                      map((response:any) => response),
+                      catchError(this.handleError)
+                    )
+  }
+
+  getHotJob() {
+    return this.http.get('/hotjobs')
+                    .pipe(
+                      map(response => response),
+                      catchError(this.handleError)
+                    )
+  }
 }

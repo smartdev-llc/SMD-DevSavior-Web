@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { JobService } from '../../../core/services/job.service';
+import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
+import { LanguageService } from '../../../layout/services/language.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateListComponent implements OnInit {
 
-  constructor() { }
+  jobId: string;
+  candidates: any[];
+  isLoading: boolean;
+  jobs: any[];
+
+
+  constructor(private jobService: JobService, 
+              private router: ActivatedRoute, 
+              private languageService: LanguageService) { 
+
+  }
 
   ngOnInit() {
+    this.jobId = this.router.snapshot.paramMap.get('jobId');
+    if(this.jobId) {
+      this.loadCandidateForJob();
+    } else {
+      this.isLoading = false;
+    }
+  }
+
+  loadCandidateForJob() {
+    this.isLoading = true;
+    this.jobService.getCandidateForJob(this.jobId)
+    .subscribe(
+      data => {
+        this.candidates = data;
+        this.isLoading = false;
+      },
+      error => {
+        this.isLoading = false;
+      }
+    )
   }
 
 
