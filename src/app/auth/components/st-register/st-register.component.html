@@ -15,9 +15,9 @@
           <div id="register-account" class="white-text">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left ml-1 main-title">
               <p class="text-center">{{'register.titleSt' | translate }}</p>
-              <form name="contact_us" 
-                    class="contact_us validation-form" 
-                    [formGroup]="registerForm" 
+              <form name="contact_us"
+                    class="contact_us validation-form"
+                    [formGroup]="registerForm"
                     (ngSubmit)="registerNewUser()">
 
                 <div class="form-group global-error"
@@ -33,9 +33,9 @@
                 <div class="form-group required">
                   <label>{{ 'register.mail' | translate }}</label>
                   <div class="input-container">
-                    <input type="email" 
-                          name="email" 
-                          formControlName="email" 
+                    <input type="email"
+                          name="email"
+                          formControlName="email"
                           [ngClass]="{ 'has-error': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.invalid" class="error-input">
 
@@ -129,7 +129,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="form-group submit">
                   <label>Submit</label>
                   <input type="submit"

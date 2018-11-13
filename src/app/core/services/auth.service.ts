@@ -23,6 +23,7 @@ import {
   GoogleLoginProvider
 } from "angular-6-social-login";
 import {Unauthorized} from '../error/unauthorized';
+import {BadRequest} from '../error/bad-request';
 
 
 @Injectable()
@@ -62,7 +63,6 @@ export class AuthService {
       .pipe(
         map(
           (response: any) => {
-            console.log('[login()][response]', response.message);
             return response;
           }
         ),
@@ -160,7 +160,7 @@ export class AuthService {
    * @memberof AuthService
    */
   getTokenHeader(request: HttpRequest<any>): HttpHeaders {
-    
+
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',
@@ -220,6 +220,9 @@ export class AuthService {
     }
     if (error.status === 401) {
       return throwError(new Unauthorized(error.error.message));
+    }
+    if (error.status === 400){
+      return throwError(new BadRequest(error.error.message));
     }
     return throwError(new AppErrors(error.error.message));
   }

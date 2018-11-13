@@ -22,7 +22,7 @@
                   <label></label>
                   <div class="error-input">
                     <div *ngIf="formErrorMessage">
-                      {{formErrorMessage}}
+                      {{'login.wrongEmailAndPassword' | translate}}
                     </div>
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                       *ngIf="(email.invalid && email.touched) || isSubmited"
                       class="error-input" >
                       <div *ngIf="email.getError('required')">{{ 'validation.fieldRequired' | translate }}</div>
-                      <div *ngIf="email.getError('email')">Email is required</div>
+                      <div *ngIf="email.getError('email')">{{'validation.wrongEmail' | translate}}</div>
                     </div>
                   </div>
                 </div>
