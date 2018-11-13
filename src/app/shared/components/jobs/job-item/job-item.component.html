@@ -1,12 +1,12 @@
 <a routerLink="/jobs/{{job.id}}">
   <article>
     <div class="brows-job-list">
-      <div class="col-md-1 col-sm-2 small-padding">
+      <div class="col-md-2 col-sm-2 small-padding">
         <div class="brows-job-company-img">
           <img class="img-responsive" src="{{ job.company.logoURL | photoURLConverter:'assets/images/company-logo.png' }}" />
         </div>
       </div>
-      <div class="col-md-6 col-sm-5">
+      <div class="col-md-8 col-sm-8">
         <div class="brows-job-position">
           <h3>{{ job.title }}</h3>
           <h4 class="skills">{{ job.skills | parseskill }}</h4>
@@ -18,7 +18,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-3 col-sm-3">
+      <div class="col-md-2 col-sm-2">
         <div class="brows-job-location">
           <p><i class="fa fa-map-marker"></i>{{ job.company.city | cityPipe }}</p>
         </div>
