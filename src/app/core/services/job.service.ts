@@ -76,6 +76,7 @@ export class JobService {
       return throwError (new Duplicate(error.error.message));
     }
     if ( error.status === 404) {
+      console.log(error);
       return throwError (new NotFound(error.error.message));
     }
     return throwError(new AppErrors(error.error.message));
@@ -118,7 +119,6 @@ export class JobService {
   sendContactAdmin(params: any) {
     return this.http.post('/contact', params)
       .pipe(
-        map((respone: any) => respone)
-      )
+        map((respone: any) => respone))
   }
 }
