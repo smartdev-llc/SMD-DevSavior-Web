@@ -238,5 +238,11 @@
     "pPass":"Your passwords at JuniorViec are encrypted and secured.",
     "fName":"First Name",
     "lName":"Last Name"
+  },
+  "contact": {
+    "name": "Name",
+    "mail": "Email",
+    "subject": "Subject",
+    "message": "Message"
   }
 }
