@@ -51,7 +51,7 @@
   }
 
   .profile-usertitle-name {
-    color: #5a7391;
+    color: #000000;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -59,7 +59,7 @@
 
   .profile-usertitle-job {
     text-transform: uppercase;
-    color: #5b9bd1;
+    color: #00cb70;
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -97,7 +97,8 @@
   .profile-usermenu ul li a {
     color: #93a3b5;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
+    font-family: roboto
   }
 
   .profile-usermenu ul li a i {
@@ -107,7 +108,7 @@
 
   .profile-usermenu ul li a:hover {
     background-color: #fafcfd;
-    color: #5b9bd1;
+    color: #00cb70;
   }
 
   .profile-usermenu ul li.active {
@@ -115,9 +116,9 @@
   }
 
   .profile-usermenu ul li.active a {
-    color: #5b9bd1;
+    color: #00cb70;
     background-color: #f6f9fb;
-    border-left: 2px solid #5b9bd1;
+    border-left: 2px solid #00cb70;
     margin-left: -2px;
   }
   /* Profile Content */
