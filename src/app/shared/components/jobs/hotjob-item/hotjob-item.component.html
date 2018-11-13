@@ -12,15 +12,17 @@
   </div>
 
   <div class="row">
-    <div class="col-md-7"></div>
-    <div class="col-md-5">
-      <p class="salary">{{ job.fromSalary | salaryConverter:job.toSalary:'$' }}</p>
+    <div class="col-xs-12">
+      <p class="salary">
+          <i class="fa fa-money"></i>
+        {{ job.fromSalary | salaryConverter:job.toSalary:'$' }}
+      </p>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <a routerLink="/detail-job/{{job.id}}" class="job-apply">
+      <a routerLink="/jobs/{{job.id}}" class="job-apply">
         <span class="label">More detail</span>
       </a>
     </div>
