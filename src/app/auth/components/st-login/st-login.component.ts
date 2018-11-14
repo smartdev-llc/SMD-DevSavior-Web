@@ -8,6 +8,7 @@ import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import { LanguageService } from '../../../layout/services/language.service';
+import {BadRequest} from '../../../core/error/bad-request';
 
 @Component({
   selector: 'login',
@@ -60,9 +61,9 @@ export class StLoginComponent implements OnInit, OnDestroy {
     this.isSubmited = true;
     this.formErrorMessage = '';
     this.isResendEmailSuccess = false;
+    this.isNotVerified = false;
 
     if (this.loginInForm.invalid) {
-      console.log('error', this.loginInForm);
 
     } else {
       this.isLoading = true;
@@ -93,7 +94,7 @@ export class StLoginComponent implements OnInit, OnDestroy {
       .resendEmail( email.value, 'student')
       .subscribe(
         message => {
-          if ( message === 'Sent email.') {
+          if (message) {
             this.isLoading = false;
             this.isNotVerified = false;
             this.isResendEmailSuccess = true;
@@ -118,18 +119,17 @@ export class StLoginComponent implements OnInit, OnDestroy {
     this.isLoading = false;
 
     if (error instanceof InternalServer) {
-      console.log('Internal server', error);
     }
     else if (error instanceof Unauthorized) {
-      console.log('Unauthorized ', error.originalError);
       this.formErrorMessage = error.originalError;
     }
     else if (error instanceof Forbidden) {
-      console.log('Forbidden ', error.originalError);
       this.isNotVerified = true;
     }
+    else if (error instanceof BadRequest) {
+      this.formErrorMessage = error.originalError;
+    }
     else {
-      console.log('app error', error);
       throw error;
     }
   }

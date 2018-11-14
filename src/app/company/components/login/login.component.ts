@@ -8,6 +8,7 @@ import { Forbidden } from '../../../core/error/forbidden';
 import { InternalServer } from '../../../core/error/internal-server';
 import { LanguageService } from '../../../layout/services/language.service';
 import { Unauthorized } from '../../../core/error/unauthorized';
+import {BadRequest} from '../../../core/error/bad-request';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
   initForm() {
     this.loginInForm = this.fb.group({
-      'email': ['', Validators.email],
+      'email': ['',[Validators.email, Validators.required]],
       'password': ['', Validators.required]
     });
   }
@@ -66,9 +67,10 @@ export class LoginComponent implements OnInit {
     this.isSubmited = true;
     this.formErrorMessage = '';
     this.isResendEmailSuccess = false;
+    this.isNotVerified = false;
 
     if (this.loginInForm.invalid) {
-      console.log('error', this.loginInForm);
+      // console.log('error', this.loginInForm);
 
     } else {
       this.isLoading = true;
@@ -86,7 +88,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-
   resendEmail(email: HTMLInputElement) {
     this.isLoading = true;
 
@@ -94,7 +95,7 @@ export class LoginComponent implements OnInit {
       .resendEmail(email.value, 'company')
       .subscribe(
         message => {
-          if (message === 'Sent email.') {
+          if (message) {
             this.isLoading = false;
             this.isNotVerified = false;
             this.isResendEmailSuccess = true;
@@ -108,18 +109,17 @@ export class LoginComponent implements OnInit {
     this.isLoading = false;
 
     if (error instanceof InternalServer) {
-      console.log('Internal server', error);
     }
     else if (error instanceof Unauthorized) {
-      console.log('Unauthorized ', error.originalError);
       this.formErrorMessage = error.originalError;
     }
     else if (error instanceof Forbidden) {
-      console.log('Forbidden ', error.originalError);
       this.isNotVerified = true;
     }
+    else if (error instanceof BadRequest) {
+      this.formErrorMessage = error.originalError;
+    }
     else {
-      console.log('app error', error);
       throw error;
     }
   }

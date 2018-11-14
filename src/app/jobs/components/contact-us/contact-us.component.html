@@ -20,26 +20,76 @@
 <!--Contact Us Section-->
 <div class="container-fluid  contact_us">
   <div class="row">
+    <div  id="loadessr" *ngIf="isLoading">
+      <div id="loader">
+      </div>
+    </div>
     <div class="container main-container" id="form-style-2">
       <div class="col-lg-9 col-lg-push-1">
-        <form formGroup="null">
+        <form name="form" class="validation-form" (ngSubmit)="contactForm.form.valid && onSubmit(contactForm)" #contactForm="ngForm" novalidate>
           <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label>Name:</label></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><input type="text" name="name"></div>
+            <label class="col-lg-10 col-lg-push-2 col-md-10 col-md-push-2 col-sm-10 col-sm-push-2 col-xs-12"></label>
+            <div class="col-lg-10 col-lg-push-2 col-md-10 col-md-push-2 col-sm-10 col-sm-push-2 col-xs-12 error-message" *ngIf="formErrorMessage">
+              <i class="fa fa-times-circle"></i>
+              {{formErrorMessage}}
+            </div>
           </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label>Email:</label></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><input type="email" name="email"></div>
+          <div class="form-group required">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label for="name">{{'contact.name' | translate}}</label></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="model.name"
+                     [ngClass]="{ 'is-invalid': contactForm.submitted && name.invalid }" required/>
+              <div
+                *ngIf="contactForm.submitted && name.invalid"
+                class="error-input">
+                <div *ngIf="name.getError('required')">{{'validation.fieldRequired' | translate}}</div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label>Message:</label></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><textarea rows="5"></textarea></div>
+          <div class="form-group required">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label for="email">{{'contact.mail' | translate}}</label></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input class="form-control" type="email" name="email" id="email" #email="ngModel" [(ngModel)]="model.email"
+                     [ngClass]="{ 'is-invalid': contactForm.submitted && email.invalid }" required/>
+              <div
+                *ngIf="contactForm.submitted && email.invalid"
+                class="error-input" >
+                <div *ngIf="email.getError('required')">{{'validation.fieldRequired' | translate}}</div>
+                <div *ngIf="email.getError('email')">{{'validation.wrongEmail' | translate}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label for="subject">{{'contact.subject' | translate}}</label></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <input class="form-control" type="text" name="subject" id="subject" #subject="ngModel" [(ngModel)]="model.subject"
+                     [ngClass]="{ 'is-invalid': contactForm.submitted && subject.invalid }" required/>
+              <div
+                *ngIf="contactForm.submitted && subject.invalid"
+                class="error-input" >
+                <div *ngIf="subject.getError('required')">{{'validation.fieldRequired' | translate}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><label for="message">{{'contact.message' | translate}}</label></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+              <textarea class="form-control" type="text" name="message" id="message" #message="ngModel" [(ngModel)]="model.message"
+                        [ngClass]="{ 'is-invalid': contactForm.submitted && message.invalid }" required></textarea>
+              <div
+                *ngIf="contactForm.submitted && message.invalid"
+                class="error-input" >
+                <div *ngIf="message.getError('required')">{{'validation.fieldRequired' | translate}}</div>
+              </div>
+            </div>
           </div>
           <div class="form-group submit">
-
             <div class="col-lg-10 col-lg-push-2 col-md-10 col-md-push-2 col-sm-10 col-sm-push-2 col-xs-12"><input type="submit" name="submit" value="Send message"></div>
+            <div class="col-lg-10 col-lg-push-2 col-md-10 col-md-push-2 col-sm-10 col-sm-push-2 col-xs-12 success-message" *ngIf="isSucess">
+              <i class="fa fa-check"></i>
+              Your message has been sent successfully!
+            </div>
           </div>
-
         </form>
       </div>
     </div>

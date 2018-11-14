@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
+import { JobService } from '../../../../core/services/job.service';
 
 @Component({
   selector: 'app-job-list',
@@ -8,16 +9,22 @@ import { AuthService } from '../../../../core/services/auth.service';
   providers: [AuthService]
 })
 export class JobListComponent implements OnInit {
-  jobsPerPage = 6;
+  jobsPerPage = 15;
   page: number;
   loading = true;
   jobs: any = [];
   pages: any;
+  hotjobs: any;
+  isHotJobLoading = true;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, 
+              private jobService: JobService) {
+
+              }
 
   ngOnInit() {
     this.getJobItem();
+    this.getHotJob();
   }
 
   getJobItem() {
@@ -31,9 +38,21 @@ export class JobListComponent implements OnInit {
         },
         error => {
           this.loading = false;
-          console.log(error)
         }
       )
+  }
+
+  getHotJob() {
+    this.jobService.getHotJob()
+                    .subscribe(
+                      hotJobs => {
+                        this.isHotJobLoading = false;
+                        this.hotjobs = hotJobs;
+                      }, 
+                      error => {
+                        this.isHotJobLoading = false;
+                      }
+                    )
   }
 
   getStartIndexOfPage(page: number): number {

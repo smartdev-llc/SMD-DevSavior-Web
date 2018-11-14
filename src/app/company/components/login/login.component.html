@@ -23,27 +23,31 @@
                     <label></label>
                     <div class="login-error-message text-danger">
                       <div *ngIf="formErrorMessage">
-                        {{formErrorMessage}}
+                        {{'login.wrongEmailAndPassword' | translate}}
                       </div>
                     </div>
                   </div>
                   <form class="m-t-lg contact_us" id="loginForm" [formGroup]="loginInForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
+
+                    <!--Email-->
                     <div class="form-group">
                       <label>{{ 'login.mail' | translate }}</label>
                       <input class="form-control valid" formControlName="email" type="email" id="username" name="name" placeholder="{{ 'login.paMail' | translate }}" value="" aria-required="true" aria-invalid="false">
-                      <div *ngIf="loginInForm.get('email').errors && (loginInForm.get('email').touched || loginInForm.get('email').dirty)">
-
-                        <p class="login-error-message text-danger">{{loginInForm.get('email').errors.msg || 'Please input a valid email.'}}</p>
+                      <div *ngIf="(email.invalid && email.touched) || isSubmited">
+                        <p *ngIf="email.getError('required')" class="login-error-message text-danger">{{ 'validation.fieldRequired' | translate }}</p>
+                        <p *ngIf="email.getError('email')" class="login-error-message text-danger">{{'validation.wrongEmail' | translate}}</p>
                       </div>
                     </div>
+
+                    <!--Password-->
                     <div class="form-group">
                       <label>{{ 'login.pass' | translate }}</label>
                       <input class="form-control valid" type="password" id="password" name="password" formControlName="password" placeholder="{{ 'login.paPass' | translate }}" aria-required="true" aria-invalid="false">
-                      <div *ngIf="loginInForm.get('password').errors && (loginInForm.get('password').touched || loginInForm.get('email').dirty)">
-
-                        <p class="login-error-message text-danger">{{loginInForm.get('password').errors.msg || 'Please input password.'}}</p>
+                      <div *ngIf="(password.invalid && password.touched) || isSubmited">
+                        <p *ngIf="email.getError('required')" class="login-error-message text-danger">{{'validation.fieldRequired' | translate }}</p>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <input type="hidden" name="_redirect_url" value="">
                       <input type="hidden" name="_target_path" value="/v2/">
@@ -59,17 +63,17 @@
                         </p>
                       </div>
                     </div>
-                    
+
                     <p *ngIf="isResendEmailSuccess" class="font-size-20 text-center">
-                      
+
                     {{ 'login.verify' | translate }}
                     </p>
                     <div class="form-group clearfix">
                       <span class="pull-left">
-                        
+
                       </span>
                       <span class="pull-right pull-left-xs em-log-in__reset-pass">
-                        <a routerLink="/employer/lost-password">{{ 'login.LostPass' | translate }}</a>
+                        <a routerLink="/employer/lost-password">{{ 'login.lostPass' | translate }}</a>
                       </span>
                     </div>
                     <div class="form-group">

@@ -1,14 +1,14 @@
 <div class="form-group">
   <div class="dropdown">
     <button class="filters_feilds btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      {{selectedDisplayText}}
+      {{ selectedDisplayText | translate }}
       <span class="glyphicon glyphicon-menu-down"></span>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
       <ul class="tiny_scrolling" id="style-3">
         <li *ngFor="let item of availableItems ;let i = index"
           [ngClass]="{'active': focusedItemIndex == i}" (click)="selectItem(item)">
-          <a>{{item[config.displayKey] || item}}</a>
+          <a>{{ item[config.displayKey] || item | translate }}</a>
         </li>
       </ul>
     </div>

@@ -92,17 +92,20 @@ h4.skills {
   border-radius: 50%;
   line-height: 75px;
   img {
-    margin: 0 auto;
+    margin: 10px 0 0 10px;
     vertical-align: middle;
     display: inline-block;
   }
 }
 
 .brows-job-location {
-  margin-top: 23px;
   p {
+    margin: 23px 0 0 0;
     font-size: 15px;
     color: #5a6f7c;
+    float: right;
+    text-align: center;
+    width: 100px;
   }
 }
 
@@ -207,13 +210,6 @@ h4.skills {
   border-radius: 14px;
 }
 
-@media only screen and (min-width: 768px) {
-  h3 {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-
 @media screen and (max-width: 1199px) {
   h3 {
     font-size: 22px;
@@ -222,13 +218,14 @@ h4.skills {
 
 @media only screen and (max-width: 992px) and (min-width: 768px) {
   .brows-job-position h3 {
-    font-size: 19px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  h3 {
     font-size: 20px;
+  }
+  .brows-job-company-img {
+    img {
+      margin: 10px 0 0 0px;
+      vertical-align: middle;
+      display: inline-block;
+    }
   }
 }
 
