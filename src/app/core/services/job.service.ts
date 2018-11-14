@@ -118,7 +118,6 @@ export class JobService {
   sendContactAdmin(params: any) {
     return this.http.post('/contact', params)
       .pipe(
-        map((respone: any) => respone)
-      )
+        map((respone: any) => respone))
   }
 }

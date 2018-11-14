@@ -13,6 +13,7 @@ export class ContactUsComponent {
   isLoading = false;
   model: any = {};
   isSucess = false;
+  formErrorMessage: string;
 
   constructor(
     private jobService: JobService
@@ -21,6 +22,7 @@ export class ContactUsComponent {
 
   onSubmit (form: NgForm) {
     this.isLoading = true;
+    this.formErrorMessage = "";
     this.jobService
       .sendContactAdmin(this.model)
       .subscribe(_ => {
@@ -28,7 +30,9 @@ export class ContactUsComponent {
         form.resetForm();
         this.isSucess = true;
       }, error => {
-        this.jobService.handleError(error);
+        this.isLoading = false;
+        this.formErrorMessage = error.error.message;
       });
   }
+
 }
