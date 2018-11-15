@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JobService } from '../../../core/services/job.service';
+
 
 @Component({
   selector: 'app-statistic',
@@ -8,10 +10,16 @@ import { Router } from '@angular/router';
 })
 export class StatisticComponent implements OnInit {
 
-  constructor() { }
+  typeJobs: any;
+  constructor(
+    private jobService: JobService
 
+  ) { }
   ngOnInit() {
-    
+      this.jobService.getCountJobs().subscribe(data => {
+        this.typeJobs = data;
+      })
+      console.log(this.typeJobs)
   }
 
 }

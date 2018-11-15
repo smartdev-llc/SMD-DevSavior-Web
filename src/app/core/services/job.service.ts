@@ -120,4 +120,13 @@ export class JobService {
       .pipe(
         map((respone: any) => respone))
   }
+  getCountJobs() {
+    return this.http.get('/jobs/count')
+    .pipe(
+      map( response => {
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+  }
 }
