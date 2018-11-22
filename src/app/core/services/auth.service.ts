@@ -116,8 +116,7 @@ export class AuthService {
   }
 
   verifyAccount(token: string): Observable<any> {
-    const params: HttpParams = new HttpParams({ fromObject: { token: token } });
-    return this.http.get('/auth/verify', { params: params });
+    return this.http.post('/auth/verify', { token });
   }
 
   resendVerificationEmail(email: string, role: Role): Observable<any> {
