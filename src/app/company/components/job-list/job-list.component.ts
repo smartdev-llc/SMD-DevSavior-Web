@@ -17,7 +17,7 @@ export class JobListComponent implements OnInit {
   queryParams: any = {};
   listCompanyJobs: Array<any> = [];
   totalItems: number = 0;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 10;
   currentPage: number = 1;
   loading = false;
   formErrorMessage: string;
