@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpParams } from '@angular/common/http';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+import { ActivatedRoute, } from '@angular/router';
+import { HttpParams } from '@angular/common/http';
 
 import { JobService } from '../../../core/services/job.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-job-list',
@@ -15,14 +17,14 @@ export class JobListComponent implements OnInit {
   queryParams: any = {};
   listCompanyJobs: Array<any> = [];
   totalItems: number = 0;
-  itemsPerPage: number = 4;
-  currentPage: number = 0;
+  itemsPerPage: number = 10;
+  currentPage: number = 1;
   loading = false;
+  formErrorMessage: string;
 
   constructor(
-    private Route: Router,
     private jobService: JobService,
-    private scrollToService: ScrollToService
+    private scrollToService: ScrollToService,
   ) { }
 
   ngOnInit() {
@@ -30,26 +32,43 @@ export class JobListComponent implements OnInit {
   }
 
   getListCompanyJobs() {
-    this.queryParams = {
-      size: this.itemsPerPage,
-      page: 0,
-      ...this.queryParams
-    };
     const params = new HttpParams({ fromObject: this.queryParams });
-    this.loading = true;
-    this.jobService.getListCompanyJobs(params).subscribe(value => {
-      this.listCompanyJobs = value;
-      this.totalItems = value.length;
-      this.loading = false;
-    });
+    this.jobService.getCompanyJobs(params)
+      .subscribe(value => {
+        this.totalItems = value.length;
+        this.queryParams = {
+          size: this.itemsPerPage,
+          page: 0,
+          ...this.queryParams
+        };
+        const params = new HttpParams({ fromObject: this.queryParams });
+        this.jobService.getCompanyJobs(params)
+          .subscribe(value => {
+            this.listCompanyJobs = value;
+            this.loading = false;
+          }, error => {
+            this.loading = false;
+            this.formErrorMessage = error.message;
+          });
+    }, error => {
+        this.formErrorMessage = error.message;
+      });
   }
 
   pageChanged(event: any): void {
     this.queryParams = {
-      ...this.queryParams,
+      size: this.itemsPerPage,
       page: event.page - 1
     };
-    this.getListCompanyJobs();
+    const params = new HttpParams({ fromObject: this.queryParams });
+    this.jobService.getCompanyJobs(params)
+      .subscribe(value => {
+        this.listCompanyJobs = value;
+        this.loading = false;
+      }, error => {
+        this.loading = false;
+        this.formErrorMessage = error.message;
+      });
     this.scrollToService.scrollTo({ target: 'listJobs' });
   }
 
