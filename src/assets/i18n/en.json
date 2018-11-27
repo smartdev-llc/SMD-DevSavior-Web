@@ -127,6 +127,8 @@
     "haveNoWorkExperience": "I am a new graduate / have no work experience",
     "personalInfo": "Personal information",
     "fullName": "Full name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "cellNumber": "Cell Number",
     "email": "Email address",
     "dateOfBirth": "Date of birth",

@@ -128,6 +128,8 @@
     "haveNoWorkExperience": "Tôi mới tốt nghiệp/chưa có kinh nghiệm làm việc",
     "personalInfo": "Thông tin cá nhân",
     "fullName": "Họ tên",
+    "firstName": "Tên",
+    "lastName": "Họ",
     "cellNumber": "Số điện thoại",
     "email": "Địa chỉ email",
     "dateOfBirth": "Ngày sinh",
