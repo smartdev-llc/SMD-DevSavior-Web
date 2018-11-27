@@ -2599,7 +2599,7 @@ ul.alphabet li {
 }
 
 .form-group label {
-    text-align: right;
+    text-align: inherit;
     float: left;
     min-width: 60px;
     margin-right: 22px;

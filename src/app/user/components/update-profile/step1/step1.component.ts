@@ -80,7 +80,7 @@ export class UpdateProfileStep1Component implements OnInit {
   preLoadData(): void {
     this.studentUserService.getMyProfile()
       .subscribe(response => {
-        this.profileImageURL = response.owner.profileImageURL;
+        this.profileImageURL = response.profileImageURL;
 
         // basicInfo form
         this.basicInfo = new BasicInfo().deserialize(response);
@@ -107,7 +107,8 @@ export class UpdateProfileStep1Component implements OnInit {
     });
 
     this.personalInfoFormGroup = this.formBuilder.group({
-      fullName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       phoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],

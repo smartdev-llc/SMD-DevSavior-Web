@@ -100,16 +100,25 @@
     </div>
     <form class="update-form" [formGroup]="personalInfoFormGroup" (ngSubmit)="onSubmitPersonalInfo()">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.fullName.errors }">
-            <label for="email" class="required">{{ 'personalInfo.fullName' | translate }}</label>
-            <input type="text" class="form-control" formControlName="fullName">
-            <div *ngIf="submittedPersonal && piF.fullName.errors">
-              <em *ngIf="piF.fullName.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+        <div class="col-sm-4">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.firstName.errors }">
+            <label for="email" class="required">{{ 'personalInfo.firstName' | translate }}</label>
+            <input type="text" class="form-control" formControlName="firstName">
+            <div *ngIf="submittedPersonal && piF.firstName.errors">
+              <em *ngIf="piF.firstName.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.lastName.errors }">
+            <label for="email" class="required">{{ 'personalInfo.lastName' | translate }}</label>
+            <input type="text" class="form-control" formControlName="lastName">
+            <div *ngIf="submittedPersonal && piF.lastName.errors">
+              <em *ngIf="piF.lastName.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
           <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.phoneNumber.errors }">
             <label for="email" class="required">{{ 'personalInfo.cellNumber' | translate }}</label>
             <input type="text" class="form-control" formControlName="phoneNumber">
@@ -140,6 +149,7 @@
               class="form-control"
               placeholder="Date of birth"
               [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+              placeholder="DD-MM-YYY"
               bsDatepicker
               formControlName="dateOfBirth" />
               <div *ngIf="submittedPersonal && piF.dateOfBirth.errors">
