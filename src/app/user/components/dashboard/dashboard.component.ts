@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
     this.studentUserService.getMyProfile()
       .subscribe(res => {
         this.profile = res;
-        this.profileImageURL = res.owner.profileImageURL;
+        this.profileImageURL = res.profileImageURL;
       })
   }
 

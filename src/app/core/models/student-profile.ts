@@ -30,7 +30,8 @@ export class BasicInfo implements Deserializable {
 }
 
 export class PersonalInfo implements Deserializable {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   phoneNumber: string;
   email: string;
   dateOfBirth: any;
@@ -42,7 +43,8 @@ export class PersonalInfo implements Deserializable {
 
   deserialize(input: any) {
     Object.assign(this, {
-      fullName: input.fullName || '',
+      firstName: input.firstName || '',
+      lastName: input.lastName || '',
       phoneNumber: input.phoneNumber || '',
       email: input.email || '',
       dateOfBirth: input.dateOfBirth || '',

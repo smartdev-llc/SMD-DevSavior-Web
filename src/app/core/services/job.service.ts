@@ -81,13 +81,6 @@ export class JobService {
     return throwError(new AppErrors(error.error.message));
   }
 
-  getListCompanyJobs(params: HttpParams) {
-    return this.http.get('/jobs', {params})
-      .pipe(
-        map((respone: any) => respone)
-      )
-  }
-
   getJobsOfCompany(companyId: string, size: number, page: number) {
     return this.http.get('/companies/'+ companyId + '/jobs', {params: {
                                                                 'size': size.toString(),
@@ -120,13 +113,13 @@ export class JobService {
       .pipe(
         map((respone: any) => respone))
   }
-  getCountJobs() {
-    return this.http.get('/jobs/count')
-    .pipe(
-      map( response => {
-        return response;
-      }),
-      catchError(this.handleError)
-    );
+
+  getCompanyJobs(params: HttpParams) {
+    return this.http.get('/jobs/', { params} )
+      .pipe(
+        map((response:any) => response),
+        catchError(this.handleError)
+      )
   }
+
 }

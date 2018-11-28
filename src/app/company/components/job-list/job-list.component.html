@@ -122,4 +122,12 @@
     </div>
   </div>
   <ngx-loading [show]="loading"></ngx-loading>
+  <div class="form-group">
+    <label></label>
+    <div class="login-error-message text-danger">
+      <div *ngIf="formErrorMessage">
+        {{formErrorMessage}}
+      </div>
+    </div>
+  </div>
 </div>

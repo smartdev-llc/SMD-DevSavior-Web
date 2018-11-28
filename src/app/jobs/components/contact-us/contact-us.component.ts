@@ -23,6 +23,7 @@ export class ContactUsComponent {
   onSubmit (form: NgForm) {
     this.isLoading = true;
     this.formErrorMessage = "";
+    this.isSucess =false;
     this.jobService
       .sendContactAdmin(this.model)
       .subscribe(_ => {
