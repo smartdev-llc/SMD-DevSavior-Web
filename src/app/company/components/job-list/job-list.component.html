@@ -64,10 +64,7 @@
 
           <td>
             <div class="expiration">
-              <div *ngIf="key == 'all'">
-                <div class="time">Online: {{convertTimeStampToDate(job.createdAt)}}</div>
-              </div>
-              <div *ngIf="key == 'expires'||key == 'active'">
+              <div *ngIf="key != 'expired'">
                 <div class="time">Online: {{convertTimeStampToDate(job.expiredAt)}}</div>
               </div>
               <div *ngIf="key == 'expired'">
