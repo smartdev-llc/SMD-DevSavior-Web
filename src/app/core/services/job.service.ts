@@ -121,5 +121,21 @@ export class JobService {
         catchError(this.handleError)
       )
   }
+  getCountJobs() {
+    return this.http.get('/jobs/count')
+    .pipe(
+      map( response => {
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+  }
+  getListByTime(params:HttpParams){
+    return this.http.get('/jobs/list-by-time',{params})
+    .pipe(
+      map((response:any)=>response),
+      catchError(this.handleError)
+    )
+  }
 
 }

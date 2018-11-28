@@ -2,36 +2,7 @@
 <div class="container main-container header_area">
   <div class="row j-filter-search">
     <div class="col-lg-6 col-xs-12">
-      <!-- The job filter has not been implemented yet -->
-      <!-- <div class="tab_filters">
-        <ul class="nav nav-pills">
-          <li class="active">
-            <a  href="">online
-              <span class="badge j-number">3</span>
-            </a>
-          </li>
-          <li>
-            <a href="">draft
-                <span class="badge j-number">3</span>
-            </a>
-          </li>
-          <li>
-            <a href="">Inactive
-                <span class="badge j-number">3</span>
-            </a>
-          </li>
-          <li>
-            <a href="">Expires in 7 days
-                <span class="badge j-number">3</span>
-            </a>
-          </li>
-          <li>
-            <a href="">Expired
-              <span class="badge j-number">3</span>
-            </a>
-          </li>
-        </ul>
-      </div> -->
+     
     </div>
     <form class="form validation-form col-lg-6 col-xs-12">
       <div class="col-lg-offset-6 ">
@@ -93,17 +64,16 @@
 
           <td>
             <div class="expiration">
-              <!-- <div>7 days</div> -->
-              <div class="time">Online: {{convertTimeStampToDate(job.createdAt)}}</div>
-              <!-- <div  class="time">Expired: {{getExpiredDate(job.createdAt)}}</div> -->
+              <div *ngIf="key != 'expired'">
+                <div class="time">Online: {{convertTimeStampToDate(job.expiredAt)}}</div>
+              </div>
+              <div *ngIf="key == 'expired'">
+                <div class="time">Expired</div>
+              </div>
             </div>
           </td>
 
           <td>
-            <!-- <div>
-              <span >98</span>
-
-            </div> -->
           </td>
 
           <td>

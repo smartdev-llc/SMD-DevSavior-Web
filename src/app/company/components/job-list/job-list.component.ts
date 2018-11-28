@@ -21,14 +21,30 @@ export class JobListComponent implements OnInit {
   currentPage: number = 1;
   loading = false;
   formErrorMessage: string;
-
+  key = this.route.snapshot.paramMap.get('type');
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private jobService: JobService,
     private scrollToService: ScrollToService,
   ) { }
 
   ngOnInit() {
-    this.getListCompanyJobs();
+    
+    switch (this.key) {
+      case 'active':
+      case 'expires':
+      case 'expired':
+        this.getListByTime(this.key);
+        break;
+      case 'all':
+        this.getListCompanyJobs();
+        break;
+      default:
+        this.router.navigate(['/not-found']);
+        break;
+    }
+    
   }
 
   getListCompanyJobs() {
@@ -82,5 +98,23 @@ export class JobListComponent implements OnInit {
     var date = new Date(this.convertTimeStampToDate(createDate));
     var expireDate = date.setDate(date.getDate() + 7);
     return new Date(expireDate).toDateString();
+  }
+  getListByTime(key){
+      this.queryParams = {
+        size: this.itemsPerPage,
+        page: 0,
+        type: key,
+        ...this.queryParams
+      };
+      const params = new HttpParams({ fromObject: this.queryParams });
+        this.jobService.getListByTime(params)
+          .subscribe(value => {
+            this.listCompanyJobs = value.list;
+            this.loading = false;
+          }, error => {
+            this.loading = false;
+            this.formErrorMessage = error.message;
+          });
+    
   }
 }
