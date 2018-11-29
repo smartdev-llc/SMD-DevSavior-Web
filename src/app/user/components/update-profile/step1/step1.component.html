@@ -66,7 +66,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{ 'has-error': submittedBasic && yearsExperienceForm.errors }">
-                  <label class="required" for="email">{{ 'personalInfo.yearsExperience' | translate }}:</label>
+                  <label class="required" for="email" *ngIf="!yearsExperienceForm.value.noWorkExperience">{{ 'personalInfo.yearsExperience' | translate }}:</label>
                   <input type="text" class="form-control" formControlName="yearsOfExperience" *ngIf="!yearsExperienceForm.value.noWorkExperience">
                   <div *ngIf="submittedBasic && yearsExperienceForm.errors">
                     <em *ngIf="yearsExperienceForm.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
@@ -74,7 +74,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div [ngClass]="!yearsExperienceForm.value.noWorkExperience ? 'col-sm-6' : 'col-sm-12'">
                 <div class="checkbox">
                   <label class="no-work-experience"><input type="checkbox" formControlName="noWorkExperience"> {{ 'personalInfo.haveNoWorkExperience' | translate }}</label>
                 </div>
