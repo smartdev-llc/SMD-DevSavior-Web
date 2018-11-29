@@ -72,8 +72,10 @@ export class UpdateProfileStep3Component implements OnInit {
         this.currentSkills = res.skills;
         this.skillsFormGroup.setControl('skills',  this.formBuilder.array(res.skills));
         // init data for languages form
-        const languages = this.parseLanguages(res.languages);
-        this.LanguagesFromGroup.setValue(languages);
+        if (res.languages.length) {
+          const languages = this.parseLanguages(res.languages);
+          this.LanguagesFromGroup.setValue(languages);
+        }
       });
   }
 
