@@ -22,7 +22,6 @@ import {NotFound} from '../../../core/error/not-found';
 })
 
 export class JobDetailComponent implements OnInit {
-
   job: any;
   user: User;
   jobId: string;
