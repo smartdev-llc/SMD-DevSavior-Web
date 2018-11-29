@@ -134,10 +134,16 @@ export class MonthYearPickerComponent implements OnInit, ControlValueAccessor {
     return date;
   }
 
-  private parteMothYearObj(date: string): any {
-    const dateSplit = date.split('-');
-    const month = Number(dateSplit[0]);
-    const year = Number(dateSplit[1]);
+  private parteMothYearObj(date: any): any {
+    let month, year;
+    if (typeof date === 'string') {
+      const dateSplit = date.split('-');
+      month = Number(dateSplit[0]);
+      year = Number(dateSplit[1]);
+    } else {
+      month = date.getMonth() + 1;
+      year = date.getFullYear();
+    }
     return { month, year };
   }
 }

@@ -1,6 +1,12 @@
 .blocks .block {
     margin: 10px auto;
 }
+.title-information{
+    font-size: 23px;
+    color: #00cb70;
+    font-weight: 500;
+    padding-bottom: 8px;
+}
 .block a.no-margin {
     margin: 0;
 }

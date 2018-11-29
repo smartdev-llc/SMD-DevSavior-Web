@@ -3171,16 +3171,21 @@ body ul.select2-results li {
 
 .file-type .upload .filename {
     background: #12cd6a none repeat scroll 0 0;
-    border-radius: 13px;
+    border-radius: 10px;
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 17px;
+    margin-top: 4px;
     margin-right: 35px;
-    padding: 15px 17px;
+    padding: 13px 17px;
     z-index: -1;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .file-type .upload .filename i {
