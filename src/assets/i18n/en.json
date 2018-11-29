@@ -10,6 +10,8 @@
     "btnDelete": "Delete"
   },
   "validation": {
+    "wrongEmailAndPassword": "That juniorviec account doesn't exist. Enter a different account",
+    "wrongEmail" : "The username or password you enterd is incorrect",
     "fieldRequired": "Field is Required",
     "salaryNumber": "Salary must be number",
     "salaryDifference": "To salary must be greater than or equal to from salary",
@@ -50,6 +52,23 @@
     "log_out" : "Log Out",
     "recruitment_center" : "Recruitment center",
     "candidate_list": "Job's candidates"
+  },
+  "companyUserProfile" : {
+    "cancel" : "Cancel",
+    "update" : "Update",
+    "edit" : "Edit",
+    "accountInformation" : "Account information",
+    "companyInformation" : "Company information",
+    "emailAddress" : "Email Address",
+    "companyName" : "Company name",
+    "companyAddress" : "Company Address",
+    "city" : "City",
+    "contactName" : "Contact Name",
+    "phoneNumber" : "Phone Number",
+    "website" : "Website",
+    "companyDescription" : "Company description",
+    "companyLogo" : "Company Logo",
+    "companyCoverPhoto" : "Company Cover photo"
   },
   "company": {
     "joblist": "Jobs",

@@ -17,7 +17,8 @@
     "toMonthRequired": "Tháng đến không được bỏ Trống",
     "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu",
     "existedKeySkill": "Kỹ năng vừa nhập đã tồn tại trong kho kỹ năng của bạn",
-    "wrongEmail": "Email không chính xác"
+    "wrongEmailAndPassword": "Tài khoản không tồn tại. Vui lòng nhập tài khoản khác",
+    "wrongEmail" : "Email không chính xác"
   },
   "header": {
     "jobs": "Tất Cả Việc Làm",
@@ -51,6 +52,23 @@
     "log_out" : "Thoát",
     "recruitment_center" : "Quản lý tuyển dụng",
     "candidate_list": "Job's candidates"
+  },
+  "companyUserProfile" : {
+    "cancel" : "Hủy",
+    "update" : "Cập nhật",
+    "edit" : "Chỉnh sửa",
+    "accountInformation" : "Thông tin tài khoản",
+    "companyInformation" : "Thông tin công ty",
+    "emailAddress" : "Thư điện tử",
+    "companyName" : "Tên công ty",
+    "companyAddress" : "Địa chỉ công ty",
+    "city" : "Thành phố",
+    "contactName" : "Tên liên hệ",
+    "phoneNumber" : "Số điện thoại",
+    "website" : "Địa chỉ trang chủ",
+    "companyDescription" : "Mô tả",
+    "companyLogo" : "Logo công ty",
+    "companyCoverPhoto" : "Ảnh bìa công ty"
   },
   "company": {
     "joblist": "Công việc",
