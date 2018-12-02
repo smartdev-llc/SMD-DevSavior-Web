@@ -13,7 +13,7 @@ import {ProfileService} from '../../../company/services/profile.service';
 import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
-
+declare  var $: any;
 
 @Component({
   selector: 'job-detail',
@@ -44,6 +44,16 @@ export class JobDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  $('.owl-wrapper').owlCarousel({
+    navigation: true, // Show next and prev buttons
+    slideSpeed: 300,
+    loop: true,
+    margin: 10,
+    responsiveClass: true,
+    navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
+  });
+
     this.jobId = this.route.snapshot.paramMap.get('id');
     this.isLoading = true;
 
