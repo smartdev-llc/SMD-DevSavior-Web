@@ -22,3 +22,13 @@
   max-height: 350px;
   object-fit: cover;
 }
+
+.share-button-group {
+  button {
+    margin-right: 15px;
+  }
+  text-align: center;
+}
+.share-button-group .mat-fab {
+  color: white;
+}

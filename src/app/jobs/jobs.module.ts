@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { ShareButtonModule } from '@ngx-share/button'
+
 import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 
@@ -23,7 +25,6 @@ import { SkillService } from '../core/services/skill/SkillService';
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 import {JobService} from '../core/services/job.service';
 import {ProfileService} from '../company/services/profile.service';
-
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {ProfileService} from '../company/services/profile.service';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    ShareButtonModule.forRoot()
   ],
   providers: [
     CategoryCompanyService,
@@ -56,4 +58,7 @@ import {ProfileService} from '../company/services/profile.service';
     ProfileService
   ]
 })
-export class JobsModule { }
+export class JobsModule {
+  constructor() {
+  }
+}
