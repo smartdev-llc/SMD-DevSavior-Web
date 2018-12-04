@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgProgressModule } from '@ngx-progressbar/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 // Components
 
@@ -36,6 +36,7 @@ import { CompanyLoggedGuard } from './guards/company-logged.guard';
       AuthenticationEffects
     ]),
     HttpClientModule,
+    HttpClientJsonpModule,
     NgProgressModule.forRoot({
       meteor: false
     }),

@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ShareService } from '@ngx-share/core';
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
+
 import {Role, User} from '../../../core/models/user';
 import {AuthService} from '../../../core/services/auth.service';
 import {ToastrService} from 'ngx-toastr';
@@ -33,6 +39,10 @@ export class JobDetailComponent implements OnInit {
   enviromentObj = environment;
   coverCompany = 'assets/images/job-image.png';
   logoCompany = 'assets/images/widget1image.png';
+  fbIcon = faFacebookSquare;
+  pinIcon = faPinterest;
+  linkedInIcon = faLinkedinIn;
+  googlePlusIcon = faGooglePlusG;
   btnApplyJob: HTMLElement;
 
   constructor(
@@ -41,7 +51,9 @@ export class JobDetailComponent implements OnInit {
     private router: Router,
     private jobService: JobService,
     private route: ActivatedRoute,
-    private authService: AuthService) {
+    private authService: AuthService,
+    public share: ShareService,
+    ) {
   }
 
   ngOnInit() {

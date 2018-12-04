@@ -41,6 +41,7 @@ Table Of Index
 35. Blog
 36. Accordian
 ------------------------------------------*/
+@import '~@ngx-share/button/themes/circles/circles-dark-theme.css';
 
 body {
     background: #f9f9f9;
@@ -553,7 +554,7 @@ ul.dropdown-menu li:last-child a {
 }
 
 .tiny_scrolling::-webkit-scrollbar-track,
-.select2-results::-webkit-scrollbar-track,
+.select2-results::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #d0d0d0;
@@ -1819,7 +1820,7 @@ ul.simple li {
 }
 
 .sidebar .widget {
-    margin-bottom: 56px;
+    margin-bottom: 16px;
     width: 100%;
     float: left;
 }
