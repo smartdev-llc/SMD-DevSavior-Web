@@ -53,6 +53,9 @@
                 <a routerLink="/my-career-center">My Profile</a>
               </li>
               <li>
+                <a routerLink="/notification-jobs">Job Alerts</a>
+              </li>
+              <li>
                 <a role="button" (click)="logout()">Logout</a>
               </li>
             </ul>
@@ -108,6 +111,9 @@
                     <a routerLink="/my-career-center">My Profile</a>
                   </li>
                   <li>
+                    <a routerLink="/notification-jobs">Job Alerts</a>
+                  </li>
+                  <li>
                     <a role="button" (click)="logout()">Logout</a>
                   </li>
                 </ul>
@@ -124,6 +130,7 @@
             <ul class="nav navbar-nav">
               <li><a class="active" href="/my-career-center/dashboard">{{ 'header.dashboard' | translate }}</a></li>
               <li><a href="#">{{ 'header.myJobs' | translate }}</a></li>
+              <li><a routerLink="/notification-jobs">{{ 'header.jobAlerts' | translate }}</a></li>
             </ul>
           </nav>
         </div>
