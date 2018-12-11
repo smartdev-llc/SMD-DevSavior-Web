@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'notification-jobs',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-jobs.component.scss']
 })
 export class NotificationJobs implements OnInit {
-
-  constructor() {
+  @ViewChild('notificationAlert') notificationAlert: ModalDirective;
+  modalRef: BsModalRef;
+  constructor(private modalService: BsModalService) {
   }
 
   ngOnInit() {
   }
+
+  openModal(){
+    this.notificationAlert.show();
+  }
+
+  decline(){
+    this.notificationAlert.hide();
+  }
+
+
 }

@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { ShareButtonModule } from '@ngx-share/button'
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 
@@ -45,6 +45,7 @@ import {ProfileService} from '../company/services/profile.service';
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
     ScrollToModule.forRoot(),
+    ModalModule.forRoot(),
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
