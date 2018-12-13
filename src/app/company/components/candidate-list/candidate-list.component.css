@@ -7,6 +7,9 @@
     background-color: #fff;
     padding-bottom: 5%;
 }
+.panel {
+    margin: 5px;
+}
 .dropdown button, .dropdown .dropdown-menu  {
     width: 100%;
     white-space: initial;

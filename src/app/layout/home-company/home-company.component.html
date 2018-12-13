@@ -33,7 +33,7 @@
               <a (click)="logout()" class="student-login">
                 <span class="label job-type partytime">{{ 'header.log_out' | translate }}</span>
               </a>
-              <a routerLink="/employer/statistic" class="student-register">
+              <a routerLink="/employer/jobs/all" class="student-register">
                 <span class="label job-type partytime">{{ 'header.recruitment_center' | translate }}</span>
               </a>
             </ng-container>
@@ -90,7 +90,7 @@
                   <a (click)="logout()">{{ 'header.log_out' | translate }}</a>
                 </li>
                 <li class="mobile-menu">
-                  <a routerLink="/employer/statistic">{{ 'header.recruitment_center' | translate }}</a>
+                  <a routerLink="/employer/jobs/all">{{ 'header.recruitment_center' | translate }}</a>
                 </li>
               </ng-container>
               <!-- logging -->

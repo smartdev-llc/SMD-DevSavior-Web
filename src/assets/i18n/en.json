@@ -82,7 +82,13 @@
     "website": "Website",
     "no_jobs_found": "No jobs found",
     "loadmore_jobs": "Show more Jobs",
-    "no_candidates_found": "No Candidates found."
+    "no_candidates_found": "No Candidates found.",
+    "jobStatus": {
+      "all": "All",
+      "online": "Online",
+      "expired": "Expired",
+      "expireSoon": "Expire in 7 days"
+    }
   },
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",

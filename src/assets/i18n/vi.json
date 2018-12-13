@@ -82,7 +82,13 @@
     "website": "Website",
     "no_jobs_found": "Không có công việc nào",
     "loadmore_jobs": "Hiển thị thêm",
-    "no_candidates_found": "Không tìm thấy ứng viên nào!"
+    "no_candidates_found": "Không tìm thấy ứng viên nào!",
+    "jobStatus": {
+      "all": "Tất cả",
+      "online": "Đang tuyển",
+      "expired": "Đã hết hạn",
+      "expireSoon": "Sắp hết hạn"
+    }
   },
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",

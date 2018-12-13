@@ -2,6 +2,30 @@
 <div class="container main-container header_area">
   <div class="row j-filter-search">
     <div class="col-lg-6 col-xs-12">
+        <div class="tab_filters">
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="">{{ 'company.jobStatus.all' |  translate}}
+                  <span class="badge j-number">3</span>
+                </a>
+              </li>
+              <li class="active">
+                <a  href="">{{ 'company.jobStatus.online' |  translate }}
+                  <span class="badge j-number">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="">{{ 'company.jobStatus.expireSoon' |  translate }}
+                    <span class="badge j-number">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="">{{ 'company.jobStatus.expired' |  translate }}
+                  <span class="badge j-number">3</span>
+                </a>
+              </li>
+            </ul>
+          </div>
      
     </div>
     <form class="form validation-form col-lg-6 col-xs-12">
@@ -18,12 +42,12 @@
     </form>
   </div>
 
-  <div class="row j-export">
+  <!-- <div class="row j-export">
     <button class="btn btn-default btn-export">
       <span class="glyphicon glyphicon-file icon-primary"></span>
         Export To Excel
     </button>
-  </div>
+  </div> -->
   <div class="col-xs-12 j-list">
     <table class="j-table" id="listJobs">
       <thead class="j-table-header">
@@ -39,7 +63,7 @@
           <td>
             <div>
               <div class="j-title">
-                <a href="">{{job.title}}</a>
+                <a routerLink="/jobs/{{job.id}}" target="blank">{{job.title}}</a>
                 <span>{{job.id}}</span>
               </div>
               <div class="j-location">{{job.location || "No mention location"}}</div>
@@ -78,7 +102,7 @@
 
           <td>
             <div class="text-center">
-                <a routerLink="/employer/candidates">{{job.students.length}}</a>
+                <a routerLink="/employer/candidates">{{job.students?.length}}</a>
             </div>
           </td>
         </tr>

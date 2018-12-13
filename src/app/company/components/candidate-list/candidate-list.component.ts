@@ -14,6 +14,7 @@ export class CandidateListComponent implements OnInit {
   candidates: any[];
   isLoading: boolean;
   jobs: any[];
+  currentPage: number;
 
 
   constructor(private jobService: JobService, 
@@ -34,15 +35,16 @@ export class CandidateListComponent implements OnInit {
   loadCandidateForJob() {
     this.isLoading = true;
     this.jobService.getCandidateForJob(this.jobId)
-    .subscribe(
-      data => {
-        this.candidates = data;
-        this.isLoading = false;
-      },
-      error => {
-        this.isLoading = false;
-      }
-    )
+                    .subscribe(
+                      data => {
+                        this.candidates = data.list;
+                        this.currentPage = data.page;
+                        this.isLoading = false;
+                      },
+                      error => {
+                        this.isLoading = false;
+                      }
+                    );
   }
 
 
