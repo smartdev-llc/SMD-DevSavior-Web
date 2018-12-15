@@ -24,29 +24,46 @@
           </div>
 
           <!-- Modal Add Education History -->
-          <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade"
-              tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+          <!-- <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
+            aria-labelledby="dialog-sizes-name1">
             <div class="modal-dialog modal-md">
               <div class="modal-content">
-                
+                <div class="modal-header">
+                  <p class="confirm-title">TẠO THÔNG BÁO VIỆC LÀM</p>
+                </div>
+
                 <div class="modal-body">
-                  <p class="confirm-title">ABC</p>
-                  <p class="confirm-description">
-                    <i class="fa fa-exclamation-circle confirm-icon" aria-hidden="true"></i>
-                    <span class="text">ABC</span>
-                    <p>
-                      <div class="confirm-footer">
-                        <button type="button" class="btn btn-default" (click)="decline()">{{ 'common.noDialog' | translate }}</button>
-                      </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Tên việc làm</label>
+                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Cấp bậc</label>
+                      <ng-select [items]="users" bindLabel="name" bindValue="id" [addTag]="addCustomUser" [multiple]="false"
+                        placeholder="Select level" [(ngModel)]="selectedUserIds">
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="confirm-footer">
+                  <button type="button" class="btn btn-default" (click)="decline()">{{ 'common.noDialog' |
+                    translate }}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Modal Add Education History -->
+        </div> -->
+        <!-- Modal Add Education History -->
 
 
-          <!-- show item notification alert -->
-          <!-- <div class="res-table">
+        <!-- show item notification alert -->
+        <!-- <div class="res-table">
             <div class="res-table__row row">
               <div class="col-md-8 alert-item">
                 <div class="name">Junior</div>
@@ -108,8 +125,7 @@
               </div>
             </div>
           </div> -->
-          <!-- show item notification alert -->
-        </div>
+        <!-- show item notification alert -->
       </div>
     </div>
   </div>
