@@ -9,7 +9,6 @@ import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
 export class NotificationJobs implements OnInit {
   @ViewChild('notificationAlert') notificationAlert: ModalDirective;
   modalRef: BsModalRef;
-
   users = [
     { id: '1', name: 'Graduated' },
     { id: '2', name: 'Employee' },
@@ -18,6 +17,31 @@ export class NotificationJobs implements OnInit {
     { id: '5', name: 'Direction' }
   ];
 
+  cities2 = [
+    { id: 1, name: 'Vilnius' },
+    { id: 2, name: 'Kaunas' },
+    { id: 3, name: 'Pavilnys' },
+    { id: 4, name: 'Pabradė' },
+    { id: 5, name: 'Klaipėda' },
+    { id: 6, name: 'Hallo' },
+    { id: 7, name: 'Da Nang' },
+    { id: 8, name: 'Sai Gon' },
+    { id: 9, name: 'Ha Noi' }
+  ];
+  career = [
+    { id: 1, name: 'Vilnius' },
+    { id: 2, name: 'Kaunas' },
+    { id: 3, name: 'Pavilnys' },
+    { id: 4, name: 'Pabradė' },
+    { id: 5, name: 'Klaipėda' },
+    { id: 6, name: 'Hallo' },
+    { id: 7, name: 'Da Nang' },
+    { id: 8, name: 'Sai Gon' },
+    { id: 9, name: 'Ha Noi' }
+  ]
+
+  selectedCareerIds: number;
+  selectedCityIds: number;
   selectedUserIds: number[];
   model;
 
@@ -27,13 +51,14 @@ export class NotificationJobs implements OnInit {
   ngOnInit() {
   }
 
-  openModal(){
+  openModal() {
     this.notificationAlert.show();
   }
 
-  decline(){
+  decline() {
     this.notificationAlert.hide();
   }
+
 
   addCustomUser = (term) => ({ id: term, name: term });
 

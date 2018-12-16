@@ -10,7 +10,7 @@
     "btnDelete": "Delete"
   },
   "validation": {
-    "wrongEmailAndPassword": "That juniorviec account doesn't exist. Enter a different account",
+    "wrongEmailAndPassword": "Your account doesn't exist. Enter a different account",
     "wrongEmail" : "The username or password you enterd is incorrect",
     "fieldRequired": "Field is Required",
     "salaryNumber": "Salary must be number",

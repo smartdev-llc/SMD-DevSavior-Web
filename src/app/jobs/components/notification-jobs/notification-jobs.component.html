@@ -24,15 +24,16 @@
           </div>
 
           <!-- Modal Add Education History -->
-          <!-- <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
+          <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
             aria-labelledby="dialog-sizes-name1">
             <div class="modal-dialog modal-md">
               <div class="modal-content">
-                <div class="modal-header">
-                  <p class="confirm-title">TẠO THÔNG BÁO VIỆC LÀM</p>
+                <div class="modal-header border-option">
+                  <p class="confirm-title">Thông báo việc làm</p>
                 </div>
 
                 <div class="modal-body">
+
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Tên việc làm</label>
@@ -43,22 +44,95 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Cấp bậc</label>
-                      <ng-select [items]="users" bindLabel="name" bindValue="id" [addTag]="addCustomUser" [multiple]="false"
-                        placeholder="Select level" [(ngModel)]="selectedUserIds">
+                      <ng-select 
+                        class="formControl" 
+                        [items]="users" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        [addTag]="addCustomUser"
+                        [multiple]="false" 
+                        placeholder="Select level" 
+                        [(ngModel)]="selectedUserIds">
                       </ng-select>
                     </div>
                   </div>
-                </div>
 
-                <div class="confirm-footer">
-                  <button type="button" class="btn btn-default" (click)="decline()">{{ 'common.noDialog' |
-                    translate }}
-                  </button>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Khu vực</label>
+                      <ng-select 
+                        class="formControl" 
+                        [items]="cities2" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        [multiple]="true"
+                        placeholder="Select cities" 
+                        [(ngModel)]="selectedCityIds">
+                      </ng-select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Ngành nghề</label>
+                      <ng-select 
+                        class="formControl" 
+                        [items]="career" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        [multiple]="true"
+                        placeholder="Select career" 
+                        [(ngModel)]="selectedCareerIds">
+                      </ng-select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Mức lương</label>
+                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                      <p class="help-block">(USD/tháng)</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="subject" class="required">Nhận thông báo</label>
+                      <div class="option-notification">
+                        <div class="col-md-6">
+                          <input type="radio" name="every" value="every-day" />
+                          <label for="every-day"> Hàng ngày</label>
+                        </div>
+
+                        <div class="col-md-6">
+                          <input type="radio" name="every" value="every-week" />
+                          <label for="every-week"> Hàng tuần</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="pull-right">
+                          <button type="button" class="btn btn-defaut bg-white mr-2" (click)="decline()">
+                            <i class="fa fa-times-circle" aria-hidden="true"></i> 
+                            {{ 'common.btnCancel' | translate }}
+                          </button>
+                          <button type="submit" class="btn btn-defaut bg-submit">
+                            <i  class="fa fa-check-circle" aria-hidden="true"></i>
+                            {{ 'common.btnUpdate' | translate }}
+                          </button>
+                        </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- Modal Add Education History -->
 
 

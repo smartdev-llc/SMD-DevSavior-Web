@@ -4261,17 +4261,6 @@ span.login-ins {
     color: #555;
 }
 
-.ng-select .ng-select-container {
-    border-radius: 0px 4px 4px 0px!important;
-    border: 1px solid #ccc;
-    min-height: 36px;
-    align-items: center;
-    -webkit-border-radius: 0px 4px 4px 0px!important;
-    -moz-border-radius: 0px 4px 4px 0px!important;
-    -ms-border-radius: 0px 4px 4px 0px!important;
-    -o-border-radius: 0px 4px 4px 0px!important;
-}
-
 .ng-select span {
     font-size: 14px;
     font-weight: 300;
