@@ -1,127 +1,133 @@
 <app-home-company-logged></app-home-company-logged>
 <div class="container main-container header_area">
-  <div class="row j-filter-search">
-    <div class="col-lg-6 col-xs-12">
-        <div class="tab_filters">
-            <ul class="nav nav-pills">
-              <li class="active">
-                <a href="">{{ 'company.jobStatus.all' |  translate}}
-                  <span class="badge j-number">3</span>
+    <div class="row j-filter-search">
+        <div class="col-lg-6 col-xs-12">
+            <div class="tab_filters">
+                <ul class="nav nav-pills">
+                    <li class="active">
+                        <a routerLink="/employer/jobs/all">{{ 'company.jobStatus.all' |  translate}}
+                  <!-- <span class="badge j-number">{{typeJobs.all}}</span> -->
                 </a>
-              </li>
-              <li class="active">
-                <a  href="">{{ 'company.jobStatus.online' |  translate }}
-                  <span class="badge j-number">3</span>
+                    </li>
+                    <li [ngClass]="{
+                      active: key == 'active'
+                    }">
+                        <a routerLink="/employer/jobs/active">{{ 'company.jobStatus.online' |  translate }}
+                  <span class="badge j-number">{{typeJobs?.active}}</span>
                 </a>
-              </li>
-              <li>
-                <a href="">{{ 'company.jobStatus.expireSoon' |  translate }}
-                    <span class="badge j-number">3</span>
+                    </li>
+                    <li [ngClass]="{
+                      active: key == 'expiresSoon'
+                    }">
+                        <a routerLink="/employer/jobs/expiresSoon">{{ 'company.jobStatus.expireSoon' |  translate }}
+                    <span class="badge j-number">{{typeJobs?.expiresSoon}}</span>
                 </a>
-              </li>
-              <li>
-                <a href="">{{ 'company.jobStatus.expired' |  translate }}
-                  <span class="badge j-number">3</span>
+                    </li>
+                    <li [ngClass]="{
+                      active: key == 'expired'
+                    }">
+                        <a routerLink="/employer/jobs/expired">{{ 'company.jobStatus.expired' |  translate }}
+                  <span class="badge j-number">{{typeJobs?.expired}}</span>
                 </a>
-              </li>
-            </ul>
-          </div>
-     
-    </div>
-    <form class="form validation-form col-lg-6 col-xs-12">
-      <div class="col-lg-offset-6 ">
-        <div class="input-group">
-          <input  class="form-control" placeholder="Keyword, job title or skill" type="text">
-            <span class="input-group-btn">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <form class="form validation-form col-lg-6 col-xs-12">
+            <div class="col-lg-offset-6 ">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Keyword, job title or skill" type="text">
+                    <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-        </div>
-      </div>
-    </form>
-  </div>
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
 
-  <!-- <div class="row j-export">
+    <!-- <div class="row j-export">
     <button class="btn btn-default btn-export">
       <span class="glyphicon glyphicon-file icon-primary"></span>
         Export To Excel
     </button>
   </div> -->
-  <div class="col-xs-12 j-list">
-    <table class="j-table" id="listJobs">
-      <thead class="j-table-header">
-        <th class="col-xs-5">Job Title - ID</th>
-        <th class="col-xs-2">Services</th>
-        <th class="col-xs-3">Expires</th>
-        <th class="col-xs-1">Views</th>
-        <th class="col-xs-1">Applications</th>
-      </thead>
-      <tbody class="j-table-body">
-        <!-- start list job -->
-        <tr *ngFor="let job of listCompanyJobs">
-          <td>
-            <div>
-              <div class="j-title">
-                <a routerLink="/jobs/{{job.id}}" target="blank">{{job.title}}</a>
-                <span>{{job.id}}</span>
-              </div>
-              <div class="j-location">{{job.location || "No mention location"}}</div>
-              <div class="j-actions">
-                <a routerLink="/jobs/{{job.id}}" target="_blank">View Online</a>
-                <a href="">Edit</a>
-                <a href="">Copy</a>
-                <a href="">Inactive</a>
-                <a routerLink="/employer/jobs/{{job.id}}/candidates">View Candidates</a>
-              </div>
-            </div>
-          </td>
+    <div class="col-xs-12 j-list">
+        <table class="j-table" id="listJobs">
+            <thead class="j-table-header">
+                <th class="col-xs-5">Job Title - ID</th>
+                <th class="col-xs-2">Services</th>
+                <th class="col-xs-3">Expires</th>
+                <th class="col-xs-1">Views</th>
+                <th class="col-xs-1">Applications</th>
+            </thead>
+            <tbody class="j-table-body">
+                <!-- start list job -->
+                <tr *ngFor="let job of listCompanyJobs">
+                    <td>
+                        <div>
+                            <div class="j-title">
+                                <a routerLink="/jobs/{{job.id}}" target="blank">{{job.title}}</a>
+                                <span>{{job.id}}</span>
+                            </div>
+                            <div class="j-location">{{job.location || "No mention location"}}</div>
+                            <div class="j-actions">
+                                <a routerLink="/jobs/{{job.id}}" target="_blank">View Online</a>
+                                <a href="">Edit</a>
+                                <a href="">Copy</a>
+                                <a href="">Inactive</a>
+                                <a routerLink="/employer/jobs/{{job.id}}/candidates">View Candidates</a>
+                            </div>
+                        </div>
+                    </td>
 
-          <td>
-            <div>
-              <span class="label">Job Posting</span>
-            </div>
-            <div>
-              <span class="label">Upgrade</span>
-            </div>
-          </td>
+                    <td>
+                        <div>
+                            <span class="label">Job Posting</span>
+                        </div>
+                        <div>
+                            <span class="label">Upgrade</span>
+                        </div>
+                    </td>
 
-          <td>
-            <div class="expiration">
-              <div *ngIf="key != 'expired'">
-                <div class="time">Online: {{convertTimeStampToDate(job.expiredAt)}}</div>
-              </div>
-              <div *ngIf="key == 'expired'">
-                <div class="time">Expired</div>
-              </div>
-            </div>
-          </td>
+                    <td>
+                        <div class="expiration">
+                            <div *ngIf="key != 'expired'">
+                                <div class="time">Online: {{convertTimeStampToDate(job.expiredAt)}}</div>
+                            </div>
+                            <div *ngIf="key == 'expired'">
+                                <div class="time">Expired</div>
+                            </div>
+                        </div>
+                    </td>
 
-          <td>
-          </td>
+                    <td>
+                    </td>
 
-          <td>
-            <div class="text-center">
-                <a routerLink="/employer/candidates">{{job.students?.length}}</a>
+                    <td>
+                        <div class="text-center">
+                            <a routerLink="/employer/candidates">{{job.students?.length}}</a>
+                        </div>
+                    </td>
+                </tr>
+                <!-- end list job -->
+            </tbody>
+        </table>
+        <div class="row" *ngIf="totalItems > 0">
+            <div class="col-xs-12 jv-pagination">
+                <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
             </div>
-          </td>
-        </tr>
-        <!-- end list job -->
-      </tbody>
-    </table>
-    <div class="row" *ngIf="totalItems > 0">
-      <div class="col-xs-12 jv-pagination">
-        <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
-      </div>
+        </div>
     </div>
-  </div>
-  <ngx-loading [show]="loading"></ngx-loading>
-  <div class="form-group">
-    <label></label>
-    <div class="login-error-message text-danger">
-      <div *ngIf="formErrorMessage">
-        {{formErrorMessage}}
-      </div>
+    <ngx-loading [show]="loading"></ngx-loading>
+    <div class="form-group">
+        <label></label>
+        <div class="login-error-message text-danger">
+            <div *ngIf="formErrorMessage">
+                {{formErrorMessage}}
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -22,11 +22,14 @@ export class JobListComponent implements OnInit {
   loading = false;
   formErrorMessage: string;
   key = this.route.snapshot.paramMap.get('type');
+  typeJobs: any;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private jobService: JobService,
     private scrollToService: ScrollToService,
+    
   ) { }
 
   ngOnInit() {
@@ -44,6 +47,9 @@ export class JobListComponent implements OnInit {
         this.router.navigate(['/not-found']);
         break;
     }
+    this.jobService.getCountJobs().subscribe(data => {
+      this.typeJobs = data;
+    })
     
   }
 
@@ -111,6 +117,7 @@ export class JobListComponent implements OnInit {
           .subscribe(value => {
             this.listCompanyJobs = value.list;
             this.loading = false;
+            // console.log(this.listCompanyJobs)
           }, error => {
             this.loading = false;
             this.formErrorMessage = error.message;

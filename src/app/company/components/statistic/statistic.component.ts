@@ -19,7 +19,6 @@ export class StatisticComponent implements OnInit {
       this.jobService.getCountJobs().subscribe(data => {
         this.typeJobs = data;
       })
-      console.log(this.typeJobs)
   }
 
 }
