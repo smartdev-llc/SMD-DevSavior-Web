@@ -37,7 +37,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Tên việc làm</label>
-                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                      <input type="text" class="form-control"placeholder="VD: Developer, UI/UX Designer">
                     </div>
                   </div>
 
@@ -46,13 +46,13 @@
                       <label for="subject" class="required">Cấp bậc</label>
                       <ng-select 
                         class="formControl" 
-                        [items]="users" 
+                        [items]="level" 
                         bindLabel="name" 
                         bindValue="id" 
                         [addTag]="addCustomUser"
                         [multiple]="false" 
-                        placeholder="Select level" 
-                        [(ngModel)]="selectedUserIds">
+                        placeholder="Vui lòng chọn trình độ tốt nghiệp" 
+                        [(ngModel)]="selectedLevelIds">
                       </ng-select>
                     </div>
                   </div>
@@ -62,11 +62,11 @@
                       <label for="subject" class="required">Khu vực</label>
                       <ng-select 
                         class="formControl" 
-                        [items]="cities2" 
+                        [items]="area" 
                         bindLabel="name" 
                         bindValue="id" 
                         [multiple]="true"
-                        placeholder="Select cities" 
+                        placeholder="+ Thêm khu vực" 
                         [(ngModel)]="selectedCityIds">
                       </ng-select>
                     </div>
@@ -81,7 +81,7 @@
                         bindLabel="name" 
                         bindValue="id" 
                         [multiple]="true"
-                        placeholder="Select career" 
+                        placeholder="+ Thêm ngành nghề" 
                         [(ngModel)]="selectedCareerIds">
                       </ng-select>
                     </div>
@@ -90,7 +90,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Mức lương</label>
-                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                      <input type="text" class="form-control" placeholder="VD: 300$, 500$, 1000$...">
                       <p class="help-block">(USD/tháng)</p>
                     </div>
                   </div>
@@ -100,12 +100,12 @@
                       <label for="subject" class="required">Nhận thông báo</label>
                       <div class="option-notification">
                         <div class="col-md-6">
-                          <input type="radio" name="every" value="every-day" />
+                          <input type="radio" name="every notification" value="every-day" />
                           <label for="every-day"> Hàng ngày</label>
                         </div>
 
                         <div class="col-md-6">
-                          <input type="radio" name="every" value="every-week" />
+                          <input type="radio" name="every notification" value="every-week" />
                           <label for="every-week"> Hàng tuần</label>
                         </div>
                       </div>
