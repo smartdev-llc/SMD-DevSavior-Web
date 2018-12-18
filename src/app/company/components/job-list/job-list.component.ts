@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 import { ActivatedRoute, } from '@angular/router';
@@ -33,7 +33,16 @@ export class JobListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.route.params.subscribe( params => {
+      const type = params['type'];
+      if(type != undefined) {
+        this.key = type;
+        this.updateJobByStatus();
+      }
+    })
+  }
+
+  updateJobByStatus() {
     switch (this.key) {
       case 'active':
       case 'expires':
@@ -50,7 +59,6 @@ export class JobListComponent implements OnInit {
     this.jobService.getCountJobs().subscribe(data => {
       this.typeJobs = data;
     })
-    
   }
 
   getListCompanyJobs() {
@@ -109,8 +117,7 @@ export class JobListComponent implements OnInit {
       this.queryParams = {
         size: this.itemsPerPage,
         page: 0,
-        type: key,
-        ...this.queryParams
+        type: key
       };
       const params = new HttpParams({ fromObject: this.queryParams });
         this.jobService.getListByTime(params)
