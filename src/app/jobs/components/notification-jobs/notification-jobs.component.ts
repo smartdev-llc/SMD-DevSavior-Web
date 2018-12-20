@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'notification-jobs',
   templateUrl: './notification-jobs.component.html',
-  styleUrls: ['./notification-jobs.component.scss']
+  styleUrls: ['./notification-jobs.component.scss'],
+  providers: [AuthService]
 })
 export class NotificationJobs implements OnInit {
   @ViewChild('notificationAlert') notificationAlert: ModalDirective;
@@ -41,11 +43,30 @@ export class NotificationJobs implements OnInit {
   selectedCityIds: number;
   selectedLevelIds: number[];
   model;
+  skills: any = [];
+  loading = true;
 
-  constructor(private modalService: BsModalService) {
+  constructor(
+    private modalService: BsModalService, 
+    private authService: AuthService) { }
+  
+  ngOnInit() {
+    this.getSkill();
   }
 
-  ngOnInit() {
+  getSkill(): any {
+    this.authService.getSkill()
+      .subscribe(
+        skills => {
+          this.loading = false;
+          this.skills = this.skills;
+          console.log(skills);
+        },
+        error => {
+          this.loading = false;
+          console.log(error);
+        }
+      )
   }
 
   openModal() {
@@ -56,7 +77,7 @@ export class NotificationJobs implements OnInit {
     this.notificationAlert.hide();
   }
 
-
   addCustomUser = (term) => ({ id: term, name: term });
 
+  
 }
