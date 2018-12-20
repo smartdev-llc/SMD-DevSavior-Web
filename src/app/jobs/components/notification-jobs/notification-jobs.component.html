@@ -24,8 +24,7 @@
           </div>
 
           <!-- Modal Add Education History -->
-          <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
-            aria-labelledby="dialog-sizes-name1">
+          <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
             <div class="modal-dialog modal-md">
               <div class="modal-content">
                 <div class="modal-header border-option">
@@ -43,16 +42,14 @@
 
                   <div class="row">
                     <div class="col-md-12">
-                      <label for="subject" class="required">Cấp bậc</label>
+                      <label for="subject" class="required">Kỹ năng</label>
                       <ng-select 
                         class="formControl" 
-                        [items]="users" 
-                        bindLabel="name" 
-                        bindValue="id" 
-                        [addTag]="addCustomUser"
-                        [multiple]="false" 
-                        placeholder="Select level" 
-                        [(ngModel)]="selectedUserIds">
+                        [items]="item" 
+                        bindLabel="name"
+                        bindValue="id"
+                        [multiple]="false"
+                        placeholder="Vui lòng chọn trình độ tốt nghiệp">
                       </ng-select>
                     </div>
                   </div>
@@ -62,11 +59,11 @@
                       <label for="subject" class="required">Khu vực</label>
                       <ng-select 
                         class="formControl" 
-                        [items]="cities2" 
+                        [items]="area" 
                         bindLabel="name" 
                         bindValue="id" 
-                        [multiple]="true"
-                        placeholder="Select cities" 
+                        [multiple]="true" 
+                        placeholder="+ Thêm khu vực"
                         [(ngModel)]="selectedCityIds">
                       </ng-select>
                     </div>
@@ -80,8 +77,8 @@
                         [items]="career" 
                         bindLabel="name" 
                         bindValue="id" 
-                        [multiple]="true"
-                        placeholder="Select career" 
+                        [multiple]="true" 
+                        placeholder="+ Thêm ngành nghề"
                         [(ngModel)]="selectedCareerIds">
                       </ng-select>
                     </div>
@@ -90,7 +87,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Mức lương</label>
-                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
+                      <input type="text" class="form-control" placeholder="VD: 300$, 500$, 1000$...">
                       <p class="help-block">(USD/tháng)</p>
                     </div>
                   </div>
@@ -100,12 +97,12 @@
                       <label for="subject" class="required">Nhận thông báo</label>
                       <div class="option-notification">
                         <div class="col-md-6">
-                          <input type="radio" name="every" value="every-day" />
+                          <input type="radio" name="every notification" value="every-day" />
                           <label for="every-day"> Hàng ngày</label>
                         </div>
 
                         <div class="col-md-6">
-                          <input type="radio" name="every" value="every-week" />
+                          <input type="radio" name="every notification" value="every-week" />
                           <label for="every-week"> Hàng tuần</label>
                         </div>
                       </div>
@@ -113,93 +110,93 @@
                   </div>
 
                   <hr>
-                  
+
                   <div class="row">
-                      <div class="col-md-12">
-                        <div class="pull-right">
-                          <button type="button" class="btn btn-defaut bg-white mr-2" (click)="decline()">
-                            <i class="fa fa-times-circle" aria-hidden="true"></i> 
-                            {{ 'common.btnCancel' | translate }}
-                          </button>
-                          <button type="submit" class="btn btn-defaut bg-submit">
-                            <i  class="fa fa-check-circle" aria-hidden="true"></i>
-                            {{ 'common.btnUpdate' | translate }}
-                          </button>
-                        </div>
+                    <div class="col-md-12">
+                      <div class="pull-right">
+                        <button type="button" class="btn btn-defaut bg-white mr-2" (click)="decline()">
+                          <i class="fa fa-times-circle" aria-hidden="true"></i>
+                          {{ 'common.btnCancel' | translate }}
+                        </button>
+                        <button type="submit" class="btn btn-defaut bg-submit">
+                          <i class="fa fa-check-circle" aria-hidden="true"></i>
+                          {{ 'common.btnUpdate' | translate }}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
+
+            <!-- show item notification alert -->
         <!-- Modal Add Education History -->
-
-
-        <!-- show item notification alert -->
-        <!-- <div class="res-table">
-            <div class="res-table__row row">
-              <div class="col-md-8 alert-item">
-                <div class="name">Junior</div>
-                <div class="text-light criteria">
-                  <span>
-                    <span class="location">Đà Nẵng, Hồ Chí Minh</span>
+        <div class="res-table">
+          <div class="res-table__row row">
+            <div class="col-md-8 alert-item">
+              <div class="name">Junior</div>
+              <div class="text-light criteria">
+                <span>
+                  <span class="location">Đà Nẵng, Hồ Chí Minh</span>
+                  <span class="separator hidden-sm hidden-xs">-</span>
+                </span>
+                <span>
+                  Kiến trúc/Thiết kế nội thất , IT - Phần mềm
+                  <span class="level">
                     <span class="separator hidden-sm hidden-xs">-</span>
+                    <span>Nhân viên</span>
                   </span>
-                  <span>
-                    Kiến trúc/Thiết kế nội thất , IT - Phần mềm
-                    <span class="level">
-                      <span class="separator hidden-sm hidden-xs">-</span>
-                      <span>Nhân viên</span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div class="col-md-1 interval">
-                <div class="text-light">
-                  Nhận
-                  <span class="hidden-md hidden-lg">:</span>
-                </div>
-                <div class="text-strong">Hàng tuần</div>
-              </div>
-              <div class="col-md-1 last-update">
-                <div class="text-light">
-                  Ngày cập nhật
-                  <span class="hidden-md hidden-lg">:</span>
-                </div>
-                <div class="text-strong">10-08-2018</div>
-              </div>
-              <div class="col-md-1 view">
-                <a routerLink="/" class="btn btn-outline btn-primary">Xem việc phù hợp</a>
-              </div>
-              <div class="col-md-1 actions">
-                <div class="dropdown">
-                  <span class="icon-dots-more" data-toggle="dropdown">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 8.5">
-                      <circle cx="4.25" cy="4.25" r="4.25"></circle>
-                      <circle cx="18.75" cy="4.25" r="4.25"></circle>
-                      <circle cx="33.25" cy="4.25" r="4.25"></circle>
-                    </svg>
-                  </span>
-                  <ul class="dropdown-menu">
-                      <li>
-                        <a class="clickable edit-alert">
-                          <span class="sprite icon-edit"></span>
-                          <span>Sửa</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="clickable delete-alert">
-                          <span class="sprite icon-trash"></span>
-                          <span>Xoá</span>
-                        </a>
-                      </li>
-                    </ul>
-                </div>
+                </span>
               </div>
             </div>
-          </div> -->
+            <div class="col-md-1 interval">
+              <div class="text-light">
+                Nhận
+                <span class="hidden-md hidden-lg">:</span>
+              </div>
+              <div class="text-strong">Hàng tuần</div>
+            </div>
+            <div class="col-md-1 last-update">
+              <div class="text-light">
+                Ngày cập nhật
+                <span class="hidden-md hidden-lg">:</span>
+              </div>
+              <div class="text-strong">10-08-2018</div>
+            </div>
+            <div class="col-md-1 view">
+              <a routerLink="/" class="btn btn-outline btn-primary">Xem việc phù hợp</a>
+            </div>
+            <div class="col-md-1 actions">
+              <div class="dropdown">
+                <span class="icon-dots-more" data-toggle="dropdown">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 8.5">
+                    <circle cx="4.25" cy="4.25" r="4.25"></circle>
+                    <circle cx="18.75" cy="4.25" r="4.25"></circle>
+                    <circle cx="33.25" cy="4.25" r="4.25"></circle>
+                  </svg>
+                </span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="clickable edit-alert">
+                      <span class="sprite icon-edit"></span>
+                      <span>Sửa</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="clickable delete-alert">
+                      <span class="sprite icon-trash"></span>
+                      <span>Xoá</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- show item notification alert -->
+        </div>
       </div>
     </div>
   </div>
