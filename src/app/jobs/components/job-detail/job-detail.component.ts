@@ -6,6 +6,7 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookS
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
+import { Meta } from '@angular/platform-browser';
 
 import {Role, User} from '../../../core/models/user';
 import {AuthService} from '../../../core/services/auth.service';
@@ -52,8 +53,7 @@ export class JobDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private authService: AuthService,
     public share: ShareService,
-    ) {
-  }
+    private meta: Meta ) {}
 
   ngOnInit() {
 
@@ -71,12 +71,27 @@ export class JobDetailComponent implements OnInit {
 
     this.jobService.getDetailJob(this.jobId)
       .subscribe(data => {
-      this.job =  data;
-      this.company = <Company> data['company'];
-      this.isLoading = false;
+        this.job =  data;
 
-      this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
-      this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
+        this.company = <Company> data['company'];
+        this.isLoading = false;
+
+        this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
+        this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
+
+        this.meta.updateTag({ name: 'title', content: this.job.title });
+        this.meta.updateTag({ name: 'description', content: this.job.description });
+        this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
+        this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
+
+        var url = this.meta.getTag('name=url');
+        var title = this.meta.getTag('name=title');
+        var description = this.meta.getTag('name=description');
+        var image = this.meta.getTag('name=image');
+        console.log('url...' + url.content);
+        console.log('title...' + title.content);
+        console.log('description...' + description.content);
+        console.log('image...' + image.content);
 
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
