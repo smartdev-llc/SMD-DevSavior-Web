@@ -42,7 +42,6 @@ export class NotificationJobs implements OnInit {
     .subscribe(
       studentSkills => {
         this.advancedSkills = studentSkills
-        console.log(this.advancedSkills)
       }
     )
     this.initForms();
@@ -73,7 +72,7 @@ export class NotificationJobs implements OnInit {
     };
     const { idSkill } = this.skillFormGroup.value;
 
-    this.submittedSkill = true;
+    this.isSubmittingSkill = true;
     this.updateSkill(idSkill, params);
   }
 
@@ -82,7 +81,7 @@ export class NotificationJobs implements OnInit {
     .subscribe(response => {
       this.isSubmittingSkill = false;
       this.submittedSkill = false;
-      this.resetEducationForm();
+      this.resetSkillForm();
       this.showSkillSuccess();
       this.notificationAlert.hide();
       this.skillSubscription.push(response);
@@ -105,7 +104,7 @@ export class NotificationJobs implements OnInit {
         .subscribe(res => {
           from(this.skillSubscription)
             .pipe(
-              filter((item) => item.id !== this.skillSubscription),
+              filter((item) => item.id !== this.skillIdSelected),
               toArray()
             ).subscribe(val => {
               this.skillSubscription = val || [];
@@ -132,11 +131,12 @@ export class NotificationJobs implements OnInit {
     this.toastr.error('Something went wrong please try again later', 'Skill');
   }
 
-  resetEducationForm() {
+  resetSkillForm() {
     this.skillFormGroup.reset();
   }
 
   openModal() {
+    this.skillFormGroup.reset();
     this.notificationAlert.show();
   }
 
