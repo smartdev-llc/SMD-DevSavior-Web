@@ -279,13 +279,6 @@ export class AuthService {
     )
   }
 
-  getSkill() {
-    return this.http.get('/skills')
-    .pipe(
-      map((response: Response) => response),
-    )
-  }
-
   removeTokens(): void {
     localStorage.removeItem('user');
   }

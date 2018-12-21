@@ -4,7 +4,7 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
 import {ContactUsComponent} from './components/contact-us/contact-us.component';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
-import { NotificationJobs } from './components/notification-jobs/notification-jobs.component';
+
 
 export const JobsRoutes = [
   { path: 'browse-jobs', component: BrowseJobsComponent,
@@ -14,6 +14,5 @@ export const JobsRoutes = [
   },
   // { path: 'browse-jobs-alternative', component: BrowseJobsAlternativeComponent },
   { path: 'jobs/:id', component: JobDetailComponent },
-  { path: 'contact-us', component: ContactUsComponent},
-  { path: 'notification-jobs', component: NotificationJobs}
+  { path: 'contact-us', component: ContactUsComponent}
 ];

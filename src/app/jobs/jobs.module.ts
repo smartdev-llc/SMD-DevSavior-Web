@@ -12,7 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
 import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
-import { NotificationJobs } from './components/notification-jobs/notification-jobs.component';
+
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
@@ -32,14 +32,12 @@ import {ProfileService} from '../company/services/profile.service';
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
-    ContactUsComponent,
-    NotificationJobs
+    ContactUsComponent
   ],
   exports: [
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
-    JobDetailComponent,
-    NotificationJobs
+    JobDetailComponent
   ],
   imports: [
     RouterModule.forChild(routes),

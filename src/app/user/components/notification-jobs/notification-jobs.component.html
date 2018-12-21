@@ -32,67 +32,23 @@
                 </div>
 
                 <div class="modal-body">
-
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="subject" class="required">Tên việc làm</label>
-                      <input type="text" class="form-control" placeholder="VD: Developer, UI/UX Designer">
-                    </div>
-                  </div>
-
                   <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Kỹ năng</label>
                       <ng-select 
                         class="formControl" 
-                        [items]="item" 
+                        [items]="level" 
                         bindLabel="name"
                         bindValue="id"
                         [multiple]="false"
-                        placeholder="Vui lòng chọn trình độ tốt nghiệp">
+                        placeholder="Vui lòng nhập kỹ năng"
+                        [(ngModel)]="selectedLevelIds">
                       </ng-select>
                     </div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="subject" class="required">Khu vực</label>
-                      <ng-select 
-                        class="formControl" 
-                        [items]="area" 
-                        bindLabel="name" 
-                        bindValue="id" 
-                        [multiple]="true" 
-                        placeholder="+ Thêm khu vực"
-                        [(ngModel)]="selectedCityIds">
-                      </ng-select>
-                    </div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="subject" class="required">Ngành nghề</label>
-                      <ng-select 
-                        class="formControl" 
-                        [items]="career" 
-                        bindLabel="name" 
-                        bindValue="id" 
-                        [multiple]="true" 
-                        placeholder="+ Thêm ngành nghề"
-                        [(ngModel)]="selectedCareerIds">
-                      </ng-select>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="subject" class="required">Mức lương</label>
-                      <input type="text" class="form-control" placeholder="VD: 300$, 500$, 1000$...">
-                      <p class="help-block">(USD/tháng)</p>
-                    </div>
-                  </div>
-
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-md-12">
                       <label for="subject" class="required">Nhận thông báo</label>
                       <div class="option-notification">
@@ -107,7 +63,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                   <hr>
 
@@ -131,27 +87,14 @@
           </div>
 
 
-            <!-- show item notification alert -->
+        <!-- show item notification alert -->
         <!-- Modal Add Education History -->
         <div class="res-table">
           <div class="res-table__row row">
-            <div class="col-md-8 alert-item">
+            <div class="col-md-11 alert-item">
               <div class="name">Junior</div>
-              <div class="text-light criteria">
-                <span>
-                  <span class="location">Đà Nẵng, Hồ Chí Minh</span>
-                  <span class="separator hidden-sm hidden-xs">-</span>
-                </span>
-                <span>
-                  Kiến trúc/Thiết kế nội thất , IT - Phần mềm
-                  <span class="level">
-                    <span class="separator hidden-sm hidden-xs">-</span>
-                    <span>Nhân viên</span>
-                  </span>
-                </span>
-              </div>
             </div>
-            <div class="col-md-1 interval">
+            <!-- <div class="col-md-1 interval">
               <div class="text-light">
                 Nhận
                 <span class="hidden-md hidden-lg">:</span>
@@ -164,34 +107,10 @@
                 <span class="hidden-md hidden-lg">:</span>
               </div>
               <div class="text-strong">10-08-2018</div>
-            </div>
-            <div class="col-md-1 view">
-              <a routerLink="/" class="btn btn-outline btn-primary">Xem việc phù hợp</a>
-            </div>
+            </div> -->
+   
             <div class="col-md-1 actions">
-              <div class="dropdown">
-                <span class="icon-dots-more" data-toggle="dropdown">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 8.5">
-                    <circle cx="4.25" cy="4.25" r="4.25"></circle>
-                    <circle cx="18.75" cy="4.25" r="4.25"></circle>
-                    <circle cx="33.25" cy="4.25" r="4.25"></circle>
-                  </svg>
-                </span>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="clickable edit-alert">
-                      <span class="sprite icon-edit"></span>
-                      <span>Sửa</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="clickable delete-alert">
-                      <span class="sprite icon-trash"></span>
-                      <span>Xoá</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <button class="btn btn-primary" type="submit">Delete</button>
             </div>
           </div>
         </div>
