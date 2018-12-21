@@ -188,7 +188,9 @@
     "skillAndLanguage": "Skill/Language",
     "addKeySkill": "Add more key skills",
     "btnAdd": "Add",
-    "inputPlaceHolder": "Type your area of expertise."
+    "inputPlaceHolder": "Type your area of expertise.",
+    "descriptionDeleteWorking": "Do you want to delete your skill?",
+    "plsComplete": "Please complete your skill!"
   },
   "workingPreferences": {
     "workingPreferences": "Working preferences",

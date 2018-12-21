@@ -188,7 +188,9 @@
     "skillAndLanguage": "Kỹ năng/Ngoại ngữ",
     "addKeySkill": "Thêm kỹ năng",
     "btnAdd": "Thêm",
-    "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
+    "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn.",
+    "descriptionDeleteWorking": "Bạn có muốn xóa kỹ năng của mình không?",
+    "plsComplete": "Vui lòng hoàn thiện kỹ năng của bạn."
   },
   "workingPreferences": {
     "workingPreferences": "Công việc mong muốn",
