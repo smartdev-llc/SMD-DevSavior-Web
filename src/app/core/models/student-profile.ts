@@ -133,11 +133,13 @@ export class EducationDegrees implements Deserializable {
 export class SkillSubscription implements Deserializable {
   idSkill: number;
   nameSkill: string;
+  createdAt: any;
 
   deserialize(input: any){
     Object.assign(this, {
       idSkill: input.id || '',
-      nameSkill: input.name || ''
+      nameSkill: input.name || '',
+      createdAt: input.createdAt || '',
     });
     return this;
   }

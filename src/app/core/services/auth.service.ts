@@ -279,38 +279,6 @@ export class AuthService {
     )
   }
 
-  getSkillSubscription(): Observable<any>{
-    return this.http.get<User>('/skill-subscriptions')
-    .pipe(
-      map((response: any) => response),
-      catchError(this.handleError)
-    )
-  }
-
-  getSkills(){
-    return this.http.get('/skills')
-    .pipe(
-      map((response: any) => response),
-      catchError(this.handleError)
-    )
-  }
-
-  updateSkill(id: any, resource:any): Observable<any>{
-    return this.http.post<User>(`/skills/${id}/subscriptions`, resource)
-    .pipe(
-      map((response: any) => response),
-      catchError(this.handleError)
-    )
-  }
-
-  deleteSkill(id: any): Observable<any>{
-    return this.http.delete<User>(`/skills/${id}/subscriptions`)
-    .pipe(
-      map((response: any) => response),
-      catchError(this.handleError)
-    )
-  }
-
   removeTokens(): void {
     localStorage.removeItem('user');
   }

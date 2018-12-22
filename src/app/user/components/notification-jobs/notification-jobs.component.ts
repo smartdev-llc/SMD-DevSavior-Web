@@ -4,10 +4,11 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { from } from 'rxjs';
-import { filter, toArray, map } from 'rxjs/operators';
-import {AuthService} from '../../../core/services/auth.service';
+import { filter, toArray } from 'rxjs/operators';
 import { AppErrors } from '../../../core/error/app-errors';
 import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { StudentUserService } from '../../services/student-user.serivce';
+
 @Component({
   selector: 'notification-jobs',
   templateUrl: './notification-jobs.component.html',
@@ -27,9 +28,8 @@ export class NotificationJobs implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private modalService: BsModalService,
-    private authService: AuthService,
     private translate: TranslateService,
+    private studentUserService: StudentUserService,
     private toastr: ToastrService) 
     {
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -38,7 +38,7 @@ export class NotificationJobs implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.getSkills()
+    this.studentUserService.getSkills()
     .subscribe(
       studentSkills => {
         this.advancedSkills = studentSkills
@@ -51,11 +51,13 @@ export class NotificationJobs implements OnInit {
   initForms(): void {
     this.skillFormGroup = this.formBuilder.group({
       idSkill: ['', Validators.required],
+      nameSkill: [''],
+      createdAt: ['']
     });
   }
 
   preLoadData(): void{
-    this.authService.getSkillSubscription()
+    this.studentUserService.getSkillSubscription()
       .subscribe(res => {
           this.skillSubscription = res;
         }
@@ -73,11 +75,11 @@ export class NotificationJobs implements OnInit {
     const { idSkill } = this.skillFormGroup.value;
 
     this.isSubmittingSkill = true;
-    this.updateSkill(idSkill, params);
+    this.updateSkill(idSkill);
   }
 
-  updateSkill(idSkill: any, params: any): void {
-    this.authService.updateSkill(idSkill, params)
+  updateSkill(idSkill: any): void {
+    this.studentUserService.updateSkill(idSkill)
     .subscribe(response => {
       this.isSubmittingSkill = false;
       this.submittedSkill = false;
@@ -100,7 +102,7 @@ export class NotificationJobs implements OnInit {
   handleConfirm(isConfirm: boolean) {
     if (isConfirm) {
       this.isDeletingSkillWorking = true;
-      this.authService.deleteSkill(this.skillIdSelected)
+      this.studentUserService.deleteSkill(this.skillIdSelected)
         .subscribe(res => {
           from(this.skillSubscription)
             .pipe(
