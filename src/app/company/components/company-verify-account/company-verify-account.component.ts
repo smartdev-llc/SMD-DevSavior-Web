@@ -22,7 +22,7 @@ export class CompanyVerifyAccountComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private activatedRouter: ActivatedRoute,
-              private formBuilder: FormBuilder) { 
+              private formBuilder: FormBuilder) {
              
             }
 
