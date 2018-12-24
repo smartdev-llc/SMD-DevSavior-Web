@@ -13,9 +13,10 @@ import { Router, NavigationExtras } from '@angular/router';
   providers: [ AuthService ]
 })
 export class CpRegisterComponent implements OnInit {
+  isEnLang: boolean = false;
+
   static MIN_LENGTH_PASSWORD = 8;
   static DEFAULT_MESSAGE = 'Oops! Something bad happened. Please come back later.';
-  isEnLang: boolean = false;
   registerForm: FormGroup;
   passwordGroup: FormGroup;
   submitted: boolean;
