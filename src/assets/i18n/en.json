@@ -52,7 +52,12 @@
     "faq" : "FAQ",
     "log_out" : "Log Out",
     "recruitment_center" : "Recruitment center",
-    "candidate_list": "Job's candidates"
+    "candidate_list": "Job's candidates",
+    "candidateName": "Name",
+    "candidateExperience": "Experience",
+    "candidateAppliedDate": "Applied Date",
+    "candidateAction": "Actions",
+    "moreJobs":"More jobs"
   },
   "companyUserProfile" : {
     "cancel" : "Cancel",
@@ -83,7 +88,7 @@
     "website": "Website",
     "no_jobs_found": "No jobs found",
     "loadmore_jobs": "Show more Jobs",
-    "no_candidates_found": "No Candidates found."
+    "noCandidatesFound": "No Candidates found."
   },
   "userProfile": {
     "titleDeleteWorking": "Delete working experience",
