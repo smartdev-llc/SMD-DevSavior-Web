@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../../core/services/job.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
 import { LanguageService } from '../../../layout/services/language.service';
-import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-candidate-list',
@@ -10,100 +9,50 @@ import { HttpParams } from '@angular/common/http';
   styleUrls: ['./candidate-list.component.css']
 })
 export class CandidateListComponent implements OnInit {
-  static readonly NO_SPECIFIC_JOB_ID = 'all';
+
+  jobId: string;
   candidates: any[];
   isLoading: boolean;
   jobs: any[];
-  currentJob: any;
-  paginationInfo: {
-    totalItems: number;
-    currentPage: number;
-    itemsPerPage: number;
-  };
 
-  constructor(
-    private jobService: JobService,
-    private activatedRoute: ActivatedRoute,
-    private languageService: LanguageService,
-    private router: Router
-  ) {
-    const jobId = this.activatedRoute.snapshot.paramMap.get('jobId');
-    this.currentJob = { id: jobId };
+
+  constructor(private jobService: JobService, 
+              private router: ActivatedRoute, 
+              private languageService: LanguageService) { 
+
   }
 
   ngOnInit() {
-    if (this.currentJob.id) {
-      this.loadJobs();
+    this.jobId = this.router.snapshot.paramMap.get('jobId');
+    if(this.jobId) {
       this.loadCandidateForJob();
     } else {
-      this.router.navigate(['/not-found']);
+      this.isLoading = false;
     }
   }
 
-  getCandidateAtPage(page: number = 0) {
+  loadCandidateForJob() {
     this.isLoading = true;
-    this.candidates = [];
-    this.jobService.getCandidateForJob(this.currentJob.id, page).subscribe(
-      response => {
-        this.candidates = response.list;
-        this.paginationInfo = {
-          totalItems: response.total,
-          itemsPerPage: response.size,
-          currentPage: response.page
-        };
+    this.jobService.getCandidateForJob(this.jobId)
+    .subscribe(
+      data => {
+        this.candidates = data;
         this.isLoading = false;
       },
       error => {
         this.isLoading = false;
       }
-    );
+    )
   }
 
-  onPageChanged(page: number) {
-    this.getCandidateAtPage(page);
+
+  doSomething() {
+    console.log("job")
   }
 
-  loadCandidateForJob(job: any = this.currentJob, page?: number) {
-    if (this.currentJob.id != CandidateListComponent.NO_SPECIFIC_JOB_ID) {
-      this.updateInfoCurrentJob(job);
-      if (this.isNoInfoCurrentJob(job.title)) {
-        this.loadInfoOfCurrentJob();
-      } else {
-        this.currentJob.title = job.title;
-      }
-      this.getCandidateAtPage(page);
-    }
+
+  selectAll() {
+    
   }
 
-  updateInfoCurrentJob(job) {
-    this.currentJob = job;
-  }
-
-  isNoInfoCurrentJob(jobTitle: string) {
-    return jobTitle == undefined;
-  }
-
-  loadInfoOfCurrentJob() {
-    this.jobService.getDetailJob(this.currentJob.id).subscribe(response => {
-      this.currentJob = response;
-    });
-  }
-
-  loadJobs() {
-    const params: HttpParams = new HttpParams({ fromObject: undefined });
-    this.jobService.getCompanyJobs(params).subscribe(
-      response => {
-        this.jobs = response;
-        if (
-          this.currentJob.id === CandidateListComponent.NO_SPECIFIC_JOB_ID &&
-          this.jobs &&
-          this.jobs[0]
-        ) {
-          this.currentJob = this.jobs[0];
-          this.loadCandidateForJob();
-        }
-      },
-      error => {}
-    );
-  }
 }

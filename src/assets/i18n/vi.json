@@ -51,12 +51,7 @@
     "faq" : "Hỏi đáp",
     "log_out" : "Thoát",
     "recruitment_center" : "Quản lý tuyển dụng",
-    "candidate_list": "Danh sách ứng viên", 
-    "candidateName": "Họ tên",
-    "candidateExperience": "Năm kinh nghiệm",
-    "candidateAppliedDate": "Ngày ứng tuyển",
-    "candidateAction": "",
-    "moreJobs":"Xem thêm"
+    "candidate_list": "Job's candidates"
   },
   "companyUserProfile" : {
     "cancel" : "Hủy",
@@ -87,7 +82,7 @@
     "website": "Website",
     "no_jobs_found": "Không có công việc nào",
     "loadmore_jobs": "Hiển thị thêm",
-    "noCandidatesFound": "Không tìm thấy ứng viên nào!"
+    "no_candidates_found": "Không tìm thấy ứng viên nào!"
   },
   "userProfile": {
     "titleDeleteWorking": "Xoá kinh nghiệm làm việc",
