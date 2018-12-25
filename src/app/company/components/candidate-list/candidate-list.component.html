@@ -1,115 +1,149 @@
 <app-home-company-logged></app-home-company-logged>
 
 <div class="container main-container header_area">
-  <div class="panel panel-default jobs_filters">
+  <div class="panel panel-primary jobs_filters">
     <div class="panel-heading row">
-      <div class="col-md-3 col-sm-4 col-xs-12 text-center">{{ 'header.candidate_list' | translate }}</div>
+      <div class="col-md-3 col-sm-4 col-xs-12 text-center">
+        {{ 'header.candidate_list' | translate }}
+      </div>
       <form *ngIf="jobs">
         <div class="col-md-4 col-sm-8 col-xs-12 filter_width">
           <div class="form-group">
-              <div class="dropdown">
-                  <button class="filters_feilds btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <p class="col-xs-10 selected-job one-line">Senior java developer( Signing bonus 1 month)</p>
-                    <span class="glyphicon glyphicon-menu-down col-xs-2"></span>
-                  </button>
-                  <div class="dropdown-menu " aria-labelledby="dropdownMenu1">
-                    <div class="text-center">
-                      <form class="form-search-job">
+            <div class="dropdown">
+              <button
+                class="filters_feilds btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                <p class="col-xs-10 selected-job one-line">
+                  {{ currentJob.title }}
+                </p>
+                <span class="glyphicon glyphicon-menu-down col-xs-2"></span>
+              </button>
+              <div class="dropdown-menu " aria-labelledby="dropdownMenu1">
+                <div class="text-center">
+                  <!-- <form class="form-search-job">
                         <div class="row">
                             <input lass="form-control" placeholder="enter title of job.">
                             <button class=" btn-search-inline">
                               <span class="glyphicon glyphicon-search"></span>
                           </button>
                         </div>
-                      
-                      </form>
-                    </div>
-                      <ul class="tiny_scrolling" id="style-3">
-                          <li><a role="button" (click)="doSomething()">Web Developer</a></li>
-                          <li><a role="button" (click)="doSomething()">Graphic designer</a></li>
-                          <li><a role="button" (click)="doSomething()">Developer</a></li>
-                          <li><a role="button" (click)="doSomething()">UX Designer</a></li>
-                           <li><a role="button" (click)="doSomething()">Web Developer</a></li>
-                          <li><a role="button" (click)="doSomething()">Graphic designer</a></li>
-                          <li><a role="button" (click)="doSomething()">Developer</a></li>
-                          <li><a role="button" (click)="doSomething()">UX Designer</a></li>
-                      </ul>
-                      <div class="j-list-all text-right">
-                        <a routerLink="/employer/jobs/all">
-                          <span class="glyphicon glyphicon-menu-right">More jobs</span>
-                        </a>
-                      </div>
-                  </div>
+
+                      </form> -->
+                </div>
+                <ul class="tiny_scrolling" id="style-3">
+                  <li *ngFor="let job of jobs">
+                    <a
+                      *ngIf="job.id != currentJob.id"
+                      role="button"
+                      (click)="loadCandidateForJob(job)"
+                      >{{ job.title }}</a
+                    >
+                  </li>
+                </ul>
+                <div class="j-list-all text-right">
+                  <a routerLink="/employer/jobs/all">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                    <span>{{ 'header.moreJobs' | translate }}</span>
+                  </a>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </form>
-      
     </div>
     <div class="panel-body loader-wrapper">
       <div class="loadessr no-bg-loader" *ngIf="isLoading">
-        <div  class="loader"></div>
+        <div class="loader"></div>
       </div>
-        
+
       <table class="j-table">
         <thead class="j-table-header">
           <th class="col-xs-1">
             <!-- <div class="form-group form-group-checkbox">
               <label></label> -->
-              <!-- <input type="checkbox"> -->
+            <!-- <input type="checkbox"> -->
             <!-- </div> -->
           </th>
-          <th class="col-xs-5">Name</th>
-          <th class="col-xs-1 text-center">Experience</th>
-          <th class="col-xs-2 text-center">Applied</th>
-          <th class="col-xs-3 text-center">Actions</th>
+          <th class="col-xs-5">{{ 'header.candidateName' | translate }}</th>
+          <th class="col-xs-1 text-center">
+            {{ 'header.candidateExperience' | translate }}
+          </th>
+          <th class="col-xs-2 text-center">
+            {{ 'header.candidateAppliedDate' | translate }}
+          </th>
+          <th class="col-xs-3 text-center">
+            {{ 'header.candidateAction' | translate }}
+          </th>
         </thead>
+
         <tbody class="j-table-body">
           <!-- start list job -->
+          <tr *ngIf="candidates.length == 0 && !isLoading">
+            <td colspan="5">
+              <div class="text-center">
+                {{ 'company.noCandidatesFound' | translate }}
+              </div>
+            </td>
+          </tr>
+
           <tr class="candidate" *ngFor="let candidate of candidates">
             <td>
               <div>
                 <!-- <input type="checkbox"/> -->
-                <img class="profile-img" src="{{ candidate.profileImageURL | photoURLConverter: 'assets/images/profile-placeholder.png'}}">
+                <img
+                  class="profile-img"
+                  src="{{ candidate.profileImageURL| photoURLConverter: 'assets/images/profile-placeholder.png' }}"
+                />
               </div>
             </td>
             <td>
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Name</div> -->
                 <div class="name col-sm-12 col-xs-9">
-                  <a>{{candidate.displayName}}</a>
-                  <div class="icon-with-text"><i class="glyphicon glyphicon-home"></i>Da Nang University of Science and Technology</div>
-                  <div class="icon-with-text"><i class="glyphicon glyphicon-education"></i>Bachelor</div>
+                  <a>{{ candidate.displayName }}</a>
+                  <div class="icon-with-text">
+                    <i class="glyphicon glyphicon-home"></i>Da Nang University
+                    of Science and Technology
+                  </div>
+                  <div class="icon-with-text">
+                    <i class="glyphicon glyphicon-education"></i>Bachelor
+                  </div>
                 </div>
-            </div>
+              </div>
             </td>
             <td>
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Experience</div> -->
                 <div class="experience col-sm-12 col-xs-9 text-center">
-                      1 year
+                  {{ candidate.yearsOfExperience }}
                 </div>
               </div>
             </td>
             <td>
-                <div>
-                  <!-- <div class="mobile sm-hide col-xs-3">Applied</div> -->
-                  <div class="applied-date col-sm-12 col-xs-9 text-center">
-                      28-Aug-2018
-                  </div>
+              <div>
+                <!-- <div class="mobile sm-hide col-xs-3">Applied</div> -->
+                <div class="applied-date col-sm-12 col-xs-9 text-center">
+                  {{ candidate.appliedTime | date: 'dd/MM/yyyy' }}
                 </div>
+              </div>
             </td>
             <td>
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Actions</div> -->
                 <div class="actions col-sm-12 col-xs-9 text-center">
-                    <!-- <button class="btn btn-default btn-small">
+                  <!-- <button class="btn btn-default btn-small">
                       <span class="glyphicon glyphicon-comment"></span>
                     </button> -->
-                    <button class="btn btn-default btn-small">
-                      <span class="glyphicon glyphicon-download-alt"></span>
-                    </button>
-                    <!-- <button class="btn btn-default btn-small">
+                  <button class="btn btn-default btn-small">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                  </button>
+                  <!-- <button class="btn btn-default btn-small">
                       <span class="glyphicon glyphicon-thumbs-down"></span>
                     </button>
                     <button class="btn btn-default btn-small">
@@ -121,7 +155,23 @@
           </tr>
         </tbody>
       </table>
-      <div *ngIf="!candidates && !isLoading">{{ 'company.no_candidates_found' | translate }}</div>
+      <div
+        class="row"
+        *ngIf="
+          paginationInfo &&
+          paginationInfo.totalItems > paginationInfo.itemsPerPage
+        "
+      >
+        <div class="col-xs-12 jv-pagination">
+          <pagination
+            [totalItems]="paginationInfo.totalItems"
+            [(ngModel)]="paginationInfo.currentPage"
+            (pageChanged)="onPageChanged($event.page)"
+            [itemsPerPage]="paginationInfo.itemsPerPage"
+            [maxSize]="15"
+          ></pagination>
+        </div>
+      </div>
     </div>
   </div>
 </div>
