@@ -5,6 +5,7 @@ import {ContactUsComponent} from './components/contact-us/contact-us.component';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 
+
 export const JobsRoutes = [
   { path: 'browse-jobs', component: BrowseJobsComponent,
     resolve: {

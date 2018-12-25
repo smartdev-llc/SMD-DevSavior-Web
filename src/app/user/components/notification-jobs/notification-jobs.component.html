@@ -1,0 +1,143 @@
+<!-- Header Section -->
+<user-header></user-header>
+<!-- Header Section -->
+<div class="page-job-alert container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-job-alert__alerts">
+        <div class="box box-lg">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="text-primary">{{ 'skill.jobAnnouncement' | translate}}</h1>
+            </div>
+
+            <div class="col-md-6 text-right btn-mobile-box">
+              <a class="btn-create-job-alert clickable" (click)="openModal()">
+                <span class="icon-plus-circle-blue m-r-xs">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 24 13 L 24 24 L 13 24 L 13 26 L 24 26 L 24 37 L 26 37 L 26 26 L 37 26 L 37 24 L 26 24 L 26 13 L 24 13 z"></path>
+                  </svg>
+                </span>
+                <span class="btn-label text-light">{{ 'skill.createJobAlerts' | translate }}</span>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="res-table" *ngIf="skillSubscription">
+            <div class="row" *ngIf="!skillSubscription.length">
+              <div class="col-md-12">
+                <p class="not-update-alert">{{ 'skill.plsComplete' | translate }}</p>
+              </div>
+            </div>
+            <div class="res-table__row row" *ngFor="let item of skillSubscription">
+              <div class="col-md-8 alert-item">
+                <div class="name">{{item.name}}</div>
+              </div>
+              <div class="col-md-2 interval">
+                <!-- <div class="text-light">
+                  Nhận
+                  <span class="hidden-md hidden-lg">:</span>
+                </div>
+                <div class="text-strong">Hàng tuần</div> -->
+              </div>
+              <div class="col-md-1 last-update">
+                <div class="text-light">
+                  {{ 'skill.updateDay' | translate }}
+                  <span class="hidden-md hidden-lg">:</span>
+                </div>
+                <div class="text-strong">{{item.createdAt | date: 'd-M-yyyy'}}</div>
+              </div>
+
+              <div class="col-md-1 actions">
+                <button type="button" class="btn btn-danger" (click)="deleteSkill(item.id)">Xóa</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Add Education History -->
+          <div bsModal #notificationAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <div class="modal-header border-option">
+                  <p class="confirm-title">{{ 'skill.jobAnnouncement' | translate}}</p>
+                </div>
+
+                <div class="modal-body">
+                  <form class="update-form" [formGroup]="skillFormGroup" (ngSubmit)="skillSubmit()">
+                    <input type="text" class="hidden" formControlName="idSkill">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="skill" class="required">{{ 'skill.keySkills' | translate}}</label>
+                          <ng-select 
+                            class="jv"
+                            [ngClass]="{ 'ng-touched': submittedEducation && edF.idSkill.errors }"
+                            [items]="advancedSkills" 
+                            bindLabel="name"
+                            bindValue="id" 
+                            [closeOnSelect]="true"
+                            [hideSelected]="true"
+                            placeholder="Select..."
+                            formControlName="idSkill">
+                          </ng-select>
+                          <div *ngIf="submittedSkill && sF.idSkill.errors">
+                            <em *ngIf="sF.idSkill.errors.required" class="errors help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <!-- <div class="row">
+                        <div class="col-md-12">
+                          <label for="subject" class="required">Nhận thông báo</label>
+                          <div class="option-notification">
+                            <div class="col-md-6">
+                              <input type="radio" name="every notification" value="every-day" />
+                              <label for="every-day"> Hàng ngày</label>
+                            </div>
+    
+                            <div class="col-md-6">
+                              <input type="radio" name="every notification" value="every-week" />
+                              <label for="every-week"> Hàng tuần</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="pull-right">
+                          <button type="button" class="btn btn-defaut bg-white mr-2" (click)="decline()">
+                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                            {{ 'common.btnCancel' | translate }}
+                          </button>
+                          <button type="submit" class="btn btn-defaut bg-submit">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            {{ 'common.btnUpdate' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Add Education History -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <confirm-dialog #deleteSkillDialog [config]="{title: 'userProfile.titleDeleteWorking', description: 'skill.descriptionDeleteWorking'}"
+    (handleConfirm)="handleConfirm($event)">
+  </confirm-dialog>
+</div>
+<!-- Footer Section -->
+<app-footer></app-footer>
+<!-- Footer Section -->

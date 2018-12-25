@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { ShareButtonModule } from '@ngx-share/button'
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 
@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
 import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
+
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
@@ -42,6 +43,7 @@ import {ProfileService} from '../company/services/profile.service';
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
     ScrollToModule.forRoot(),
+    ModalModule.forRoot(),
     NgxInputStarRatingModule,
     LayoutModule,
     SharedModule,
