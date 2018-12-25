@@ -8,7 +8,7 @@
         <div class="box box-lg">
           <div class="row">
             <div class="col-md-6">
-              <h1 class="text-primary">Thông Báo Việc Làm</h1>
+              <h1 class="text-primary">{{ 'skill.jobAnnouncement' | translate}}</h1>
             </div>
 
             <div class="col-md-6 text-right btn-mobile-box">
@@ -18,7 +18,7 @@
                     <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 24 13 L 24 24 L 13 24 L 13 26 L 24 26 L 24 37 L 26 37 L 26 26 L 37 26 L 37 24 L 26 24 L 26 13 L 24 13 z"></path>
                   </svg>
                 </span>
-                <span class="btn-label text-light">Tạo Thông Báo Việc Làm</span>
+                <span class="btn-label text-light">{{ 'skill.createJobAlerts' | translate }}</span>
               </a>
             </div>
           </div>
@@ -43,7 +43,7 @@
               </div>
               <div class="col-md-1 last-update">
                 <div class="text-light">
-                  Ngày cập nhật
+                  {{ 'skill.updateDay' | translate }}
                   <span class="hidden-md hidden-lg">:</span>
                 </div>
                 <div class="text-strong">{{item.createdAt | date: 'd-M-yyyy'}}</div>
@@ -60,7 +60,7 @@
             <div class="modal-dialog modal-md">
               <div class="modal-content">
                 <div class="modal-header border-option">
-                  <p class="confirm-title">Thông báo việc làm</p>
+                  <p class="confirm-title">{{ 'skill.jobAnnouncement' | translate}}</p>
                 </div>
 
                 <div class="modal-body">

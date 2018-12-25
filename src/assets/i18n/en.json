@@ -189,6 +189,9 @@
     "from": "From"
   },
   "skill": {
+    "jobAnnouncement": "Job announcement",
+    "createJobAlerts": "Create job alert",
+    "updateDay" : "Update day",
     "keySkills": "Key Skills",
     "skillAndLanguage": "Skill/Language",
     "addKeySkill": "Add more key skills",

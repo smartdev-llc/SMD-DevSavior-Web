@@ -189,6 +189,9 @@
     "from": "Từ"
   },
   "skill": {
+    "jobAnnouncement": "Thông báo việc làm",
+    "createJobAlerts": "Tạo thông báo việc làm",
+    "updateDay" : "Ngày cập nhật",
     "keySkills": "Kỹ năng",
     "skillAndLanguage": "Kỹ năng/Ngoại ngữ",
     "addKeySkill": "Thêm kỹ năng",
