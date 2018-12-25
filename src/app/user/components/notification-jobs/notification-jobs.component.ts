@@ -1,3 +1,4 @@
+import { SkillSubscription } from './../../../core/models/student-profile';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -8,6 +9,7 @@ import { filter, toArray } from 'rxjs/operators';
 import { AppErrors } from '../../../core/error/app-errors';
 import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { StudentUserService } from '../../services/student-user.serivce';
+import { log } from 'util';
 
 @Component({
   selector: 'notification-jobs',
@@ -86,11 +88,11 @@ export class NotificationJobs implements OnInit {
       this.resetSkillForm();
       this.showSkillSuccess();
       this.notificationAlert.hide();
-      this.skillSubscription.push(response);
+      this.skillSubscription = response.data.subscribedSkills;
     },
     (error: AppErrors) => {
       this.isSubmittingSkill = false;
-      this.showSkillError(error);
+      this.showSkillUpdateError(error);
     });
   }
 
@@ -116,7 +118,7 @@ export class NotificationJobs implements OnInit {
         },
         (error: AppErrors) => {
           this.isDeletingSkillWorking = false;
-          this.showSkillError(error);
+          this.showSkillDeleteError(error);
         });
     }
   }
@@ -129,8 +131,12 @@ export class NotificationJobs implements OnInit {
     this.toastr.success('Your changes have been saved', 'Skill');
   }
 
-  showSkillError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Skill');
+  showSkillUpdateError(error: any) {
+    this.toastr.error('Data is available, please delete your skill before adding', 'Skill');
+  }
+
+  showSkillDeleteError(error: any){
+    this.toastr.error('Something went wrong when delete skill, please try again', 'Skill');
   }
 
   resetSkillForm() {
