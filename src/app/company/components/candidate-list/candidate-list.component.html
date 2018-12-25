@@ -84,7 +84,7 @@
 
         <tbody class="j-table-body">
           <!-- start list job -->
-          <tr *ngIf="candidates == 0 && !isLoading">
+          <tr *ngIf="candidates.length == 0 && !isLoading">
             <td colspan="5">
               <div class="text-center">
                 {{ 'company.noCandidatesFound' | translate }}
@@ -98,11 +98,7 @@
                 <!-- <input type="checkbox"/> -->
                 <img
                   class="profile-img"
-                  src="{{
-                    candidate.profileImageURL
-                      | photoURLConverter
-                        : 'assets/images/profile-placeholder.png'
-                  }}"
+                  src="{{ candidate.profileImageURL| photoURLConverter: 'assets/images/profile-placeholder.png' }}"
                 />
               </div>
             </td>
@@ -162,7 +158,8 @@
       <div
         class="row"
         *ngIf="
-          pagination && paginationInfo.totalItems > paginationInfo.itemsPerPage
+          paginationInfo &&
+          paginationInfo.totalItems > paginationInfo.itemsPerPage
         "
       >
         <div class="col-xs-12 jv-pagination">
