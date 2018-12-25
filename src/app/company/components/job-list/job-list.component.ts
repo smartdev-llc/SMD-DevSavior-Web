@@ -30,7 +30,7 @@ export class JobListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.loading = true;
     switch (this.key) {
       case 'active':
       case 'expires':
