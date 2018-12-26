@@ -1,58 +1,66 @@
 .jobs_filters {
-    background: transparent;
-    padding: 0px;
-     box-shadow: none;
+  background: transparent;
+  padding: 0px;
+  box-shadow: none;
 }
 .panel-body {
-    background-color: #fff;
-    padding-bottom: 5%;
+  background-color: #fff;
+  padding-bottom: 5%;
 }
+<<<<<<< HEAD
 .panel {
     margin: 5px;
 }
 .dropdown button, .dropdown .dropdown-menu  {
     width: 100%;
     white-space: initial;
+=======
+.dropdown button,
+.dropdown .dropdown-menu {
+  width: 100%;
+  white-space: initial;
+>>>>>>> 81f55cff6c16ea770ac7f18d1f909507474ed5d6
 }
 .dropdown button p.selected-job {
-    margin: 0px;
-    color: #12cd6a;
+  margin: 0px;
+  color: #12cd6a;
 }
-.dropdown button, input {
-    outline: none;
-    padding: 10px;
+.dropdown button,
+input {
+  outline: none;
+  padding: 10px;
 }
 .dropdown input {
-    margin: 5px 4px 20px;
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #e1e1e1;
+  margin: 5px 4px 20px;
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #e1e1e1;
 }
 .j-table .profile-img {
-    width: 70%;
-    border-radius: 50%;
-    margin-left: 5px;
+  width: 70%;
+  border-radius: 50%;
+  margin-left: 5px;
 }
 .dropdown .j-list-all {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .actions button {
-    margin: 2px ;
+  margin: 2px;
 }
 .candidate {
-    font-size: 15px;
+  font-size: 15px;
 }
 .candidate .name a {
-    font-size: 21px;
+  font-size: 21px;
 }
 .dropdown .form-search-job .btn-search-inline {
-    width: initial;
-    border: none;
-    position: absolute;
-    background-color: transparent;
-    top: 17px;
-    right: 15px;
+  width: initial;
+  border: none;
+  position: absolute;
+  background-color: transparent;
+  top: 17px;
+  right: 15px;
 }
 .loadessr {
-    width: 98%;
+  width: 98%;
 }
