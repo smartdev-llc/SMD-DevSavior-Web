@@ -1,0 +1,239 @@
+{
+  "total": 4,
+  "list": [
+    {
+      "company": {
+        "createdAt": 1543320542330,
+        "updatedAt": 1543320705202,
+        "id": 4,
+        "email": "quangtuandev@gmail.com",
+        "name": "quangtuandev",
+        "address": "Quang Trung Da Nang",
+        "city": "DN",
+        "contactName": "quangtuandev",
+        "phoneNumber": "01212121212",
+        "website": "juniorviec.com",
+        "description": null,
+        "logoURL": "",
+        "coverURL": "",
+        "photoURLs": null,
+        "videoURL": "",
+        "status": "ACTIVE",
+        "emailVerified": true,
+        "role": "company"
+      },
+      "title": "OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES",
+      "description": "<h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><p><br></p>",
+      "skills": [
+        {
+          "name": "Java",
+          "id": 1
+        },
+        {
+          "name": "IOS",
+          "id": 3
+        },
+        {
+          "name": "NodeJS",
+          "id": 4
+        },
+        {
+          "name": "PHP",
+          "id": 5
+        },
+        {
+          "name": ".NET",
+          "id": 6
+        }
+      ],
+      "category": {
+        "id": 4,
+        "name": "Tester"
+      },
+      "status": "ACTIVE",
+      "requirements": "<h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATESOUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATESOUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATESOUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATESOUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><p><br></p>",
+      "fromSalary": 123,
+      "toSalary": 456,
+      "jobType": "FULL_TIME",
+      "benefits": "<h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><h5>OUR DATABASE GIVES YOU ACCESS TO MILLIONS OF ACTIVE CANDIDATES</h5><p><br></p>",
+      "expiredAt": 1546515800549,
+      "createdAt": 1545911000550,
+      "updatedAt": 1545911000550,
+      "_juniorviec_": {
+        "createdTime": "Thu Dec 27 2018"
+      },
+      "id": "6",
+      "_id": "6"
+    },
+    {
+      "company": {
+        "createdAt": 1545904452464,
+        "updatedAt": 1545904471956,
+        "id": 15,
+        "email": "hoanglonglch@gmail.com",
+        "name": "Smartdev Co.",
+        "address": "K856/27 Ton Duc Thang, Da Nang",
+        "city": "DN",
+        "contactName": "Dung Tien",
+        "phoneNumber": "0382595382",
+        "website": "",
+        "description": null,
+        "logoURL": "",
+        "coverURL": "",
+        "photoURLs": null,
+        "videoURL": "",
+        "status": "ACTIVE",
+        "emailVerified": true,
+        "role": "company"
+      },
+      "title": "tuyendung",
+      "description": "smd tuyen dung",
+      "skills": [
+        {
+          "name": "Java",
+          "id": 1
+        },
+        {
+          "name": "Android",
+          "id": 2
+        },
+        {
+          "name": "IOS",
+          "id": 3
+        }
+      ],
+      "category": {
+        "id": 4,
+        "name": "Tester"
+      },
+      "status": "ACTIVE",
+      "requirements": "To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n  add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in t",
+      "fromSalary": 100,
+      "toSalary": 200,
+      "jobType": "FULL_TIME",
+      "benefits": null,
+      "expiredAt": 1546511194696,
+      "createdAt": 1545906394696,
+      "updatedAt": 1545906394696,
+      "_juniorviec_": {
+        "createdTime": "Thu Dec 27 2018"
+      },
+      "id": "5",
+      "_id": "5"
+    },
+    {
+      "company": {
+        "createdAt": 1545904452464,
+        "updatedAt": 1545904471956,
+        "id": 15,
+        "email": "hoanglonglch@gmail.com",
+        "name": "Smartdev Co.",
+        "address": "K856/27 Ton Duc Thang, Da Nang",
+        "city": "DN",
+        "contactName": "Dung Tien",
+        "phoneNumber": "0382595382",
+        "website": "",
+        "description": null,
+        "logoURL": "",
+        "coverURL": "",
+        "photoURLs": null,
+        "videoURL": "",
+        "status": "ACTIVE",
+        "emailVerified": true,
+        "role": "company"
+      },
+      "title": "tuyendung",
+      "description": "smd tuyen dung",
+      "skills": [
+        {
+          "name": "Java",
+          "id": 1
+        },
+        {
+          "name": "Android",
+          "id": 2
+        },
+        {
+          "name": "IOS",
+          "id": 3
+        }
+      ],
+      "category": {
+        "id": 4,
+        "name": "Tester"
+      },
+      "status": "ACTIVE",
+      "requirements": "To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n  add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in t",
+      "fromSalary": 100,
+      "toSalary": 200,
+      "jobType": "FULL_TIME",
+      "benefits": null,
+      "expiredAt": 1546511193184,
+      "createdAt": 1545906393185,
+      "updatedAt": 1545906393185,
+      "_juniorviec_": {
+        "createdTime": "Thu Dec 27 2018"
+      },
+      "id": "4",
+      "_id": "4"
+    },
+    {
+      "company": {
+        "createdAt": 1545904452464,
+        "updatedAt": 1545904471956,
+        "id": 15,
+        "email": "hoanglonglch@gmail.com",
+        "name": "Smartdev Co.",
+        "address": "K856/27 Ton Duc Thang, Da Nang",
+        "city": "DN",
+        "contactName": "Dung Tien",
+        "phoneNumber": "0382595382",
+        "website": "",
+        "description": null,
+        "logoURL": "",
+        "coverURL": "",
+        "photoURLs": null,
+        "videoURL": "",
+        "status": "ACTIVE",
+        "emailVerified": true,
+        "role": "company"
+      },
+      "title": "tuyendung",
+      "description": "smd tuyen dung",
+      "skills": [
+        {
+          "name": "Java",
+          "id": 1
+        },
+        {
+          "name": "Android",
+          "id": 2
+        },
+        {
+          "name": "IOS",
+          "id": 3
+        }
+      ],
+      "category": {
+        "id": 4,
+        "name": "Tester"
+      },
+      "status": "ACTIVE",
+      "requirements": "To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n  add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in tTo add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied. \n add more ProGuard rules that are specific to each build variant, add another proguardFiles property in t",
+      "fromSalary": 100,
+      "toSalary": 200,
+      "jobType": "FULL_TIME",
+      "benefits": null,
+      "expiredAt": 1546511191336,
+      "createdAt": 1545906391336,
+      "updatedAt": 1545906391336,
+      "_juniorviec_": {
+        "createdTime": "Thu Dec 27 2018"
+      },
+      "id": "3",
+      "_id": "3"
+    }
+  ],
+  "size": 10,
+  "from": 0
+}

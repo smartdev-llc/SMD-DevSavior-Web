@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ShareService } from '@ngx-share/core';
@@ -20,6 +20,7 @@ import {ProfileService} from '../../../company/services/profile.service';
 import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
+import {Job} from '../../../core/models/job';
 declare  var $: any;
 
 @Component({
@@ -44,6 +45,8 @@ export class JobDetailComponent implements OnInit {
   linkedInIcon = faLinkedinIn;
   googlePlusIcon = faGooglePlusG;
   btnApplyJob: HTMLElement;
+  recommencedJobs: Job[] = [];
+
 
   constructor(
     private profileService: ProfileService,
@@ -53,19 +56,10 @@ export class JobDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private authService: AuthService,
     public share: ShareService,
+    private cdRef: ChangeDetectorRef,
     private meta: Meta ) {}
 
   ngOnInit() {
-
-  $('.owl-wrapper').owlCarousel({
-    navigation: true, // Show next and prev buttons
-    slideSpeed: 300,
-    loop: true,
-    margin: 10,
-    responsiveClass: true,
-    navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
-  });
-
     this.jobId = this.route.snapshot.paramMap.get('id');
     this.isLoading = true;
 
@@ -88,12 +82,9 @@ export class JobDetailComponent implements OnInit {
         var title = this.meta.getTag('name=title');
         var description = this.meta.getTag('name=description');
         var image = this.meta.getTag('name=image');
-        console.log('url...' + url.content);
-        console.log('title...' + title.content);
-        console.log('description...' + description.content);
-        console.log('image...' + image.content);
-
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
+
+    this.getRecommendedJob(this.jobId);
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
@@ -150,5 +141,40 @@ export class JobDetailComponent implements OnInit {
   renderTextForBtnApplyJob(isApplied): string {
     if (isApplied) return 'Job Is Applied';
     return 'Apply Job';
+  }
+
+  /*initRecommendJob() {
+    $('.owl-wrapper').owlCarousel({
+      navigation: true, // Show next and prev buttons
+      items: 2,
+      loop:true,
+      margin:10,
+      autoPlay:true,
+      autoPlayTimeout:1000,
+      autoPlayHoverPause:true,
+      navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
+    });
+  }*/
+
+  initRecommendJob() {
+    $('.owl-wrapper').owlCarousel({
+      navigation: true, // Show next and prev buttons
+      items: 1,
+      loop:true,
+      margin:10,
+      autoPlay:false,
+      autoPlayTimeout:1000,
+      autoPlayHoverPause:true,
+      navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
+    });
+  }
+
+  getRecommendedJob(jobId: string) {
+    this.jobService.getRecommenedJob(jobId).subscribe((data: any) => {
+      this.recommencedJobs = data.list as Job[];
+      console.log('data test', this.recommencedJobs);
+      this.cdRef.detectChanges()
+      this.initRecommendJob();
+    });
   }
 }
