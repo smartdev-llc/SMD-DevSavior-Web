@@ -18,4 +18,5 @@ export interface Job {
   fromSalary: string;
   toSalary: string;
   category: Category;
+  id: string;
 }

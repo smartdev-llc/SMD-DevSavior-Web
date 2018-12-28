@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ShareService } from '@ngx-share/core';
@@ -21,6 +21,7 @@ import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
+import {map, switchMap, take} from 'rxjs/operators';
 declare  var $: any;
 
 @Component({
@@ -63,28 +64,32 @@ export class JobDetailComponent implements OnInit {
     this.jobId = this.route.snapshot.paramMap.get('id');
     this.isLoading = true;
 
-    this.jobService.getDetailJob(this.jobId)
-      .subscribe(data => {
-        this.job =  data;
+    this.route.paramMap.pipe(
+      switchMap(route =>
+         this.jobService.getDetailJob(route.get('id'))
+      )
+    ).subscribe(data => {
+      this.job =  data;
+      console.log('data', data);
+      this.company = <Company> data['company'];
+      this.isLoading = false;
 
-        this.company = <Company> data['company'];
-        this.isLoading = false;
+      this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
+      this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
 
-        this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
-        this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
+      this.meta.updateTag({ name: 'title', content: this.job.title });
+      this.meta.updateTag({ name: 'description', content: this.job.description });
+      this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
+      this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
 
-        this.meta.updateTag({ name: 'title', content: this.job.title });
-        this.meta.updateTag({ name: 'description', content: this.job.description });
-        this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
-        this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
+      var url = this.meta.getTag('name=url');
+      var title = this.meta.getTag('name=title');
+      var description = this.meta.getTag('name=description');
+      var image = this.meta.getTag('name=image');
 
-        var url = this.meta.getTag('name=url');
-        var title = this.meta.getTag('name=title');
-        var description = this.meta.getTag('name=description');
-        var image = this.meta.getTag('name=image');
+      this.getRecommendedJob(this.jobId);
+
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
-
-    this.getRecommendedJob(this.jobId);
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
@@ -117,7 +122,6 @@ export class JobDetailComponent implements OnInit {
   }
 
   handleErrorJobDetailComponent(error: AppErrors) {
-
     if (error instanceof InternalServer) {
     }
     else if (error instanceof Unauthorized) {
@@ -143,38 +147,42 @@ export class JobDetailComponent implements OnInit {
     return 'Apply Job';
   }
 
-  /*initRecommendJob() {
-    $('.owl-wrapper').owlCarousel({
-      navigation: true, // Show next and prev buttons
-      items: 2,
-      loop:true,
-      margin:10,
-      autoPlay:true,
-      autoPlayTimeout:1000,
-      autoPlayHoverPause:true,
-      navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
-    });
-  }*/
-
   initRecommendJob() {
-    $('.owl-wrapper').owlCarousel({
-      navigation: true, // Show next and prev buttons
-      items: 1,
-      loop:true,
-      margin:10,
-      autoPlay:false,
-      autoPlayTimeout:1000,
-      autoPlayHoverPause:true,
-      navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
-    });
+
+    /*$(".owl-wrapper").each(function () {
+      $(this).owlCarousel('destroy');
+    });*/
+    //todo bug
+    let isCarouselExist = $('.owl-wrapper').data('owlCarousel');
+
+    console.log('courusle',isCarouselExist);
+
+    if (isCarouselExist) {
+      $('.owl-wrapper').data('owlCarousel').destroy();
+    }
+      $('.owl-wrapper').owlCarousel({
+        navigation: true, // Show next and prev buttons
+        items: 4,
+        loop:true,
+        margin:10,
+        autoPlay:false,
+        autoPlayTimeout:1000,
+        autoPlayHoverPause:true,
+        navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
+      });
+
+      console.log('larry', $('.owl-wrapper').data('owlCarousel'));
   }
 
   getRecommendedJob(jobId: string) {
-    this.jobService.getRecommenedJob(jobId).subscribe((data: any) => {
-      this.recommencedJobs = data.list as Job[];
-      console.log('data test', this.recommencedJobs);
-      this.cdRef.detectChanges()
-      this.initRecommendJob();
-    });
+    this.jobService.getRecommenedJob(jobId)
+      .subscribe((data: any) => {
+        console.log('done');
+        this.recommencedJobs = data.list as Job[];
+
+        //[TODO] - Can't not reinit owl-corusel
+        this.cdRef.detectChanges();
+        this.initRecommendJob();
+      }, this.handleErrorJobDetailComponent);
   }
 }

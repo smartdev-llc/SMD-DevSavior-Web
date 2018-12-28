@@ -40,7 +40,7 @@ export class JobService {
     );
   }
 
-  getDetailJob (jobId) {
+  getDetailJob (jobId): Observable<any> {
     return this.http.get('/jobs/' + jobId)
       .pipe(
         map( response => {
