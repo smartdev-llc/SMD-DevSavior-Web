@@ -70,7 +70,6 @@ export class JobDetailComponent implements OnInit {
       )
     ).subscribe(data => {
       this.job =  data;
-      console.log('data', data);
       this.company = <Company> data['company'];
       this.isLoading = false;
 
@@ -148,41 +147,35 @@ export class JobDetailComponent implements OnInit {
   }
 
   initRecommendJob() {
-
-    /*$(".owl-wrapper").each(function () {
-      $(this).owlCarousel('destroy');
-    });*/
-    //todo bug
     let isCarouselExist = $('.owl-wrapper').data('owlCarousel');
-
-    console.log('courusle',isCarouselExist);
 
     if (isCarouselExist) {
       $('.owl-wrapper').data('owlCarousel').destroy();
     }
       $('.owl-wrapper').owlCarousel({
-        navigation: true, // Show next and prev buttons
+        navigation: false, // Show next and prev buttons
         items: 4,
         loop:true,
         margin:10,
         autoPlay:false,
         autoPlayTimeout:1000,
         autoPlayHoverPause:true,
-        navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
       });
 
-      console.log('larry', $('.owl-wrapper').data('owlCarousel'));
+    this.fixBugAutoRecreateNestedOwlCarousel();
   }
 
   getRecommendedJob(jobId: string) {
-    this.jobService.getRecommenedJob(jobId)
+    this.jobService.getRecommenedJob(jobId).pipe(take(1))
       .subscribe((data: any) => {
-        console.log('done');
         this.recommencedJobs = data.list as Job[];
 
-        //[TODO] - Can't not reinit owl-corusel
         this.cdRef.detectChanges();
         this.initRecommendJob();
       }, this.handleErrorJobDetailComponent);
+  }
+
+  fixBugAutoRecreateNestedOwlCarousel() {
+    $('.owl-item .owl-wrapper-outer').remove();
   }
 }

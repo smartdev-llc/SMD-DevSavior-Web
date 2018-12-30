@@ -1440,12 +1440,10 @@ if (typeof Object.create !== "function") {
     $.fn.owlCarousel = function (options) {
         return this.each(function () {
             if ($(this).data("owl-init") === true) {
-              console.log('return false');
               return false;
             }
             $(this).data("owl-init", true);
             var carousel = Object.create(Carousel);
-          console.log('return true');
           carousel.init(options, this);
             $.data(this, "owlCarousel", carousel);
         });
