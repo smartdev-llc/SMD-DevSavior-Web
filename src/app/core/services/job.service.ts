@@ -97,8 +97,10 @@ export class JobService {
                     )
   }
 
-  getCandidateForJob(jobId: string) {
-    return this.http.get('/jobs/'+ jobId + '/applications')
+  getCandidateForJob(jobId: string, page: number = 0) {
+    let params = new HttpParams(); 
+    params.append('page', page.toString());
+    return this.http.get('/jobs/'+ jobId + '/applications', {params: params})
                     .pipe(
                       map((response:any) => response),
                       catchError(this.handleError)
@@ -135,7 +137,7 @@ export class JobService {
       catchError(this.handleError)
     );
   }
-  getListByTime(params:HttpParams){
+  getListByTime(params:HttpParams) {
     return this.http.get('/jobs/list-by-time',{params})
     .pipe(
       map((response:any)=>response),

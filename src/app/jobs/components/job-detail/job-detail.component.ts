@@ -1,12 +1,12 @@
-import {ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ShareService } from '@ngx-share/core';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
-import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
-import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
-import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
-import { Meta } from '@angular/platform-browser';
+import {ShareService} from '@ngx-share/core';
+import {faFacebookSquare} from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
+import {faLinkedinIn} from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import {faPinterest} from '@fortawesome/free-brands-svg-icons/faPinterest';
+import {Meta} from '@angular/platform-browser';
 
 import {Role, User} from '../../../core/models/user';
 import {AuthService} from '../../../core/services/auth.service';
@@ -21,7 +21,8 @@ import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
-import {map, switchMap, take} from 'rxjs/operators';
+import {switchMap, take} from 'rxjs/operators';
+
 declare  var $: any;
 
 @Component({

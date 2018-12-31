@@ -1,10 +1,8 @@
-import {
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn
-} from '@angular/forms';
+import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export const salaryDifference: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
+export const salaryDifference: ValidatorFn = (
+  formGroup: FormGroup
+): ValidationErrors | null => {
   const from = formGroup.value.expectedSalaryFrom;
   const to = formGroup.value.expectedSalaryTo;
   const isNegotiableSalary = formGroup.value.isNegotiableSalary;
@@ -12,7 +10,7 @@ export const salaryDifference: ValidatorFn = (formGroup: FormGroup): ValidationE
 
   // Check for required
   if (!isNegotiableSalary) {
-    let validator: any = {};
+    const validator: any = {};
 
     if (!from) {
       validator.fromRequired = true;
@@ -23,14 +21,16 @@ export const salaryDifference: ValidatorFn = (formGroup: FormGroup): ValidationE
     }
 
     if (!patternNumber.test(from)) {
-      validator.fromNotNumber = true
+      validator.fromNotNumber = true;
     }
 
     if (!patternNumber.test(to)) {
-      validator.toNotNumber = true
+      validator.toNotNumber = true;
     }
 
-    if (Object.keys(validator).length) return validator;
+    if (Object.keys(validator).length) {
+      return validator;
+    }
   }
 
   // Check if from > to
