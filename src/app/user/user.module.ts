@@ -8,7 +8,7 @@ import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
+import { NotificationJobs } from './components/notification-jobs/notification-jobs.component';
 import { UserRoutes as routes } from './user.routes';
 
 // Components
@@ -46,7 +46,8 @@ import { EducationDegrees } from '../core/pipes/education-degrees.pipe';
     UpdateProfileStep3Component,
     UpdateProfileStep4Component,
     UpdateProfileStep5Component,
-    EducationDegrees
+    EducationDegrees,
+    NotificationJobs
   ],
   providers: [
     StudentUserService

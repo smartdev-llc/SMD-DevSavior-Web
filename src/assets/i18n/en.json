@@ -10,7 +10,7 @@
     "btnDelete": "Delete"
   },
   "validation": {
-    "wrongEmailAndPassword": "That juniorviec account doesn't exist. Enter a different account",
+    "wrongEmailAndPassword": "Your account doesn't exist. Enter a different account",
     "wrongEmail" : "The username or password you enterd is incorrect",
     "fieldRequired": "Field is Required",
     "salaryNumber": "Salary must be number",
@@ -31,6 +31,7 @@
     "careerCenter": "Career center",
     "dashboard": "Dashboard",
     "myJobs": "My jobs",
+    "jobAlerts": "Job Alerts",
     "jobseeker": "JOBSEEKER'S SITE \n find a job now!",
     "jobseeker_mobile": "JOBSEEKER'S SITE",
     "about": "About us",
@@ -188,11 +189,16 @@
     "from": "From"
   },
   "skill": {
+    "jobAnnouncement": "Job announcement",
+    "createJobAlerts": "Create job alert",
+    "updateDay" : "Update day",
     "keySkills": "Key Skills",
     "skillAndLanguage": "Skill/Language",
     "addKeySkill": "Add more key skills",
     "btnAdd": "Add",
-    "inputPlaceHolder": "Type your area of expertise."
+    "inputPlaceHolder": "Type your area of expertise.",
+    "descriptionDeleteWorking": "Do you want to delete your skill?",
+    "plsComplete": "Please complete your skill!"
   },
   "workingPreferences": {
     "workingPreferences": "Working preferences",

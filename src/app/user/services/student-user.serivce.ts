@@ -113,6 +113,38 @@ export class StudentUserService {
     )
   }
 
+  getSkills(){
+    return this.http.get('/skills')
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  updateSkill(id: any){
+    return this.http.post(`/skills/${id}/subscriptions`, '')
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteSkill(id: any){
+    return this.http.delete(`/skills/${id}/subscriptions`)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
+  getSkillSubscription(){
+    return this.http.get('/skill-subscriptions')
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError (error: Response) {
     console.log('error in data service', error);
     return throwError( new AppErrors(error));

@@ -30,6 +30,7 @@
     "postAJobs": "Đăng Tuyển Miễn Phí!",
     "careerCenter": "Nghề Nghiệp",
     "dashboard": "Quản Lý Hồ Sơ",
+    "jobAlerts" : "Thông báo việc làm",
     "myJobs": "Việc Làm Của Tôi",
     "jobseeker": "DÀNH CHO\n NGƯỜI TÌM VIỆC",
     "jobseeker_mobile" : "DÀNH CHO NGƯỜI TÌM VIỆC",
@@ -188,11 +189,16 @@
     "from": "Từ"
   },
   "skill": {
+    "jobAnnouncement": "Thông báo việc làm",
+    "createJobAlerts": "Tạo thông báo việc làm",
+    "updateDay" : "Ngày cập nhật",
     "keySkills": "Kỹ năng",
     "skillAndLanguage": "Kỹ năng/Ngoại ngữ",
     "addKeySkill": "Thêm kỹ năng",
     "btnAdd": "Thêm",
-    "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn."
+    "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn.",
+    "descriptionDeleteWorking": "Bạn có muốn xóa kỹ năng của mình không?",
+    "plsComplete": "Vui lòng hoàn thiện kỹ năng của bạn."
   },
   "workingPreferences": {
     "workingPreferences": "Công việc mong muốn",

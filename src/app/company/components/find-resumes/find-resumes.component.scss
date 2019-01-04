@@ -110,7 +110,15 @@
     }
   }
 }
-
+.ng-select.customForm{
+  border:0px;
+  min-height: 0px;
+  border-radius: 0px 4px 4px 0px;
+}
+.ng-select.customForm::ng-deep .ng-select-container  {            
+  min-height: 0px;
+  border-radius: 0px 4px 4px 0px;
+}
 @media (max-width: 1200px) {
   .header_area {
     margin-top: 118px;
