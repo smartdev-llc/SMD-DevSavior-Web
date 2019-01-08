@@ -48,6 +48,7 @@ export class JobDetailComponent implements OnInit {
   googlePlusIcon = faGooglePlusG;
   btnApplyJob: HTMLElement;
   recommencedJobs: Job[] = [];
+  isApplied = false;
 
 
   constructor(
@@ -73,6 +74,7 @@ export class JobDetailComponent implements OnInit {
       this.job =  data;
       this.company = <Company> data['company'];
       this.isLoading = false;
+      this.isApplied = this.job.isApplied;
 
       this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
       this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
@@ -115,6 +117,7 @@ export class JobDetailComponent implements OnInit {
       .applyJobForStudent(this.jobId)
       .subscribe(
         data => {
+          this.isApplied = true;
           this.toastr.success('Applied Job Success', 'Apply Job');
         },
         (error: AppErrors) => this.handleErrorJobDetailComponent(error)
