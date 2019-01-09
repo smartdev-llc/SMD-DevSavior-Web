@@ -72,7 +72,7 @@
                           <label for="skill" class="required">{{ 'skill.keySkills' | translate}}</label>
                           <ng-select 
                             class="jv"
-                            [ngClass]="{ 'ng-touched': submittedEducation && edF.idSkill.errors }"
+                            [ngClass]="{ 'ng-touched': submittedSkill && sF.idSkill.errors }"
                             [items]="advancedSkills" 
                             bindLabel="name"
                             bindValue="id" 

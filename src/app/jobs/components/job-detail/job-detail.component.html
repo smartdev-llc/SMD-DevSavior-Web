@@ -79,8 +79,8 @@
                         'isApplied': job.isApplied
                        }"
                       #btnApplyJob
-                      (click)="applyJob(job.isApplied, btnApplyJob)" class="label job-type pointer">
-                  {{renderTextForBtnApplyJob(job.isApplied)}}
+                      (click)="applyJob(isApplied, btnApplyJob)" class="label job-type pointer">
+                  {{renderTextForBtnApplyJob(isApplied)}}
                 </span>
               </a>
             </li>
@@ -108,7 +108,7 @@
 <!--Job Data-->
 
 <!--Recommended Jobs-->
-<!--<div class="container-fluid  job-recom">
+<div class="container-fluid  job-recom" *ngIf="recommencedJobs.length >0">
   <div class="row">
     <div class="main-container">
       <div class="col-lg-12 text-center">
@@ -116,93 +116,30 @@
 
       </div>
       <div id="recommended-job" class="owl-carousel owl-template owl-theme" style="opacity: 1; display: block;">
-        &lt;!&ndash;Recomended job&ndash;&gt;
+        <!--Recomended job-->
         <div class="owl-wrapper-outer">
           <div class="owl-wrapper"
                style=" left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
 
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+            <ng-container *ngFor="let recommencedJob of recommencedJobs">
+              <a class="owl-item" [routerLink]="'/jobs/'+recommencedJob.id">
+                <div class="item recom-job">
+                  <div class="related_jos">
+                    <h4>{{recommencedJob.title}} </h4>
+                    <span class="label job-type job-partytime">{{recommencedJob.category.name}}</span>
+                    <p>{{recommencedJob.company.address}}<br>{{recommencedJob.company.city}}</p>
+                    <span class="salary">{{recommencedJob.fromSalary | currency:'USD'}} - {{recommencedJob.toSalary | currency:'USD'}}<i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+                  </div>
+                </div>
+              </a>
+            </ng-container><!---->
 
-                </div>
-              </div>
-            </div>
-
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-                </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-                </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="item recom-job">
-                <div class="related_jos">
-                  <h4>Web Designer at Google inc </h4>
-                  <span class="label job-type job-partytime">Party Time</span>
-                  <p>New Yourk<br>Google INC opening</p>
-                  <span class="salary">$30,000 - $45,000 <i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>-->
+</div>
 <!--Recommended Jobs-->
 
 <!--Blue Secions -->
