@@ -3,6 +3,8 @@ import { User } from '../../../core/models/user';
 import { StudentUserService } from '../../services/student-user.serivce';
 import { environment } from '../../../../environments/environment';
 import { AuthService } from '../../../core/services/auth.service';
+import { JobService } from '../../../core/services/job.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'user-dashboard',
@@ -17,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private studentUserService: StudentUserService,
+    private jobService: JobService,
     private authService: AuthService
   ) {
   }
@@ -36,10 +39,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getJobItem() {
-    this.authService.getJobItem()
-      .subscribe(res => {
-        const jobs: any = res;
-          this.jobs = jobs.slice(0, 10);
+    const params = new HttpParams().set('size', '10');
+
+    this.jobService.searchJobs(params)
+      .subscribe(jobs => {
+          this.jobs = jobs.list;
         },
         error => {
         }

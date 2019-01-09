@@ -272,13 +272,6 @@ export class AuthService {
     }
   }
 
-  getJobItem() {
-    return this.http.get('/jobs')
-    .pipe(
-      map((response: Response) => response),
-    )
-  }
-
   removeTokens(): void {
     localStorage.removeItem('user');
   }
