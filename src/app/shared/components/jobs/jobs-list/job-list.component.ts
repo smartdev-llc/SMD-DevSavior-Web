@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 import { JobService } from '../../../../core/services/job.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-job-list',
@@ -17,10 +18,7 @@ export class JobListComponent implements OnInit {
   hotjobs: any;
   isHotJobLoading = true;
 
-  constructor(private authService: AuthService, 
-              private jobService: JobService) {
-
-              }
+  constructor(private jobService: JobService) {}
 
   ngOnInit() {
     this.getJobItem();
@@ -28,11 +26,12 @@ export class JobListComponent implements OnInit {
   }
 
   getJobItem() {
-    this.authService.getJobItem()
+    const params = new HttpParams().set('size', '20');
+    this.jobService.searchJobs(params)
       .subscribe(
         jobs => {
           this.loading = false;
-          this.jobs = jobs;
+          this.jobs = jobs.list;
           this.page = Math.ceil(this.jobs.length / this.jobsPerPage);
           this.pages = new Array(this.page);
         },
@@ -44,15 +43,15 @@ export class JobListComponent implements OnInit {
 
   getHotJob() {
     this.jobService.getHotJob()
-                    .subscribe(
-                      hotJobs => {
-                        this.isHotJobLoading = false;
-                        this.hotjobs = hotJobs;
-                      }, 
-                      error => {
-                        this.isHotJobLoading = false;
-                      }
-                    )
+      .subscribe(
+        hotJobs => {
+          this.isHotJobLoading = false;
+          this.hotjobs = hotJobs;
+        },
+        error => {
+          this.isHotJobLoading = false;
+        }
+      )
   }
 
   getStartIndexOfPage(page: number): number {
