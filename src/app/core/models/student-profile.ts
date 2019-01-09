@@ -33,7 +33,7 @@ export class PersonalInfo implements Deserializable {
   firstName: string;
   lastName: string;
   phoneNumber: string;
-  email: string;
+  displayEmail: string;
   dateOfBirth: any;
   gender: string;
   maritalStatus: string;
@@ -46,7 +46,7 @@ export class PersonalInfo implements Deserializable {
       firstName: input.firstName || '',
       lastName: input.lastName || '',
       phoneNumber: input.phoneNumber || '',
-      email: input.email || '',
+      displayEmail: input.displayEmail || input.email || '',
       dateOfBirth: input.dateOfBirth || '',
       gender: input.gender || '',
       maritalStatus: input.maritalStatus || '',
