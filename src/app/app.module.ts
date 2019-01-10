@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ToastrModule } from 'ngx-toastr';
+// for Router import LoadingBarRouterModule:
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 // Components
 import { AppComponent } from './app.component';
@@ -56,7 +58,8 @@ import { PageNotFoundComponent } from './home/page-not-found/page-not-found.comp
     ToastrModule.forRoot(),
     FormsModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    LoadingBarRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
