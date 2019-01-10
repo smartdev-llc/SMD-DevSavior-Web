@@ -105,7 +105,14 @@
                 </a>
               </li>
 
-              <li class="left-menu">
+              <li>
+                <a routerLink="/employer/jobs/all/candidates">
+                  <i class="fa fa-file-text-o"></i>
+                  {{ 'header.candidate' | translate }}
+                </a>
+              </li>
+
+              <!-- <li class="left-menu">
                 <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" aria-expanded="true"
                   data-target="#bs-1">
                   <i class="fa fa-users"></i>
@@ -138,7 +145,7 @@
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
 
               <li class="post-job-mobile">
                 <a routerLink="/">
@@ -161,12 +168,12 @@
                 </span>
               </a>
 
-              <a routerLink="/employer/find-resumes" class="post_job">
+              <!-- <a routerLink="/employer/find-resumes" class="post_job">
                 <span class="label job-type partytime">
                   <i class="fa fa-search"></i>
                   {{ 'header.find_candidate' | translate }}
                 </span>
-              </a>
+              </a> -->
 
               <li class="dropdown mobile-menu">
                 <a type="button" class="dropdown-toggle label job-type partytime" class="collapsed" data-toggle="collapse" data-target="#bs-2"

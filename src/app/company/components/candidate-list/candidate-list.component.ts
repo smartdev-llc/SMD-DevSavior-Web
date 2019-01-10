@@ -106,4 +106,8 @@ export class CandidateListComponent implements OnInit {
       error => {}
     );
   }
+
+  get hasCandidates() {
+    return this.candidates && this.candidates.length > 0;
+  }
 }

@@ -6,7 +6,7 @@
       <div class="col-md-3 col-sm-4 col-xs-12 text-center">
         {{ 'header.candidate_list' | translate }}
       </div>
-      <form *ngIf="jobs">
+      <form *ngIf="jobs && jobs.length > 0">
         <div class="col-md-4 col-sm-8 col-xs-12 filter_width">
           <div class="form-group">
             <div class="dropdown">
@@ -83,7 +83,7 @@
 
         <tbody class="j-table-body">
           <!-- start list job -->
-          <tr *ngIf="candidates.length == 0 && !isLoading">
+          <tr *ngIf="!hasCandidates && !isLoading">
             <td colspan="5">
               <div class="text-center">
                 {{ 'company.noCandidatesFound' | translate }}
