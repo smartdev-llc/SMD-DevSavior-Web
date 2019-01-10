@@ -62,27 +62,41 @@ export class JobListComponent implements OnInit {
   }
 
   getListCompanyJobs() {
+    // const params = new HttpParams({ fromObject: this.queryParams });
+    // this.jobService.getCompanyJobs(params)
+    //   .subscribe(value => {
+    //     this.totalItems = value.length;
+    //     this.queryParams = {
+    //       size: this.itemsPerPage,
+    //       page: 0,
+    //       // ...this.queryParams
+    //     };
+        // const params = new HttpParams({ fromObject: this.queryParams });
+        // this.jobService.getCompanyJobs(params)
+        //   .subscribe(value => {
+        //     this.listCompanyJobs = value;
+        //     this.loading = false;
+        //   }, error => {
+        //     this.loading = false;
+        //     this.formErrorMessage = error.message;
+        //   });
+    // }, error => {
+    //     this.formErrorMessage = error.message;
+    //   });
+    this.queryParams = {
+      size: this.itemsPerPage,
+      page: 0,
+    };
     const params = new HttpParams({ fromObject: this.queryParams });
-    this.jobService.getCompanyJobs(params)
-      .subscribe(value => {
-        this.totalItems = value.length;
-        this.queryParams = {
-          size: this.itemsPerPage,
-          page: 0,
-          ...this.queryParams
-        };
-        const params = new HttpParams({ fromObject: this.queryParams });
-        this.jobService.getCompanyJobs(params)
-          .subscribe(value => {
-            this.listCompanyJobs = value;
-            this.loading = false;
-          }, error => {
-            this.loading = false;
-            this.formErrorMessage = error.message;
-          });
-    }, error => {
-        this.formErrorMessage = error.message;
-      });
+      this.jobService.getCompanyJobs(params)
+        .subscribe(value => {
+          this.listCompanyJobs = value.list;
+          this.loading = false;
+        }, error => {
+          this.loading = false;
+          this.formErrorMessage = error.message;
+        });
+        
   }
 
   pageChanged(event: any): void {
