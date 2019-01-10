@@ -48,7 +48,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <ng-container formGroupName="passwordGroup">
+                                        <ng-container formGroupName="formPassword">
                                             <div class="form-group">
                                                 <label class="control-label required" for="password" aria-required="true">{{ 'register.pass' | translate }} (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
                                                 <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" aria-required="true"> -->
@@ -64,13 +64,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label required" for="user_password_second" aria-required="true">{{ 'register.cPass' | translate }}</label>
-                                                <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control" [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}" formControlName="repeatPassword"
+                                                <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control" [ngClass]="{ 'has-error': formPassword.errors?.matchedPassword || submitted && p.confirmPassword.errors}" formControlName="confirmPassword"
                                                     aria-required="true">
-                                                <div *ngIf="passwordGroup.invalid " class="error-input">
-                                                    <div *ngIf="passwordGroup.errors?.matchedPassword">
+                                                <div *ngIf="formPassword.invalid " class="error-input">
+                                                    <div *ngIf="p.confirmPassword.errors?.MatchPassword">
                                                         Password doesn't match.
                                                     </div>
-                                                    <div *ngIf="submitted && p.repeatPassword.errors?.required">
+                                                    <div *ngIf="submitted && p.confirmPassword.errors?.required">
                                                         Password required.
                                                     </div>
 
@@ -107,10 +107,10 @@
                                         <div class="form-group">
                                             <label class="control-label required" for="cp_location" aria-required="true">{{ 'register.city' | translate }}</label>
                                             <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city">
-                        <option value="DN">Da Nang</option>
-                        <option value="HN">Ha Noi</option>
-                        <option value="HCM">Ho Chi Minh</option>
-                      </select>
+                                                <option value="DN">Da Nang</option>
+                                                <option value="HN">Ha Noi</option>
+                                                <option value="HCM">Ho Chi Minh</option>
+                                            </select>
                                             <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" aria-required="true"> -->
                                             <div *ngIf="submitted && f.city.invalid" class="error-input">
                                                 <div *ngIf="f.city.errors.required">

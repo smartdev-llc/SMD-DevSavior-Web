@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 import { ActivatedRoute, } from '@angular/router';
@@ -22,18 +22,30 @@ export class JobListComponent implements OnInit {
   loading = false;
   formErrorMessage: string;
   key = this.route.snapshot.paramMap.get('type');
+  typeJobs: any;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private jobService: JobService,
     private scrollToService: ScrollToService,
+    
   ) { }
 
   ngOnInit() {
-    this.loading = true;
+    this.route.params.subscribe( params => {
+      const type = params['type'];
+      if(type != undefined) {
+        this.key = type;
+        this.updateJobByStatus();
+      }
+    })
+  }
+
+  updateJobByStatus() {
     switch (this.key) {
       case 'active':
-      case 'expires':
+      case 'expiresSoon':
       case 'expired':
         this.getListByTime(this.key);
         break;
@@ -44,7 +56,9 @@ export class JobListComponent implements OnInit {
         this.router.navigate(['/not-found']);
         break;
     }
-    
+    this.jobService.getCountJobs().subscribe(data => {
+      this.typeJobs = data;
+    })
   }
 
   getListCompanyJobs() {
@@ -103,14 +117,14 @@ export class JobListComponent implements OnInit {
       this.queryParams = {
         size: this.itemsPerPage,
         page: 0,
-        type: key,
-        ...this.queryParams
+        type: key
       };
       const params = new HttpParams({ fromObject: this.queryParams });
         this.jobService.getListByTime(params)
           .subscribe(value => {
             this.listCompanyJobs = value.list;
             this.loading = false;
+            // console.log(this.listCompanyJobs)
           }, error => {
             this.loading = false;
             this.formErrorMessage = error.message;

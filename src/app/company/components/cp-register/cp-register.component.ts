@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder,  FormGroup,  Validators } from '@angular/forms';
 import { UserCompany,  Role } from '../../../core/models/user';
-import { matchingPasswordValidator } from '../../../auth/validators/matching-password.directive';
 import { AuthService } from '../../../core/services/auth.service';
 import { LanguageService } from '../../../layout/services/language.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { PasswordValidation } from '../../validators/password-validation';
 
 @Component({
   selector: 'app-cp-register',
@@ -17,7 +17,7 @@ export class CpRegisterComponent implements OnInit {
   static DEFAULT_MESSAGE = 'Oops! Something bad happened. Please come back later.';
   isEnLang: boolean = false;
   registerForm: FormGroup;
-  passwordGroup: FormGroup;
+  formPassword: FormGroup;
   submitted: boolean;
   loading: boolean;
   constructor(
@@ -30,6 +30,13 @@ export class CpRegisterComponent implements OnInit {
     if (lang === 'en') {
       this.isEnLang = true
     }
+    this.formPassword = formBuilder.group({
+      password: ['', [Validators.required,Validators.minLength(CpRegisterComponent.MIN_LENGTH_PASSWORD)]],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: PasswordValidation.MatchPassword // your validation method
+    })
+
      }
      changeLanguage(language: string): void {
       this.languageService.changeLanguage(language).subscribe(() => {
@@ -66,29 +73,24 @@ export class CpRegisterComponent implements OnInit {
 
     }
     resetPasswordForm() {
-      this.passwordGroup.reset();
+      this.formPassword.reset();
     }
     get f() {
       return this.registerForm.controls;
     }
   
     get p() {
-      return this.passwordGroup.controls;
+      return this.formPassword.controls;
     }
   
     get LETTER_ONLY_PATTERN() {
       return '^[^@!~#$%^&*()}{]*$';
     }
   ngOnInit() {
-    this.passwordGroup = this.formBuilder.group({
-      password:['',[Validators.required,Validators.minLength(CpRegisterComponent.MIN_LENGTH_PASSWORD)]],
-      repeatPassword:['',[Validators.required]]
-    },{
-      validators: matchingPasswordValidator
-    });
+
     this.registerForm = this.formBuilder.group({
       email:['', [Validators.required,Validators.email]],
-      passwordGroup:this.passwordGroup,
+      formPassword:this.formPassword,
       address:['',[Validators.required]],
       city:['',[Validators.required]],
       contactName:['',[Validators.required,Validators.pattern(this.LETTER_ONLY_PATTERN)]],
@@ -105,7 +107,7 @@ export class CpRegisterComponent implements OnInit {
 convertToCompany(): UserCompany {
     const userCompany = new UserCompany();
     userCompany.email = this.registerForm.value.email;
-    userCompany.password = this.passwordGroup.value.password;
+    userCompany.password = this.formPassword.value.password;
     userCompany.address = this.registerForm.value.address || '';
     userCompany.city = this.registerForm.value.city || '';
     userCompany.contactName = this.registerForm.value.contactName || '';
