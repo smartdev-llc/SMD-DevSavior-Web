@@ -175,7 +175,17 @@ button.navbar-toggle.flag-mobile {
     margin-top: 22px
   }
 }
-
+@media (min-width: 1201px) and (max-width: 1500px){
+  ul.dropdown-menu li a{
+    font-size: 14px;
+    padding: 0 0 13px 0
+  }
+  .open>.right-menu {
+    display: block;
+    left: -180px;
+    right: 10px;
+  }
+} 
 @media (min-width: 319px) and (max-width: 1200px) {
   .pages .navbar {
     background: #fff;

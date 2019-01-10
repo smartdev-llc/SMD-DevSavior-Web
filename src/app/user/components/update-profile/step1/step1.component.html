@@ -132,12 +132,12 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.email.errors }">
+          <div class="form-group" [ngClass]="{ 'has-error': submittedPersonal && piF.displayEmail.errors }">
             <label for="email" class="required">{{ 'personalInfo.email' | translate }}</label>
-            <input type="email" class="form-control" formControlName="email">
-            <div *ngIf="submittedPersonal && piF.email.errors">
-              <em *ngIf="piF.email.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
-              <em *ngIf="piF.email.errors.email" class="error help-block">Invalid email address</em>
+            <input type="email" class="form-control" formControlName="displayEmail">
+            <div *ngIf="submittedPersonal && piF.displayEmail.errors">
+              <em *ngIf="piF.displayEmail.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+              <em *ngIf="piF.displayEmail.errors.email" class="error help-block">Invalid email address</em>
             </div>
           </div>
         </div>
