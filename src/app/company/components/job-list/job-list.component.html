@@ -1,5 +1,4 @@
 <app-home-company-logged></app-home-company-logged>
-<<<<<<< HEAD
 <div class="container main-container header_area">
     <div class="row j-filter-search">
         <div class="col-lg-6 col-xs-12">
@@ -50,42 +49,11 @@
     </div>
 
     <!-- <div class="row j-export">
-=======
-<div class="container main-container header_area loader-wrapper">
-  <!-- loader -->
-  <div class="loadessr no-bg-loader" *ngIf="loading">
-    <div class="loader"></div>
-  </div>
-  <!-- end loader -->
-
-  <div class="row j-filter-search">
-    <div class="col-lg-6 col-xs-12"></div>
-    <form class="form validation-form col-lg-6 col-xs-12">
-      <div class="col-lg-offset-6 ">
-        <div class="input-group">
-          <input
-            class="form-control"
-            placeholder="Keyword, job title or skill"
-            type="text"
-          />
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <!-- <div class="row j-export">
->>>>>>> 81f55cff6c16ea770ac7f18d1f909507474ed5d6
     <button class="btn btn-default btn-export">
       <span class="glyphicon glyphicon-file icon-primary"></span>
         Export To Excel
     </button>
   </div> -->
-<<<<<<< HEAD
     <div class="col-xs-12 j-list">
         <table class="j-table" id="listJobs">
             <thead class="j-table-header">
@@ -161,83 +129,5 @@
                 {{formErrorMessage}}
             </div>
         </div>
-=======
-  <div class="col-xs-12 j-list">
-    <table class="j-table" id="listJobs">
-      <thead class="j-table-header">
-        <th class="col-xs-5">Job Title - ID</th>
-        <th class="col-xs-2">Services</th>
-        <th class="col-xs-3">Expires</th>
-        <th class="col-xs-1">Views</th>
-        <th class="col-xs-1">Applications</th>
-      </thead>
-      <tbody class="j-table-body">
-        <!-- start list job -->
-        <tr *ngFor="let job of listCompanyJobs">
-          <td>
-            <div>
-              <div class="j-title">
-                <a href="">{{ job.title }}</a> <span>{{ job.id }}</span>
-              </div>
-              <div class="j-location">
-                {{ job.location || 'No mention location' }}
-              </div>
-              <div class="j-actions">
-                <a routerLink="/jobs/{{ job.id }}" target="_blank"
-                  >View Online</a
-                >
-                <a routerLink="/employer/jobs/{{ job.id }}/candidates"
-                  >View Candidates</a
-                >
-              </div>
-            </div>
-          </td>
-
-          <td>
-            <div><span class="label">Job Posting</span></div>
-            <div><span class="label">Upgrade</span></div>
-          </td>
-
-          <td>
-            <div class="expiration">
-              <div *ngIf="key != 'expired'">
-                <div class="time">
-                  Online: {{ convertTimeStampToDate(job.expiredAt) }}
-                </div>
-              </div>
-              <div *ngIf="key == 'expired'">
-                <div class="time">Expired</div>
-              </div>
-            </div>
-          </td>
-
-          <td></td>
-
-          <td>
-            <div class="text-center">
-              <a routerLink="/employer/jobs/{{job.id}}/candidates">{{ job.students.length }}</a>
-            </div>
-          </td>
-        </tr>
-        <!-- end list job -->
-      </tbody>
-    </table>
-    <div class="row" *ngIf="totalItems > itemsPerPage">
-      <div class="col-xs-12 jv-pagination">
-        <pagination
-          [totalItems]="totalItems"
-          [(ngModel)]="currentPage"
-          (pageChanged)="pageChanged($event)"
-          [itemsPerPage]="itemsPerPage"
-          [maxSize]="15"
-        ></pagination>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label></label>
-    <div class="login-error-message text-danger">
-      <div *ngIf="formErrorMessage">{{ formErrorMessage }}</div>
->>>>>>> 81f55cff6c16ea770ac7f18d1f909507474ed5d6
     </div>
 </div>

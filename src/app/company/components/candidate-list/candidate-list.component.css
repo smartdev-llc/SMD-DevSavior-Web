@@ -7,19 +7,10 @@
   background-color: #fff;
   padding-bottom: 5%;
 }
-<<<<<<< HEAD
-.panel {
-    margin: 5px;
-}
-.dropdown button, .dropdown .dropdown-menu  {
-    width: 100%;
-    white-space: initial;
-=======
 .dropdown button,
 .dropdown .dropdown-menu {
   width: 100%;
   white-space: initial;
->>>>>>> 81f55cff6c16ea770ac7f18d1f909507474ed5d6
 }
 .dropdown button p.selected-job {
   margin: 0px;

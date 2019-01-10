@@ -33,7 +33,6 @@ export class JobListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-<<<<<<< HEAD
     this.route.params.subscribe( params => {
       const type = params['type'];
       if(type != undefined) {
@@ -44,9 +43,6 @@ export class JobListComponent implements OnInit {
   }
 
   updateJobByStatus() {
-=======
-    this.loading = true;
->>>>>>> 81f55cff6c16ea770ac7f18d1f909507474ed5d6
     switch (this.key) {
       case 'active':
       case 'expires':
