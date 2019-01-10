@@ -102,7 +102,7 @@
     },
     "education": {
         "highSchool": "Trung học",
-        "associateDegree": "Trung cấp",
+        "other": "Khác",
         "college": "Cao đẳng",
         "bachelors": "Cử nhân",
         "masters": "Thạc sĩ",

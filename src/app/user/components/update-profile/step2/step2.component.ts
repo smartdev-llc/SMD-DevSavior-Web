@@ -215,11 +215,11 @@ export class UpdateProfileStep2Component implements OnInit {
   private translateEducationSelect(education: any): void {
     this.qualifications  = [
       { id: 'HIGH_SCHOOL', name: education.highSchool },
-      { id: 'ASSOCIATE_DEGREE', name: education.associateDegree },
       { id: 'COLLEGE', name: education.college },
       { id: 'BACHELOR', name: education.bachelors },
-      { id: 'MASTERS', name: education.masters },
-      { id: 'DOCTORATE', name: education.doctorate }
+      { id: 'MASTER', name: education.masters },
+      { id: 'DOCTORATE', name: education.doctorate },
+      { id: 'OTHER', name: education.other }
     ];
 
     this.classificationOfDegrees = [
