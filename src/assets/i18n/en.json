@@ -102,7 +102,7 @@
     },
     "education": {
         "highSchool": "High school",
-        "associateDegree": "Associate’s degree",
+        "other": "Other",
         "college": "College",
         "bachelors": "Bachelors",
         "masters": "Masters",
