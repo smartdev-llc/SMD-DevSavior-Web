@@ -45,7 +45,7 @@ export class JobListComponent implements OnInit {
   updateJobByStatus() {
     switch (this.key) {
       case 'active':
-      case 'expires':
+      case 'expiresSoon':
       case 'expired':
         this.getListByTime(this.key);
         break;
