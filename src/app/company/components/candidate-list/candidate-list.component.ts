@@ -111,6 +111,6 @@ export class CandidateListComponent implements OnInit {
   }
 
   get hasCandidates() {
-    return this.candidates && this.candidates.length > 0;
+    return this.candidates && this.candidates.length;
   }
 }

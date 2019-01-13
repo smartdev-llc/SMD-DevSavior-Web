@@ -112,7 +112,7 @@
                 <!-- end list job -->
             </tbody>
         </table>
-        <div class="row" *ngIf="totalItems > 0">
+        <div class="row" *ngIf="totalItems">
             <div class="col-xs-12 jv-pagination">
                 <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage" [maxSize]="15"></pagination>
             </div>
