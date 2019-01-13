@@ -9,27 +9,16 @@
                   <!-- <span class="badge j-number">{{typeJobs.all}}</span> -->
                 </a>
                     </li>
-                    <li [ngClass]="{
-                      active: key == 'active'
-                    }">
-                        <a routerLink="/employer/jobs/active">{{ 'company.jobStatus.online' |  translate }}
-                  <span class="badge j-number">{{typeJobs?.active}}</span>
-                </a>
-                    </li>
-                    <li [ngClass]="{
-                      active: key == 'expiresSoon'
-                    }">
-                        <a routerLink="/employer/jobs/expiresSoon">{{ 'company.jobStatus.expireSoon' |  translate }}
-                    <span class="badge j-number">{{typeJobs?.expiresSoon}}</span>
-                </a>
-                    </li>
-                    <li [ngClass]="{
-                      active: key == 'expired'
-                    }">
-                        <a routerLink="/employer/jobs/expired">{{ 'company.jobStatus.expired' |  translate }}
-                  <span class="badge j-number">{{typeJobs?.expired}}</span>
-                </a>
-                    </li>
+
+                    <ng-template ngFor let-jobType [ngForOf]="typeJobs | keyValue">
+                        <li class="active">
+                            <a routerLink="/employer/jobs/{{jobType.key}}">{{ jobType.key |  translate}}
+                      <span class="badge j-number">{{jobType.value}}</span>
+                    </a>
+                        </li>
+                      </ng-template>
+                    
+                  
                 </ul>
             </div>
 
@@ -57,11 +46,15 @@
     <div class="col-xs-12 j-list">
         <table class="j-table" id="listJobs">
             <thead class="j-table-header">
-                <th class="col-xs-5">Job Title - ID</th>
-                <th class="col-xs-2">Services</th>
-                <th class="col-xs-3">Expires</th>
-                <th class="col-xs-1">Views</th>
-                <th class="col-xs-1">Applications</th>
+                <th class="col-xs-5">{{'company.jobListHeader.jobTitle' | translate}}</th>
+                <th class="col-xs-2">{{'company.jobListHeader.status' | translate}}</th>
+                <th class="col-xs-2">{{'company.jobListHeader.expires' | translate}}</th>
+                <th class="col-xs-1">{{'company.jobListHeader.applications' | translate}}</th>
+                <th class="col-xs-2 text-center">{{'company.jobListHeader.hotJob' | translate}}
+                    <i class="fa fa-info-circle icon-small-green" data-toggle="tooltip" data-placement="bottom" [attr.data-original-title]="'tooltip.hotJob' | translate">
+                    </i>
+                </th>
+                
             </thead>
             <tbody class="j-table-body">
                 <!-- start list job -->
@@ -75,9 +68,6 @@
                             <div class="j-location">{{job.location || "No mention location"}}</div>
                             <div class="j-actions">
                                 <a routerLink="/jobs/{{job.id}}" target="_blank">View Online</a>
-                                <a href="">Edit</a>
-                                <a href="">Copy</a>
-                                <a href="">Inactive</a>
                                 <a routerLink="/employer/jobs/{{job.id}}/candidates">View Candidates</a>
                             </div>
                         </div>
@@ -85,30 +75,37 @@
 
                     <td>
                         <div>
-                            <span class="label">Job Posting</span>
-                        </div>
-                        <div>
-                            <span class="label">Upgrade</span>
+                            <span class="label">{{job.status}}</span>
                         </div>
                     </td>
 
                     <td>
                         <div class="expiration">
-                            <div *ngIf="key != 'expired'">
-                                <div class="time">Online: {{convertTimeStampToDate(job.expiredAt)}}</div>
-                            </div>
-                            <div *ngIf="key == 'expired'">
-                                <div class="time">Expired</div>
-                            </div>
+                            <div class="time" *ngIf="job.expiredAt != 0">{{'company.jobExpiredDate' | translate}} {{job.expiredAt | date:'dd/MM/yyyy'}}</div>
                         </div>
                     </td>
-
-                    <td>
-                    </td>
-
                     <td>
                         <div class="text-center">
-                            <a routerLink="/employer/candidates">{{job.students?.length}}</a>
+                            <a routerLink="/employer/jobs/{{job.id}}/candidates">{{job.students?.length}}</a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div>
+                        <a [class.is-registering]="isProcessingHotJob" 
+                            class="hot-job-registering" 
+                            *ngIf="processingPendingJobId == job.id" 
+                            (click)="processingPendingJobId == job.id">
+                            {{'company.hotJobRegistering' | translate }}
+                            <span>.</span>
+                            <span>.</span>
+                            <span>.</span>
+                        </a>
+                            
+                            <a [class.is-registering]="isProcessingHotJob" 
+                                class="flash hot-job-register" 
+                                *ngIf="isHotJobRegistrable(job)" 
+                                (click)="registerHotJob(job)">{{'company.hotJobRegister' | translate }}</a>
+                            <span class="label label-orange">{{getHotJobStatus(job)}}</span>
                         </div>
                     </td>
                 </tr>
