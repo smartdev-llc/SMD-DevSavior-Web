@@ -299,7 +299,8 @@
         "characters" : "characters.",
         "mathEmail" : "This email already registered!.",
         "invalidEmail" : "Invalid email.",
-        "emailRequired" : "Email is required"
+        "emailRequired" : "Email is required.",
+        "cpnameRequired" : "Company name is required."
     },
     "contact": {
         "name": "Name",

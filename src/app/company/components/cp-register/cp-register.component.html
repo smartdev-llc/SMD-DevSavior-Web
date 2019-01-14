@@ -96,7 +96,7 @@
                         formControlName="name" class="form-control form-control" aria-required="true">
                       <div *ngIf="submitted && f.name.invalid" class="error-input">
                         <div *ngIf="f.name.errors.required">
-                          {{ 'register.nameRequired' | translate }}
+                          {{ 'register.cpnameRequired' | translate }}
                         </div>
                         <div *ngIf="f.name.errors.pattern">
                           {{ 'register.specialCharacterNumber' | translate }}
