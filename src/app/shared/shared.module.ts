@@ -33,6 +33,7 @@ import { ParseSkill } from '../core/pipes/parse-skill.pipe';
 import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
 import { CityPipe } from '../core/pipes/city.pipe';
 import { SingularPluralPipe } from '../core/pipes/singular-plural.pipe';
+import { KeyValuePipe } from '../core/pipes/key-value.pipe'
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SingularPluralPipe } from '../core/pipes/singular-plural.pipe';
     TypeOfJobTime,
     SalaryConverterPipe,
     SingularPluralPipe,
-    CityPipe
+    CityPipe,
+    KeyValuePipe
   ],
   exports: [
     CommonModule,
@@ -73,7 +75,8 @@ import { SingularPluralPipe } from '../core/pipes/singular-plural.pipe';
     TypeOfJobTime,
     SalaryConverterPipe,
     SingularPluralPipe,
-    CityPipe
+    CityPipe,
+    KeyValuePipe
   ],
   imports: [
     CommonModule,

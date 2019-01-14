@@ -32,6 +32,7 @@ export class CandidateListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     if (this.currentJob.id) {
       this.loadJobs();
       this.loadCandidateForJob();
@@ -90,10 +91,10 @@ export class CandidateListComponent implements OnInit {
   }
 
   loadJobs() {
-    const params: HttpParams = new HttpParams({ fromObject: undefined });
+    const params: HttpParams = new HttpParams({ fromObject: {'status': 'ACTIVE' }});
     this.jobService.getCompanyJobs(params).subscribe(
       response => {
-        this.jobs = response;
+        this.jobs = response.list;
         if (
           this.currentJob.id === CandidateListComponent.NO_SPECIFIC_JOB_ID &&
           this.jobs &&
@@ -103,7 +104,13 @@ export class CandidateListComponent implements OnInit {
           this.loadCandidateForJob();
         }
       },
-      error => {}
+      error => {
+
+      }
     );
+  }
+
+  get hasCandidates() {
+    return this.candidates && this.candidates.length;
   }
 }

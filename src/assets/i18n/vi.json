@@ -89,11 +89,21 @@
         "no_jobs_found": "Không có công việc nào",
         "loadmore_jobs": "Hiển thị thêm",
         "noCandidatesFound": "Không tìm thấy ứng viên nào!",
+        "hotJobRegister": "Register",
+        "hotJobRegistering": "Đang xử lý",
         "jobStatus": {
             "all": "Tất cả",
             "online": "Đang tuyển",
             "expired": "Đã hết hạn",
             "expireSoon": "Sắp hết hạn"
+        },
+        "jobExpiredDate": "Expired At",
+        "jobListHeader": {
+            "jobTitle": "Tiêu đề",
+            "status": "Trạng thái",
+            "expires": "Ngày hết hạn",
+            "applications": "Ứng viên",
+            "hotJob": "Hob job"
         }
     },
     "userProfile": {
@@ -102,7 +112,7 @@
     },
     "education": {
         "highSchool": "Trung học",
-        "associateDegree": "Trung cấp",
+        "other": "Khác",
         "college": "Cao đẳng",
         "bachelors": "Cử nhân",
         "masters": "Thạc sĩ",
@@ -284,5 +294,8 @@
         "mail": "Email",
         "subject": "Tiêu đề",
         "message": "Nội dung"
+    },
+    "tooltip": {
+        "hotJob": "Bạn chỉ có thể đăng kí 1 hot job trong 1 ngày."
     }
 }

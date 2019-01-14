@@ -89,11 +89,21 @@
         "no_jobs_found": "No jobs found",
         "loadmore_jobs": "Show more Jobs",
         "noCandidatesFound": "No Candidates found.",
+        "hotJobRegister": "Register Now",
+        "hotJobRegistering": "Registering",
         "jobStatus": {
             "all": "All",
             "online": "Online",
             "expired": "Expired",
             "expireSoon": "Expire in 7 days"
+        },
+        "jobExpiredDate": "Expired At",
+        "jobListHeader": {
+            "jobTitle": "Job Title - ID",
+            "status": "Status",
+            "expires": "Expires",
+            "applications": "Applications",
+            "hotJob": "Hot Job"
         }
     },
     "userProfile": {
@@ -102,7 +112,7 @@
     },
     "education": {
         "highSchool": "High school",
-        "associateDegree": "Associate’s degree",
+        "other": "Other",
         "college": "College",
         "bachelors": "Bachelors",
         "masters": "Masters",
@@ -282,5 +292,8 @@
         "mail": "Email",
         "subject": "Subject",
         "message": "Message"
+    },
+    "tooltip": {
+        "hotJob": "You can only register one hot job per day"
     }
 }

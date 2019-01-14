@@ -145,4 +145,12 @@ export class JobService {
     )
   }
 
+  registerHotJob(jobId: number) {
+    const requestBody = { jobId: jobId};
+    return this.http.post('/hotjobs', requestBody)
+    .pipe(
+      map((response: any) => response)
+    )
+  }
+
 }
