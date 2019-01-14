@@ -7,11 +7,14 @@ import { StVerifyAccountComponent } from './components/st-verify-account/st-veri
 import { PolicyComponent } from './components/policy/policy.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { StudentLoggedGuard } from '../core/guards/student-logged.guard';
+import { CompanyLoggedGuard } from '../core/guards/company-logged.guard';
+import { RegisterSuccessCPComponent } from './components/registerSuccessCP/registerSuccessCP.component';
 
 export const AuthRoutes = [
   { path: 'register', component: StRegisterComponent, canActivate: [StudentLoggedGuard] },
   { path: 'login', component: StLoginComponent, canActivate: [StudentLoggedGuard] },
   { path: 'register-success', component: RegisterSuccessComponent, canActivate: [StudentLoggedGuard] },
+  { path: 'cp-register-success', component: RegisterSuccessCPComponent, canActivate: [CompanyLoggedGuard] },
   { path: 'lost-password', component: StLostPasswordComponent, canActivate: [StudentLoggedGuard] },
   { path: 'reset-password', component: StResetPasswordComponent },
   { path: 'verify-account', component: StVerifyAccountComponent },

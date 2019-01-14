@@ -287,7 +287,21 @@
         "policy": " Quy định bảo mật ",
         "pPass": "Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.",
         "fName": "Họ",
-        "lName": "Tên"
+        "lName": "Tên",
+        "termsAccepted": "Bạn phải đồng ý với chính sách bảo mật của Juniorviec.",
+        "websiteRequired": "Yêu cầu nhập website",
+        "phoneRequired" : "Yêu cầu nhập điện thoại",
+        "addressRequired" : "Yêu cầu nhập địa chỉ",
+        "locationRequired" : "Yêu cầu chọn địa điểm",
+        "specialCharacterNumber" : "Không có ký tự đặc biệt hoặc số.",
+        "nameRequired" : "Yêu cầu nhập tên.",
+        "passwordRequired" : "Yêu cầu nhập mật khẩu",
+        "notMatchPassword" : "Mật khẩu không đúng.",
+        "passwordAtLeast" : "Mật khẩu ít nhất là",
+        "characters" : "Ký tự.",
+        "mathEmail" : "Email này đã được đăng ký!.",
+        "invalidEmail" : "Email bạn đăng ký không hợp lệ.",
+        "emailRequired" : "Yêu cầu nhập email"
     },
     "contact": {
         "name": "Tên",

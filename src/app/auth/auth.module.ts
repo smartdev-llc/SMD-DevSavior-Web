@@ -15,11 +15,12 @@ import { StVerifyAccountComponent } from './components/st-verify-account/st-veri
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AuthRoutes as routes } from './auth.routes';
 import { PolicyComponent } from './components/policy/policy.component';
-
+import { RegisterSuccessCPComponent } from './components/registerSuccessCP/registerSuccessCP.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+
+  CommonModule,
     RouterModule.forChild(routes),
     LayoutModule,
     SharedModule,
@@ -30,6 +31,7 @@ import { PolicyComponent } from './components/policy/policy.component';
     StLoginComponent,
     StRegisterComponent,
     RegisterSuccessComponent,
+    RegisterSuccessCPComponent,
     StLostPasswordComponent,
     MatchingPasswordDirective,
     StResetPasswordComponent,
