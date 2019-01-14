@@ -1,177 +1,202 @@
 <app-home-company></app-home-company>
 
 <div class="container main m-t-lg">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 loader-wrapper">
-            <div class="loadessr blur-loading lower-header-loading" *ngIf="loading">
-                <div class="loader">
-                </div>
-            </div>
-            <div class="text-center m-t-lg m-b-lg">
-                <a href="/">
-                    <img src="../../../../assets/images/logo.png" alt="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam." title="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam." class="jnv-logo"></a>
-            </div>
-            <div class="ibox">
-                <div class="ibox-content fadeInRight animated">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <link rel="stylesheet" href="/bundles/naviworksuser/css/signup.css?zr1538043124">
-                            <div class="row section-form">
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <div class="text-center m-t-lg m-b-lg">
-                                        <h1>{{'register.titleCp' | translate }}</h1>
-                                    </div>
-                                    <form [formGroup]="registerForm" (ngSubmit)="registerNewUser()" novalidate="novalidate" id="formSignUp" class="m-t-lg" role="form">
-                                        <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
-                                            <label></label>
-                                            <div *ngIf="submitted" class="error-input">
-                                                <div *ngIf="submitted && registerForm.errors?.serverError">
-                                                    {{registerForm.errors.serverError}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="alert alert-danger hide">
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="user_email" aria-required="true">{{ 'register.mail' | translate }}</label>
-                                            <input type="email" formControlName="email" id="user_email" name="email" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.email.invalid" class="error-input">
-                                                <div *ngIf="f.email.errors.required">
-                                                    Email is required.
-                                                </div>
-                                                <div *ngIf="f.email.errors.email">
-                                                    Invalid email.
-                                                </div>
-                                                <div *ngIf="f.email.errors.existed">
-                                                    This email already registered!
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ng-container formGroupName="formPassword">
-                                            <div class="form-group">
-                                                <label class="control-label required" for="password" aria-required="true">{{ 'register.pass' | translate }} (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
-                                                <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" aria-required="true"> -->
-                                                <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
-                                                <div *ngIf="p.password.invalid" class="error-input">
-                                                    <div *ngIf="submitted && p.password.errors?.required">
-                                                        Password is required.
-                                                    </div>
-                                                    <div *ngIf="p.password.errors.minlength">
-                                                        The password is at least {{p.password.errors?.minlength.requiredLength}} characters.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label required" for="user_password_second" aria-required="true">{{ 'register.cPass' | translate }}</label>
-                                                <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control" [ngClass]="{ 'has-error': formPassword.errors?.matchedPassword || submitted && p.confirmPassword.errors}" formControlName="confirmPassword"
-                                                    aria-required="true">
-                                                <div *ngIf="formPassword.invalid " class="error-input">
-                                                    <div *ngIf="p.confirmPassword.errors?.MatchPassword">
-                                                        Password doesn't match.
-                                                    </div>
-                                                    <div *ngIf="submitted && p.confirmPassword.errors?.required">
-                                                        Password required.
-                                                    </div>
-
-                                                </div>
-                                                <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> {{ 'register.pPass' | translate }}
-                                                </p>
-                                            </div>
-                                        </ng-container>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="company_name" aria-required="true">{{ 'register.nameCp' | translate }}</label>
-                                            <input type="text" id="company_name" name="name" [ngClass]="{ 'has-error': submitted && f.name.errors}" formControlName="name" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.name.invalid" class="error-input">
-                                                <div *ngIf="f.name.errors.required">
-                                                     name is required.
-                                                </div>
-                                                <div *ngIf="f.name.errors.pattern">
-                                                    No special characters or numbers
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="user_company_name" aria-required="true">{{ 'register.nameHR' | translate }}</label>
-                                            <input type="text" id="user_company_name" name="contactName" [ngClass]="{ 'has-error': submitted && f.contactName.errors}" formControlName="contactName" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.contactName.invalid" class="error-input">
-                                                <div *ngIf="f.contactName.errors.required">
-                                                     name is required.
-                                                </div>
-                                                <div *ngIf="f.contactName.errors.pattern">
-                                                    No special characters or numbers
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label required" for="cp_location" aria-required="true">{{ 'register.city' | translate }}</label>
-                                            <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}" formControlName="city" id="cp_location" name="city">
-                                                <option value="DN">Da Nang</option>
-                                                <option value="HN">Ha Noi</option>
-                                                <option value="HCM">Ho Chi Minh</option>
-                                            </select>
-                                            <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" aria-required="true"> -->
-                                            <div *ngIf="submitted && f.city.invalid" class="error-input">
-                                                <div *ngIf="f.city.errors.required">
-                                                    Location is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="cp_address" aria-required="true">{{ 'register.address' | translate }}</label>
-                                            <input type="text" name="address" [ngClass]="{ 'has-error': submitted && f.address.errors}" formControlName="address" id="cp_address" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.address.invalid" class="error-input">
-                                                <div *ngIf="f.address.errors.required">
-                                                    address is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="user_phone" aria-required="true">{{ 'register.phone' | translate }}</label>
-                                            <input type="text" id="user_phone" name="phoneNumber" [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors}" formControlName="phoneNumber" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
-                                                <div *ngIf="f.phoneNumber.errors.required">
-                                                    phone number is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label required" for="cp_website" aria-required="true">{{ 'register.web' | translate }}</label>
-                                            <input type="text" id="cp_website" name="website" [ngClass]="{ 'has-error': submitted && f.website.errors}" formControlName="website" required="required" class="form-control form-control" aria-required="true">
-                                            <div *ngIf="submitted && f.website.invalid" class="error-input">
-                                                <div *ngIf="f.website.errors.required">
-                                                    Website name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="#user_termsAccepted" style="display: content;">
-                        <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted" formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}">
-                        {{ 'register.isRead' | translate }} <a routerLink="/privacy-policy"> {{ 'register.policy' | translate }} </a></label>
-                                            <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
-                                                <div *ngIf="f.checkbox.errors.required">
-                                                    <p style="display: inline-block;">
-                                                        You must agree to the security requirements before registering
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" style="margin-top: 50px;">
-                                            <input type="submit" value="{{ 'register.signUp' | translate }}" class=" btn btn-success btn-dk">
-                                        </div>
-                                        <div class="form-group">
-                                            <p class="text-center">{{ 'register.haveAcc' | translate }}<a routerLink="/employer/login">{{ 'register.signInNow' | translate }}</a></p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 loader-wrapper">
+      <div class="loadessr blur-loading lower-header-loading" *ngIf="loading">
+        <div class="loader">
         </div>
+      </div>
+      <div class="text-center m-t-lg m-b-lg">
+        <a href="/">
+          <img src="../../../../assets/images/logo.png" alt="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam."
+            title="Juniorviec - Mạng tuyển dụng, việc làm hàng đầu Việt Nam." class="jnv-logo"></a>
+      </div>
+      <div class="ibox">
+        <div class="ibox-content fadeInRight animated">
+          <div class="row">
+            <div class="col-sm-12">
+              <link rel="stylesheet" href="/bundles/naviworksuser/css/signup.css?zr1538043124">
+              <div class="row section-form">
+                <div class="col-sm-10 col-sm-offset-1">
+                  <div class="text-center m-t-lg m-b-lg">
+                    <h1>{{'register.titleCp' | translate }}</h1>
+                  </div>
+                  <form [formGroup]="registerForm" (ngSubmit)="registerNewUser()" novalidate="novalidate" id="formSignUp"
+                    class="m-t-lg" role="form">
+                    <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
+                      <label></label>
+                      <div *ngIf="submitted" class="error-input">
+                        <div *ngIf="submitted && registerForm.errors?.serverError">
+                          {{registerForm.errors.serverError}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="alert alert-danger hide">
+
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label required" for="user_email" aria-required="true">{{ 'register.mail' |
+                        translate }}</label>
+                      <input type="email" formControlName="email" id="user_email" name="email" class="form-control form-control"
+                        aria-required="true">
+                      <div *ngIf="submitted && f.email.invalid" class="error-input">
+                        <div *ngIf="f.email.errors.required">
+                          {{ 'register.emailRequired' | translate }}
+                        </div>
+                        <div *ngIf="f.email.errors.email">
+                          {{ 'register.invalidEmail' | translate }}
+                        </div>
+                        <div *ngIf="f.email.errors.existed">
+                          {{ 'register.mathEmail' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <ng-container formGroupName="formPassword">
+                      <div class="form-group">
+                        <label class="control-label required" for="password" aria-required="true">{{ 'register.pass' |
+                          translate }} (<i class="fa fa-info tip-password" title="" data-original-title="Một mật khẩu hợp lệ phải chứa từ 4 đến 20 ký tự."></i>)</label>
+                        <!-- <input type="password" id="password" name="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" class="form-control form-control" aria-required="true"> -->
+                        <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}"
+                          formControlName="password" />
+                        <div *ngIf="p.password.invalid" class="error-input">
+                          <div *ngIf="submitted && p.password.errors?.required">
+                            {{ 'register.passwordRequired' | translate }}
+                          </div>
+                          <div *ngIf="p.password.errors.minlength">
+                            {{ 'register.passwordAtLeast' | translate }}
+                            {{p.password.errors?.minlength.requiredLength}} {{ 'register.characters' | translate }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label required" for="user_password_second" aria-required="true">{{
+                          'register.cPass' | translate }}</label>
+                        <input type="password" id="user_password_second" name="cpassword" required="required" class="form-control form-control"
+                          [ngClass]="{ 'has-error': formPassword.errors?.matchedPassword || submitted && p.confirmPassword.errors}"
+                          formControlName="confirmPassword" aria-required="true">
+                        <div *ngIf="formPassword.invalid " class="error-input">
+                          <div *ngIf="p.confirmPassword.errors?.MatchPassword">
+                            {{ 'register.notMatchPassword' | translate }}
+                          </div>
+                          <div *ngIf="submitted && p.confirmPassword.errors?.required">
+                            {{ 'register.passwordRequired' | translate }}
+                          </div>
+
+                        </div>
+                        <p class="gray-light m-t-xs"><i class="fa fa-shield" aria-hidden="true"></i> {{
+                          'register.pPass' | translate }}
+                        </p>
+                      </div>
+                    </ng-container>
+                    <div class="form-group">
+                      <label class="control-label required" for="company_name" aria-required="true">{{
+                        'register.nameCp' | translate }}</label>
+                      <input type="text" id="company_name" name="name" [ngClass]="{ 'has-error': submitted && f.name.errors}"
+                        formControlName="name" class="form-control form-control" aria-required="true">
+                      <div *ngIf="submitted && f.name.invalid" class="error-input">
+                        <div *ngIf="f.name.errors.required">
+                          {{ 'register.cpnameRequired' | translate }}
+                        </div>
+                        <div *ngIf="f.name.errors.pattern">
+                          {{ 'register.specialCharacterNumber' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label required" for="user_company_name" aria-required="true">{{
+                        'register.nameHR' | translate }}</label>
+                      <input type="text" id="user_company_name" name="contactName" [ngClass]="{ 'has-error': submitted && f.contactName.errors}"
+                        formControlName="contactName" class="form-control form-control" aria-required="true">
+                      <div *ngIf="submitted && f.contactName.invalid" class="error-input">
+                        <div *ngIf="f.contactName.errors.required">
+                          {{ 'register.nameRequired' | translate }}
+                        </div>
+                        <div *ngIf="f.contactName.errors.pattern">
+                          {{ 'register.specialCharacterNumber' | translate }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label required" for="cp_location" aria-required="true">{{ 'register.city' |
+                        translate }}</label>
+                      <select class="form-control form-control" [ngClass]="{ 'has-error': submitted && f.city.errors}"
+                        formControlName="city" id="cp_location" name="city">
+                        <option value="DN">Da Nang</option>
+                        <option value="HN">Ha Noi</option>
+                        <option value="HCM">Ho Chi Minh</option>
+                      </select>
+                      <!-- <input type="text" id="user_address" name="user[address]" required="required" class="form-control form-control" aria-required="true"> -->
+                      <div *ngIf="submitted && f.city.invalid" class="error-input">
+                        <div *ngIf="f.city.errors.required">
+                          {{ 'register.locationRequired' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label required" for="cp_address" aria-required="true">{{ 'register.address'
+                        | translate }}</label>
+                      <input type="text" name="address" [ngClass]="{ 'has-error': submitted && f.address.errors}"
+                        formControlName="address" id="cp_address" class="form-control form-control" aria-required="true">
+                      <div *ngIf="submitted && f.address.invalid" class="error-input">
+                        <div *ngIf="f.address.errors.required">
+                          {{ 'register.addressRequired' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label required" for="user_phone" aria-required="true">{{ 'register.phone' |
+                        translate }}</label>
+                      <input type="text" id="user_phone" name="phoneNumber" [ngClass]="{ 'has-error': submitted && f.phoneNumber.errors}"
+                        formControlName="phoneNumber" class="form-control form-control" aria-required="true">
+                      <div *ngIf="submitted && f.phoneNumber.invalid" class="error-input">
+                        <div *ngIf="f.phoneNumber.errors.required">
+                          {{ 'register.phoneRequired' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label required" for="cp_website" aria-required="true">{{ 'register.web' |
+                        translate }}</label>
+                      <input type="text" id="cp_website" name="website" [ngClass]="{ 'has-error': submitted && f.website.errors}"
+                        formControlName="website" required="required" class="form-control form-control" aria-required="true">
+                      <div *ngIf="submitted && f.website.invalid" class="error-input">
+                        <div *ngIf="f.website.errors.required">
+                          {{ 'register.websiteRequired' | translate }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="#user_termsAccepted" style="display: content;">
+                        <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted"
+                          formControlName="checkbox" [ngClass]="{ 'has-error': submitted && f.checkbox.errors}">
+                        {{ 'register.isRead' | translate }} <a routerLink="/privacy-policy"> {{ 'register.policy' |
+                          translate }} </a></label>
+                      <div *ngIf="submitted && f.checkbox.invalid" class="error-input">
+                        <div *ngIf="f.checkbox.errors.required">
+                          <p style="display: inline-block;">
+                            {{ 'register.termsAccepted' | translate }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 50px;">
+                      <input type="submit" value="{{ 'register.signUp' | translate }}" class=" btn btn-success btn-dk">
+                    </div>
+                    <div class="form-group">
+                      <p class="text-center">{{ 'register.haveAcc' | translate }}<a routerLink="/employer/login">{{
+                          'register.signInNow' | translate }}</a></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

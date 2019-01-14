@@ -57,7 +57,7 @@ export class CpRegisterComponent implements OnInit {
           queryParams: { 'email': data.email },
           skipLocationChange: true
         };
-        this.router.navigate(['/register-success'], navigationExtras);
+        this.router.navigate(['/cp-register-success'], navigationExtras);
         },
         error=>{
           this.resetPasswordForm();
