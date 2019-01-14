@@ -1,3 +1,31 @@
+@keyframes flash {
+    from {color: #12cd6a;}
+    to {color:  #b9f9d7;}
+}
+
+@keyframes blink {
+    0% {
+      opacity: .2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .2;
+    }
+}
+
+
+
+.flash {
+    animation-name: flash;
+     animation-duration: 0.2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+ }
+ 
 .main-container {
     background-color: #fff;
 }
@@ -46,4 +74,33 @@
 }
 .input-group {
     z-index: 0;
+}
+.icon-small-green {
+    color: #12cd6a;
+    font-size: 12px;
+}
+.label-orange {
+    background-color: #ff8000;
+   
+}
+.hot-job-register {
+    cursor: pointer;
+}
+.is-registering {
+    cursor: progress;
+}
+
+.hot-job-registering span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.hot-job-registering span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.hot-job-registering span:nth-child(3) {
+    animation-delay: .4s;
 }
