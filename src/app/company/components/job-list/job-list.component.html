@@ -67,8 +67,8 @@
                             </div>
                             <div class="j-location">{{job.location || "No mention location"}}</div>
                             <div class="j-actions">
-                                <a routerLink="/jobs/{{job.id}}" target="_blank">View Online</a>
-                                <a routerLink="/employer/jobs/{{job.id}}/candidates">View Candidates</a>
+                                <a routerLink="/jobs/{{job.id}}" target="_blank">{{ 'company.jobListHeader.viewOnline' | translate}}</a>
+                                <a routerLink="/employer/jobs/{{job.id}}/candidates">{{ 'company.jobListHeader.viewCandidates' | translate}}</a>
                             </div>
                         </div>
                     </td>
@@ -104,7 +104,7 @@
                             <a [class.is-registering]="isProcessingHotJob" 
                                 class="flash hot-job-register" 
                                 *ngIf="isHotJobRegistrable(job)" 
-                                (click)="registerHotJob(job)">{{'company.hotJobRegister' | translate }}</a>
+                                (click)="registerHotJob(job)">{{'company.hotJobRegister' | translate }}</a><br/>
                             <span class="label label-orange">{{getHotJobStatus(job)}}</span>
                         </div>
                     </td>

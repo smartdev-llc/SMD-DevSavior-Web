@@ -182,7 +182,7 @@ export class JobListComponent implements OnInit {
   isHotJobRegistrable(job: any) {
     return job.status === 'ACTIVE' && 
       !this.hotJobs.get(HotJobStatus.PENDING) &&
-      (!this.hotJobs.get(HotJobStatus.APPROVED) || job.id != this.hotJobs.get(HotJobStatus.APPROVED).id)
+      (!this.hotJobs.get(HotJobStatus.ACTIVE) || job.id != this.hotJobs.get(HotJobStatus.ACTIVE).id)
       && this.processingPendingJobId != job.id;
   }
 }
@@ -190,5 +190,5 @@ export class JobListComponent implements OnInit {
 
 enum HotJobStatus {
   PENDING = "PENDING",
-  APPROVED = "APPROVED"
+  ACTIVE = "ACTIVE"
 }

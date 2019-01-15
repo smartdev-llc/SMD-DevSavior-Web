@@ -1,0 +1,77 @@
+<app-home-company-logged></app-home-company-logged>
+
+<div class="container-fluid page-title dashboard">
+
+    <div *ngIf="isLoading" id="loadessr" style="left: 0px;">
+        <div id="loader">
+        </div>
+    </div>
+
+    <!--Dash Board-->
+    <div class="row dashboard" *ngIf="candidate">
+        <div class="container main-container gery-bg">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
+                <div class="seprator ">
+                    <div class="no-padding profile-img-wrapper">
+                        <img class="profile-img" src="{{ candidate.profileImageURL| photoURLConverter: 'assets/images/profile-placeholder.png' }}" alt="">
+
+                    </div>
+                    <div class="user-tag"><span>{{candidate.displayName}}</span></div>
+                    <!-- <div class="jos-status"><span class="label job-type job-partytime">Party time</span></div> -->
+                </div>
+                <div class="seprator">
+                    <!-- <div class="user-tag"><label>Locations<span>Da Nang</span></label></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div class="container-fluid white-bg" *ngIf="candidate">
+    <div class="row">
+        <div class="container main-container-job">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+
+                <!--Skills-->
+                <div class="">
+                    <h3 class="small-heading">{{ 'company.candidate.header.skill' | translate }}</h3>
+                    <ul class="skills">
+                        <li *ngFor="let skill of candidate.skills">{{skill}}</li>
+                    </ul>
+                </div>
+
+                <div class="content">
+
+                    <!--About me-->
+                    <h3 class="small-heading">{{ 'company.candidate.header.aboutMe' | translate }}</h3>
+                    <p>{{candidate.jobTitle}}</p>
+
+                    <!--Working Experiences-->
+                    <h3 class="small-heading">{{ 'company.candidate.header.workingExperience' | translate }}</h3>
+                    <ul class="education">
+                        <li *ngFor="let workingExperience of candidate.workingExperiences">
+                            <div class="data-row">
+                                <div class="date">{{'From '+workingExperience.fromMonth + ' To ' + workingExperience.toMonth}}</div>
+                                <h3>{{workingExperience.jobTitle + ' at ' + workingExperience.company}}</h3>
+                                <p>{{workingExperience.additionalInformation}}</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <h3 class="small-heading">{{ 'company.candidate.header.education' | translate }}</h3>
+                    <ul class="education">
+                        <li *ngFor="let educationDegree of candidate.educationDegrees">
+                            <div class="data-row">
+                                <div class="date">{{'From '+educationDegree.fromMonth + ' To ' + educationDegree.toMonth}}</div>
+                                <h3>{{educationDegree.major + ' at ' + educationDegree.university}}</h3>
+                                <p>{{educationDegree.additionalInformation}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

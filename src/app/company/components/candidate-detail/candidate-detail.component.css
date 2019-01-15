@@ -1,0 +1,10 @@
+
+.profile-img-wrapper {
+  width: 10%;
+  margin-right: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 100%;
+}

@@ -103,8 +103,22 @@
             "status": "Status",
             "expires": "Expires",
             "applications": "Applications",
-            "hotJob": "Hot Job"
+            "hotJob": "Hot Job",
+            "viewOnline": "View Online",
+            "viewCandidates": "View Candidates",
+            "from": "From",
+            "to": "To",
+            "at": "at"
+        },
+        "candidate": {
+            "header": {
+                "skill": "My skills",
+                "aboutMe": "About me",
+                "workingExperience": "Working experience",
+                "education": "Education"
+            }
         }
+
     },
     "userProfile": {
         "titleDeleteWorking": "Delete working experience",

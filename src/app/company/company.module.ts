@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import { SharedModule } from '../shared/shared.module';
 import { CompanyRoutes } from './company.routes';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FindResumesComponent } from './components/find-resumes/find-resumes.component';
 import { JobListComponent } from './components/job-list/job-list.component';
@@ -13,7 +13,6 @@ import { LayoutModule } from '../layout';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DetailCandidateComponent } from './components/detail-candidate/detail-candidate.component';
 import { CpRegisterComponent } from './components/cp-register/cp-register.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
@@ -32,8 +31,10 @@ import { BlackListCandidateComponent } from './components/blacklist-candidate/bl
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
 import { LostPasswordComponent } from './components/lost-password/lost-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CandidateDetailComponent } from './components/candidate-detail/candidate-detail.component';
+import { CandidateService } from '../core/services/candidate/candidate.service';
 
-@NgModule({
+@NgModule({ 
   imports: [
     CommonModule,
     RouterModule.forChild(CompanyRoutes),
@@ -55,7 +56,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     FindResumesComponent,
     JobListComponent,
     CandidateListComponent,
-    DetailCandidateComponent,
     CpRegisterComponent,
     StatisticComponent,
     PostJobComponent,
@@ -65,14 +65,16 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ProfileDeletedComponent,
     ByResumeSearchComponent,
     LostPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    CandidateDetailComponent
   ],
   providers: [
     CategoryCompanyService,
     PostJobCompanyService,
     SkillService,
-    ProfileService
+    ProfileService,
+    CandidateService
   ]
-})
+ })
 
-export class CompanyModule { }
+export class CompanyModule {   }
