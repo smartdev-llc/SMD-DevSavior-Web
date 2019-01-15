@@ -89,11 +89,21 @@
         "no_jobs_found": "No jobs found",
         "loadmore_jobs": "Show more Jobs",
         "noCandidatesFound": "No Candidates found.",
+        "hotJobRegister": "Register Now",
+        "hotJobRegistering": "Registering",
         "jobStatus": {
             "all": "All",
             "online": "Online",
             "expired": "Expired",
             "expireSoon": "Expire in 7 days"
+        },
+        "jobExpiredDate": "Expired At",
+        "jobListHeader": {
+            "jobTitle": "Job Title - ID",
+            "status": "Status",
+            "expires": "Expires",
+            "applications": "Applications",
+            "hotJob": "Hot Job"
         }
     },
     "userProfile": {
@@ -246,7 +256,7 @@
         "paPass": "Enter your password",
         "pass": "Password",
         "signIn": "Sign In",
-        "lostPass": "forgot password",
+        "lostPass": "Forgot password",
         "signUpNow": "Register now",
         "socialFB": "Sign in with Facebook",
         "socialGG": "Sign in with Google",
@@ -275,12 +285,30 @@
         "policy": "  Privacy Policy and Terms of Use ",
         "pPass": "Your passwords at JuniorViec are encrypted and secured.",
         "fName": "First Name",
-        "lName": "Last Name"
+        "lName": "Last Name",
+        "termsAccepted": "You must agree to the security requirements before registering.",
+        "websiteRequired": "Website name is required.",
+        "phoneRequired" : "Phone number is required.",
+        "addressRequired" : "Address is required.",
+        "locationRequired" : "Location is required.",
+        "specialCharacterNumber" : "No special characters or numbers.",
+        "nameRequired" : "Name is required.",
+        "passwordRequired" : "Password is required.",
+        "notMatchPassword" : "Password doesn't match.",
+        "passwordAtLeast" : "The password is at least",
+        "characters" : "characters.",
+        "mathEmail" : "This email already registered!.",
+        "invalidEmail" : "Invalid email.",
+        "emailRequired" : "Email is required.",
+        "cpnameRequired" : "Company name is required."
     },
     "contact": {
         "name": "Name",
         "mail": "Email",
         "subject": "Subject",
         "message": "Message"
+    },
+    "tooltip": {
+        "hotJob": "You can only register one hot job per day"
     }
 }

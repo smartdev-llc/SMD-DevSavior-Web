@@ -2,7 +2,7 @@
     "common": {
         "yesDialog": "Đồng ý",
         "noDialog": "Bỏ qua",
-        "titleDialog": "Yêu cầu xác nhận",
+        "titleDialog": "Vui lòng xác nhận",
         "descriptionDialog": "Bạn có chắc chắn?",
         "btnUpdate": "Cập nhật",
         "btnCancel": "Hủy",
@@ -89,11 +89,21 @@
         "no_jobs_found": "Không có công việc nào",
         "loadmore_jobs": "Hiển thị thêm",
         "noCandidatesFound": "Không tìm thấy ứng viên nào!",
+        "hotJobRegister": "Register",
+        "hotJobRegistering": "Đang xử lý",
         "jobStatus": {
             "all": "Tất cả",
             "online": "Đang tuyển",
             "expired": "Đã hết hạn",
             "expireSoon": "Sắp hết hạn"
+        },
+        "jobExpiredDate": "Expired At",
+        "jobListHeader": {
+            "jobTitle": "Tiêu đề",
+            "status": "Trạng thái",
+            "expires": "Ngày hết hạn",
+            "applications": "Ứng viên",
+            "hotJob": "Hob job"
         }
     },
     "userProfile": {
@@ -125,7 +135,7 @@
         "skills": "Kỹ năng yêu cầu",
         "typeOfWork": "Loại hình công việc",
         "jobDescription": "Thông tin về công việc",
-        "jobRequirements": "Yêu cầu của công việc",
+        "jobRequirements": "Vui lòng của công việc",
         "benefit": "Những quyền lợi",
         "salary": "Mức lương",
         "from": "Từ",
@@ -277,12 +287,30 @@
         "policy": " Quy định bảo mật ",
         "pPass": "Mật mã tại Juniorviec luôn được mã hoá và bảo mật tuyệt đối.",
         "fName": "Họ",
-        "lName": "Tên"
+        "lName": "Tên",
+        "termsAccepted": "Bạn phải đồng ý với chính sách bảo mật của Juniorviec.",
+        "websiteRequired": "Vui lòng nhập website",
+        "phoneRequired" : "Vui lòng nhập điện thoại",
+        "addressRequired" : "Vui lòng nhập địa chỉ",
+        "locationRequired" : "Vui lòng chọn địa điểm",
+        "specialCharacterNumber" : "Không có ký tự đặc biệt hoặc số.",
+        "nameRequired" : "Vui lòng nhập tên.",
+        "passwordRequired" : "Vui lòng nhập mật khẩu",
+        "notMatchPassword" : "Mật khẩu không đúng.",
+        "passwordAtLeast" : "Mật khẩu ít nhất là",
+        "characters" : "Ký tự.",
+        "mathEmail" : "Email này đã được đăng ký!.",
+        "invalidEmail" : "Email bạn đăng ký không hợp lệ.",
+        "emailRequired" : "Vui lòng nhập email.",
+        "cpnameRequired" : "Vui lòng nhập tên công ty của bạn."
     },
     "contact": {
         "name": "Tên",
         "mail": "Email",
         "subject": "Tiêu đề",
         "message": "Nội dung"
+    },
+    "tooltip": {
+        "hotJob": "Bạn chỉ có thể đăng kí 1 hot job trong 1 ngày."
     }
 }
