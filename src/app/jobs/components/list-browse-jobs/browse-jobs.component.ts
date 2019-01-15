@@ -103,7 +103,7 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   loadJobs(): void {
-    this.jobsTitle = this.queryParams.qs && this.queryParams.qs.split('-');
+    this.jobsTitle = this.queryParams.qs && this.queryParams.qs.split('-') || '';
     this.queryParams = {
       size: this.itemsPerPage,
       page: 0,
