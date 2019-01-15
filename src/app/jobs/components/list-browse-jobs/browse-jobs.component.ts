@@ -80,8 +80,8 @@ export class BrowseJobsComponent implements OnInit {
 
     this.searchJobForm = this.formBuilder.group({
       category: category || '',
-      qs: qs,
-      location: location,
+      qs: qs || '',
+      location: location || '',
       jobTypes: new FormArray(controlsJobTypes)
     });
   }
