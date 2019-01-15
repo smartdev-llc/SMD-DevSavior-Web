@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/employer/jobs/all';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/employer/jobs/ALL';
   }
   initForm() {
     this.loginInForm = this.fb.group({
