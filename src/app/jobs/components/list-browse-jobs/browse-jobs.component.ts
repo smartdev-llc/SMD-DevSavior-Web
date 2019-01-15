@@ -22,6 +22,7 @@ export class BrowseJobsComponent implements OnInit {
   searchJobForm: FormGroup;
   jobCategories: Array<Categories>;
   queryParams: any = {};
+  jobsTitle: Array<any> = [];
   loading = false;
   configDropDown = {
     displayKey: 'name',
@@ -102,10 +103,12 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   loadJobs(): void {
+    this.jobsTitle = this.queryParams.qs && this.queryParams.qs.split('-');
     this.queryParams = {
       size: this.itemsPerPage,
       page: 0,
-      ...this.queryParams
+      ...this.queryParams,
+      qs: this.jobsTitle
     };
     const params = new HttpParams({ fromObject: this.queryParams });
     this.loading = true;

@@ -74,7 +74,6 @@ export class UpdateProfileStep3Component implements OnInit {
         // init data for languages form
         if (res.languages && res.languages.length !== 0) {
           const languages = this.parseLanguages(res.languages);
-          console.log(languages)
           this.LanguagesFromGroup.setValue(languages);
         }
       });
