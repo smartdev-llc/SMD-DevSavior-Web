@@ -46,7 +46,7 @@
         "account_infomation": "Thông tin tài khoản",
         "memberships": "Thành viên",
         "customer_support": "Hỗ trợ khách hàng",
-        "hotline": "Hotline: 1800 1560",
+        "hotline": "Hotline: 0905 509 951",
         "call_to_buy": "Liên hệ để mua",
         "buy_more_services": "Mua gói dịch vụ",
         "faq": "Hỏi đáp",
@@ -95,7 +95,8 @@
             "all": "Tất cả",
             "online": "Đang tuyển",
             "expired": "Đã hết hạn",
-            "expireSoon": "Sắp hết hạn"
+            "expireSoon": "Sắp hết hạn",
+            "hotJob": "Hot job"
         },
         "jobExpiredDate": "Expired At",
         "jobListHeader": {
@@ -103,7 +104,23 @@
             "status": "Trạng thái",
             "expires": "Ngày hết hạn",
             "applications": "Ứng viên",
-            "hotJob": "Hob job"
+            "hotJob": "Đăng kí hot job"
+        },
+        "candidate": {
+            "header": {
+                "language": "Ngoại ngữ",
+                "skill": "Kĩ năng",
+                "aboutMe": "Thông tin cá nhân",
+                "workingExperience": "Kinh nghiệm làm việc",
+                "education": "Học vấn",
+                "dateOfBirth": "Ngày sinh",
+                "email": "Email",
+                "gender": "Giới tính",
+                "phoneNumber": "Số điện thoại",
+                "maritalStatus": "Tình trạng hôn nhân",
+                "currentAddress": "Địa chỉ"
+           
+            }
         }
     },
     "userProfile": {
