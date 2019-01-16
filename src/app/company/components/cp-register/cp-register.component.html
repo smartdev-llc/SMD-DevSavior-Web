@@ -69,6 +69,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="form-group">
                         <label class="control-label required" for="user_password_second" aria-required="true">{{
                           'register.cPass' | translate }}</label>
@@ -89,6 +90,7 @@
                         </p>
                       </div>
                     </ng-container>
+
                     <div class="form-group">
                       <label class="control-label required" for="company_name" aria-required="true">{{
                         'register.nameCp' | translate }}</label>
@@ -103,6 +105,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label class="control-label required" for="user_company_name" aria-required="true">{{
                         'register.nameHR' | translate }}</label>
@@ -134,6 +137,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label class="control-label required" for="cp_address" aria-required="true">{{ 'register.address'
                         | translate }}</label>
@@ -145,6 +149,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label class="control-label required" for="user_phone" aria-required="true">{{ 'register.phone' |
                         translate }}</label>
@@ -156,6 +161,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label class="control-label required" for="cp_website" aria-required="true">{{ 'register.web' |
                         translate }}</label>
@@ -165,8 +171,12 @@
                         <div *ngIf="f.website.errors.required">
                           {{ 'register.websiteRequired' | translate }}
                         </div>
+                        <div *ngIf="f.website.errors.pattern">
+                          {{ 'register.websitePrefix' | translate }}
+                        </div>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label for="#user_termsAccepted" style="display: content;">
                         <input class="checkTerms" type="checkbox" name="checkbox" id="user_termsAccepted"

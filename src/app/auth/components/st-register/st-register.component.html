@@ -33,13 +33,13 @@
                                         <div *ngIf="submitted && f.email.invalid" class="error-input">
 
                                             <div *ngIf="f.email.errors.required">
-                                                Email is required.
+                                              {{ 'register.emailRequired' | translate }}
                                             </div>
                                             <div *ngIf="f.email.errors.email">
-                                                Invalid email.
+                                              {{ 'register.invalidEmail' | translate }}
                                             </div>
                                             <div *ngIf="f.email.errors.existed">
-                                                This email already registered!
+                                                {{ 'register.mathEmail' | translate }}
                                             </div>
                                         </div>
                                     </div>
@@ -52,10 +52,10 @@
                                             <input type="password" name="password" id="password" [ngClass]="{ 'has-error': p.password.errors?.minlength || submitted && p.password.errors}" formControlName="password" />
                                             <div *ngIf="p.password.invalid" class="error-input">
                                                 <div *ngIf="submitted && p.password.errors?.required">
-                                                    Password is required.
+                                                  {{ 'register.passwordRequired' | translate }}
                                                 </div>
                                                 <div *ngIf="p.password.errors.minlength">
-                                                    The password is at least {{p.password.errors?.minlength.requiredLength}} characters.
+                                                  {{ 'register.passwordAtLeast' | translate }} {{p.password.errors?.minlength.requiredLength}} {{ 'register.characters' | translate }}
                                                 </div>
                                             </div>
                                         </div>
@@ -67,10 +67,10 @@
                                             <input type="password" name="cpassword" id="cpassword" [ngClass]="{ 'has-error': passwordGroup.errors?.matchedPassword || submitted && p.repeatPassword.errors}" formControlName="repeatPassword" />
                                             <div *ngIf="passwordGroup.invalid " class="error-input">
                                                 <div *ngIf="passwordGroup.errors?.matchedPassword">
-                                                    Password doesn't match.
+                                                   {{ 'register.notMatchPassword' | translate }}
                                                 </div>
                                                 <div *ngIf="submitted && p.repeatPassword.errors?.required">
-                                                    Password required.
+                                                  {{ 'register.passwordRequired' | translate }}
                                                 </div>
 
                                             </div>
@@ -84,10 +84,10 @@
                                         <input type="text" name="firstname" id="firstname" [ngClass]="{ 'has-error': submitted && f.firstName.errors}" formControlName="firstName" />
                                         <div *ngIf="submitted && f.firstName.invalid" class="error-input">
                                             <div *ngIf="f.firstName.errors.required">
-                                                First name is required.
+                                              {{ 'register.nameRequired' | translate }}
                                             </div>
                                             <div *ngIf="f.firstName.errors.pattern">
-                                                No special characters or numbers
+                                              {{ 'register.specialCharacterNumber' | translate }}
                                             </div>
                                         </div>
                                     </div>
@@ -99,17 +99,17 @@
                                         <input type="text" name="lastname" id="lastname" [ngClass]="{ 'has-error': submitted && f.lastName.errors}" formControlName="lastName" />
                                         <div *ngIf="submitted && f.lastName.invalid" class="error-input">
                                             <div *ngIf="f.lastName.errors.required">
-                                                Last name is required.
+                                              {{ 'register.lNameRequired' | translate }}
                                             </div>
                                             <div *ngIf="f.lastName.errors.pattern">
-                                                No special characters or numbers
+                                              {{ 'register.specialCharacterNumber' | translate }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group submit">
-                                    <label>Submit</label>
+                                    <label>{{ 'register.submit' | translate }}</label>
                                     <input type="submit" name="submit" value="{{ 'register.signUp' | translate }}" class="register" />
                                     <a routerLink="/lost-password" class="lost_password">{{ 'login.lostPass' | translate }}</a>
                                 </div>
@@ -119,20 +119,20 @@
                         <!-- sidebar right -->
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12  pull-right sidebar">
                             <div class="widget">
-                                <h3>Why to have an account in JuniorViec? </h3>
+                                <h3>{{ 'register.whyHaveAccount' | translate }} </h3>
                                 <ul>
                                     <li>
                                         <p>
-                                            <i class="fa fa-clock-o"></i>Fast applying for offers the necessary documents are always at hand</p>
+                                            <i class="fa fa-clock-o"></i>{{ 'register.fastApply' | translate }}</p>
                                     </li>
                                     <li>
                                         <p>
-                                            <i class="fa fa-child"></i>Effectively target employers You can share your profile and CV recruiters</p>
+                                            <i class="fa fa-child"></i>{{ 'register.effectivelyTarget' | translate }}</p>
                                     </li>
 
                                     <li>
                                         <p>
-                                            <i class="fa fa-check-circle-o"></i>Matching jobs We will suggest you offer to fit your needs on e-mail</p>
+                                            <i class="fa fa-check-circle-o"></i>{{ 'register.matchingJobs' | translate }}</p>
                                     </li>
                                 </ul>
                             </div>
