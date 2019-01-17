@@ -18,7 +18,8 @@
         "fromMonthRequired": "The from month field is required",
         "toMonthRequired": "The from month field is required",
         "fromLessThanToMonth": "The from month must be before to month",
-        "existedKeySkill": "The key skill already exists in the your skills"
+        "existedKeySkill": "The key skill already exists in the your skills",
+        "birthDayInvalid": "Day of birthday is incorrect"
     },
     "header": {
         "jobs": "All Jobs",
@@ -124,7 +125,7 @@
                 "phoneNumber": "Phone Number",
                 "maritalStatus": "Marital status",
                 "currentAddress": "Current Address"
-           
+
             }
         }
     },

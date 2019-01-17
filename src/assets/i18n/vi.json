@@ -18,7 +18,8 @@
         "fromLessThanToMonth": "Tháng kết thúc không được trước tháng bắt đầu",
         "existedKeySkill": "Kỹ năng vừa nhập đã tồn tại trong kho kỹ năng của bạn",
         "wrongEmailAndPassword": "Tài khoản không tồn tại. Vui lòng nhập tài khoản khác",
-        "wrongEmail": "Email không chính xác"
+        "wrongEmail": "Email không chính xác",
+        "birthDayInvalid": "Ngày sinh không chính xác"
     },
     "header": {
         "jobs": "Tất Cả Việc Làm",
@@ -119,7 +120,7 @@
                 "phoneNumber": "Số điện thoại",
                 "maritalStatus": "Tình trạng hôn nhân",
                 "currentAddress": "Địa chỉ"
-           
+
             }
         }
     },
