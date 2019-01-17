@@ -146,8 +146,7 @@ export class JobDetailComponent implements OnInit {
   }
 
   renderTextForBtnApplyJob(isApplied): string {
-    if (isApplied) return 'Job Is Applied';
-    return 'Apply Job';
+    return isApplied ? 'Applied' : 'Apply';
   }
 
   initRecommendJob() {

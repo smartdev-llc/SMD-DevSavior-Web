@@ -58,7 +58,14 @@
         "candidateExperience": "Experience",
         "candidateAppliedDate": "Applied Date",
         "candidateAction": "Actions",
-        "moreJobs": "More jobs"
+        "moreJobs": "More jobs",
+        "recommendedJobs": "Recommended Jobs",
+        "salary": "Salary",
+        "location": "Locations",
+        "requirement": "Requirement",
+        "benefit": "Benefit",
+        "apply": "Apply",
+        "address": "Address"
     },
     "companyUserProfile": {
         "cancel": "Cancel",
