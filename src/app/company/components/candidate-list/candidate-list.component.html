@@ -105,7 +105,9 @@
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Name</div> -->
                 <div class="name col-sm-12 col-xs-9" >
-                  <a routerLink="/employer/jobs/{{currentJob.id}}/candidates/{{candidate.id}}" target="_blank">{{ candidate.displayName }}</a>
+                  <a routerLink="/employer/jobs/{{currentJob.id}}/candidates/{{candidate.id}}" target="_blank">
+                    {{ candidate.displayName }}
+                  </a>
                   <div *ngIf="candidate.educationDegrees && candidate.educationDegrees.length">
                     <div class="icon-with-text" >
                       <i class="glyphicon glyphicon-home"></i>
@@ -139,18 +141,9 @@
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Actions</div> -->
                 <div class="actions col-sm-12 col-xs-9 text-center">
-                  <!-- <button class="btn btn-default btn-small">
-                      <span class="glyphicon glyphicon-comment"></span>
-                    </button> -->
-                  <button class="btn btn-default btn-small">
-                    <span class="glyphicon glyphicon-download-alt"></span>
-                  </button>
-                  <!-- <button class="btn btn-default btn-small">
-                      <span class="glyphicon glyphicon-thumbs-down"></span>
-                    </button>
-                    <button class="btn btn-default btn-small">
-                      <span class="glyphicon glyphicon-thumbs-up"></span>
-                    </button> -->
+                  <a class="btn btn-default btn-small" routerLink="/employer/jobs/{{currentJob.id}}/candidates/{{candidate.id}}" target="_blank">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                  </a>
                 </div>
               </div>
             </td>

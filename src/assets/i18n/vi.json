@@ -58,7 +58,14 @@
         "candidateExperience": "Năm kinh nghiệm",
         "candidateAppliedDate": "Ngày ứng tuyển",
         "candidateAction": "",
-        "moreJobs": "Xem thêm"
+        "moreJobs": "Xem thêm",
+        "recommendedJobs": "Các công việc khác",
+        "salary": "Lương",
+        "location": "Địa điểm",
+        "requirement": "Yêu cầu công việc",
+        "benefit": "Phúc lợi",
+        "apply": "Ứng tuyển ngay",
+        "address": "Địa chỉ"
     },
     "companyUserProfile": {
         "cancel": "Hủy",

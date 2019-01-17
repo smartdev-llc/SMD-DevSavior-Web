@@ -78,8 +78,13 @@
         <div class="jobs-result">
           <!--Search Result 01-->
           <div class="col-md-12">
-            <h3 class="title-company-w fs-20">{{'company.joblist' | translate}}</h3>
-            <p *ngIf="!jobs">{{ 'company.no_jobs_found' | translate}}</p>
+            <h3 class="title-company-w fs-20">
+              {{'company.joblist' | translate}}
+            </h3>
+            <p *ngIf="!isLoadJob && !jobs || !isLoadJob && 
+            !jobs.length">
+              {{ 'company.no_jobs_found' | translate}}
+            </p>
             <div class="col-md-12 ">
               <ng-template ngFor let-job [ngForOf]="jobs">
                 <app-job-item [job]="job"></app-job-item>

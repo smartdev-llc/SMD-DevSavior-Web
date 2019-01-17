@@ -28,13 +28,20 @@
           </div>
           <div class="seprator">
             <div class="user-tag" *ngIf="job">
-              <label>Sallary<span>${{ job.fromSalary }} - ${{ job.toSalary }}</span></label></div>
+              <label>{{ 'header.salary' | translate }}
+                <span>{{ job.fromSalary | salaryConverter:job.toSalary:'$'}}</span>
+              </label>
+            </div>
           </div>
           <div class="seprator">
             <!--<div class="user-tag"><label>Hours<span>44h / week</span></label></div>-->
           </div>
           <div class="seprator">
-            <div class="user-tag"><label>Locations<span>{{company.address}}</span></label></div>
+            <div class="user-tag">
+              <label>{{ 'header.address' | translate }}
+                <span>{{company.address}}</span>
+            </label>
+          </div>
           </div>
         </div>
       </div>
@@ -55,10 +62,10 @@
           <h3>{{job.title}}</h3>
           <div [innerHTML]="job.description"></div>
 
-          <h2 *ngIf="job.requirements">Requirement</h2>
+          <h2 *ngIf="job.requirements">{{ 'header.requirement' | translate }}</h2>
           <div [innerHTML]="job.requirements"></div>
 
-          <h2 *ngIf="job.benefits">Benefits</h2>
+          <h2 *ngIf="job.benefits">{{ 'header.benefit' | translate }}</h2>
           <div [innerHTML]="job.benefits"></div>
         </div>
       </div>
@@ -70,7 +77,7 @@
               <a>
                 <!--Apply job button-->
                 <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job pointer"
-                      (click)="redirectToLogin()">APPLY FOR JOB</span>
+                      (click)="redirectToLogin()">{{ 'header.apply' | translate }}</span>
 
                 <span *ngIf="isStudentRole && job"
                       [ngClass]="{
@@ -111,7 +118,7 @@
   <div class="row">
     <div class="main-container">
       <div class="col-lg-12 text-center">
-        <h3>Recommended Jobs</h3>
+        <h3>{{ 'header.recommendedJobs' | translate }}</h3>
 
       </div>
       <div id="recommended-job" class="owl-carousel owl-template owl-theme" style="opacity: 1; display: block;">

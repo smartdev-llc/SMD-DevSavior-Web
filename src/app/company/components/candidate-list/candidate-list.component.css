@@ -35,8 +35,14 @@ input {
 .dropdown .j-list-all {
   margin-right: 15px;
 }
-.actions button {
+.actions a {
+  color: #12cd6a;
+  border-color: #12cd6a;
+}
+.actions a:hover {
   margin: 2px;
+  color: #ffffff;
+  background-color: #12cd6a !important;
 }
 .candidate {
   font-size: 15px;
