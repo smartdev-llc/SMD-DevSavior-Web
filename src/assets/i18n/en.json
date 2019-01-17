@@ -320,5 +320,16 @@
     },
     "tooltip": {
         "hotJob": "You can only register one hot job per day"
+    },
+    "lostPassword" : {
+        "plsEnterEmail" : "Please enter your email",
+        "title" : "Lost password",
+        "emailRequired" : "Email is required",
+        "invalidEmail" : "Invalid email",
+        "wrongEmail" : "Wrong email",
+        "submit" : "UPDATE PASSWORD",
+        "anReset" : "An reset password email has been sent to address",
+        "ifCorrect" : "if it's correct.",
+        "signIn" : "Sign in"
     }
 }

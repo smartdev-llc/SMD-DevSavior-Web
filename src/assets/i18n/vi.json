@@ -322,5 +322,17 @@
     },
     "tooltip": {
         "hotJob": "Bạn chỉ có thể đăng kí 1 hot job trong 1 ngày."
+    },
+    "lostPassword" : {
+        "plsEnterEmail" : "Vui lòng điền địa chỉ email",
+        "title" : "Mất mật khẩu",
+        "emailRequired" : "Vui lòng nhập email",
+        "invalidEmail" : "Email không hợp lệ",
+        "wrongEmail" : "Email này đã tồn tại, vui lòng nhập địa chỉ email khác.",
+        "submit" : "Cập nhật",
+        "anReset" : "Một địa chỉ email đã được gửi đến bạn để thiết lập lại mật khẩu hiện tại,",
+        "ifCorrect" : "nếu nó không đúng",
+        "signIn" : "Đăng nhập"
     }
+    
 }
