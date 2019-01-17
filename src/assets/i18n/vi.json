@@ -209,6 +209,7 @@
     },
     "educationHistory": {
         "addEducationHistory": "Thêm học vấn/bằng cấp",
+        "editEducationHistory": "Sửa học vấn/bằng cấp",
         "educationHistory": "Học Vấn và Bằng Cấp",
         "school": "Trường",
         "qualification": "Bằng cấp",
@@ -248,6 +249,7 @@
     "workingExperience": {
         "workingExperience": "Kinh nghiệm làm việc",
         "addWorkingExperien": "Thêm kinh nghiệm làm việc",
+        "editWorkingExperien": "Sửa kinh nghiệm làm việc",
         "position": "Vị trí",
         "describeTheob": "Mô tả công việc",
         "company": "Công ty",
@@ -320,7 +322,15 @@
         "mathEmail" : "Email này đã được đăng ký!.",
         "invalidEmail" : "Email bạn đăng ký không hợp lệ.",
         "emailRequired" : "Vui lòng nhập email.",
-        "cpnameRequired" : "Vui lòng nhập tên công ty của bạn."
+        "cpnameRequired" : "Vui lòng nhập tên công ty của bạn.",
+        "lNameRequired": "Vui lòng nhập họ",
+        "fNameRequired" : "Vui lòng nhập tên",
+        "submit" : "Đăng nhập",
+        "whyHaveAccount" : "Tại sao phải có tài khoản juniorviec?",
+        "fastApply" : "Đăng ký nhanh để cung cấp các tài liệu cần thiết luôn trong tầm tay",
+        "effectivelyTarget" : "Bạn có thể chia sẻ hồ sơ của bạn đến tay nhà tuyển dụng nhanh chóng và hiểu quả",
+        "matchingJobs" : "Chúng tôi sẽ đề nghị nhà tuyển dụng cung cấp công việc phù hợp với nhu cầu của bạn dựa trên email của bạn",
+        "websitePrefix" : "Website bạn nhập không đúng"
     },
     "contact": {
         "name": "Tên",
@@ -330,5 +340,16 @@
     },
     "tooltip": {
         "hotJob": "Bạn chỉ có thể đăng kí 1 hot job trong 1 ngày."
+    },
+    "lostPassword" : {
+        "plsEnterEmail" : "Vui lòng điền địa chỉ email",
+        "title" : "Mất mật khẩu",
+        "emailRequired" : "Vui lòng nhập email",
+        "invalidEmail" : "Email không hợp lệ",
+        "wrongEmail" : "Email này đã tồn tại, vui lòng nhập địa chỉ email khác.",
+        "submit" : "Cập nhật",
+        "anReset" : "Một địa chỉ email đã được gửi đến bạn để thiết lập lại mật khẩu hiện tại,",
+        "ifCorrect" : "nếu nó không đúng",
+        "signIn" : "Đăng nhập"
     }
 }

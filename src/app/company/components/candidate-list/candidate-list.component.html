@@ -104,15 +104,17 @@
             <td>
               <div>
                 <!-- <div class="mobile sm-hide col-xs-3">Name</div> -->
-                <div class="name col-sm-12 col-xs-9" *ngIf="candidate.educationDegrees && candidate.educationDegrees.length">
+                <div class="name col-sm-12 col-xs-9" >
                   <a routerLink="/employer/jobs/{{currentJob.id}}/candidates/{{candidate.id}}" target="_blank">{{ candidate.displayName }}</a>
-                  <div class="icon-with-text">
-                    <i class="glyphicon glyphicon-home"></i>
-                    {{candidate.educationDegrees[0].university}}
-                  </div>
-                  <div class="icon-with-text">
-                    <i class="glyphicon glyphicon-education"></i>
-                    {{candidate.educationDegrees[0].degreeType}}
+                  <div *ngIf="candidate.educationDegrees && candidate.educationDegrees.length">
+                    <div class="icon-with-text" >
+                      <i class="glyphicon glyphicon-home"></i>
+                      {{candidate.educationDegrees[0].university}}
+                    </div>
+                    <div class="icon-with-text">
+                      <i class="glyphicon glyphicon-education"></i>
+                      {{candidate.educationDegrees[0].degreeType}}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -214,6 +214,7 @@
     },
     "educationHistory": {
         "addEducationHistory": "Add new Education History",
+        "editEducationHistory": "Edit Education History",
         "educationHistory": "Education History",
         "school": "School",
         "qualification": "Qualification",
@@ -253,6 +254,7 @@
     "workingExperience": {
         "workingExperience": "Working experience",
         "addWorkingExperien": "Add new working experience",
+        "editWorkingExperien": "Edit working experience",
         "position": "Position",
         "describeTheob": "Describe the job",
         "company": "Company",
@@ -323,7 +325,15 @@
         "mathEmail" : "This email already registered!.",
         "invalidEmail" : "Invalid email.",
         "emailRequired" : "Email is required.",
-        "cpnameRequired" : "Company name is required."
+        "cpnameRequired" : "Company name is required.",
+        "lNameRequired": "Last name is required",
+        "fNameRequired" : "First name is required",
+        "submit" : "Sumit",
+        "whyHaveAccount" : "Why to have an account in JuniorViec?",
+        "fastApply" : "Fast applying for offers the necessary documents are always at hand",
+        "effectivelyTarget" : "Effectively target employers You can share your profile and CV recruiters",
+        "matchingJobs" : "We will suggest you offer work to fit your needs based on your email",
+        "websitePrefix" : "Invalid website"
     },
     "contact": {
         "name": "Name",
@@ -333,5 +343,16 @@
     },
     "tooltip": {
         "hotJob": "You can only register one hot job per day"
+    },
+    "lostPassword" : {
+        "plsEnterEmail" : "Please enter your email",
+        "title" : "Lost password",
+        "emailRequired" : "Email is required",
+        "invalidEmail" : "Invalid email",
+        "wrongEmail" : "Wrong email",
+        "submit" : "UPDATE PASSWORD",
+        "anReset" : "An reset password email has been sent to address",
+        "ifCorrect" : "if it's correct.",
+        "signIn" : "Sign in"
     }
 }
