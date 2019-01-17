@@ -151,9 +151,11 @@
               [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
               placeholder="DD-MM-YYY"
               bsDatepicker
-              formControlName="dateOfBirth" />
+              formControlName="dateOfBirth"
+              [maxDate]="maxDate" />
               <div *ngIf="submittedPersonal && piF.dateOfBirth.errors">
                 <em *ngIf="piF.dateOfBirth.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                <em *ngIf="piF.dateOfBirth.errors.bsDate" class="error help-block">{{ 'validation.birthDayInvalid' | translate }}</em>
               </div>
           </div>
         </div>

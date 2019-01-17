@@ -63,6 +63,10 @@ export class UpdateProfileStep3Component implements OnInit {
     });
   }
 
+  private setControlSkillsFG(skills : Array<any>) {
+    this.skillsFormGroup.setControl('skills',  this.formBuilder.array(skills));
+  }
+
   get skills(): FormArray { return this.skillsFormGroup.get('skills') as FormArray; }
 
   preLoadData(): void {
@@ -70,7 +74,7 @@ export class UpdateProfileStep3Component implements OnInit {
       .subscribe(res => {
         //init data for skill form
         this.currentSkills = res.skills;
-        this.skillsFormGroup.setControl('skills',  this.formBuilder.array(res.skills));
+        this.setControlSkillsFG(this.currentSkills);
         // init data for languages form
         if (res.languages && res.languages.length !== 0) {
           const languages = this.parseLanguages(res.languages);
@@ -127,6 +131,10 @@ export class UpdateProfileStep3Component implements OnInit {
     }
     // To prevent submit form -> close modal
     return false;
+  }
+
+  handlerCloseSkillModal() {
+    this.setControlSkillsFG(this.currentSkills);
   }
 
   showSkillsSuccess() {

@@ -18,7 +18,8 @@
         "fromMonthRequired": "The from month field is required",
         "toMonthRequired": "The from month field is required",
         "fromLessThanToMonth": "The from month must be before to month",
-        "existedKeySkill": "The key skill already exists in the your skills"
+        "existedKeySkill": "The key skill already exists in the your skills",
+        "birthDayInvalid": "Day of birthday is incorrect"
     },
     "header": {
         "jobs": "All Jobs",
@@ -46,7 +47,7 @@
         "account_infomation": "Account Infomation",
         "memberships": "Memberships",
         "customer_support": "Customer Support",
-        "hotline": "Hotline: 1800 1560",
+        "hotline": "Hotline: 0905 509 951",
         "call_to_buy": "Call To Buy",
         "buy_more_services": "Buy More Services",
         "faq": "FAQ",
@@ -92,10 +93,11 @@
         "hotJobRegister": "Register Now",
         "hotJobRegistering": "Registering",
         "jobStatus": {
-            "all": "All",
+            "all": "ALL",
             "online": "Online",
             "expired": "Expired",
-            "expireSoon": "Expire in 7 days"
+            "expireSoon": "Expire in 7 days",
+            "hotJob": "HOT JOB"
         },
         "jobExpiredDate": "Expired At",
         "jobListHeader": {
@@ -103,7 +105,28 @@
             "status": "Status",
             "expires": "Expires",
             "applications": "Applications",
-            "hotJob": "Hot Job"
+            "hotJob": "Request Hot Job",
+            "viewOnline": "View Online",
+            "viewCandidates": "View Candidates",
+            "from": "From",
+            "to": "To",
+            "at": "at"
+        },
+        "candidate": {
+            "header": {
+                "language": "Language",
+                "skill": "My skills",
+                "aboutMe": "About me",
+                "workingExperience": "Working experience",
+                "education": "Education",
+                "dateOfBirth": "Date of birth",
+                "email": "Email",
+                "gender": "Gender",
+                "phoneNumber": "Phone Number",
+                "maritalStatus": "Marital status",
+                "currentAddress": "Current Address"
+
+            }
         }
     },
     "userProfile": {

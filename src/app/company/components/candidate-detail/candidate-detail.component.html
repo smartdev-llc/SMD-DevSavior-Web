@@ -1,0 +1,124 @@
+<app-home-company-logged></app-home-company-logged>
+
+<div class="container-fluid page-title dashboard">
+
+    <div *ngIf="isLoading" id="loadessr" style="left: 0px;">
+        <div id="loader">
+        </div>
+    </div>
+
+    <!--Dash Board-->
+    <div class="row dashboard" *ngIf="candidate">
+        <div class="container main-container gery-bg">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
+                <div class="seprator">
+                    <div class="no-padding profile-img-wrapper">
+                        <img class="profile-img" src="{{ candidate.profileImageURL| photoURLConverter: 'assets/images/profile-placeholder.png' }}" alt="">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">
+                            <span>{{candidate.displayName}}</span>
+                        </div>
+                        <div class="user-job-title">
+                            <span>{{candidate.jobTitle}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div class="container-fluid white-bg" *ngIf="candidate">
+    <div class="row">
+        <div class="container main-container-job">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <!--Skills-->
+                <div class="content">
+                    <!--About me-->
+                    <div>
+                        <h3 class="small-heading">{{ 'company.candidate.header.aboutMe' | translate }}</h3>
+                        <div class="u-personal">
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.email">
+                                {{'company.candidate.header.email' | translate}}:
+                                <span> {{candidate.email}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.phoneNumber">
+                                    {{'company.candidate.header.phoneNumber' | translate}}:
+                                    <span> {{candidate.phoneNumber}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.gender">
+                                    {{'company.candidate.header.gender' | translate}}:
+                                    <span class="lowercase"> {{candidate.gender}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.dateOfBirth">
+                                {{'company.candidate.header.dateOfBirth' | translate}}:
+                                <span> {{candidate.dateOfBirth}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.maritalStatus">
+                                    {{'company.candidate.header.maritalStatus' | translate}}:
+                                    <span class="lowercase">
+                                         {{candidate.maritalStatus}}
+                                    </span>
+                                </div>
+                            <div class="col-sm-12" *ngIf="candidate.currentAddress">
+                                {{'company.candidate.header.currentAddress' | translate}}:
+                                <span> {{candidate.currentAddress}}{{
+                                    candidate.city ?', ' + candidate.city : ''}}{{ candidate.country ?', ' + candidate.country : ''}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Candidate skill -->
+                    <div>
+                        <h3 class="small-heading">
+                            {{ 'company.candidate.header.skill' | translate }}
+                        </h3>
+                        <ul class="skills no-bullet">
+                            <li *ngFor="let skill of candidate.skills">{{skill}}</li>
+                        </ul>
+                    </div>
+                    <div >
+                        <h3 class="small-heading">
+                                {{ 'company.candidate.header.language' | translate }}
+                        </h3>
+                        <ul class="skills no-bullet">
+                            <div>
+                                <ng-template ngFor let-language [ngForOf]="candidate.languages | keyValue">
+                                    <li *ngIf="language.value != 'NO'">
+                                        {{language.key +' - ' + language.value}}
+                                    </li>
+                                </ng-template>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <!--Working Experiences-->
+                    <h3 class="small-heading">{{ 'company.candidate.header.workingExperience' | translate }}</h3>
+                    <ul class="education">
+                        <li *ngFor="let workingExperience of candidate.workingExperiences">
+                            <div class="data-row">
+                                <div class="date">{{'From '+workingExperience.fromMonth + ' To ' + workingExperience.toMonth}}</div>
+                                <h3>{{workingExperience.jobTitle + ' at ' + workingExperience.company}}</h3>
+                                <p>{{workingExperience.additionalInformation}}</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <h3 class="small-heading">{{ 'company.candidate.header.education' | translate }}</h3>
+                    <ul class="education">
+                        <li *ngFor="let educationDegree of candidate.educationDegrees">
+                            <div class="data-row">
+                                <div class="date">{{'From '+educationDegree.fromMonth + ' To ' + educationDegree.toMonth}}</div>
+                                <h3>{{educationDegree.major + ' at ' + educationDegree.university}}</h3>
+                                <p>{{educationDegree.additionalInformation}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
