@@ -13,7 +13,7 @@ export class DetailCompanyComponent implements OnInit {
   /* Integrate later(next release)
   slides = [
     {
-      image: 'assets/images/bg-img-job.jpg',
+      image: 'assets/images/company-detail.png',
     }
   ];
   */

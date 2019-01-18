@@ -27,7 +27,7 @@ export class UpdateProfileStep5Component implements OnInit {
   submittedWorking: boolean = false;
   workingExperiences: Array<any> = null;
   workingIdSelected: any;
-
+  isModalCreatedOpen : boolean = true;
   constructor(
     private formBuilder: FormBuilder,
     private studentUserService: StudentUserService,
@@ -137,6 +137,7 @@ export class UpdateProfileStep5Component implements OnInit {
   editWorkingExperience(working: any): void {
     const workingExperience = new WorkingExperience().deserialize(working);
     this.workingExperienceFormGroup.setValue(workingExperience);
+    this.isModalCreatedOpen = false;
     this.eplHistoryModal.show();
   }
 
@@ -163,6 +164,7 @@ export class UpdateProfileStep5Component implements OnInit {
   }
 
   openModalCreateNew() {
+    this.isModalCreatedOpen = true;
     this.workingExperienceFormGroup.reset();
     this.eplHistoryModal.show();
   }
