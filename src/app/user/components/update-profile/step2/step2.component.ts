@@ -29,6 +29,7 @@ export class UpdateProfileStep2Component implements OnInit {
   educationDegrees: Array<any> = null;
   educationIdSelected: any;
   educationLang: any = {};
+  isModalCreatedOpen : boolean = true;
 
   qualifications: Array<any>  = [];
 
@@ -155,6 +156,7 @@ export class UpdateProfileStep2Component implements OnInit {
   editEducationDegrees(education: any): void {
     const educationDegrees = new EducationDegrees().deserialize(education);
     this.educationDegreesFormGroup.setValue(educationDegrees);
+    this.isModalCreatedOpen = false;
     this.eduHistoryModal.show();
   }
 
@@ -190,6 +192,7 @@ export class UpdateProfileStep2Component implements OnInit {
 
   openModalCreateNew() {
     this.educationDegreesFormGroup.reset();
+    this.isModalCreatedOpen = true;
     this.eduHistoryModal.show();
   }
 
