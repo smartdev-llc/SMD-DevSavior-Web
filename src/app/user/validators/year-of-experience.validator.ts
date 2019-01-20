@@ -6,7 +6,7 @@ import {
 
 export const yearOfExperience: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
   const { yearsOfExperience, noWorkExperience } = formGroup.value;
-  const patternNumber = /^[0-9]*$/;
+  const patternNumber = /^[0-5]$/;
 
   if (!noWorkExperience) {
     let validator: any = {};

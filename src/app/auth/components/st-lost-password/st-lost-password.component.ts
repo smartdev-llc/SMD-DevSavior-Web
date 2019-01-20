@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
-import { FormBuilder,
-         FormGroup,
-         Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { Role } from '../../../core/models/user';
 import { delay } from 'rxjs/operators';
 
@@ -19,7 +21,7 @@ export class StLostPasswordComponent implements OnInit {
   loading = false;
 
   constructor(private authService: AuthService,
-              private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -37,23 +39,23 @@ export class StLostPasswordComponent implements OnInit {
     this.loading = true;
     if (this.lostPasswordForm.invalid) {
       this.loading = false;
-      return ;
+      return;
     }
     this.authService.forgotPassword(this.lostPasswordForm.value.email, Role.Student)
-                    .subscribe(
-                      data => {
-                        this.requested = true;
-                        this.loading = false;
-                      },
-                      error => {
-                        if(error.status >= 500) {
-                          this.lostPasswordForm.setErrors({globalError: 'Oops! Something bad happened. Please come back later!'})
-                        } else {
-                          this.lostPasswordForm.controls.email.setErrors({nonExisted: true});
-                        }
-                        
-                        this.loading = false;
-                      });
+      .subscribe(
+        data => {
+          this.requested = true;
+          this.loading = false;
+        },
+        error => {
+          if (error.status >= 500) {
+            this.lostPasswordForm.setErrors({ globalError: 'Oops! Something bad happened. Please come back later!' })
+          } else {
+            this.lostPasswordForm.controls.email.setErrors({ nonExisted: true });
+          }
+
+          this.loading = false;
+        });
   }
 
   get givenEmail() {

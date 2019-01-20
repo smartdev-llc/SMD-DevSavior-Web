@@ -70,7 +70,7 @@
                   <input type="text" class="form-control" formControlName="yearsOfExperience" *ngIf="!yearsExperienceForm.value.noWorkExperience">
                   <div *ngIf="submittedBasic && yearsExperienceForm.errors">
                     <em *ngIf="yearsExperienceForm.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
-                    <em *ngIf="yearsExperienceForm.errors.notANumber" class="error help-block">Invalid years of experience</em>
+                    <em *ngIf="yearsExperienceForm.errors.notANumber" class="error help-block">{{ 'validation.invalidExperience' | translate }}</em>
                   </div>
                 </div>
               </div>
