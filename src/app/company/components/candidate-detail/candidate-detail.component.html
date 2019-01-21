@@ -11,16 +11,18 @@
     <div class="row dashboard" *ngIf="candidate">
         <div class="container main-container gery-bg">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
-                <div class="seprator ">
+                <div class="seprator">
                     <div class="no-padding profile-img-wrapper">
                         <img class="profile-img" src="{{ candidate.profileImageURL| photoURLConverter: 'assets/images/profile-placeholder.png' }}" alt="">
-
                     </div>
-                    <div class="user-tag"><span>{{candidate.displayName}}</span></div>
-                    <!-- <div class="jos-status"><span class="label job-type job-partytime">Party time</span></div> -->
-                </div>
-                <div class="seprator">
-                    <!-- <div class="user-tag"><label>Locations<span>Da Nang</span></label></div> -->
+                    <div class="user-info">
+                        <div class="user-name">
+                            <span>{{candidate.displayName}}</span>
+                        </div>
+                        <div class="user-job-title">
+                            <span>{{candidate.jobTitle}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,20 +34,65 @@
     <div class="row">
         <div class="container main-container-job">
             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
-
                 <!--Skills-->
-                <div class="">
-                    <h3 class="small-heading">{{ 'company.candidate.header.skill' | translate }}</h3>
-                    <ul class="skills">
-                        <li *ngFor="let skill of candidate.skills">{{skill}}</li>
-                    </ul>
-                </div>
-
                 <div class="content">
-
                     <!--About me-->
-                    <h3 class="small-heading">{{ 'company.candidate.header.aboutMe' | translate }}</h3>
-                    <p>{{candidate.jobTitle}}</p>
+                    <div>
+                        <h3 class="small-heading">{{ 'company.candidate.header.aboutMe' | translate }}</h3>
+                        <div class="u-personal">
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.email">
+                                {{'company.candidate.header.email' | translate}}:
+                                <span> {{candidate.email}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.phoneNumber">
+                                    {{'company.candidate.header.phoneNumber' | translate}}:
+                                    <span> {{candidate.phoneNumber}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.gender">
+                                    {{'company.candidate.header.gender' | translate}}:
+                                    <span class="lowercase"> {{candidate.gender}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.dateOfBirth">
+                                {{'company.candidate.header.dateOfBirth' | translate}}:
+                                <span> {{candidate.dateOfBirth}}</span>
+                            </div>
+                            <div class="col-md-6 col-sm-12" *ngIf="candidate.maritalStatus">
+                                    {{'company.candidate.header.maritalStatus' | translate}}:
+                                    <span class="lowercase">
+                                         {{candidate.maritalStatus}}
+                                    </span>
+                                </div>
+                            <div class="col-sm-12" *ngIf="candidate.currentAddress">
+                                {{'company.candidate.header.currentAddress' | translate}}:
+                                <span> {{candidate.currentAddress}}{{
+                                    candidate.city ?', ' + candidate.city : ''}}{{ candidate.country ?', ' + candidate.country : ''}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Candidate skill -->
+                    <div>
+                        <h3 class="small-heading">
+                            {{ 'company.candidate.header.skill' | translate }}
+                        </h3>
+                        <ul class="skills no-bullet">
+                            <li *ngFor="let skill of candidate.skills">{{skill}}</li>
+                        </ul>
+                    </div>
+                    <div >
+                        <h3 class="small-heading">
+                                {{ 'company.candidate.header.language' | translate }}
+                        </h3>
+                        <ul class="skills no-bullet">
+                            <div>
+                                <ng-template ngFor let-language [ngForOf]="candidate.languages | keyValue">
+                                    <li *ngIf="language.value != 'NO'">
+                                        {{language.key +' - ' + language.value}}
+                                    </li>
+                                </ng-template>
+                            </div>
+                        </ul>
+                    </div>
 
                     <!--Working Experiences-->
                     <h3 class="small-heading">{{ 'company.candidate.header.workingExperience' | translate }}</h3>

@@ -81,8 +81,8 @@ export class BrowseJobsComponent implements OnInit {
 
     this.searchJobForm = this.formBuilder.group({
       category: category || '',
-      qs: qs,
-      location: location,
+      qs: qs || '',
+      location: location || '',
       jobTypes: new FormArray(controlsJobTypes)
     });
   }
@@ -103,7 +103,7 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   loadJobs(): void {
-    this.jobsTitle = this.queryParams.qs && this.queryParams.qs.split('-');
+    this.jobsTitle = this.queryParams.qs && this.queryParams.qs.split('-') || '';
     this.queryParams = {
       size: this.itemsPerPage,
       page: 0,

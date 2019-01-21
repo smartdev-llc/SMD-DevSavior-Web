@@ -24,9 +24,20 @@
 .brows-job-sallery {
   font-size: 15px;
 }
-
+.joblist .bg-image .photoBanner{
+  img{
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+  }
+}
 @media (max-width: 500px) {
   .desig {
     width: 100%;
+  }
+}
+@media (min-width: 536px) and (max-width: 1200px){
+  .joblist .bg-image .photoBanner{
+    margin-top: 44px;
   }
 }

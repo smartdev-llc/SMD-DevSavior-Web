@@ -49,36 +49,19 @@ export class JobListComponent implements OnInit {
   }
 
   updateJobByStatus() {
-    if(this.status == 'all') {
-      this.getListCompanyJobs();
-    } else {
+    switch(this.status) {
+      case 'ALL': 
+        this.getListCompanyJobs();
+        break;
+      case 'HOTJOB': 
+        this.getHotJob(true); 
+        break;
+      default: 
       this.getListJobByStatus(this.status); 
     }
-  
   }
 
   getListCompanyJobs() {
-    // const params = new HttpParams({ fromObject: this.queryParams });
-    // this.jobService.getCompanyJobs(params)
-    //   .subscribe(value => {
-    //     this.totalItems = value.length;
-    //     this.queryParams = {
-    //       size: this.itemsPerPage,
-    //       page: 0,
-    //       // ...this.queryParams
-    //     };
-        // const params = new HttpParams({ fromObject: this.queryParams });
-        // this.jobService.getCompanyJobs(params)
-        //   .subscribe(value => {
-        //     this.listCompanyJobs = value;
-        //     this.loading = false;
-        //   }, error => {
-        //     this.loading = false;
-        //     this.formErrorMessage = error.message;
-        //   });
-    // }, error => {
-    //     this.formErrorMessage = error.message;
-    //   });
     this.queryParams = {
       size: this.itemsPerPage,
       page: 0,
@@ -148,15 +131,21 @@ export class JobListComponent implements OnInit {
         });
   }
 
-  getHotJob() {
+  getHotJob(showJob = false) {
     this.isProcessingHotJob = true;
     this.jobService.getHotJob()
         .subscribe( response => {
           if(!Array.isArray(response)) {
             return;
           }
+          if (showJob) {
+            this.listCompanyJobs = [];
+          }
           for(const job of response) {
             this.hotJobs.set(job.status, job.job);
+            if(showJob) {
+              this.listCompanyJobs.push(job.job);
+            }
           }
           this.isProcessingHotJob = false;
         }, error => {

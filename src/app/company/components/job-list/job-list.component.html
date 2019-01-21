@@ -1,17 +1,21 @@
 <app-home-company-logged></app-home-company-logged>
 <div class="container main-container header_area">
     <div class="row j-filter-search">
-        <div class="col-lg-6 col-xs-12">
+        <div class="col-lg-8 col-xs-12">
             <div class="tab_filters">
                 <ul class="nav nav-pills">
-                    <li class="active">
-                        <a routerLink="/employer/jobs/all">{{ 'company.jobStatus.all' |  translate}}
-                  <!-- <span class="badge j-number">{{typeJobs.all}}</span> -->
-                </a>
+                    <li [ngClass]="{'active': status == 'ALL'}">
+                        <a routerLink="/employer/jobs/ALL">{{ 'company.jobStatus.all' |  translate}}
+                        </a>
+                    </li>
+                    <li [ngClass]="{'active': status == 'HOTJOB'}">
+                        <a routerLink="/employer/jobs/HOTJOB">{{ 'company.jobStatus.hotJob' |  translate}}
+                            <span class="badge j-number">{{hotJobs.size}}</span>
+                        </a>
                     </li>
 
                     <ng-template ngFor let-jobType [ngForOf]="typeJobs | keyValue">
-                        <li class="active">
+                        <li [ngClass]="{'active' : status == jobType.key}">
                             <a routerLink="/employer/jobs/{{jobType.key}}">{{ jobType.key |  translate}}
                       <span class="badge j-number">{{jobType.value}}</span>
                     </a>
@@ -23,8 +27,8 @@
             </div>
 
         </div>
-        <form class="form validation-form col-lg-6 col-xs-12">
-            <div class="col-lg-offset-6 ">
+        <!-- <form class="form validation-form col-lg-4 col-xs-12">
+            <div class="col-lg-offset-8 ">
                 <div class="input-group">
                     <input class="form-control" placeholder="Keyword, job title or skill" type="text">
                     <span class="input-group-btn">
@@ -34,7 +38,7 @@
                     </span>
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
 
     <!-- <div class="row j-export">
@@ -63,12 +67,13 @@
                         <div>
                             <div class="j-title">
                                 <a routerLink="/jobs/{{job.id}}" target="blank">{{job.title}}</a>
-                                <span>{{job.id}}</span>
                             </div>
-                            <div class="j-location">{{job.location || "No mention location"}}</div>
-                            <div class="j-actions">
+                            <div class="j-location">
+                                {{job.location || "No mention location"}}
+                            </div>
+                            <div class="j-actions" >
                                 <a routerLink="/jobs/{{job.id}}" target="_blank">{{ 'company.jobListHeader.viewOnline' | translate}}</a>
-                                <a routerLink="/employer/jobs/{{job.id}}/candidates">{{ 'company.jobListHeader.viewCandidates' | translate}}</a>
+                                <a *ngIf="job.status == 'ACTIVE'" routerLink="/employer/jobs/{{job.id}}/candidates">{{ 'company.jobListHeader.viewCandidates' | translate}}</a>
                             </div>
                         </div>
                     </td>

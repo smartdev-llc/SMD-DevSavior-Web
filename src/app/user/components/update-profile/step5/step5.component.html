@@ -61,7 +61,8 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="dialog-sizes-name1" class="modal-title pull-left">{{ 'workingExperience.addWorkingExperien' | translate }}</h4>
+          <h4 *ngIf="isModalCreatedOpen" id="dialog-sizes-name1" class="modal-title pull-left">{{ 'workingExperience.addWorkingExperien' | translate }}</h4>
+          <h4 *ngIf="!isModalCreatedOpen" id="dialog-sizes-name1" class="modal-title pull-left">{{ 'workingExperience.editWorkingExperien' | translate }}</h4>
           <button type="button" class="close pull-right" (click)="eplHistoryModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

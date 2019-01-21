@@ -33,6 +33,7 @@ export class UpdateProfileStep1Component implements OnInit {
   basicInfo: BasicInfo;
   personalInfo: PersonalInfo;
   profileImageURL: string = '';
+  maxDate: Date;
 
   academicLevel: Array<any>  = [];
 
@@ -66,6 +67,8 @@ export class UpdateProfileStep1Component implements OnInit {
       const { academicLevel } = event.translations;
       this.translateAcademicLevelSelect(academicLevel);
     });
+
+    this.maxDate = new Date();
   }
 
   ngOnInit() {

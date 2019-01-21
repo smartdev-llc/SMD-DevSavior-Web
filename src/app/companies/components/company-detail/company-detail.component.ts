@@ -13,7 +13,7 @@ export class DetailCompanyComponent implements OnInit {
   /* Integrate later(next release)
   slides = [
     {
-      image: 'assets/images/bg-img-job.jpg',
+      image: 'assets/images/company-detail.png',
     }
   ];
   */
@@ -59,13 +59,18 @@ export class DetailCompanyComponent implements OnInit {
     this.isLoadJob = true;
     this.hideShowMoreButton = true;
     this.jobService.getJobsOfCompany(this.companyId, this.size, this.page)
-      .subscribe(jobs => this.appendJob(jobs),
+      .subscribe(response => {
+        this.appendJob(response.list);
+        this.page++;
+        this.hideShowMoreButton =  this.page * response.size <= response.total;
+        this.isLoadJob = false;
+      },
         error => {
           this.isLoadJob = false;
           this.hideShowMoreButton = true;
         }
       );
-    this.page++;
+ 
   }
 
   appendJob(jobs: any[]) {
@@ -74,9 +79,6 @@ export class DetailCompanyComponent implements OnInit {
     } else {
       this.jobs = this.jobs.concat(jobs);
     }
-    this.hideShowMoreButton = false;
-    this.isLoadJob = false;
-
   }
 
   ngAfterViewInit() {
