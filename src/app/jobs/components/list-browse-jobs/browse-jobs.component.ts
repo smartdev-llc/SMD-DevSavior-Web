@@ -116,6 +116,9 @@ export class BrowseJobsComponent implements OnInit {
       this.listJobs = value.list;
       this.totalItems = value.total;
       this.loading = false;
+    },
+    error => {
+      this.loading = false;
     });
   }
 
