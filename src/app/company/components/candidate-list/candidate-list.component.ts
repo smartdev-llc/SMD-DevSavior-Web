@@ -32,7 +32,7 @@ export class CandidateListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isLoading = true;
+    // this.isLoading = true;
     if (this.currentJob.id) {
       this.loadJobs();
       this.loadCandidateForJob();
