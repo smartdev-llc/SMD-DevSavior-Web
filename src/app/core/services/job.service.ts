@@ -62,8 +62,7 @@ export class JobService {
   }
 
   getRecommenedJob(jobId: string) {
-    return this,this.http
-      .get('/jobs/' + jobId + '/recommended' );
+    return this.http.get('/jobs/' + jobId + '/recommended' );
   }
 
   //TODO: Move handleError() in each Service class into one Class

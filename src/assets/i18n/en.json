@@ -3,23 +3,25 @@
         "yesDialog": "Yes",
         "noDialog": "No",
         "titleDialog": "Confirm dialog",
-        "descriptionDialog": "Do you want to confirm?",
+        "descriptionDialog": "Do you want to confirm?.",
         "btnUpdate": "Update",
         "btnCancel": "Cancel",
         "btnEdit": "Edit",
         "btnDelete": "Delete"
     },
     "validation": {
-        "wrongEmailAndPassword": "Your account doesn't exist. Enter a different account",
-        "wrongEmail": "The username or password you enterd is incorrect",
-        "fieldRequired": "Field is Required",
-        "salaryNumber": "Salary must be number",
-        "salaryDifference": "To salary must be greater than or equal to from salary",
-        "fromMonthRequired": "The from month field is required",
-        "toMonthRequired": "The from month field is required",
-        "fromLessThanToMonth": "The from month must be before to month",
-        "existedKeySkill": "The key skill already exists in the your skills",
-        "birthDayInvalid": "Day of birthday is incorrect"
+        "wrongEmailAndPassword": "The email or password you entered is incorrect.",
+        "wrongEmail": "Incorectly email.",
+        "fieldRequired": "Field is Required.",
+        "salaryNumber": "Salary must be number.",
+        "salaryDifference": "To salary must be greater than or equal to from salary.",
+        "fromMonthRequired": "The from month field is required.",
+        "toMonthRequired": "The from month field is required.",
+        "fromLessThanToMonth": "The from month must be before to month.",
+        "existedKeySkill": "The key skill already exists in the your skills.",
+        "birthDayInvalid": "Day of birthday is incorrect.",
+        "invalidExperience" : "Invalid years of experience.",
+        "noMoreFiveYear" : "Experience no more than 5 years."
     },
     "header": {
         "jobs": "All Jobs",
@@ -139,7 +141,7 @@
     },
     "userProfile": {
         "titleDeleteWorking": "Delete working experience",
-        "descriptionDeleteWorking": "Do you want to delete the working experience?"
+        "descriptionDeleteWorking": "Do you want to delete the working experience?."
     },
     "education": {
         "highSchool": "High school",
@@ -160,7 +162,7 @@
     },
     "postJob": {
         "postAJob": "Post A Job",
-        "introduction": "Our database gives you access to millions of active candidates",
+        "introduction": "Our database gives you access to millions of active candidates.",
         "jobTitle": "Job Title",
         "jobCategory": "Job category",
         "skills": "Skills",
@@ -221,8 +223,8 @@
         "graduated": "Graduated"
     },
     "educationHistory": {
-        "addEducationHistory": "Add new Education History",
-        "editEducationHistory": "Edit Education History",
+        "addEducationHistory": "Add new Education History.",
+        "editEducationHistory": "Edit Education History.",
         "educationHistory": "Education History",
         "school": "School",
         "qualification": "Qualification",
@@ -231,7 +233,7 @@
         "subject": "Subject",
         "fromMonth": "From month",
         "toMonth": "To month",
-        "plsComplete": "Please complete your education history!",
+        "plsComplete": "Please complete your education history!.",
         "schoolPlaceHolder": "e.g. International Business",
         "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City",
         "from": "From"
@@ -290,17 +292,16 @@
         "pass": "Password",
         "signIn": "Sign In",
         "lostPass": "Forgot password",
-        "signUpNow": "Register now",
+        "signUpNow": "REGISTER NOW!",
         "socialFB": "Sign in with Facebook",
         "socialGG": "Sign in with Google",
         "verify": "We just sent you an verification to your email",
         "resend": "Please verify your account. Or click  ",
         "resend2": "here",
-        "resend3": "to resend a new verification email.",
-        "dontHaveAcc": "DON'T HAVE AN ACCOUNT?"
+        "resend3": "to resend a new verification email."
     },
     "register": {
-        "titleCp": "Register and Recruit your staff now",
+        "titleCp": "Register and Recruit your staff now.",
         "titleSt": "Register your Candidate account.",
         "mail": "Email",
         "pass": "Password",
@@ -313,7 +314,7 @@
         "address": "Address",
         "phone": "Phone",
         "web": "Website",
-        "haveAcc": "DO YOU HAVE AN ACCOUNT?",
+        "haveAcc": "DO YOU HAVE AN ACCOUNT?.",
         "isRead": "I have read & accept",
         "policy": "  Privacy Policy and Terms of Use ",
         "pPass": "Your passwords at JuniorViec are encrypted and secured.",
@@ -338,10 +339,13 @@
         "fNameRequired" : "First name is required",
         "submit" : "Sumit",
         "whyHaveAccount" : "Why to have an account in JuniorViec?",
-        "fastApply" : "Fast applying for offers the necessary documents are always at hand",
-        "effectivelyTarget" : "Effectively target employers You can share your profile and CV recruiters",
-        "matchingJobs" : "We will suggest you offer work to fit your needs based on your email",
-        "websitePrefix" : "Invalid website"
+        "fastApply" : "Fast applying for offers the necessary documents are always at hand.",
+        "effectivelyTarget" : "Effectively target employers You can share your profile and CV recruiters.",
+        "matchingJobs" : "We will suggest you offer work to fit your needs based on your email.",
+        "websitePrefix" : "Invalid website",
+        "dontHaveAcc": "DON'T HAVE AN ACCOUNT?",
+        "invitationText1": " If you'd like to find out more about how juniorviec can help you with find a suitable job , please register an account.",
+        "invitationText2": "A member of our Sales team will contact you shortly."
     },
     "contact": {
         "name": "Name",
@@ -353,14 +357,15 @@
         "hotJob": "You can only register one hot job per day"
     },
     "lostPassword" : {
-        "plsEnterEmail" : "Please enter your email",
-        "title" : "Lost password",
-        "emailRequired" : "Email is required",
-        "invalidEmail" : "Invalid email",
-        "wrongEmail" : "Wrong email",
+        "plsEnterEmail" : "Please enter your email.",
+        "guideText" : "You will receive a link to create a new password via email.",
+        "title" : "Lost your password?.",
+        "emailRequired" : "Email is required.",
+        "invalidEmail" : "Invalid email.",
+        "wrongEmail" : "Wrong email.",
         "submit" : "UPDATE PASSWORD",
-        "anReset" : "An reset password email has been sent to address",
-        "ifCorrect" : "if it's correct.",
+        "anReset" : "A message has been sent to",
+        "withGuide" : "with instructions to reset your passwod.",
         "signIn" : "Sign in"
     }
 }
