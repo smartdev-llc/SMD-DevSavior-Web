@@ -96,7 +96,7 @@
             </li>
           </ul>
           <ul class="social" *ngIf="company">
-            <li><a href="{{company.website}}"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
+            <li><a href="{{getCompanyWebsite()}}"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
             <li><a href="#"><i class="fa fa-envelope display-inline"></i>{{company.email}}</a></li>
             <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company.phoneNumber}}</a></li>
           </ul>
