@@ -120,7 +120,7 @@ export class JobDetailComponent implements OnInit {
           this.isApplied = true;
           this.toastr.success('Applied Job Success', 'Apply Job');
         },
-        (error: AppErrors) => this.handleErrorJobDetailComponent(error)
+        (error: AppErrors) => this.handleErrorApplyJob(error)
       );
   }
 
@@ -132,9 +132,6 @@ export class JobDetailComponent implements OnInit {
     else if (error instanceof Forbidden) {
     }
     else if (error instanceof Duplicate) {
-      this.btnApplyJob.className = 'label job-type pointer apply-job';
-      this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
-      this.toastr.error(error.originalError, 'Apply Job');
     }
     else if (error instanceof NotFound) {
       this.isLoading = false;
@@ -143,6 +140,12 @@ export class JobDetailComponent implements OnInit {
     else {
       throw error;
     }
+  }
+
+  handleErrorApplyJob(error) {
+    this.btnApplyJob.className = 'label job-type pointer apply-job';
+    this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
+    this.toastr.error(error.originalError, 'Apply Job');
   }
 
   renderTextForBtnApplyJob(isApplied): string {
