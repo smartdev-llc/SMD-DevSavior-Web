@@ -3,7 +3,7 @@
         "yesDialog": "Yes",
         "noDialog": "No",
         "titleDialog": "Confirm dialog",
-        "descriptionDialog": "Do you want to confirm?.",
+        "descriptionDialog": "Do you want to confirm?",
         "btnUpdate": "Update",
         "btnCancel": "Cancel",
         "btnEdit": "Edit",
@@ -11,7 +11,7 @@
     },
     "validation": {
         "wrongEmailAndPassword": "The email or password you entered is incorrect.",
-        "wrongEmail": "Incorectly email.",
+        "wrongEmail": "Incorect email.",
         "fieldRequired": "Field is Required.",
         "salaryNumber": "Salary must be number.",
         "salaryDifference": "To salary must be greater than or equal to from salary.",
@@ -141,7 +141,7 @@
     },
     "userProfile": {
         "titleDeleteWorking": "Delete working experience",
-        "descriptionDeleteWorking": "Do you want to delete the working experience?."
+        "descriptionDeleteWorking": "Do you want to delete the working experience?"
     },
     "education": {
         "highSchool": "High school",
@@ -233,7 +233,7 @@
         "subject": "Subject",
         "fromMonth": "From month",
         "toMonth": "To month",
-        "plsComplete": "Please complete your education history!.",
+        "plsComplete": "Please complete your education history!",
         "schoolPlaceHolder": "e.g. International Business",
         "subjectPlaceHolder": "e.g. University of Economics of Ho Chi Minh City",
         "from": "From"
@@ -314,7 +314,7 @@
         "address": "Address",
         "phone": "Phone",
         "web": "Website",
-        "haveAcc": "DO YOU HAVE AN ACCOUNT?.",
+        "haveAcc": "DO YOU HAVE AN ACCOUNT?",
         "isRead": "I have read & accept",
         "policy": "  Privacy Policy and Terms of Use ",
         "pPass": "Your passwords at JuniorViec are encrypted and secured.",
@@ -331,7 +331,7 @@
         "notMatchPassword" : "Password doesn't match.",
         "passwordAtLeast" : "The password is at least",
         "characters" : "characters.",
-        "mathEmail" : "This email already registered!.",
+        "mathEmail" : "This email already registered!",
         "invalidEmail" : "Invalid email.",
         "emailRequired" : "Email is required.",
         "cpnameRequired" : "Company name is required.",
@@ -359,7 +359,7 @@
     "lostPassword" : {
         "plsEnterEmail" : "Please enter your email.",
         "guideText" : "You will receive a link to create a new password via email.",
-        "title" : "Lost your password?.",
+        "title" : "Lost your password?",
         "emailRequired" : "Email is required.",
         "invalidEmail" : "Invalid email.",
         "wrongEmail" : "Wrong email.",
