@@ -62,7 +62,7 @@ export class DetailCompanyComponent implements OnInit {
       .subscribe(response => {
         this.appendJob(response.list);
         this.page++;
-        this.hideShowMoreButton =  this.page * response.size <= response.total;
+        this.hideShowMoreButton =  this.page * response.size >= response.total;
         this.isLoadJob = false;
       },
         error => {

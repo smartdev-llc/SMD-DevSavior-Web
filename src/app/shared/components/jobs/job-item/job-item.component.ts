@@ -10,6 +10,7 @@ import { environment } from '../../../../../environments/environment';
 })
 export class JobItemComponent implements OnInit {
   @Input() job: any;
+  @Input() showCompanyName = true;
   urlEndpoint: string = environment.apiEndpoint;
 
   constructor(){
