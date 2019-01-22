@@ -184,4 +184,12 @@ export class JobDetailComponent implements OnInit {
   fixBugAutoRecreateNestedOwlCarousel() {
     $('.owl-item .owl-wrapper-outer').remove();
   }
+
+  getCompanyWebsite() {
+    if(this.company.website && this.company.website.indexOf('http') != 0) {
+      return 'http://' + this.company.website;
+    }
+
+    return this.company.website;
+  }
 }
