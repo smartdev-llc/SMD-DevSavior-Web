@@ -1,17 +1,22 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 import { ShareButtonModule } from '@ngx-share/button'
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
+import { QuillModule } from 'ngx-quill';
+import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyService';
+
 
 // Components
 import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
 import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { EditJobComponent }  from './components/edit-job/edit-job.component';
+
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -32,6 +37,7 @@ import {ProfileService} from '../company/services/profile.service';
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
+    EditJobComponent,
     ContactUsComponent
   ],
   exports: [
@@ -50,12 +56,14 @@ import {ProfileService} from '../company/services/profile.service';
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
+    QuillModule,
     ShareButtonModule.forRoot()
   ],
   providers: [
     CategoryCompanyService,
     SkillService,
     JobCategories,
+    PostJobCompanyService,
     JobService,
     ProfileService
   ]

@@ -151,5 +151,13 @@ export class JobService {
       map((response: any) => response)
     )
   }
-
+  
+  editJob (jobId: number,resource: any){
+    console.log(resource)
+    return this.http.put('/my-jobs/'+jobId, resource)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
 }

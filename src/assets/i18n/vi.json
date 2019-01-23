@@ -170,6 +170,10 @@
         "to": "Đến",
         "postJobSubmit": "Đăng tin"
     },
+    "editJob": {
+        "editJob": "Chỉnh sửa tin tuyển dụng",
+        "submitEditJob": "Chỉnh sửa hoàn tất"
+    },
     "language": {
         "beginner": "Sơ cấp",
         "intermediate": "Trung cấp",

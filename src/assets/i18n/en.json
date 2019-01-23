@@ -176,6 +176,10 @@
         "to": "To",
         "postJobSubmit": "Post job"
     },
+    "editJob": {
+        "editJob": "Edit a job",
+        "submitEditJob": "Complete Editing"
+    },
     "language": {
         "beginner": "Beginner",
         "intermediate": "Intermediate",
