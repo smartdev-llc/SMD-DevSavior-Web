@@ -15,7 +15,6 @@ import { PostJobCompanyService } from '../core/services/post-job/PostJobCompanyS
 import { BrowseJobsComponent } from './components/list-browse-jobs/browse-jobs.component';
 import { BrowseJobsAlternativeComponent } from './components/list-browse-jobs-alternative/browse-jobs-alternative.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
-import { EditJobComponent }  from './components/edit-job/edit-job.component';
 
 
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -37,7 +36,6 @@ import {ProfileService} from '../company/services/profile.service';
     BrowseJobsComponent,
     BrowseJobsAlternativeComponent,
     JobDetailComponent,
-    EditJobComponent,
     ContactUsComponent
   ],
   exports: [
