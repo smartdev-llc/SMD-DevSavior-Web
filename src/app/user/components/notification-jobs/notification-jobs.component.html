@@ -32,7 +32,7 @@
             </div>
             <div class="res-table__row row" *ngFor="let item of skillSubscription">
               <div class="col-md-8 alert-item">
-                <div class="name">{{item.name}}</div>
+                <div class="name">{{item.skill.name}}</div>
               </div>
               <div class="col-md-2 interval">
                 <!-- <div class="text-light">
@@ -43,14 +43,14 @@
               </div>
               <div class="col-md-1 last-update">
                 <div class="text-light">
-                  {{ 'skill.updateDay' | translate }}
+                  {{ 'skill.createdAt' | translate }}
                   <span class="hidden-md hidden-lg">:</span>
                 </div>
                 <div class="text-strong">{{item.createdAt | date: 'd-M-yyyy'}}</div>
               </div>
 
               <div class="col-md-1 actions">
-                <button type="button" class="btn btn-danger" (click)="deleteSkill(item.id)">Xóa</button>
+                <button type="button" class="btn btn-danger" (click)="deleteSkill(item.skill.id)">Xóa</button>
               </div>
             </div>
           </div>
