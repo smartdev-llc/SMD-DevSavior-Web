@@ -71,11 +71,11 @@ export class AboutUsComponent implements OnInit {
       position: 'Full-stack Developer'
     },
     {
-      name: 'Pham Hong Phuc',
-      avatar: '../../../../assets/images/phuc.jpg',
-      linkFB: 'https://www.facebook.com/hongphucpham97',
-      decsription: 'QA of JuniorViec',
-      position: 'QA'
+      name: 'Nguyen Van Vu',
+      avatar: '../../../../assets/images/vunguyen.jpg',
+      linkFB: 'https://www.facebook.com/vunv.uk',
+      decsription: 'Frontend Developer & Designer of JuniorViec',
+      position: 'Frontend Developer & Designer'
     },
     {
       name: 'Vo Ngoc Anh',
@@ -90,7 +90,7 @@ export class AboutUsComponent implements OnInit {
       linkFB: 'https://www.facebook.com/dau.eyo',
       decsription: 'QC of JuniorViec',
       position: 'QC'
-    },
+    }
 
   ];
   constructor() { }
