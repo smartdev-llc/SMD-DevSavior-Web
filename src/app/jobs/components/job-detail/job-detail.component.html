@@ -24,7 +24,7 @@
           <div class="seprator ">
             <div class="no-padding user-image"><img src="assets/images/job-admin.png" alt=""/></div>
             <div class="user-tag">{{company.name}}<span>{{company.contactName}}</span></div>
-            <div class="job-status"><span class="label job-type job-partytime">{{job.category.name}}</span></div>
+            <div class="job-status"><span class="label job-type job-partytime">{{job.jobType}}</span></div>
           </div>
           <div class="seprator">
             <div class="user-tag" *ngIf="job">
@@ -60,6 +60,15 @@
         </div> -->
         <div class="content">
           <h3>{{job.title}}</h3>
+          <div class="row">
+            <div class="col-md-12">
+                <ng-template ngFor let-skill [ngForOf]="job.skills | keyValue">
+                    <div class="job-status mx-2">
+                        <span class="label job-type job-partytime">{{skill.value.name}}</span>
+                      </div>
+                </ng-template>
+            </div>
+          </div>
           <div [innerHTML]="job.description"></div>
 
           <h2 *ngIf="job.requirements">{{ 'header.requirement' | translate }}</h2>
@@ -98,7 +107,7 @@
           <ul class="social" *ngIf="company">
             <li><a href="{{getCompanyWebsite()}}"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
             <li><a href="#"><i class="fa fa-envelope display-inline"></i>{{company.email}}</a></li>
-            <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company.phoneNumber}}</a></li>
+            <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company.contactName}} - {{company.phoneNumber}}</a></li>
           </ul>
         </div>
         <div class="share-button-group">

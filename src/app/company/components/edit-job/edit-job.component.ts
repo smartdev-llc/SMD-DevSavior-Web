@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { CategoryCompanyService } from '../../../core/services/category/CategoryCompanyService';
@@ -77,7 +77,7 @@ export class EditJobComponent implements OnInit {
         )
       ).subscribe(data => {
         this.job =  data;
-        console.log(this.job);
+        this.setDefaulValue();
       },(error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
     this.translate.get('jobType').subscribe((jobTypes: any) => {
@@ -86,7 +86,6 @@ export class EditJobComponent implements OnInit {
 
     this.skillService.getAll().subscribe(response => {
       this.listSkills = response as Array<any>;
-      this.listSkillsId =['1','3','17']
     });
 
     
@@ -94,9 +93,10 @@ export class EditJobComponent implements OnInit {
       this.jobCategories = response as Array<any>;
     });
     this.initPostJobForm();
-
   }
-
+  ngAfterViewInit() {
+    
+  }
   get f() {
     return this.postAJobForm.controls;
   }
@@ -136,7 +136,18 @@ export class EditJobComponent implements OnInit {
       salaryForm: this.salaryForm
     });
   }
-
+  setDefaulValue(){
+    this.listSkillsId = [...Array.from(new Set(this.job.skills.map(item => item.id)))];
+    this.postAJobForm.get('skillIds').setValue(this.listSkillsId);
+    this.postAJobForm.get('title').setValue(this.job.title);
+    this.postAJobForm.get('categoryId').setValue(this.job.category.id);
+    this.postAJobForm.get('jobType').setValue(this.job.jobType);
+    this.postAJobForm.get('description').setValue(this.job.description);
+    this.postAJobForm.get('requirements').setValue(this.job.requirements);
+    this.postAJobForm.get('benefits').setValue(this.job.benefits);
+    this.salaryForm.get('fromSalary').setValue(this.job.fromSalary);
+    this.salaryForm.get('toSalary').setValue(this.job.toSalary);
+  }
   onSubmitEditJob() {
     this.submitted = true;
     if (this.postAJobForm.invalid) {
