@@ -120,7 +120,9 @@
             "viewCandidates": "View Candidates",
             "from": "From",
             "to": "To",
-            "at": "at"
+            "at": "at",
+            "edit": "Edit",
+            "del": "Delete"
         },
         "candidate": {
             "header": {

@@ -115,7 +115,14 @@
             "status": "Trạng thái",
             "expires": "Ngày hết hạn",
             "applications": "Ứng viên",
-            "hotJob": "Đăng kí hot job"
+            "hotJob": "Đăng kí hot job",
+            "viewOnline": "Xem chi tiết",
+            "viewCandidates": "Xem ứng viên",
+            "from": "Từ",
+            "to": "Đến",
+            "at": "at",
+            "edit": "Chỉnh sửa",
+            "del": "Xóa"
         },
         "candidate": {
             "header": {

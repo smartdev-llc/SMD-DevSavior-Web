@@ -16,7 +16,6 @@ import {Duplicate} from '../../../core/error/duplicate';
 import {Forbidden} from '../../../core/error/forbidden';
 import {NotFound} from '../../../core/error/not-found';
 import {Unauthorized} from '../../../core/error/unauthorized';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'edit-job',
@@ -87,6 +86,7 @@ export class EditJobComponent implements OnInit {
 
     this.skillService.getAll().subscribe(response => {
       this.listSkills = response as Array<any>;
+      this.listSkillsId =['1','3','17']
     });
 
     
@@ -94,7 +94,7 @@ export class EditJobComponent implements OnInit {
       this.jobCategories = response as Array<any>;
     });
     this.initPostJobForm();
-    this.listSkillsId =['1','3','5']
+
   }
 
   get f() {

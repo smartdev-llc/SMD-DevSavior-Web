@@ -104,3 +104,20 @@
 .hot-job-registering span:nth-child(3) {
     animation-delay: .4s;
 }
+button {
+    font-size: 13px;
+    color: #12cd6a;
+    background: none;
+    border: none;
+}
+button:after {
+    content: " | ";
+    color: #000;
+}
+button:hover {
+    content: " | ";
+    color: #000;
+}
+button:focus, button:hover {
+    color: #23527c;
+}
