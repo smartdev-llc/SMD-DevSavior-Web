@@ -67,7 +67,9 @@
         "requirement": "Requirement",
         "benefit": "Benefit",
         "apply": "Apply",
-        "address": "Address"
+        "address": "Address",
+        "time":"Type of work"
+
     },
     "companyUserProfile": {
         "cancel": "Cancel",

@@ -67,7 +67,8 @@
         "requirement": "Yêu cầu công việc",
         "benefit": "Phúc lợi",
         "apply": "Ứng tuyển ngay",
-        "address": "Địa chỉ"
+        "address": "Địa chỉ",
+        "time":"Loại hình công việc"
     },
     "companyUserProfile": {
         "cancel": "Hủy",

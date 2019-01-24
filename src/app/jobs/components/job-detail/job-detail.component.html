@@ -40,8 +40,8 @@
             <div class="user-tag">
               <label>{{ 'header.address' | translate }}
                 <span>{{company.address}}</span>
-            </label>
-          </div>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -63,8 +63,8 @@
           <div class="row">
             <div class="col-md-12">
                 <ng-template ngFor let-skill [ngForOf]="job.skills | keyValue">
-                    <div class="job-status mx-2">
-                        <span class="label job-type job-partytime">{{skill.value.name}}</span>
+                    <div class="job-status">
+                        <span class="label job-type job-partytime  mx-2">{{skill.value.name}}</span>
                       </div>
                 </ng-template>
             </div>
@@ -106,8 +106,8 @@
           </ul>
           <ul class="social" *ngIf="company">
             <li><a href="{{getCompanyWebsite()}}"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
-            <li><a href="#"><i class="fa fa-envelope display-inline"></i>{{company.email}}</a></li>
-            <li><a href="#"><i class="fa fa-phone display-inline"></i>{{company.contactName}} - {{company.phoneNumber}}</a></li>
+            <li><a href="mailto:{{company.email}}"><i class="fa fa-envelope display-inline"></i>{{company.email}}</a></li>
+            <li><a href="tel:{{company.phoneNumber}}"><i class="fa fa-phone display-inline"></i>{{company.contactName}} - {{company.phoneNumber}}</a></li>
           </ul>
         </div>
         <div class="share-button-group">
