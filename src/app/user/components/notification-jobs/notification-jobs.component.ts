@@ -131,7 +131,7 @@ export class NotificationJobs implements OnInit {
   }
 
   showSkillUpdateError(error: any) {
-    this.toastr.error('Data is available, please delete your skill before adding', 'Skill');
+    this.toastr.error('You already subscribed this skill.', 'Skill');
   }
 
   showSkillDeleteError(error: any){
