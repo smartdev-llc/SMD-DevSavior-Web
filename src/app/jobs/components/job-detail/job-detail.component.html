@@ -22,7 +22,7 @@
       <div class="container main-container gery-bg">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
           <div class="seprator ">
-            <div class="no-padding user-image"><img src="assets/images/job-admin.png" alt=""/></div>
+            <div class="no-padding user-image"><img src="{{company.logoURL | photoURLConverter:'/assets/images/company-logo.png'}}" width="77" height="77"  alt="img-logo-company"/></div>
             <div class="user-tag">{{company.name}}<span>{{company.contactName}}</span></div>
             <div class="job-status"><span class="label job-type job-partytime">{{job.category.name}}</span></div>
           </div>
@@ -39,7 +39,7 @@
           <div class="seprator">
             <div class="user-tag">
               <label>{{ 'header.address' | translate }}
-                <span>{{company.address}}</span>
+                <h5>{{company.address}}</h5>
             </label>
           </div>
           </div>

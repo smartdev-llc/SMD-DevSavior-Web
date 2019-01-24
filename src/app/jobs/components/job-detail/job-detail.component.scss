@@ -36,3 +36,16 @@
 .content {
   font-size: 16px;
 }
+.user-tag{
+  label{
+    font-size: 20px;
+  }
+  h5{
+    position: relative;
+    top: -8px;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+}
