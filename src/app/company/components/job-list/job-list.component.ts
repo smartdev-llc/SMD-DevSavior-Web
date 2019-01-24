@@ -174,6 +174,18 @@ export class JobListComponent implements OnInit {
       (!this.hotJobs.get(HotJobStatus.ACTIVE) || job.id != this.hotJobs.get(HotJobStatus.ACTIVE).id)
       && this.processingPendingJobId != job.id;
   }
+
+  deleteJob(jobId){
+    if (confirm("Do you want delete job id: "+jobId)) {
+      this.jobService.deleteJob(jobId)
+      .subscribe(response => {
+        this.toast.success('Your job was successfully deleted', 'Delete job');
+        this.ngOnInit();
+      },error => {
+        this.toast.error('Something went wrong please try again later', 'Delete job');
+      });
+    }
+  }
 }
 
 

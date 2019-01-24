@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
@@ -6,17 +6,23 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { CategoryCompanyService } from '../../../core/services/category/CategoryCompanyService';
 import { PostJobCompanyService } from '../../../core/services/post-job/PostJobCompanyService';
 import { SkillService } from '../../../core/services/skill/SkillService';
-import { Observable, from } from 'rxjs';
-import { map, reduce, toArray } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppErrors } from '../../../core/error/app-errors';
+import { switchMap } from 'rxjs/operators';
+import {JobService} from '../../../core/services/job.service';
 import { salaryDifference } from '../../validators/salary-difference.validator';
+import {InternalServer} from '../../../core/error/internal-server';
+import {Duplicate} from '../../../core/error/duplicate';
+import {Forbidden} from '../../../core/error/forbidden';
+import {NotFound} from '../../../core/error/not-found';
+import {Unauthorized} from '../../../core/error/unauthorized';
 
 @Component({
-  selector: 'post-job',
-  templateUrl: './post-job.component.html',
-  styleUrls: ['./post-job.component.scss']
+  selector: 'edit-job',
+  templateUrl: './edit-job.component.html',
+  styleUrls: ['./edit-job.component.scss']
 })
-export class PostJobComponent implements OnInit {
+export class EditJobComponent implements OnInit {
 
   quillModules = {
     toolbar: [
@@ -35,22 +41,26 @@ export class PostJobComponent implements OnInit {
     ]
   };
 
-  jobTypeList: Array<any>  = [];
-
+  job:any;
   submitted = false;
   isSubmitting = false;
-  listSkills: Array<any> = [];
-  jobCategories: Array<any> = [];
-  postAJobForm: FormGroup;
   salaryForm: FormGroup;
+  postAJobForm: FormGroup;
+  listSkills: Array<any> = [];
+  listSkillsId: Array<any> = [];
+  jobTypeList: Array<any>  = [];
+  jobCategories: Array<any> = [];
 
   constructor(
     private categoryService: CategoryCompanyService,
     private jobService: PostJobCompanyService,
+    private jobsService: JobService,
     private skillService: SkillService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     // translate for ng select qualifications and classificationOfDegrees
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -60,6 +70,16 @@ export class PostJobComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.jobId = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.pipe(
+        switchMap(route =>
+           this.jobsService.getDetailJob(route.get('id'))
+        )
+      ).subscribe(data => {
+        this.job =  data;
+        this.setDefaulValue();
+      },(error: AppErrors) => this.handleErrorJobDetailComponent(error));
+
     this.translate.get('jobType').subscribe((jobTypes: any) => {
       this.translatejobTypesSelect(jobTypes);
     });
@@ -68,12 +88,15 @@ export class PostJobComponent implements OnInit {
       this.listSkills = response as Array<any>;
     });
 
+    
     this.categoryService.getAll().subscribe(response => {
       this.jobCategories = response as Array<any>;
     });
     this.initPostJobForm();
   }
-
+  ngAfterViewInit() {
+    
+  }
   get f() {
     return this.postAJobForm.controls;
   }
@@ -87,11 +110,11 @@ export class PostJobComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Your job has been sent to Juniorviec admin for review', 'Post job');
+    this.toastr.success('Your job was successfully edited', 'Edit job');
   }
 
   showError(error) {
-    this.toastr.error('Something went wrong please try again later', 'Post job');
+    this.toastr.error('Something went wrong please try again later', 'Edit job');
   }
 
   initPostJobForm() {
@@ -113,8 +136,19 @@ export class PostJobComponent implements OnInit {
       salaryForm: this.salaryForm
     });
   }
-
-  onSubmitPostJob() {
+  setDefaulValue(){
+    this.listSkillsId = [...Array.from(new Set(this.job.skills.map(item => item.id)))];
+    this.postAJobForm.get('skillIds').setValue(this.listSkillsId);
+    this.postAJobForm.get('title').setValue(this.job.title);
+    this.postAJobForm.get('categoryId').setValue(this.job.category.id);
+    this.postAJobForm.get('jobType').setValue(this.job.jobType);
+    this.postAJobForm.get('description').setValue(this.job.description);
+    this.postAJobForm.get('requirements').setValue(this.job.requirements);
+    this.postAJobForm.get('benefits').setValue(this.job.benefits);
+    this.salaryForm.get('fromSalary').setValue(this.job.fromSalary);
+    this.salaryForm.get('toSalary').setValue(this.job.toSalary);
+  }
+  onSubmitEditJob() {
     this.submitted = true;
     if (this.postAJobForm.invalid) {
       return;
@@ -128,14 +162,15 @@ export class PostJobComponent implements OnInit {
       toSalary: Number(toSalary)
     };
     delete params.salaryForm;
-
+    console.log(this.job.id)
     this.isSubmitting = true;
-    this.jobService.createData(params)
+    this.jobsService.editJob(this.job.id ,params)
       .subscribe((response) => {
         this.isSubmitting = false;
         this.submitted = false;
         this.resetForm();
         this.showSuccess();
+        this.router.navigateByUrl('/jobs/'+this.job.id);
       },
       (error: AppErrors) => {
         this.isSubmitting = false;
@@ -150,5 +185,22 @@ export class PostJobComponent implements OnInit {
       { value: 'CONTRACT', name: jobTypes.contract },
       { value: 'INTERNSHIP', name: jobTypes.internship }
     ];
+  }
+
+  handleErrorJobDetailComponent(error: AppErrors) {
+    if (error instanceof InternalServer) {
+    }
+    else if (error instanceof Unauthorized) {
+    }
+    else if (error instanceof Forbidden) {
+    }
+    else if (error instanceof Duplicate) {
+    }
+    else if (error instanceof NotFound) {
+      this.router.navigate(['not-found']);
+    }
+    else {
+      throw error;
+    }
   }
 }

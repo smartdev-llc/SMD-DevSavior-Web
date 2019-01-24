@@ -19,7 +19,11 @@ export class SalaryConverterPipe {
     }
     if( minSalary == maxSalary) {
       return this.appendCurrency(currency, minSalary);
-    } else {
+    }
+    else if( minSalary == 0) {
+      return 'Up to ' + this.appendCurrency(currency, maxSalary);
+    }
+    else {
       return this.appendCurrency(currency, minSalary) + '-' + this.appendCurrency(currency, maxSalary);
     }
   }

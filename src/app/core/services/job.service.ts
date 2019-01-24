@@ -151,5 +151,20 @@ export class JobService {
       map((response: any) => response)
     )
   }
-
+  
+  editJob (jobId: number,params: HttpParams) {
+    console.log(params)
+    return this.http.put('/my-jobs/'+jobId, params)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
+  deleteJob (jobId: number) {
+    return this.http.delete('/jobs/'+jobId)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
 }
