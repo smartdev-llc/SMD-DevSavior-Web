@@ -49,3 +49,16 @@
     float: left;
   } 
 }
+.user-tag{
+  label{
+    font-size: 20px;
+  }
+  h5{
+    position: relative;
+    top: -6px;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+}

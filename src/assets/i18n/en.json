@@ -28,15 +28,15 @@
         "companies": "Company Reviews",
         "login": "Login",
         "register": "Register",
-        "employer": "EMPLOYER",
+        "employer": "FOR EMPLOYER",
         "recruit": "Recruit your staff now!",
         "postAJobs": "Post a Job, It's free!",
         "careerCenter": "Career center",
         "dashboard": "Dashboard",
         "myJobs": "My jobs",
         "jobAlerts": "Job Alerts",
-        "jobseeker": "JOBSEEKER'S SITE \n find a job now!",
-        "jobseeker_mobile": "JOBSEEKER'S SITE",
+        "jobseeker": "FOR CANDIDATE \n find a job now!",
+        "jobseeker_mobile": "FOR CANDIDATE",
         "about": "About us",
         "services_product": "Product & Services",
         "candidate": "Candidate",
@@ -89,6 +89,14 @@
         "companyCoverPhoto": "Company Cover photo"
     },
     "company": {
+        "strategicPartners" : "Strategic Partners",
+        "trainingsCourses" : "Trainings Courses",
+        "corporatePrograms" : "Corporate Programs",
+        "companyWeHelp": "Company We helped",
+        "hrWelcome": "Welcome to",
+        "hrMainContent" : "We believe in the value that our functions add to a business. We feel that this specialist part of HR is often unrecognised for its contribution to the profitability and success of a business.",
+        "mainTitleListCompany": "Our Awesome Companies",
+        "smallTitleListCompany": "Following are more key companies which will make JuniorViec Listing famous in the online market.",
         "joblist": "Jobs",
         "notFoundJobs": "The job you're looking for doesn't exist.",
         "information": "Company's information",
@@ -250,7 +258,7 @@
     "skill": {
         "jobAnnouncement": "Job announcement",
         "createJobAlerts": "Create job alert",
-        "updateDay": "Update day",
+        "createdAt": "Created at",
         "keySkills": "Key Skills",
         "skillAndLanguage": "Skill/Language",
         "addKeySkill": "Add more key skills",
@@ -376,5 +384,8 @@
         "anReset": "A message has been sent to",
         "withGuide": "with instructions to reset your passwod.",
         "signIn": "Sign in"
+    },
+    "browserJob" :{
+        "titleJobsResult" : "jobs in Da nang for you"
     }
 }

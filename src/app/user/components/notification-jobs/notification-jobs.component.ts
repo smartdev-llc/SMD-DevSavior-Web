@@ -28,6 +28,7 @@ export class NotificationJobs implements OnInit {
   submittedSkill: boolean = false;
   skillIdSelected: any;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private translate: TranslateService,
@@ -71,9 +72,7 @@ export class NotificationJobs implements OnInit {
     if(this.skillFormGroup.invalid){
       return;
     }
-    const params = {
-      ...this.skillFormGroup.value
-    };
+    
     const { idSkill } = this.skillFormGroup.value;
 
     this.isSubmittingSkill = true;
@@ -88,7 +87,7 @@ export class NotificationJobs implements OnInit {
       this.resetSkillForm();
       this.showSkillSuccess();
       this.notificationAlert.hide();
-      this.skillSubscription = response.data.subscribedSkills;
+      this.skillSubscription = response.data;
     },
     (error: AppErrors) => {
       this.isSubmittingSkill = false;
@@ -108,7 +107,7 @@ export class NotificationJobs implements OnInit {
         .subscribe(res => {
           from(this.skillSubscription)
             .pipe(
-              filter((item) => item.id !== this.skillIdSelected),
+              filter((item) => item.skill.id !== this.skillIdSelected),
               toArray()
             ).subscribe(val => {
               this.skillSubscription = val || [];
@@ -132,11 +131,11 @@ export class NotificationJobs implements OnInit {
   }
 
   showSkillUpdateError(error: any) {
-    this.toastr.error('Data is available, please delete your skill before adding', 'Skill');
+    this.toastr.error('You already subscribed this skill.', 'Cannot add skill');
   }
 
   showSkillDeleteError(error: any){
-    this.toastr.error('Something went wrong when delete skill, please try again', 'Skill');
+    this.toastr.error('Something went wrong when delete skill, please try again', 'Cannot delete skill');
   }
 
   resetSkillForm() {

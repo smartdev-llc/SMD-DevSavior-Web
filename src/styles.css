@@ -1615,10 +1615,10 @@ priceing_tables .startup {
 .user-data .user-tag label {
     font-weight: lighter;
     line-height: normal;
-    margin: 0;
     padding: 6px 0 0;
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
+    margin: 0 10px 0 10px;
     font-weight: 400;
 }
 
@@ -1631,11 +1631,8 @@ priceing_tables .startup {
 }
 
 .user-data .seprator {
-    padding-right: 3%;
-    margin-right: 3%;
     position: relative;
-    float: left;
-    width: initial;
+    
 }
 
 .user-data .seprator:last-child {
@@ -2041,7 +2038,7 @@ ul.simple li {
 /*//////////////Page title with bg image//////////////////*/
 
 .title-image .page-title {
-    background: url("assets/images/company-detail.png");
+    background: url("assets/images/browser-banner.png");
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;

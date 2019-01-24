@@ -28,7 +28,7 @@
         "companies": "Các Công Ty Hàng Đầu",
         "login": "Đăng Nhập",
         "register": "Đăng ký",
-        "employer": "NHÀ TUYỂN DỤNG",
+        "employer": "DÀNH CHO NHÀ TUYỂN DỤNG",
         "recruit": "Đăng Tuyển & Kiếm Nhân Tài",
         "postAJobs": "Đăng Tuyển Miễn Phí!",
         "careerCenter": "Nghề Nghiệp",
@@ -88,6 +88,14 @@
         "companyCoverPhoto": "Ảnh bìa công ty"
     },
     "company": {
+        "strategicPartners" : "Đối tác chiến lược",
+        "trainingsCourses" : "Các khóa đào tạo cho ứng viên",
+        "corporatePrograms" : "Chương trình doanh nghiệp",
+        "companyWeHelp": "Công ty chúng tôi đã giúp",
+        "hrWelcome": "Chào mừng đến",
+        "hrMainContent" : "Chúng tôi tin vào giá trị mà các chức năng của chúng tôi thêm vào một doanh nghiệp. Chúng tôi cảm thấy rằng phần chuyên gia này của HR thường không được công nhận vì đóng góp cho lợi nhuận và thành công của một doanh nghiệp.",
+        "mainTitleListCompany": "Đối tác tuyệt vời của chúng tôi",
+        "smallTitleListCompany": "Sau đây là các công ty quan trọng hơn sẽ làm cho JuniorViec trở nên nổi tiếng trên thị trường tuyển dụng trực tuyến.",
         "joblist": "Công việc",
         "notFoundJobs": "Công việc bạn đang tìm kiếm không tồn tại.",
         "information": "Thông tin công ty",
@@ -248,7 +256,7 @@
     "skill": {
         "jobAnnouncement": "Thông báo việc làm",
         "createJobAlerts": "Tạo thông báo việc làm",
-        "updateDay": "Ngày cập nhật",
+        "createdAt": "Ngày khởi tạo",
         "keySkills": "Kỹ năng",
         "skillAndLanguage": "Kỹ năng/Ngoại ngữ",
         "addKeySkill": "Thêm kỹ năng",
@@ -374,5 +382,8 @@
         "anReset": "Một tin nhắn đã được gửi đến ",
         "withGuide": "với hướng dẫn để đặt lại mật khẩu của bạn.",
         "signIn": "Đăng nhập"
+    },
+    "browserJob" :{
+        "titleJobsResult" : "Công việc tại Đà Nẵng cho bạn"
     }
 }

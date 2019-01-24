@@ -5,7 +5,7 @@
     <form [formGroup]="searchJobForm" (ngSubmit)="onSubmitSearch()">
         <div class="page-title bg-image">
             <div class="photoBanner">
-                <img src="../../../../assets/images/company-detail.png" class="img-responsive" />
+                <img src="../../../../assets/images/browser-banner.png" class="img-responsive" />
             </div>
 
             <div class="section-jobcategories">
@@ -75,7 +75,7 @@
     <div class="container main-container jobs">
         <div class="jobs-result">
             <div class="col-lg-12">
-                <h3 class="recom" *ngIf="totalItems > 0; else noJobs">{{ totalItems + ' ' + (jobsTitle && jobsTitle.join(', ')) }} jobs in Da nang for you</h3>
+                <h3 class="recom" *ngIf="totalItems > 0; else noJobs">{{ totalItems + ' ' + (jobsTitle && jobsTitle.join(', ')) }} {{'browserJob.titleJobsResult' | translate}}</h3>
                 <ng-template #noJobs>
                     <h3 class="recom">{{'company.notFoundJobs' | translate}}</h3>
                 </ng-template>

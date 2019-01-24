@@ -20,26 +20,26 @@
     </div>
     <div class="row dashboard">
       <div class="container main-container gery-bg">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding user-data">
-          <div class="seprator ">
-            <div class="no-padding user-image"><img src="assets/images/job-admin.png" alt=""/></div>
+        <div class="no-padding user-data">
+          <div class="col-md-12 col-lg-5 col-xs-12 col-sm-12 seprator">
+            <div class="no-padding user-image"><img src="{{company.logoURL | photoURLConverter:'/assets/images/company-logo.png'}}"
+                width="77" height="77" alt="img-logo-company" /></div>
             <div class="user-tag">{{company.name}}<span>{{company.contactName}}</span></div>
             <div class="job-status"><span class="label job-type job-partytime">{{job.jobType}}</span></div>
           </div>
-          <div class="seprator">
+
+          <div class="col-md-3 col-lg-4 col-xs-12 col-sm-12 seprator">
             <div class="user-tag" *ngIf="job">
               <label>{{ 'header.salary' | translate }}
                 <span>{{ job.fromSalary | salaryConverter:job.toSalary:'$'}}</span>
               </label>
             </div>
           </div>
-          <div class="seprator">
-            <!--<div class="user-tag"><label>Hours<span>44h / week</span></label></div>-->
-          </div>
-          <div class="seprator">
+
+          <div class="col-md-8 col-lg-3 col-xs-12 col-sm-12 seprator">
             <div class="user-tag">
               <label>{{ 'header.address' | translate }}
-                <span>{{company.address}}</span>
+                <h5>{{company.address}}</h5>
               </label>
             </div>
           </div>
@@ -85,23 +85,21 @@
             <li>
               <a>
                 <!--Apply job button-->
-                <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job pointer"
-                      (click)="redirectToLogin()">{{ 'header.apply' | translate }}</span>
+                <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job pointer" (click)="redirectToLogin()">{{
+                  'header.apply' | translate }}</span>
 
-                <span *ngIf="isStudentRole && job"
-                      [ngClass]="{
+                <span *ngIf="isStudentRole && job" [ngClass]="{
                         'apply-job': !job.isApplied,
                         'isApplied': job.isApplied
                        }"
-                      #btnApplyJob
-                      (click)="applyJob(isApplied, btnApplyJob)" class="label job-type pointer">
+                  #btnApplyJob (click)="applyJob(isApplied, btnApplyJob)" class="label job-type pointer">
                   {{renderTextForBtnApplyJob(isApplied)}}
                 </span>
               </a>
             </li>
             <li>
               <!--Logo Image-->
-              <img class="img-responsive circle-logo-image" src="{{logoCompany}}" alt=""/>
+              <img class="img-responsive circle-logo-image" src="{{logoCompany}}" alt="" />
             </li>
           </ul>
           <ul class="social" *ngIf="company">
@@ -133,8 +131,7 @@
       <div id="recommended-job" class="owl-carousel owl-template owl-theme" style="opacity: 1; display: block;">
         <!--Recomended job-->
         <div class="owl-wrapper-outer">
-          <div class="owl-wrapper"
-               style=" left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+          <div class="owl-wrapper" style=" left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
 
             <ng-container *ngFor="let recommencedJob of recommencedJobs">
               <a class="owl-item" [routerLink]="'/jobs/'+recommencedJob.id">
@@ -143,11 +140,13 @@
                     <h4>{{recommencedJob.title}} </h4>
                     <span class="label job-type job-partytime">{{recommencedJob.category.name}}</span>
                     <p>{{recommencedJob.company.address}}<br>{{recommencedJob.company.city}}</p>
-                    <span class="salary">{{recommencedJob.fromSalary | currency:'USD'}} - {{recommencedJob.toSalary | currency:'USD'}}<i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
+                    <span class="salary">{{recommencedJob.fromSalary | currency:'USD'}} - {{recommencedJob.toSalary |
+                      currency:'USD'}}<i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
                   </div>
                 </div>
               </a>
-            </ng-container><!---->
+            </ng-container>
+            <!---->
 
           </div>
         </div>
@@ -165,7 +164,7 @@
         <h3 class="white-heading">Got a question</h3>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-        <a routerLink="/contact-us"  target="_blank" class="btn btn-getstarted bg-red">Contact Us</a>
+        <a routerLink="/contact-us" target="_blank" class="btn btn-getstarted bg-red">Contact Us</a>
       </div>
     </div>
   </div>
