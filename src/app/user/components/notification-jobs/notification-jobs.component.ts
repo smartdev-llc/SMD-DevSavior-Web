@@ -131,11 +131,11 @@ export class NotificationJobs implements OnInit {
   }
 
   showSkillUpdateError(error: any) {
-    this.toastr.error('You already subscribed this skill.', 'Skill');
+    this.toastr.error('You already subscribed this skill.', 'Cannot add skill');
   }
 
   showSkillDeleteError(error: any){
-    this.toastr.error('Something went wrong when delete skill, please try again', 'Skill');
+    this.toastr.error('Something went wrong when delete skill, please try again', 'Cannot delete skill');
   }
 
   resetSkillForm() {
