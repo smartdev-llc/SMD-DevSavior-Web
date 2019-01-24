@@ -56,7 +56,7 @@
           </div>
           <div class="form-group">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <label class="required">{{ 'postJob.skills' | translate }}</label>
+              <label class="required">{{ 'postJob.skills' | translate }} </label>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
               <ng-select
@@ -70,7 +70,8 @@
                 bindLabel="name"
                 bindValue="id"
                 placeholder="Select skills"
-                formControlName="skillIds">
+                formControlName="skillIds"
+                [(ngModel)]="listSkillsId">
               </ng-select>
               <div *ngIf="submitted && f.skillIds.errors">
                 <em *ngIf="submitted && f.skillIds.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>

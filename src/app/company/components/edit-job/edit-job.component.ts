@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { CategoryCompanyService } from '../../../core/services/category/CategoryCompanyService';
@@ -10,12 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppErrors } from '../../../core/error/app-errors';
 import { switchMap } from 'rxjs/operators';
 import {JobService} from '../../../core/services/job.service';
-import { salaryDifference } from './salary-difference.validator';
+import { salaryDifference } from '../../validators/salary-difference.validator';
 import {InternalServer} from '../../../core/error/internal-server';
 import {Duplicate} from '../../../core/error/duplicate';
 import {Forbidden} from '../../../core/error/forbidden';
 import {NotFound} from '../../../core/error/not-found';
 import {Unauthorized} from '../../../core/error/unauthorized';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'edit-job',
@@ -47,6 +48,7 @@ export class EditJobComponent implements OnInit {
   salaryForm: FormGroup;
   postAJobForm: FormGroup;
   listSkills: Array<any> = [];
+  listSkillsId: Array<any> = [];
   jobTypeList: Array<any>  = [];
   jobCategories: Array<any> = [];
 
@@ -79,10 +81,6 @@ export class EditJobComponent implements OnInit {
         console.log(this.job);
       },(error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
-
-
-
-
     this.translate.get('jobType').subscribe((jobTypes: any) => {
       this.translatejobTypesSelect(jobTypes);
     });
@@ -91,10 +89,12 @@ export class EditJobComponent implements OnInit {
       this.listSkills = response as Array<any>;
     });
 
+    
     this.categoryService.getAll().subscribe(response => {
       this.jobCategories = response as Array<any>;
     });
     this.initPostJobForm();
+    this.listSkillsId =['1','3','5']
   }
 
   get f() {
@@ -110,11 +110,11 @@ export class EditJobComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Your job was successfully edited', 'Post job');
+    this.toastr.success('Your job was successfully edited', 'Edit job');
   }
 
   showError(error) {
-    this.toastr.error('Something went wrong please try again later', 'Post job');
+    this.toastr.error('Something went wrong please try again later', 'Edit job');
   }
 
   initPostJobForm() {
@@ -159,6 +159,7 @@ export class EditJobComponent implements OnInit {
         this.submitted = false;
         this.resetForm();
         this.showSuccess();
+        this.router.navigateByUrl('/jobs/'+this.job.id);
       },
       (error: AppErrors) => {
         this.isSubmitting = false;
