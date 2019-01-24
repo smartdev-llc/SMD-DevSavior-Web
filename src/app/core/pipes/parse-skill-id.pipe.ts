@@ -3,21 +3,21 @@ import { from } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
 
 // tslint:disable-next-line:use-pipe-transform-interface
-@Pipe({ name: 'parseskill' })
-export class ParseSkill {
+@Pipe({ name: 'parseskillid' })
+export class ParseSkillId {
 
   /**
    * @param {any} value
    * @returns
    *
-   * @memberof ParseSkill
+   * @memberof ParseSkillId
    */
   transform(value: Array<any>) {
     let skills = '';
     from(value)
       .pipe(
-        map(val => val.name),
-        reduce((acc, value) => acc  + ",   " + value)
+        map(val => val.id),
+        reduce((acc, value) => acc + ", " + value)
       ).subscribe(val => {
         skills =  val
       })

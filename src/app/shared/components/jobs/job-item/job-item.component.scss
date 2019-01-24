@@ -25,15 +25,18 @@ p {
   font-family: Montserrat, sans-serif;
 }
 
-h4.skills {
-  font-size: 13px;
-  color: rgb(209, 94, 17);
-  margin-top: 5px;
-  margin-bottom: 0px;
-  text-align: center;
-  padding: 10px 5px 10px 5px;
-  background-color: rgba(255, 153, 86, 0.733)
+.mg{
+  margin-right: 240px;
+  h4.skills {
+    font-size: 13px;
+    color:#fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    margin-top: 5px;
+  }
 }
+
 
 .fa {
   display: inline-block;

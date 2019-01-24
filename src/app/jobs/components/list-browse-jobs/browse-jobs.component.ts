@@ -38,14 +38,6 @@ export class BrowseJobsComponent implements OnInit {
     { name: 'FREELANCE', id: 'FREELANCE' }
   ];
 
-  items: any = [
-    {bgcolor: '#967D69'},
-    {bgcolor: '#FFE381'},
-    {bgcolor: '#53A2BE'},
-    {bgcolor: '#157145'},
-    {bgcolor: '#57A773'}
-  ]
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,

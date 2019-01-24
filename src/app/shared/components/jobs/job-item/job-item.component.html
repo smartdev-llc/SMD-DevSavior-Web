@@ -10,12 +10,16 @@
         <div class="brows-job-position">
           <h3>{{ job.title }}</h3>
           <h4 *ngIf="showCompanyName && job.company">{{ job.company.name }}</h4>
-          <h4 class="skills">{{ job.skills | parseskill }}</h4>
+          <div class="mg">
+            <h4 *ngIf="(job.skills | parseskillid) % 2 == 0" [style.background-color]="'#E87D5C'" class="skills">{{ job.skills | parseskill }}</h4>
+            <h4 *ngIf="(job.skills | parseskillid) % 2 != 0" [style.background-color]="'#FFC375'" class="skills">{{ job.skills | parseskill }}</h4>
+          </div>
+          
           <p>
-            <span class="brows-job-sallery">
-              <i class="fa fa-money"></i>{{ job.fromSalary | salaryConverter:job.toSalary:'$' }}
-            </span>
-            <span class="job-type cl-success bg-trans-success">{{ job.jobType | typeOfJobTime }}</span>
+          <span class="brows-job-sallery">
+            <i class="fa fa-money"></i>{{ job.fromSalary | salaryConverter:job.toSalary:'$' }}
+          </span>
+          <span class="job-type cl-success bg-trans-success">{{ job.jobType | typeOfJobTime }}</span>
           </p>
         </div>
       </div>
