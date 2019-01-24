@@ -357,7 +357,7 @@
     width: 100%;
   }
   .user-data .seprator:first-child, .user-data .seprator:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #e4e4e4;
   }
   .user-data .user-tag label {
     font-size: 14px;
