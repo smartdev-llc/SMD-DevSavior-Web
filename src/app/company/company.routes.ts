@@ -10,6 +10,8 @@ import { CompanyProfileComponent } from './components/company-profile/company-pr
 import { ProfileDeletedComponent } from './components/profile-deleted/profile-deleted.component';
 import { BlackListCandidateComponent } from './components/blacklist-candidate/blacklist-candidate.component';
 import { ByResumeSearchComponent } from './components/by-resume-search/by-resume-search.component';
+import { EditJobComponent }  from './components/edit-job/edit-job.component';
+
 // Guards
 import { CompanyUserAuthGuard } from '../core/guards/company-user.guard';
 import { CompanyLoggedGuard } from '../core/guards/company-logged.guard';
@@ -38,7 +40,9 @@ export const CompanyRoutes = [
             { path: 'profile-deleted', component: ProfileDeletedComponent, canActivate: [CompanyLoggedGuard] },
             { path: 'by-resume-search', component: ByResumeSearchComponent, canActivate: [CompanyLoggedGuard] },
             { path: 'reset-password', component: ResetPasswordComponent },
-            { path: 'lost-password', component: LostPasswordComponent }
+            { path: 'lost-password', component: LostPasswordComponent },
+            { path: 'jobs/:id/edit', component: EditJobComponent, canActivate: [CompanyUserAuthGuard] },
+
         ]
     },
     { path : 'detail-candidate/:jobId/:candidateId', component: CandidateDetailComponent, canActivate: [CompanyUserAuthGuard] }

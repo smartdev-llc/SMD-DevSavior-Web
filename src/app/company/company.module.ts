@@ -33,6 +33,7 @@ import { LostPasswordComponent } from './components/lost-password/lost-password.
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { CandidateDetailComponent } from './components/candidate-detail/candidate-detail.component';
 import { CandidateService } from '../core/services/candidate/candidate.service';
+import { EditJobComponent }  from './components/edit-job/edit-job.component';
 
 @NgModule({ 
   imports: [
@@ -66,7 +67,8 @@ import { CandidateService } from '../core/services/candidate/candidate.service';
     ByResumeSearchComponent,
     LostPasswordComponent,
     ResetPasswordComponent,
-    CandidateDetailComponent
+    CandidateDetailComponent,
+    EditJobComponent
   ],
   providers: [
     CategoryCompanyService,

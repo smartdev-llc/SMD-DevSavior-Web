@@ -39,6 +39,7 @@ export class JobDetailComponent implements OnInit {
   isCompanyRole: boolean;
   isLoading: boolean;
   company: Company;
+  listSkills: any;
   enviromentObj = environment;
   coverCompany = 'assets/images/job-image.png';
   logoCompany = 'assets/images/widget1image.png';
