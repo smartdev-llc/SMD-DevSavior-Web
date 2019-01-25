@@ -35,11 +35,6 @@
     width: 100%;
   }
 }
-@media (min-width: 536px) and (max-width: 1200px){
-  .joblist .bg-image .photoBanner{
-    margin-top: 44px;
-  }
-}
 
 .mr{
   margin-right: 380px;
@@ -59,6 +54,9 @@
     h4.skills {
       text-align: center;
     }
+  }
+  .joblist .bg-image .photoBanner{
+    margin-top: 104px;
   }
 }
 
@@ -87,5 +85,8 @@
     h4.skills {
       text-align: center;
     }
+  }
+  .joblist .bg-image .photoBanner{
+    margin-top: 10px;
   }
 }
