@@ -90,7 +90,13 @@
                         <a routerLink="/jobs/{{job._id}}">
                             <h3>{{job.title}}</h3>
                         </a>
-                        <h4>{{ job.skills | parseskill }}</h4>
+                        <div class="mr">
+                          <h4 *ngIf="job.category.id == 1" [style.background-color]="'#33BF96'" class="skills">{{ job.skills | parseskill }}</h4>
+                          <h4 *ngIf="job.category.id == 2" [style.background-color]="'#F4C22D'" class="skills">{{ job.skills | parseskill }}</h4>
+                          <h4 *ngIf="job.category.id == 3" [style.background-color]="'#F8A430'" class="skills">{{ job.skills | parseskill }}</h4>
+                          <h4 *ngIf="job.category.id == 4" [style.background-color]="'#F57648'" class="skills">{{ job.skills | parseskill }}</h4>
+                          <h4 *ngIf="job.category.id == 5" [style.background-color]="'#E35357'" class="skills">{{ job.skills | parseskill }}</h4>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-5 col-xs-12 pull-right">

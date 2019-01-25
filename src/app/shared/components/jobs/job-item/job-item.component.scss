@@ -25,12 +25,18 @@ p {
   font-family: Montserrat, sans-serif;
 }
 
-h4.skills {
-  font-size: 13px;
-  color: #5a6f7c;
-  margin-top: 5px;
-  margin-bottom: 0px;
+.mr{
+  margin-right: 210px;
+  h4.skills {
+    text-align: center;
+    font-size: 13px;
+    color:#fff;
+    font-weight: bold;
+    padding: 4px;
+    margin-top: 5px;
+  }
 }
+
 
 .fa {
   display: inline-block;
@@ -214,6 +220,12 @@ h4.skills {
   h3 {
     font-size: 22px;
   }
+  .mr{
+    margin-right: 162px;
+    h4.skills {
+      text-align: center;
+    }
+  }
 }
 
 @media only screen and (max-width: 992px) and (min-width: 768px) {
@@ -225,6 +237,12 @@ h4.skills {
       margin: 10px 0 0 0px;
       vertical-align: middle;
       display: inline-block;
+    }
+  }
+  .mr{
+    margin-right: 47px;
+    h4.skills {
+      text-align: center;
     }
   }
 }
@@ -244,6 +262,13 @@ h4.skills {
     padding-left: 0;
     padding-right: 0;
   }
+  .mr{
+    margin-right: 100px;
+    margin-left: 100px;
+    h4.skills {
+      text-align: center;
+    }
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -253,5 +278,12 @@ h4.skills {
   .label {
     margin-left: 0;
     width: 100%;
+  }
+  .mr{
+    margin-right: 30px;
+    margin-left: 30px;
+    h4.skills {
+      text-align: center;
+    }
   }
 }
