@@ -67,7 +67,8 @@
         "requirement": "Yêu cầu công việc",
         "benefit": "Phúc lợi",
         "apply": "Ứng tuyển ngay",
-        "address": "Địa chỉ"
+        "address": "Địa chỉ",
+        "time":"Loại hình công việc"
     },
     "companyUserProfile": {
         "cancel": "Hủy",
@@ -123,7 +124,14 @@
             "status": "Trạng thái",
             "expires": "Ngày hết hạn",
             "applications": "Ứng viên",
-            "hotJob": "Đăng kí hot job"
+            "hotJob": "Đăng kí hot job",
+            "viewOnline": "Xem chi tiết",
+            "viewCandidates": "Xem ứng viên",
+            "from": "Từ",
+            "to": "Đến",
+            "at": "at",
+            "edit": "Chỉnh sửa",
+            "del": "Xóa"
         },
         "candidate": {
             "header": {
@@ -177,6 +185,10 @@
         "from": "Từ",
         "to": "Đến",
         "postJobSubmit": "Đăng tin"
+    },
+    "editJob": {
+        "editJob": "Chỉnh sửa tin tuyển dụng",
+        "submitEditJob": "Chỉnh sửa hoàn tất"
     },
     "language": {
         "beginner": "Sơ cấp",

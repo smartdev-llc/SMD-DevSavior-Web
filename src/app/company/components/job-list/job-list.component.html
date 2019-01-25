@@ -73,6 +73,8 @@
                             </div>
                             <div class="j-actions" >
                                 <a routerLink="/jobs/{{job.id}}" target="_blank">{{ 'company.jobListHeader.viewOnline' | translate}}</a>
+                                <a routerLink="/employer/jobs/{{job.id}}/edit">{{ 'company.jobListHeader.edit' | translate}}</a>
+                                <button (click)="deleteJob(job.id)">{{ 'company.jobListHeader.del' | translate}}</button>
                                 <a *ngIf="job.status == 'ACTIVE'" routerLink="/employer/jobs/{{job.id}}/candidates">{{ 'company.jobListHeader.viewCandidates' | translate}}</a>
                             </div>
                         </div>

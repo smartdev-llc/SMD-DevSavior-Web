@@ -67,7 +67,9 @@
         "requirement": "Requirement",
         "benefit": "Benefit",
         "apply": "Apply",
-        "address": "Address"
+        "address": "Address",
+        "time":"Type of work"
+
     },
     "companyUserProfile": {
         "cancel": "Cancel",
@@ -128,7 +130,9 @@
             "viewCandidates": "View Candidates",
             "from": "From",
             "to": "To",
-            "at": "at"
+            "at": "at",
+            "edit": "Edit",
+            "del": "Delete"
         },
         "candidate": {
             "header": {
@@ -183,6 +187,10 @@
         "from": "From",
         "to": "To",
         "postJobSubmit": "Post job"
+    },
+    "editJob": {
+        "editJob": "Edit a job",
+        "submitEditJob": "Complete Editing"
     },
     "language": {
         "beginner": "Beginner",
