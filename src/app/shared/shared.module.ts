@@ -30,7 +30,6 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
-import {ParseSkillId} from '../core/pipes/parse-skill-id.pipe';
 import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
 import { CityPipe } from '../core/pipes/city.pipe';
 import { SingularPluralPipe } from '../core/pipes/singular-plural.pipe';
@@ -50,7 +49,6 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
     ParseSkill,
-    ParseSkillId,
     TypeOfJobTime,
     SalaryConverterPipe,
     SingularPluralPipe,
@@ -74,7 +72,6 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
     ParseSkill,
-    ParseSkillId,
     TypeOfJobTime,
     SalaryConverterPipe,
     SingularPluralPipe,
