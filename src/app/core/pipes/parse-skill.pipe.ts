@@ -17,7 +17,7 @@ export class ParseSkill {
     from(value)
       .pipe(
         map(val => val.name),
-        reduce((acc, value) => acc + ", " + value)
+        reduce((acc, value) => acc  + ",   " + value)
       ).subscribe(val => {
         skills =  val
       })

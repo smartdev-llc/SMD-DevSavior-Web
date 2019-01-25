@@ -1908,7 +1908,7 @@ ul.simple li {
     float: left;
     width: 450px;
     max-width: 100%;
-    height: 233px;
+    height: 234px;
     border-radius: 14px;
     border-bottom: 1px solid #f3f3f3;
     box-shadow: 0 3px 31px 0 rgba(154, 161, 171, .13);
@@ -1940,7 +1940,6 @@ ul.simple li {
     .related_jos {
         width: 240px;
         max-width: 100%;
-        height: 233px;
     }
 }
 
@@ -1948,7 +1947,6 @@ ul.simple li {
     .related_jos {
         width: 310px;
         max-width: 100%;
-        height: 233px;
     }
 }
 
@@ -1960,7 +1958,7 @@ ul.simple li {
 #recommended-job .related_jos h4 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 18px;
     color: #333;
     margin: 0 0 20px;
 }
@@ -1995,12 +1993,67 @@ ul.simple li {
     font-weight: 700;
     font-size: 16px;
     margin: 0;
-    padding: 17px 0 0;
+    padding: 16px 0 0;
     width: 100%;
 }
 
 #recommended-job .related_jos p:after,
 #recommended-job .related_jos p:before {}
+
+@media (min-width: 1281px) and (max-width: 1776px){
+    #recommended-job .related_jos span.salary{
+        padding: 17px 0 0;
+    }
+    .related_jos {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    #recommended-job .related_jos span.salary{
+        padding: 11px 0 0;
+    }
+    .related_jos {
+        height: 245px;
+    }
+   
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #recommended-job .related_jos span.salary{
+        padding: 10px 0 0;
+    }
+    .related_jos {
+        height: 250px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #recommended-job .related_jos span.salary{
+        padding: 11px 0 0;
+    }
+    .related_jos {
+        height: 245px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #recommended-job .related_jos span.salary{
+        padding: 13px 0 0;
+    }
+    .related_jos {
+        height: 245px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #recommended-job .related_jos span.salary{
+        padding: 18px 0 0;
+    }
+    .related_jos {
+        height: 245px;
+    }
+}
 
 .related_jos span.salary i {
     float: right;
