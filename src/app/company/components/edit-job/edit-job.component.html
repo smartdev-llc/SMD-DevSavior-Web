@@ -124,8 +124,7 @@
                 [modules]="quillModules"
                 [required]="true"
                 [style]="{height: '150px'}"
-                formControlName="requirements"
-                [innerHTML]="requirements">
+                formControlName="requirements">
               </quill-editor>
               <div *ngIf="submitted && f.requirements.errors">
                 <em *ngIf="submitted && f.requirements.errors.required" class="ng-select help-block">{{ 'validation.fieldRequired' | translate }}</em>
