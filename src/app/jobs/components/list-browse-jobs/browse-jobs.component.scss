@@ -90,3 +90,14 @@
     margin-top: 10px;
   }
 }
+@media(max-width:500px){
+  .filter-result{
+    .col-md-7.col-xs-12.pull-left{
+      .company-left-info.company-logo.pull-left{
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important;
+      }
+    }
+  }
+}

@@ -68,7 +68,14 @@
         "benefit": "Phúc lợi",
         "apply": "Ứng tuyển ngay",
         "address": "Địa chỉ",
-        "time":"Loại hình công việc"
+        "time":"Loại hình công việc",
+        "notLogin": "Vui lòng đăng nhập tài khoản ứng viên của bạn và tiếp tục",
+        "close": "Đóng",
+        "notyTitle": "Có vẻ như bạn chưa đăng nhập",
+        "titleApply": "Bạn có chắc chắn muốn nộp đơn ?",
+        "desApply": "Nếu bạn chọn nộp đơn, hồ sơ của bạn sẽ được gửi đến nhà tuyển dụng.",
+        "btnYesApply": "VÂNG, TÔI MUỐN NỘP ĐƠN",
+        "btnNoApply": "KHÔNG, TÔI BẤM NHẦM THÔI"
     },
     "companyUserProfile": {
         "cancel": "Hủy",
