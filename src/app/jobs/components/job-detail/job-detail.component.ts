@@ -111,25 +111,22 @@ export class JobDetailComponent implements OnInit {
     this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.url}});
   }
 
-  applyJob(isApplied, btnApplyJobElement: HTMLElement) {
-    if (isApplied) {
+  applyJob() {
+    if (this.job.isApplied) {
       return false;
     }
-
-    //Change style for btn
-    btnApplyJobElement.className = 'label job-type pointer isApplied';
-    btnApplyJobElement.innerText = this.renderTextForBtnApplyJob(!isApplied);
-
-    this.btnApplyJob = btnApplyJobElement;
 
     this.jobService
       .applyJobForStudent(this.jobId)
       .subscribe(
         data => {
-          this.isApplied = true;
+          this.job.isApplied = true;
           this.toastr.success('Applied Job Success', 'Apply Job');
         },
-        (error: AppErrors) => this.handleErrorApplyJob(error)
+        (error: AppErrors) => {
+          this.job.isApplied = false;
+          this.toastr.error(error.originalError, 'Apply Job');
+        }
       );
   }
 
@@ -149,16 +146,6 @@ export class JobDetailComponent implements OnInit {
     else {
       throw error;
     }
-  }
-
-  handleErrorApplyJob(error) {
-    this.btnApplyJob.className = 'label job-type pointer apply-job';
-    this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
-    this.toastr.error(error.originalError, 'Apply Job');
-  }
-
-  renderTextForBtnApplyJob(isApplied): string {
-    return isApplied ? 'Applied' : 'Apply';
   }
 
   initRecommendJob() {

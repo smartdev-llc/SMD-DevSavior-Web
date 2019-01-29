@@ -55,7 +55,7 @@
   <div class="row">
     <div class="container main-container-job">
       <div class="col-lg-9 col-md-9 col-sm-8">
-        <!-- <div class="post-image"> 
+        <!-- <div class="post-image">
           <img src="{{coverCompany}}" alt="" class="cover-company"/>
         </div> -->
         <div class="content">
@@ -92,8 +92,8 @@
                         'apply-job': !job.isApplied,
                         'isApplied': job.isApplied
                        }"
-                  #btnApplyJob  data-toggle="modal" data-target="#confirm" class="label job-type pointer">
-                  {{renderTextForBtnApplyJob(isApplied)}}
+                  #btnApplyJob data-toggle="modal" data-target="#confirm" class="label job-type pointer">
+                  {{job.isApplied ? 'Applied' : 'Apply'}}
                 </span>
               </a>
             </li>
@@ -103,7 +103,7 @@
             </li>
           </ul>
           <ul class="social" *ngIf="company">
-            <li><a href="{{getCompanyWebsite()}}"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
+            <li><a href="{{getCompanyWebsite()}}" target="_blank"><i class="fa fa-link display-inline"></i>{{company.website}}</a></li>
             <li><a href="mailto:{{company.email}}"><i class="fa fa-envelope display-inline"></i>{{company.email}}</a></li>
             <li><a href="tel:{{company.phoneNumber}}"><i class="fa fa-phone display-inline"></i>{{company.contactName}} - {{company.phoneNumber}}</a></li>
           </ul>
@@ -195,11 +195,29 @@
       <div class="modal-body text-center">
         <p class="title-apply bold-text">{{ 'header.titleApply' | translate }}</p>
         <p class="des-apply">{{ 'header.desApply' | translate }}</p>
-        <button type="button" class="btn pa-15 confirm-btn bold-text" (click)="applyJob(isApplied, btnApplyJob)">{{ 'header.btnYesApply' | translate }}</button>
+        <button type="button" class="btn pa-15 confirm-btn bold-text" (click)="applyJob()">{{ 'header.btnYesApply' | translate }}</button>
         <button type="button" class="btn pa-15 cancel-btn bold-text" data-dismiss="modal">{{ 'header.btnNoApply' | translate }}</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Modal check user profile job -->
+<button class="btn btn-primary" (click)="applyJobModal.show()">Large modal</button>
+<div bsModal #applyJobModal="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="confirm-title">apply</p>
+        <p class="confirm-description"><i class="fa fa-exclamation-circle confirm-icon" aria-hidden="true"></i> <span class="text">hello</span><p>
+        <div class="confirm-footer">
+          <button type="button" class="btn btn-default" (click)="decline()">{{ 'common.noDialog' | translate }}</button>
+          <button type="button" class="btn btn-primary" (click)="confirm()">{{ 'common.yesDialog' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal apply job -->
 
 <app-footer></app-footer>
