@@ -85,14 +85,14 @@
             <li>
               <a>
                 <!--Apply job button-->
-                <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job pointer" (click)="redirectToLogin()">{{
+                <span *ngIf=" !isStudentRole && !isCompanyRole" class="label job-type apply-job pointer" data-toggle="modal" data-target="#myModal">{{
                   'header.apply' | translate }}</span>
 
                 <span *ngIf="isStudentRole && job" [ngClass]="{
                         'apply-job': !job.isApplied,
                         'isApplied': job.isApplied
                        }"
-                  #btnApplyJob (click)="applyJob(isApplied, btnApplyJob)" class="label job-type pointer">
+                  #btnApplyJob  data-toggle="modal" data-target="#confirm" class="label job-type pointer">
                   {{renderTextForBtnApplyJob(isApplied)}}
                 </span>
               </a>
@@ -126,13 +126,11 @@
     <div class="main-container">
       <div class="col-lg-12 text-center">
         <h3>{{ 'header.recommendedJobs' | translate }}</h3>
-
       </div>
       <div id="recommended-job" class="owl-carousel owl-template owl-theme" style="opacity: 1; display: block;">
         <!--Recomended job-->
         <div class="owl-wrapper-outer">
           <div class="owl-wrapper" style=" left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
-
             <ng-container *ngFor="let recommencedJob of recommencedJobs">
               <a class="owl-item" [routerLink]="'/jobs/'+recommencedJob.id">
                 <div class="item recom-job">
@@ -146,8 +144,6 @@
                 </div>
               </a>
             </ng-container>
-            <!---->
-
           </div>
         </div>
       </div>
@@ -170,5 +166,40 @@
   </div>
 </div>
 <!--blue Section -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span style="color:red">WOW ! </span>{{ 'header.notyTitle' | translate }}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{ 'header.notLogin' | translate }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sign" (click)="redirectToLogin()">{{ 'login.signIn' | translate }}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'header.close' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="confirm" role="dialog">
+  <div class="modal-dialog confirm-apply">
+    <!-- Modal content-->
+    <div class="modal-content background-light">
+      <div class="modal-header image-header-modal">
+        <img src="../../../../assets/images/layer.png" class="this-image-modal" alt="">
+      </div>
+      <div class="modal-body text-center">
+        <p class="title-apply bold-text">{{ 'header.titleApply' | translate }}</p>
+        <p class="des-apply">{{ 'header.desApply' | translate }}</p>
+        <button type="button" class="btn pa-15 confirm-btn bold-text" (click)="applyJob(isApplied, btnApplyJob)">{{ 'header.btnYesApply' | translate }}</button>
+        <button type="button" class="btn pa-15 cancel-btn bold-text" data-dismiss="modal">{{ 'header.btnNoApply' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <app-footer></app-footer>

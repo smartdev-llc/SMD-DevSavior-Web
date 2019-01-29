@@ -68,8 +68,14 @@
         "benefit": "Benefit",
         "apply": "Apply",
         "address": "Address",
-        "time":"Type of work"
-
+        "time":"Type of work",
+        "notLogin": "Please log in your candidate account and continue",
+        "close": "Close",
+        "notyTitle": "Looks like you are not logged in",
+        "titleApply": "Are you sure you want to Apply ?",
+        "desApply": "If you choose to apply, your application will be submitted the employer.",
+        "btnYesApply": "YES, I WANT TO APPLY",
+        "btnNoApply": "NO, I DON'T WANT THIS JOB"
     },
     "companyUserProfile": {
         "cancel": "Cancel",
