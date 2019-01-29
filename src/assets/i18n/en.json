@@ -67,6 +67,7 @@
         "requirement": "Requirement",
         "benefit": "Benefit",
         "apply": "Apply",
+        "applied": "Applied",
         "address": "Address",
         "time":"Type of work",
         "notLogin": "Please log in your candidate account and continue",
@@ -391,7 +392,11 @@
         "withGuide": "with instructions to reset your passwod.",
         "signIn": "Sign in"
     },
-    "browserJob" :{
+    "browserJob":{
         "titleJobsResult" : "jobs in Da nang for you"
+    },
+    "jobDetail": {
+      "titleNeedUpdateProfileModal": "Submission of applications",
+      "descriptionNeedUpdateProfileModal": "You need to complete the application to apply for this position"
     }
 }

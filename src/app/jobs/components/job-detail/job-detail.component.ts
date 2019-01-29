@@ -1,7 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShareService} from '@ngx-share/core';
+import {switchMap, take} from 'rxjs/operators';
+import { ModalDirective } from 'ngx-bootstrap';
 import {faFacebookSquare} from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
 import {faLinkedinIn} from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
@@ -21,7 +23,6 @@ import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
-import {switchMap, take} from 'rxjs/operators';
 
 declare  var $: any;
 
@@ -32,6 +33,9 @@ declare  var $: any;
 })
 
 export class JobDetailComponent implements OnInit {
+
+  @ViewChild('applyJobModal') applyJobModal: ModalDirective;
+  @ViewChild('remindUpdateModal') remindUpdateModal: ModalDirective;
   job: any;
   user: User;
   jobId: string;
@@ -47,9 +51,7 @@ export class JobDetailComponent implements OnInit {
   pinIcon = faPinterest;
   linkedInIcon = faLinkedinIn;
   googlePlusIcon = faGooglePlusG;
-  btnApplyJob: HTMLElement;
   recommencedJobs: Job[] = [];
-  isApplied = false;
 
 
   constructor(
@@ -75,7 +77,6 @@ export class JobDetailComponent implements OnInit {
       this.job =  data;
       this.company = <Company> data['company'];
       this.isLoading = false;
-      this.isApplied = this.job.isApplied;
 
       this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
       this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
@@ -111,16 +112,34 @@ export class JobDetailComponent implements OnInit {
     this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.url}});
   }
 
-  applyJob() {
+  checkBeforeApplyJob() {
     if (this.job.isApplied) {
       return false;
     }
+    this.authService.checkUpdateProfile()
+      .subscribe(
+        data => {
+          if (data) {
+            this.remindUpdateModal.show();
+          } else {
+            this.applyJobModal.show();
+          }
+        }
+      )
+  }
 
+  navigateToUpdateProfile() {
+    this.remindUpdateModal.hide();
+    this.router.navigate(['/my-career-center/update-profile/step1'], {queryParams: {returnUrl: this.router.url}});
+  }
+
+  applyJob() {
     this.jobService
       .applyJobForStudent(this.jobId)
       .subscribe(
         data => {
           this.job.isApplied = true;
+          this.applyJobModal.hide();
           this.toastr.success('Applied Job Success', 'Apply Job');
         },
         (error: AppErrors) => {

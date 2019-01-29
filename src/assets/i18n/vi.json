@@ -67,6 +67,7 @@
         "requirement": "Yêu cầu công việc",
         "benefit": "Phúc lợi",
         "apply": "Ứng tuyển ngay",
+        "applied": "Đã ứng tuyển",
         "address": "Địa chỉ",
         "time":"Loại hình công việc",
         "notLogin": "Vui lòng đăng nhập tài khoản ứng viên của bạn và tiếp tục",
@@ -392,5 +393,9 @@
     },
     "browserJob" :{
         "titleJobsResult" : "Công việc tại Đà Nẵng cho bạn"
+    },
+    "jobDetail": {
+      "titleNeedUpdateProfileModal": "Nộp hồ sơ ứng tuyển",
+      "descriptionNeedUpdateProfileModal": "Bạn cần hoàn thiện hồ sơ để ứng tuyển vị trí này. Chọn đồng ý để hoàn thiện hồ sơ ngay bây giờ"
     }
 }

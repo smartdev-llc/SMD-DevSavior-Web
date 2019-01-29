@@ -91,21 +91,6 @@ h4.modal-title {
   display: contents;
 }
 
-.modal-footer button.btn.btn-sign {
-  color: #fff;
-  background: #4CAF50;
-}
-
-.modal-footer button.btn.btn-sign:hover {
-  color: #333;
-  background: aqua;
-}
-
-.modal-footer button.btn.btn-default:hover {
-  color: #fff;
-  background: #333 !important;
-}
-
 .background-light {
   background: #fff;
 }
@@ -203,6 +188,7 @@ p.des-apply {
     margin-right: 10px;
   }
 }
+
 @media(max-width:481px) {
   .mx-2 {
     width: 40%;
