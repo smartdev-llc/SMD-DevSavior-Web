@@ -272,7 +272,46 @@ export class AuthService {
     }
   }
 
+  checkUpdateProfile() {
+    return this.http.get('/profile/me')
+    .pipe(
+      map((response: any) => {
+        const missDataProfile = this.checkNeedUpdateProfile(response);
+        return missDataProfile;
+      }),
+      catchError(this.handleError)
+    )
+  }
+
   removeTokens(): void {
     localStorage.removeItem('user');
+  }
+
+  private checkNeedUpdateProfile(data: any) {
+    if (!data.profileImageURL) {
+      return 'profileImageURL';
+    }
+
+    if (!data.phoneNumber) {
+      return 'phoneNumber';
+    }
+
+    if (!data.jobTitle) {
+      return 'jobTitle';
+    }
+
+    if (!data.educationalStatus) {
+      return 'educationalStatus';
+    }
+
+    if (!data.workingPreference.length) {
+      return 'workingPreference';
+    }
+
+    if (!data.skills.length) {
+      return 'skills';
+    }
+
+    return false;
   }
 }

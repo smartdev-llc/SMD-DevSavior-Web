@@ -67,8 +67,16 @@
         "requirement": "Yêu cầu công việc",
         "benefit": "Phúc lợi",
         "apply": "Ứng tuyển ngay",
+        "applied": "Đã ứng tuyển",
         "address": "Địa chỉ",
-        "time":"Loại hình công việc"
+        "time":"Loại hình công việc",
+        "notLogin": "Vui lòng đăng nhập tài khoản ứng viên của bạn và tiếp tục",
+        "close": "Đóng",
+        "notyTitle": "Có vẻ như bạn chưa đăng nhập",
+        "titleApply": "Bạn có chắc chắn muốn nộp đơn ?",
+        "desApply": "Nếu bạn chọn nộp đơn, hồ sơ của bạn sẽ được gửi đến nhà tuyển dụng.",
+        "btnYesApply": "VÂNG, TÔI MUỐN NỘP ĐƠN",
+        "btnNoApply": "KHÔNG, TÔI BẤM NHẦM THÔI"
     },
     "companyUserProfile": {
         "cancel": "Hủy",
@@ -385,5 +393,9 @@
     },
     "browserJob" :{
         "titleJobsResult" : "Công việc tại Đà Nẵng cho bạn"
+    },
+    "jobDetail": {
+      "titleNeedUpdateProfileModal": "Nộp hồ sơ ứng tuyển",
+      "descriptionNeedUpdateProfileModal": "Bạn cần hoàn thiện hồ sơ để ứng tuyển vị trí này. Chọn đồng ý để hoàn thiện hồ sơ ngay bây giờ"
     }
 }

@@ -1,7 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShareService} from '@ngx-share/core';
+import {switchMap, take} from 'rxjs/operators';
+import { ModalDirective } from 'ngx-bootstrap';
 import {faFacebookSquare} from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
 import {faLinkedinIn} from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
@@ -21,7 +23,6 @@ import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
-import {switchMap, take} from 'rxjs/operators';
 
 declare  var $: any;
 
@@ -32,6 +33,9 @@ declare  var $: any;
 })
 
 export class JobDetailComponent implements OnInit {
+
+  @ViewChild('applyJobModal') applyJobModal: ModalDirective;
+  @ViewChild('remindUpdateModal') remindUpdateModal: ModalDirective;
   job: any;
   user: User;
   jobId: string;
@@ -41,15 +45,13 @@ export class JobDetailComponent implements OnInit {
   company: Company;
   listSkills: any;
   enviromentObj = environment;
-  coverCompany = 'assets/images/job-image.png';
+  coverCompany = '/assets/images/headerimage1.jpg';
   logoCompany = 'assets/images/widget1image.png';
   fbIcon = faFacebookSquare;
   pinIcon = faPinterest;
   linkedInIcon = faLinkedinIn;
   googlePlusIcon = faGooglePlusG;
-  btnApplyJob: HTMLElement;
   recommencedJobs: Job[] = [];
-  isApplied = false;
 
 
   constructor(
@@ -75,7 +77,6 @@ export class JobDetailComponent implements OnInit {
       this.job =  data;
       this.company = <Company> data['company'];
       this.isLoading = false;
-      this.isApplied = this.job.isApplied;
 
       this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
       this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
@@ -84,6 +85,13 @@ export class JobDetailComponent implements OnInit {
       this.meta.updateTag({ name: 'description', content: this.job.description });
       this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
       this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
+
+      this.meta.updateTag({ name: 'title', content: this.job.title, property:"og:title" });
+      this.meta.updateTag({ name: 'description', content: this.job.description, property:"og:description" });
+      this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany, property:"og:image" });
+      this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url, property:"og:url" });
+      this.meta.addTag({ content: '275', property:"og:image:height" });
+      this.meta.addTag({ content: '526', property:"og:image:width" });
 
       var url = this.meta.getTag('name=url');
       var title = this.meta.getTag('name=title');
@@ -100,28 +108,44 @@ export class JobDetailComponent implements OnInit {
   }
 
   redirectToLogin() {
+    $('#myModal').modal('hide');
     this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.url}});
   }
 
-  applyJob(isApplied, btnApplyJobElement: HTMLElement) {
-    if (isApplied) {
+  checkBeforeApplyJob() {
+    if (this.job.isApplied) {
       return false;
     }
+    this.authService.checkUpdateProfile()
+      .subscribe(
+        data => {
+          if (data) {
+            this.remindUpdateModal.show();
+          } else {
+            this.applyJobModal.show();
+          }
+        }
+      )
+  }
 
-    //Change style for btn
-    btnApplyJobElement.className = 'label job-type pointer isApplied';
-    btnApplyJobElement.innerText = this.renderTextForBtnApplyJob(!isApplied);
+  navigateToUpdateProfile() {
+    this.remindUpdateModal.hide();
+    this.router.navigate(['/my-career-center/update-profile/step1'], {queryParams: {returnUrl: this.router.url}});
+  }
 
-    this.btnApplyJob = btnApplyJobElement;
-
+  applyJob() {
     this.jobService
       .applyJobForStudent(this.jobId)
       .subscribe(
         data => {
-          this.isApplied = true;
+          this.job.isApplied = true;
+          this.applyJobModal.hide();
           this.toastr.success('Applied Job Success', 'Apply Job');
         },
-        (error: AppErrors) => this.handleErrorApplyJob(error)
+        (error: AppErrors) => {
+          this.job.isApplied = false;
+          this.toastr.error(error.originalError, 'Apply Job');
+        }
       );
   }
 
@@ -141,16 +165,6 @@ export class JobDetailComponent implements OnInit {
     else {
       throw error;
     }
-  }
-
-  handleErrorApplyJob(error) {
-    this.btnApplyJob.className = 'label job-type pointer apply-job';
-    this.btnApplyJob.innerText = this.renderTextForBtnApplyJob(false);
-    this.toastr.error(error.originalError, 'Apply Job');
-  }
-
-  renderTextForBtnApplyJob(isApplied): string {
-    return isApplied ? 'Applied' : 'Apply';
   }
 
   initRecommendJob() {
