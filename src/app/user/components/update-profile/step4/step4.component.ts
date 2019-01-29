@@ -55,7 +55,7 @@ export class UpdateProfileStep4Component implements OnInit {
       preferredWorkingLocation: ['', Validators.required],
       willingToRelocate: [false],
       jobType: [null, Validators.required],
-      careerObjectives: ['', Validators.required],
+      careerObjectives: [''],
       salaryForm: this.salaryForm
     });
   }
@@ -63,7 +63,8 @@ export class UpdateProfileStep4Component implements OnInit {
   preLoadData(): void {
     this.studentUserService.getMyProfile()
       .subscribe(res => {
-        const workingPreference = new WorkingPreference().deserialize(res.workingPreference[0]);
+        const workingPreferenceData = res.workingPreference.length ? res.workingPreference[0] : {};
+        const workingPreference = new WorkingPreference().deserialize(workingPreferenceData);
         this.workingPreferenceForm.setValue(workingPreference);
       })
   }
