@@ -397,6 +397,6 @@
     },
     "jobDetail": {
       "titleNeedUpdateProfileModal": "Submission of applications",
-      "descriptionNeedUpdateProfileModal": "You need to complete the application to apply for this position"
+      "descriptionNeedUpdateProfileModal": "You need to complete the application to apply for this position. Please check to fill all profile fields and upload profile picture to submit the application"
     }
 }
