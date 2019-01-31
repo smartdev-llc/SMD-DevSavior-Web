@@ -86,12 +86,12 @@ export class JobDetailComponent implements OnInit {
       this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
       this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
 
-      this.meta.updateTag({ name: 'title', content: this.job.title, property:"og:title" });
-      this.meta.updateTag({ name: 'description', content: this.job.description, property:"og:description" });
-      this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany, property:"og:image" });
-      this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url, property:"og:url" });
-      this.meta.addTag({ content: '275', property:"og:image:height" });
-      this.meta.addTag({ content: '526', property:"og:image:width" });
+      this.meta.updateTag({ property:"og:title" , content: this.job.title});
+      this.meta.updateTag({ property:"og:description" , content: this.job.description});
+      this.meta.updateTag({ property:"og:image" , content: this.enviromentObj.appUrl + this.coverCompany});
+      this.meta.addTag({ property:"og:url" , content: this.enviromentObj.appUrl + this.router.url});
+      this.meta.addTag({ property:"og:image:height" , content: '275'});
+      this.meta.addTag({ property:"og:image:width" , content: '526'});
 
       var url = this.meta.getTag('name=url');
       var title = this.meta.getTag('name=title');
