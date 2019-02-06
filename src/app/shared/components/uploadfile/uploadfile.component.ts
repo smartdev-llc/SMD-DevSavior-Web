@@ -11,6 +11,7 @@ import { environment } from '../../../../environments/environment.prod';
 import { AuthService } from '../../../core/services/auth.service';
 import { PhotoURLConverterPipe } from '../../../core/pipes/photo-urlconverter.pipe';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-uploadfile',
@@ -43,6 +44,7 @@ export class UploadfileComponent implements OnInit {
   
 
   constructor(private authService: AuthService,
+              private translate: TranslateService,
               private toastrService: ToastrService) { 
     this.photoURLConverter = new PhotoURLConverterPipe();
   }
@@ -80,7 +82,11 @@ export class UploadfileComponent implements OnInit {
           reader.onload = e => this.previewImage = reader.result;
           reader.readAsDataURL(file);
         } else {
-          this.showError('Image has wrong type or oversize. It must be one of these file types(' + this.fileType.toString() + ') and less than ' + this.maxSizeInString);
+          this.showError(
+            this.translate.instant('notification.wrongImageSize') 
+            + this.fileType.toString() 
+            + this.translate.instant('notification.endLessThan') 
+            + this.maxSizeInString);
         }
       }
   }
@@ -120,7 +126,9 @@ export class UploadfileComponent implements OnInit {
     this.stopLoading();
     this.previewImage = null;
     this.imageURL = JSON.parse(response).photoUrl;
-    this.toastrService.success("Upload", "Upload successfully!");
+    this.toastrService.success(
+      this.translate.instant('notification.uploadImage'), 
+      this.translate.instant('notification.uploadImageSuccess'));
   }
 
   onErrorItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any  {

@@ -127,15 +127,21 @@ export class NotificationJobs implements OnInit {
   }
 
   showSkillSuccess() {
-    this.toastr.success('Your changes have been saved', 'Skill');
+    this.toastr.success(
+      this.translate.instant('notification.showSkillSuccess'), 
+      this.translate.instant('notification.skill'));
   }
 
   showSkillUpdateError(error: any) {
-    this.toastr.error('You already subscribed this skill.', 'Cannot add skill');
+    this.toastr.error(
+      this.translate.instant('notification.showSkillUpdateError'),  
+      this.translate.instant('notification.cannotAddSkill'));
   }
 
   showSkillDeleteError(error: any){
-    this.toastr.error('Something went wrong when delete skill, please try again', 'Cannot delete skill');
+    this.toastr.error(
+      this.translate.instant('notification.showSkillDeleteError'),  
+      this.translate.instant('notification.cannotDeleteSkill'));
   }
 
   resetSkillForm() {

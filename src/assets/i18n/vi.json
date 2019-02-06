@@ -156,7 +156,8 @@
                 "currentAddress": "Địa chỉ"
 
             }
-        }
+        },
+        "upTo": "Up to "
     },
     "userProfile": {
         "titleDeleteWorking": "Xoá kinh nghiệm làm việc",
@@ -271,7 +272,8 @@
         "btnAdd": "Thêm",
         "inputPlaceHolder": "Hãy điền thông tin về lĩnh vực chuyên môn của bạn.",
         "descriptionDeleteWorking": "Bạn có muốn xóa kỹ năng của mình không?",
-        "plsComplete": "Vui lòng hoàn thiện kỹ năng của bạn."
+        "plsComplete": "Vui lòng hoàn thiện kỹ năng của bạn.",
+        "delete" : "Xóa"
     },
     "workingPreferences": {
         "workingPreferences": "Công việc mong muốn",
@@ -397,5 +399,51 @@
     "jobDetail": {
       "titleNeedUpdateProfileModal": "Nộp hồ sơ ứng tuyển",
       "descriptionNeedUpdateProfileModal": "Bạn cần hoàn thiện hồ sơ để ứng tuyển vị trí này. Vui lòng kiểm tra các trường thông tin hồ sơ và tải lên hình đại diện"
+    },
+    "notification": {
+      "showSkillSuccess": "Thay đổi của bạn đã được lưu lại.",
+      "skill": "Kỹ năng",
+      "showSkillUpdateError": "Bạn đã đăng ký kỹ năng này rồi.",
+      "cannotAddSkill": "Không thể thêm kỹ năng",
+      "showSkillDeleteError": "Đã xảy ra lỗi khi xóa kỹ năng, vui lòng thử lại.",
+      "cannotDeleteSkill": "Không thể xóa kỹ năng",
+      "jobEditSuccess": "Công việc của bạn đã được chỉnh sửa thành công",
+      "editJob": "Chỉnh sửa công việc",
+      "jobEditError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "hasBeenSent": "Công việc của bạn đã được gửi đến quản trị viên Juniorviec để xem xét",
+      "postJob": "Đăng công việc",
+      "postJobError": "Đã xảy ra lỗi khi xóa kỹ năng, vui lòng thử lại.",
+      "updateProfileSuccess": "Bạn vừa cập nhật hồ sơ công ty của bạn thành công",
+      "updateProfile": "Cập nhật hồ sơ",
+      "registerHotJobSuccess": "Bạn vừa đăng ký hot job thành công",
+      "registerHotJobError": "Có vấn đề trong khi đăng ký mới hot job. Vui lòng thử lại!",
+      "doYouWantDeleteJob": "Bạn có muốn xóa công việc có id là: ",
+      "deleteJobSuccess": "Công việc của bạn đã bị xóa thành công.",
+      "deleteJob": "Xóa công việc",
+      "deleteJobError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "applyJobSuccess": "Đăng ký công việc thành công",
+      "applyJob": "Đăng ký công việc",
+      "wrongImageSize": "Hình ảnh bị sai kiểu định dạng hoặc quá khổ. Nó phải là một trong những loại tệp này (",
+      "endLessThan": ") và ít hơn.",
+      "uploadImage": "Tải lên",
+      "uploadImageSuccess": "Tải ảnh lên thành công",
+      "updateProfileStudentSuccess": "Thay đổi của bạn đã được lưu lại",
+      "updateStudentProfile": "Cập nhật hồ sơ",
+      "updateProfileError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "showEducationSuccess": "Thay đổi của bạn đã được lưu lại",
+      "education": "Học vấn",
+      "showEducationError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "showSkillsSuccess": "Thay đổi của bạn đã được lưu lại",
+      "updateSkills": "Cập nhật kỹ năng",
+      "showSkillsError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "showLanguagesSuccess": "Thay đổi của bạn đã được lưu lại",
+      "updateLanguages": "Kỹ năng ngôn ngữ",
+      "showLanguagesError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "showWorkingSuccess": "Thay đổi của bạn đã được lưu lại",
+      "workingPreference": "Sở thích làm việc",
+      "showWorkingError": "Đã xảy ra lỗi. Vui lòng thử lại sau",
+      "showWorkingExperienceSuccess": "Thay đổi của bạn đã được lưu lại",
+      "workingExperience": "Kinh nghiệm làm việc",
+      "showWorkingExperienceError": "Đã xảy ra lỗi. Vui lòng thử lại sau"
     }
 }

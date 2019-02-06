@@ -10,6 +10,7 @@ import { ConfirmDialogComponent } from '../../../../shared/components/confirm-di
 import * as moment from 'moment';
 import { fromToMothDifference } from '../../../validators/from-to-moth-difference.validator';
 import { TimeWorkingAt, WorkingExperience } from '../../../../core/models/student-profile';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'update-profile-step5',
@@ -31,7 +32,8 @@ export class UpdateProfileStep5Component implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private studentUserService: StudentUserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -182,11 +184,15 @@ export class UpdateProfileStep5Component implements OnInit {
   }
 
   showWorkingSuccess() {
-    this.toastr.success('Your changes have been saved', 'Working Experience');
+    this.toastr.success(
+      this.translate.instant('notification.showWorkingExperienceSuccess'),
+      this.translate.instant('notification.workingExperience'));
   }
 
   showWorkingError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Working Experience');
+    this.toastr.error(
+      this.translate.instant('notification.showWorkingExperienceError'),
+      this.translate.instant('notification.workingExperience'));
   }
 
   private partMonthYearFromDateObj(date: Date, isToMonth: boolean = false) {

@@ -184,11 +184,15 @@ export class UpdateProfileStep1Component implements OnInit {
   }
 
   showBasicSuccess() {
-    this.toastr.success('Your changes have been saved', 'Update Profile');
+    this.toastr.success(
+      this.translate.instant('notification.updateProfileStudentSuccess'), 
+      this.translate.instant('notification.updateStudentProfile'));
   }
 
   showBasicError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Update Profile');
+    this.toastr.error(
+      this.translate.instant('notification.updateProfileError'), 
+      this.translate.instant('notification.updateStudentProfile'));
   }
 
   public fileOver(e: any): void {

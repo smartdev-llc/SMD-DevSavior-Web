@@ -201,11 +201,15 @@ export class UpdateProfileStep2Component implements OnInit {
   }
 
   showEducationSuccess() {
-    this.toastr.success('Your changes have been saved', 'Education');
+    this.toastr.success(
+      this.translate.instant('notification.showEducationSuccess'),
+      this.translate.instant('notification.education'));
   }
 
   showEducationError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Education');
+    this.toastr.error(
+      this.translate.instant('notification.showEducationError'),
+      this.translate.instant('notification.education'));
   }
 
   private partMonthYearFromDateObj(date: Date, isToMonth: boolean = false) {
