@@ -73,9 +73,13 @@ section .section-title {
     -ms-transform: rotateY(0deg);
     z-index: 2;
     margin-bottom: 30px;
+    width: 100%;
+    height: auto
 }
 
 .backside {
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 0;
     left: 0;

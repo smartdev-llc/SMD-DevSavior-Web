@@ -37,7 +37,7 @@
 
   <div class="jobs-result">
     <div class="col-xl-12 col-md-8 col-sm-12 col-lg-8">
-      <div id="slideJob" class="carousel slide" data-ride="carousel">
+      <div id="slideJob" class="carousel slide">
         <div class="carousel-inner">
           <div class="item" *ngFor="let i of pages ; index as page" [class.active]="page == 0">
             <ng-template ngFor let-job [ngForOf]="jobs | slice:getStartIndexOfPage(page):getEndIndexOfPage(page)">
