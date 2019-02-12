@@ -156,7 +156,8 @@
                 "currentAddress": "Current Address"
 
             }
-        }
+        },
+        "upTo": "Lên đến "
 
     },
     "userProfile": {
@@ -272,7 +273,8 @@
         "btnAdd": "Add",
         "inputPlaceHolder": "Type your area of expertise.",
         "descriptionDeleteWorking": "Do you want to delete your skill?",
-        "plsComplete": "Please complete your skill!"
+        "plsComplete": "Please complete your skill!",
+        "delete" : "Delete"
     },
     "workingPreferences": {
         "workingPreferences": "Working preferences",
@@ -398,5 +400,51 @@
     "jobDetail": {
       "titleNeedUpdateProfileModal": "Submission of applications",
       "descriptionNeedUpdateProfileModal": "You need to complete the application to apply for this position. Please check to fill all profile fields and upload profile picture to submit the application"
+    },
+    "notification": {
+      "showSkillSuccess": "Your changes have been saved",
+      "skill": "Skill",
+      "showSkillUpdateError": "You already subscribed this skill.",
+      "cannotAddSkill": "Cannot add skill",
+      "showSkillDeleteError": "Something went wrong when delete skill, please try again",
+      "cannotDeleteSkill": "Cannot delete skill",
+      "jobEditSuccess": "Your job was successfully edited",
+      "editJob": "Edit job",
+      "jobEditError": "Something went wrong please try again later",
+      "hasBeenSent": "Your job has been sent to Juniorviec admin for review",
+      "postJob": "Post Job",
+      "postJobError": "Something went wrong please try again later",
+      "updateProfileSuccess": "You've just updated your company profile successfully",
+      "updateProfile": "Update profile",
+      "registerHotJobSuccess": "You've just registered hot job successfully",
+      "registerHotJobError": "There is problem while register new hot job. Please try again!",
+      "doYouWantDeleteJob": "Do you want delete job id: ",
+      "deleteJobSuccess": "Your job was successfully deleted",
+      "deleteJob": "Delete job",
+      "deleteJobError": "Something went wrong please try again later",
+      "applyJobSuccess": "Applied Job Success",
+      "applyJob": "Apply Job",
+      "wrongImageSize": "Image has wrong type or oversize. It must be one of these file types(",
+      "endLessThan": ") and less than.",
+      "uploadImage": "Upload",
+      "uploadImageSuccess": "Upload image success",
+      "updateProfileStudentSuccess": "Your changes have been saved",
+      "updateStudentProfile": "Update Profile",
+      "updateProfileError": "Something went wrong please try again later",
+      "showEducationSuccess": "Your changes have been saved",
+      "education": "Education",
+      "showEducationError": "Something went wrong please try again later",
+      "showSkillsSuccess": "Your changes have been saved",
+      "updateSkills": "Update Skills",
+      "showSkillsError": "Something went wrong please try again later",
+      "showLanguagesSuccess": "Your changes have been saved",
+      "updateLanguages": "Update Languages",
+      "showLanguagesError": "Something went wrong please try again later",
+      "showWorkingSuccess": "Your changes have been saved",
+      "workingPreference": "Working Preference",
+      "showWorkingError": "Something went wrong please try again later",
+      "showWorkingExperienceSuccess": "Your changes have been saved",
+      "workingExperience": "Working Experience",
+      "showWorkingExperienceError": "Something went wrong please try again later"
     }
 }

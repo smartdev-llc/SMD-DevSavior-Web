@@ -23,6 +23,7 @@ import {Company} from '../../../core/models/company';
 import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
+import { TranslateService } from '@ngx-translate/core';
 
 declare  var $: any;
 
@@ -63,6 +64,7 @@ export class JobDetailComponent implements OnInit {
     private authService: AuthService,
     public share: ShareService,
     private cdRef: ChangeDetectorRef,
+    private translate: TranslateService,
     private meta: Meta ) {}
 
   ngOnInit() {
@@ -140,11 +142,13 @@ export class JobDetailComponent implements OnInit {
         data => {
           this.job.isApplied = true;
           this.applyJobModal.hide();
-          this.toastr.success('Applied Job Success', 'Apply Job');
+          this.toastr.success(
+            this.translate.instant('notification.applyJobSuccess'), 
+            this.translate.instant('notification.applyJob'));
         },
         (error: AppErrors) => {
           this.job.isApplied = false;
-          this.toastr.error(error.originalError, 'Apply Job');
+          this.toastr.error(error.originalError, this.translate.instant('notification.applyJob'));
         }
       );
   }

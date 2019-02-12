@@ -138,19 +138,27 @@ export class UpdateProfileStep3Component implements OnInit {
   }
 
   showSkillsSuccess() {
-    this.toastr.success('Your changes have been saved', 'Update Skills');
+    this.toastr.success(
+      this.translate.instant('notification.showSkillsSuccess'),
+      this.translate.instant('notification.updateSkills'));
   }
 
   showSkillsError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Update Skills');
+    this.toastr.error(
+      this.translate.instant('notification.showSkillsError'),
+      this.translate.instant('notification.updateSkills'));
   }
 
   showLanguagesSuccess() {
-    this.toastr.success('Your changes have been saved', 'Update Languages');
+    this.toastr.success(
+      this.translate.instant('notification.showLanguagesSuccess'),
+      this.translate.instant('notification.updateLanguages'));
   }
 
   showLanguagesError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Update Languages');
+    this.toastr.error(
+      this.translate.instant('notification.showLanguagesError'),
+      this.translate.instant('notification.updateLanguages'));
   }
 
   private parseLanguages(languages: any): any {

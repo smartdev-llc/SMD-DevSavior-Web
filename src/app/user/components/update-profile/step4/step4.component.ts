@@ -110,11 +110,15 @@ export class UpdateProfileStep4Component implements OnInit {
   }
 
   showWorkingSuccess() {
-    this.toastr.success('Your changes have been saved', 'Working Preference');
+    this.toastr.success(
+      this.translate.instant('notification.showWorkingSuccess'),
+      this.translate.instant('notification.workingPreference'));
   }
 
   showWorkingError(error: any) {
-    this.toastr.error('Something went wrong please try again later', 'Working Preference');
+    this.toastr.error(
+      this.translate.instant('notification.showWorkingError'), 
+      this.translate.instant('notification.workingPreference'));
   }
 
   private translatejobTypesSelect(jobTypes: any): void {

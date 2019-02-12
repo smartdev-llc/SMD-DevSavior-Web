@@ -32,6 +32,7 @@ import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
 import { SalaryConverterPipe } from '../core/pipes/salary-converter.pipe';
 import { CityPipe } from '../core/pipes/city.pipe';
+import {JobTypePipe} from '../core/pipes/job-type.pipe';
 import { SingularPluralPipe } from '../core/pipes/singular-plural.pipe';
 import { KeyValuePipe } from '../core/pipes/key-value.pipe'
 
@@ -53,6 +54,7 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     SalaryConverterPipe,
     SingularPluralPipe,
     CityPipe,
+    JobTypePipe,
     KeyValuePipe
   ],
   exports: [
@@ -76,6 +78,7 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     SalaryConverterPipe,
     SingularPluralPipe,
     CityPipe,
+    JobTypePipe,
     KeyValuePipe
   ],
   imports: [
