@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Company } from '../../../core/models/company';
 import { ToastrService } from 'ngx-toastr';
 import { City } from '../../../core/models/city.enum';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-company-profile',
@@ -43,7 +44,8 @@ export class CompanyProfileComponent implements OnInit {
   };
 
   constructor(private profileService: ProfileService, 
-              private formBuilder: FormBuilder, 
+              private formBuilder: FormBuilder,
+              private translate: TranslateService,
               private toastr: ToastrService) {
     this.company = new Company();
     this.initUpdateProfileForm();
@@ -105,7 +107,9 @@ export class CompanyProfileComponent implements OnInit {
                             data => {
                                 this.isLoading = false;
                                 this.isEdit = false;
-                                this.toastr.success('You\'ve just updated your company profile successfully', 'Update profile');
+                                this.toastr.success(
+                                  this.translate.instant('notification.updateProfileSuccess'), 
+                                  this.translate.instant('notification.updateProfile'));
                                 this.company = data;
                             },
                             error => {

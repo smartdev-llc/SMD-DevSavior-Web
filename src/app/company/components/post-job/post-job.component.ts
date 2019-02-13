@@ -87,11 +87,15 @@ export class PostJobComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Your job has been sent to Juniorviec admin for review', 'Post job');
+    this.toastr.success(
+      this.translate.instant('notification.hasBeenSent'), 
+      this.translate.instant('notification.postJob'));
   }
 
   showError(error) {
-    this.toastr.error('Something went wrong please try again later', 'Post job');
+    this.toastr.error(
+      this.translate.instant('notification.postJobError'), 
+      this.translate.instant('notification.postJob'));
   }
 
   initPostJobForm() {

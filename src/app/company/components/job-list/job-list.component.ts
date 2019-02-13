@@ -5,6 +5,8 @@ import { ActivatedRoute, } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { JobService } from '../../../core/services/job.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
+
 declare var $: any;
 @Component({
   selector: 'app-job-list',
@@ -31,7 +33,8 @@ export class JobListComponent implements OnInit {
     private router: Router,
     private jobService: JobService,
     private scrollToService: ScrollToService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -121,11 +124,11 @@ export class JobListComponent implements OnInit {
     this.jobService.registerHotJob(job.id)
         .subscribe( response => {
           this.hotJobs.set(HotJobStatus.PENDING, job);
-          this.toast.success('You\'ve just registered hot job successfully');
+          this.toast.success(this.translate.instant('notification.registerHotJobSuccess'));
           this.isProcessingHotJob = false;
           this.processingPendingJobId = undefined;
         }, error => {
-          this.toast.error('There is problem while register new hot job. Please try again!');
+          this.toast.error(this.translate.instant('notification.registerHotJobError'));
           this.isProcessingHotJob = false;
           this.processingPendingJobId = undefined;
         });
@@ -176,13 +179,17 @@ export class JobListComponent implements OnInit {
   }
 
   deleteJob(jobId){
-    if (confirm("Do you want delete job id: "+jobId)) {
+    if (confirm(this.translate.instant('notification.doYouWantDeleteJob') + jobId)) {
       this.jobService.deleteJob(jobId)
       .subscribe(response => {
-        this.toast.success('Your job was successfully deleted', 'Delete job');
+        this.toast.success(
+          this.translate.instant('notification.deleteJobSuccess'), 
+          this.translate.instant('notification.deleteJob'));
         this.ngOnInit();
       },error => {
-        this.toast.error('Something went wrong please try again later', 'Delete job');
+        this.toast.error(
+          this.translate.instant('notification.deleteJobError'), 
+          this.translate.instant('notification.deleteJob'));
       });
     }
   }

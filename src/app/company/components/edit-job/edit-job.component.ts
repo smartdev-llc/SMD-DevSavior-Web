@@ -110,11 +110,15 @@ export class EditJobComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Your job was successfully edited', 'Edit job');
+    this.toastr.success(
+      this.translate.instant('notification.jobEditSuccess'), 
+      this.translate.instant('notification.editJob'));
   }
 
   showError(error) {
-    this.toastr.error('Something went wrong please try again later', 'Edit job');
+    this.toastr.error(
+      this.translate.instant('notification.jobEditError'), 
+      this.translate.instant('notification.editJob'));
   }
 
   initPostJobForm() {

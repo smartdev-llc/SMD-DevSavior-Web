@@ -546,6 +546,7 @@ ul.dropdown-menu li:last-child a {
 .jobs_filters .dropdown-menu {
     width: 100%;
     padding: 11px 0;
+    z-index: 1000;
     border-radius: 14px;
 }
 
