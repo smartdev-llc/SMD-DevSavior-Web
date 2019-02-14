@@ -14,8 +14,8 @@ export class SeoService {
       image: './assets/images/headerimage1.jpg',
       slug: '',
       url: 'https://juniorviec.com',
-      imageWidth: 160,
-      imageHeight: 160,
+      imageWidth: 200,
+      imageHeight: 200,
       ...config
     }
 
