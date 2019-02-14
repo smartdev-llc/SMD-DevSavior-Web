@@ -4,10 +4,40 @@
 
 .desig {
   width: 80%;
-  h4 {
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
+  .skills{
+    span.skill {
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 10px;
+      display: inline-block;
+      padding: 2px 10px;
+      color: white;
+    }
+  }
+  .skills.color_1{
+    >span.skill{
+      background-color:#33BF96;
+    }
+  }
+  .skills.color_2{
+    >span.skill{
+      background-color:#F4C22D;
+    }
+  }
+  .skills.color_3{
+    >span.skill{
+      background-color:#F8A430;
+    }
+  }
+  .skills.color_4{
+    >span.skill{
+      background-color:#F57648;
+    }
+  }
+  .skills.color_5{
+    >span.skill{
+      background-color:#E35357;
+    }
   }
 }
 
