@@ -195,8 +195,8 @@
                 <th>{{ 'companyUserProfile.companyLogo' | translate }}</th>
                 <td>
                   <div class="form-group file-type">
-                    <app-uploadfile [imageURL]="company.logoURL" [uploadURL]="logoUploadURL" [maxSizeInByte]="5242880" [fileType]="['PNG', 'JPG', 'JPEG']">
-                    </app-uploadfile>
+                    <app-upload-logo-company [croppedImage]="company.logoURL" [uploadURL]="logoUploadURL" [maxSizeInByte]="5242880" [fileType]="['PNG', 'JPG', 'JPEG']">
+                    </app-upload-logo-company>
                   </div>
                 </td>
               </tr>
