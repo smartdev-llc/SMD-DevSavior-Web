@@ -87,7 +87,8 @@ export class JobDetailComponent implements OnInit {
       this.seo.generateTags({
         title: this.job.title,
         description: jobDescription,
-        image: imageCompany
+        image: imageCompany,
+        slug: this.router.url
       });
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
