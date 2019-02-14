@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// middleware prerender.io
+app.use(require('prerender-node').set('prerenderServiceUrl', 'http://localhost:3636'));
 /**
   If an incoming request uses
   a protocol other than HTTPS,

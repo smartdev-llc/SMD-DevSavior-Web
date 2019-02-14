@@ -26,7 +26,9 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
 import { FileUploadModule } from 'ng2-file-upload';
+
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
+import { SeoService } from './services/seo.service';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
@@ -115,6 +117,7 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     SocialLoginModule
   ],
   providers: [
+    SeoService,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
