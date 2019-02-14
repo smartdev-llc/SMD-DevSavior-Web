@@ -8,7 +8,6 @@ import {faFacebookSquare} from '@fortawesome/free-brands-svg-icons/faFacebookSqu
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
 import {faLinkedinIn} from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 import {faPinterest} from '@fortawesome/free-brands-svg-icons/faPinterest';
-import {Meta} from '@angular/platform-browser';
 
 import {Role, User} from '../../../core/models/user';
 import {AuthService} from '../../../core/services/auth.service';
@@ -24,6 +23,7 @@ import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
 import { TranslateService } from '@ngx-translate/core';
+import { SeoService } from '../../../shared/services/seo.service';
 
 declare  var $: any;
 
@@ -65,7 +65,7 @@ export class JobDetailComponent implements OnInit {
     public share: ShareService,
     private cdRef: ChangeDetectorRef,
     private translate: TranslateService,
-    private meta: Meta ) {}
+    private seo: SeoService ) {}
 
   ngOnInit() {
     this.jobId = this.route.snapshot.paramMap.get('id');
@@ -79,29 +79,16 @@ export class JobDetailComponent implements OnInit {
       this.job =  data;
       this.company = <Company> data['company'];
       this.isLoading = false;
-
-      this.company.logoURL && (this.logoCompany = this.enviromentObj.apiEndpoint + this.company.logoURL);
-      this.company.coverURL && (this.coverCompany = this.enviromentObj.apiEndpoint + this.company.coverURL);
-
-      this.meta.updateTag({ name: 'title', content: this.job.title });
-      this.meta.updateTag({ name: 'description', content: this.job.description });
-      this.meta.updateTag({ name: 'image', content: this.enviromentObj.appUrl + this.coverCompany });
-      this.meta.addTag({ name: 'url', content: this.enviromentObj.appUrl + this.router.url });
-
-      this.meta.updateTag({ property:"og:title" , content: this.job.title});
-      this.meta.updateTag({ property:"og:description" , content: this.job.description});
-      this.meta.updateTag({ property:"og:image" , content: this.enviromentObj.appUrl + this.coverCompany});
-      this.meta.addTag({ property:"og:url" , content: this.enviromentObj.appUrl + this.router.url});
-      this.meta.addTag({ property:"og:image:height" , content: '275'});
-      this.meta.addTag({ property:"og:image:width" , content: '526'});
-
-      var url = this.meta.getTag('name=url');
-      var title = this.meta.getTag('name=title');
-      var description = this.meta.getTag('name=description');
-      var image = this.meta.getTag('name=image');
-
       this.getRecommendedJob(this.jobId);
 
+      const imageCompany = this.company.logoURL ? this.enviromentObj.apiEndpoint + this.company.logoURL : './assets/images/headerimage1.jpg';
+      const jobDescription = this.removeHtmlTags(this.job.description);
+      // update meta tags for Seo
+      this.seo.generateTags({
+        title: this.job.title,
+        description: jobDescription,
+        image: imageCompany
+      });
     }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
     this.user = this.authService.getCurrentUser();
@@ -143,7 +130,7 @@ export class JobDetailComponent implements OnInit {
           this.job.isApplied = true;
           this.applyJobModal.hide();
           this.toastr.success(
-            this.translate.instant('notification.applyJobSuccess'), 
+            this.translate.instant('notification.applyJobSuccess'),
             this.translate.instant('notification.applyJob'));
         },
         (error: AppErrors) => {
@@ -210,5 +197,11 @@ export class JobDetailComponent implements OnInit {
     }
 
     return this.company.website;
+  }
+
+  private removeHtmlTags(text: string) {
+    const regex = /(<([^>]+)>)/ig;
+    const result = text.replace(regex, '');
+    return result.trim();
   }
 }
