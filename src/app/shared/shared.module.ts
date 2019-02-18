@@ -28,9 +28,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-log
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
-import { UploadLogoCompanyComponent } from './components/upload-logo-company/upload-logo-company.component';
 import { SeoService } from './services/seo.service';
-import { ImageCropperModule } from 'ngx-image-cropper';
 import { PhotoURLConverterPipe } from '../core/pipes/photo-urlconverter.pipe';
 import { TypeOfJobTime } from '../core/pipes/type-of-job-time.pipe';
 import { ParseSkill } from '../core/pipes/parse-skill.pipe';
@@ -51,7 +49,6 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     JVDropDownComponent,
     MonthYearPickerComponent,
     UploadfileComponent,
-    UploadLogoCompanyComponent,
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
     ParseSkill,
@@ -76,7 +73,6 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     MonthYearPickerComponent,
     NgxLoadingModule,
     UploadfileComponent,
-    UploadLogoCompanyComponent,
     ConfirmDialogComponent,
     PhotoURLConverterPipe,
     ParseSkill,
@@ -118,8 +114,7 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
         deps: [ TranslateService, TranslateCacheSettings ]
       }
     }),
-    SocialLoginModule,
-    ImageCropperModule
+    SocialLoginModule
   ],
   providers: [
     SeoService,
