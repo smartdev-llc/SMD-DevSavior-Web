@@ -18,6 +18,5 @@ export const AuthRoutes = [
   { path: 'lost-password', component: StLostPasswordComponent, canActivate: [StudentLoggedGuard] },
   { path: 'reset-password', component: StResetPasswordComponent },
   { path: 'verify-account', component: StVerifyAccountComponent },
-  { path: 'about-us', component: AboutUsComponent },
   { path: 'privacy-policy', component: PolicyComponent }
 ];

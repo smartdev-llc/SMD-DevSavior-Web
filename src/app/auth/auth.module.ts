@@ -12,7 +12,6 @@ import { StLostPasswordComponent } from './components/st-lost-password/st-lost-p
 import { MatchingPasswordDirective } from './validators/matching-password.directive';
 import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AuthRoutes as routes } from './auth.routes';
 import { PolicyComponent } from './components/policy/policy.component';
 import { RegisterSuccessCPComponent } from './components/registerSuccessCP/registerSuccessCP.component';
@@ -36,8 +35,7 @@ import { RegisterSuccessCPComponent } from './components/registerSuccessCP/regis
     MatchingPasswordDirective,
     StResetPasswordComponent,
     StVerifyAccountComponent,
-    PolicyComponent,
-    AboutUsComponent
+    PolicyComponent
   ]
 })
 export class AuthModule { }
