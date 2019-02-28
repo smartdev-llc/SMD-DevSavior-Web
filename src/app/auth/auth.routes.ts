@@ -5,7 +5,6 @@ import { StLostPasswordComponent } from './components/st-lost-password/st-lost-p
 import { StResetPasswordComponent } from './components/st-reset-password/st-reset-password.component';
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 import { PolicyComponent } from './components/policy/policy.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { StudentLoggedGuard } from '../core/guards/student-logged.guard';
 import { CompanyLoggedGuard } from '../core/guards/company-logged.guard';
 import { RegisterSuccessCPComponent } from './components/registerSuccessCP/registerSuccessCP.component';
