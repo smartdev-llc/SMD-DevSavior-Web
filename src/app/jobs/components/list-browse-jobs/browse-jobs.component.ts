@@ -136,6 +136,11 @@ export class BrowseJobsComponent implements OnInit {
       ...this.queryParams,
       page: event.page - 1
     };
+
+    // Convert this.queryParams.qs array to String
+    if (Array.isArray(this.queryParams.qs)) {
+      this.queryParams.qs = this.queryParams.qs[0];
+    }
     this.loadJobs();
     this.scrollToService.scrollTo({ target: 'searchJobs' });
   }
