@@ -81,43 +81,8 @@
                 </ng-template>
             </div>
             <!--jobs result-->
-            <div class="filter-result" *ngFor="let job of listJobs ;let i = index">
-                <div class="col-md-7 col-xs-12 pull-left">
-                    <div class="company-left-info company-logo pull-left">
-                        <img class="img-responsive" src="{{ job.company.logoURL | photoURLConverter:'assets/images/company-logo.png' }}" />
-                    </div>
-                    <div class="desig">
-                        <a routerLink="/jobs/{{job._id}}">
-                            <h3>{{job.title}}</h3>
-                        </a>
-                        <div class="skills color_{{job.category.id}}">
-                            <ng-template ngFor let-skill [ngForOf]="job.skills | keyValue">
-                                <span class="skill">{{skill.value.name}}</span>
-                            </ng-template>
-                        </div>
-    
-                        <!-- <div class="mr">
-                          <h4 *ngIf="job.category.id == 1" [style.background-color]="'#33BF96'" class="skills">{{ job.skills | parseskill }}</h4>
-                          <h4 *ngIf="job.category.id == 2" [style.background-color]="'#F4C22D'" class="skills">{{ job.skills | parseskill }}</h4>
-                          <h4 *ngIf="job.category.id == 3" [style.background-color]="'#F8A430'" class="skills">{{ job.skills | parseskill }}</h4>
-                          <h4 *ngIf="job.category.id == 4" [style.background-color]="'#F57648'" class="skills">{{ job.skills | parseskill }}</h4>
-                          <h4 *ngIf="job.category.id == 5" [style.background-color]="'#E35357'" class="skills">{{ job.skills | parseskill }}</h4>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-md-5 col-xs-12 pull-right">
-                    <div class="pull-right location">
-                        <p>Da nang</p>
-                    </div>
-                    <div class="data-job">
-                        <h3>
-                            <span class="brows-job-sallery">
-                <i class="fa fa-money"></i> {{ job.fromSalary | salaryConverter:job.toSalary:'$' }}
-              </span>
-                        </h3>
-                        <span class="label job-type job-fulltime ">{{ job.jobType | typeOfJobTime }}</span>
-                    </div>
-                </div>
+            <div class="col-xl-12 col-md-8 col-sm-12 col-lg-8" *ngFor="let job of listJobs ;let i = index">
+              <app-job-item [job]="job"></app-job-item>
             </div>
             <div class="clearfix"></div>
             <div class="" *ngIf="totalItems > 0">
