@@ -4,6 +4,7 @@ export const environment = {
   production: true,
   appUrl: 'https://juniorviec.com',
   apiEndpoint: 'https://api.juniorviec.com',
+  employerUrl: 'https://employer.juniorviec.com',
   appName: DEFAULT_CONFIG.appName,
   config: DEFAULT_CONFIG
 };

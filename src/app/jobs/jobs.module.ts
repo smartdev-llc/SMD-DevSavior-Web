@@ -29,7 +29,7 @@ import { SkillService } from '../core/services/skill/SkillService';
 
 import { JobCategories }  from './components/list-browse-jobs/job-resolve';
 import {JobService} from '../core/services/job.service';
-import {ProfileService} from '../company/services/profile.service';
+import { ProfileService } from '../core/services/profile.service';
 
 @NgModule({
   declarations: [

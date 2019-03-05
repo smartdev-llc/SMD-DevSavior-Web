@@ -17,8 +17,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from '../auth/effects/auth.effects';
 import { StudentUserAuthGuard } from './guards/student-user.guard';
 import { StudentLoggedGuard } from './guards/student-logged.guard';
-import { CompanyUserAuthGuard } from './guards/company-user.guard';
-import { CompanyLoggedGuard } from './guards/company-logged.guard';
 
 @NgModule({
   declarations: [
@@ -49,8 +47,6 @@ import { CompanyLoggedGuard } from './guards/company-logged.guard';
     AuthActions,
     StudentUserAuthGuard,
     StudentLoggedGuard,
-    CompanyUserAuthGuard,
-    CompanyLoggedGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ]
 })

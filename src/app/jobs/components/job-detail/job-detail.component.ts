@@ -1,3 +1,5 @@
+import {environment} from '../../../../environments/environment';
+
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {JobService} from '../../../core/services/job.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -17,12 +19,11 @@ import {Forbidden} from '../../../core/error/forbidden';
 import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import {Duplicate} from '../../../core/error/duplicate';
-import {ProfileService} from '../../../company/services/profile.service';
 import {Company} from '../../../core/models/company';
-import {environment} from '../../../../environments/environment';
 import {NotFound} from '../../../core/error/not-found';
 import {Job} from '../../../core/models/job';
 import { TranslateService } from '@ngx-translate/core';
+import { ProfileService } from '../../../core/services/profile.service';
 import { SeoService } from '../../../shared/services/seo.service';
 
 declare  var $: any;
