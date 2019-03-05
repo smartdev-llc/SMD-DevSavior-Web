@@ -1,3 +1,5 @@
+import { environment } from '../../../environments/environment';
+
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
@@ -13,7 +15,8 @@ import { LanguageService } from '../services/language.service';
 export class UserHeaderComponent implements OnInit, OnDestroy {
   isEnLang: boolean = false;
   user: any;
-  subscription: Subscription
+  subscription: Subscription;
+  employerUrl = environment.employerUrl;
 
   constructor(
     private authService: AuthService,

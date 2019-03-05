@@ -9,6 +9,7 @@ export const environment = {
   production: false,
   appUrl: 'https://uat.juniorviec.com',
   apiEndpoint: 'https://uat.api.juniorviec.com',
+  employerUrl: 'https://uat.employer.juniorviec.com',
   appName: DEFAULT_CONFIG.appName,
   config: DEFAULT_CONFIG
 };

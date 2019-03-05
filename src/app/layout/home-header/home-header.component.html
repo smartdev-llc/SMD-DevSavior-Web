@@ -29,7 +29,7 @@
             <a routerLink="/register" class="student-register">
               <span class="label job-type partytime">{{ 'header.register' | translate }}</span>
             </a>
-            <a routerLink="/employer/home" class="employer">
+            <a class="employer" href="{{employerUrl}}" target="_blank">
               <span class="label job-type partytime Companies-head">
                 <p class="main-title">{{ 'header.employer' | translate }}</p>
                 <p class="title">{{ 'header.recruit' | translate }}</p>
@@ -69,7 +69,7 @@
             <ng-container *ngIf="user.role == 'company'">
               <ul class="dropdown-menu">
                 <li>
-                  <a routerLink="/employer/home">Company Home</a>
+                  <a href="{{employerUrl}}" target="_blank">Company Home</a>
                 </li>
                 <li>
                   <a routerLink="/employer/jobs/all">Dashboard</a>
@@ -112,7 +112,7 @@
                 <a routerLink="/register">{{ 'header.register' | translate }}</a>
               </li>
               <li class="mobile-menu">
-                <a routerLink="/employer/home">{{ 'header.employer' | translate }}</a>
+                <a href="{{employerUrl}}" target="_blank">{{ 'header.employer' | translate }}</a>
               </li>
             </ul>
 
@@ -142,7 +142,7 @@
                 <ng-container *ngIf="user.role == 'company'">
                   <ul class="dropdown-menu">
                     <li>
-                      <a routerLink="/employer/home">Company Home</a>
+                      <a href="{{employerUrl}}" target="_blank">Company Home</a>
                     </li>
                     <li>
                       <a routerLink="/employer/jobs/all">Dashboard</a>
