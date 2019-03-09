@@ -155,10 +155,10 @@ button.btn-defaut.bg-white:focus {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 2px solid #12cd6a;
     border-radius: 26px;
-    color: #232323;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     margin-right: 0;
     padding: 12px 30px;
     width: auto;
@@ -166,7 +166,7 @@ button.btn-defaut.bg-white:focus {
 
 .logins span:hover {
     background: #12cd6a;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 .logins span:hover {
@@ -1921,6 +1921,13 @@ ul.simple li {
     -moz-border-radius: 14px;
     -ms-border-radius: 14px;
     -o-border-radius: 14px;
+}
+.user-icon img{
+    width: 25px;
+}
+
+.user-icon .icon-user-profile {
+    clip-path: circle(12px at center);
 }
 
 @media (min-width: 1281px) and (max-width: 1840px) {

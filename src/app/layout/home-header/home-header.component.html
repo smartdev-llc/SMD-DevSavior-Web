@@ -47,8 +47,8 @@
               </span>
             </a>
             <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span class="label job-type partytime profile-head">
-                <i class="fa fa-user"></i>
+              <span class="label job-type partytime profile-head user-icon">
+                <img class="icon-user-profile" src="{{ user.profileImageURL | photoURLConverter:'assets/images/profile-placeholder.png' }}">
                 <span>{{ user.displayName || user.name }}</span>
                 <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
               </span>
