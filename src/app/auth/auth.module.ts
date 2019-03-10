@@ -14,6 +14,7 @@ import { StResetPasswordComponent } from './components/st-reset-password/st-rese
 import { StVerifyAccountComponent } from './components/st-verify-account/st-verify-account.component';
 import { AuthRoutes as routes } from './auth.routes';
 import { PolicyComponent } from './components/policy/policy.component';
+import { StChangePasssword } from './components/st-change-password/st-change-password.components';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { PolicyComponent } from './components/policy/policy.component';
     MatchingPasswordDirective,
     StResetPasswordComponent,
     StVerifyAccountComponent,
-    PolicyComponent
+    PolicyComponent,
+    StChangePasssword
   ]
 })
 export class AuthModule { }
