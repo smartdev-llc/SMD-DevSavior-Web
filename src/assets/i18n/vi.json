@@ -445,5 +445,20 @@
       "showWorkingExperienceSuccess": "Thay đổi của bạn đã được lưu lại",
       "workingExperience": "Kinh nghiệm làm việc",
       "showWorkingExperienceError": "Đã xảy ra lỗi. Vui lòng thử lại sau"
+    },
+    "changePassword": {
+      "title": "Thay đổi mật khẩu",
+      "guideText": "Nhập mật khẩu mới của bạn dưới đây, chúng tôi sẽ làm mới mật khẩu cho bạn.",
+      "oldPassword": "Mật khẩu cũ",
+      "newPassword" : "Mật khẩu mới",
+      "confirmPassword": "Xác nhận lại mật khẩu mới",
+      "placeHolderOldPass": "Vui lòng điền mật khẩu cũ của bạn.",
+      "placeHolderNewPass": "Vui lòng điển mật khẩu mới của bạn.",
+      "placeHolderRepeatPass": "Vui lòng xác nhận lại mật khẩu mới của bạn.",
+      "passwordRequired": "Yêu cầu nhập mật khẩu",
+      "passwordAtLeast": "Mật khẩu ít nhất",
+      "passwordNotMatch": "Mật khẩu không đúng.",
+      "character": "Ký tự.",
+      "confirm": "Xác nhận"
     }
 }

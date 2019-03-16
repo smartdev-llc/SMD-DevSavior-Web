@@ -446,5 +446,20 @@
       "showWorkingExperienceSuccess": "Your changes have been saved",
       "workingExperience": "Working Experience",
       "showWorkingExperienceError": "Something went wrong please try again later"
+    },
+    "changePassword": {
+      "title": "Change password",
+      "guideText": "Enter your new password below, we will refresh\nyour password.",
+      "oldPassword": "Old password",
+      "newPassword" : "New password",
+      "confirmPassword": "Confirm password",
+      "placeHolderOldPass": "Enter your old password",
+      "placeHolderNewPass": "Enter your new password",
+      "placeHolderRepeatPass": "Enter your re-new password",
+      "passwordRequired": "Password is required.",
+      "passwordAtLeast": "Password at least",
+      "passwordNotMatch": "Password not matched.",
+      "character": "Character.",
+      "confirm": "Confirm"
     }
 }
