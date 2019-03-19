@@ -155,7 +155,7 @@ button.btn-defaut.bg-white:focus {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 2px solid #12cd6a;
     border-radius: 26px;
-    color: #ffffff;
+    color: #333;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 15px;
@@ -1928,6 +1928,10 @@ ul.simple li {
 
 .user-icon .icon-user-profile {
     clip-path: circle(12px at center);
+}
+
+.user-icon span {
+    color: #fff
 }
 
 @media (min-width: 1281px) and (max-width: 1840px) {

@@ -9,6 +9,7 @@ import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import { LanguageService } from '../../../layout/services/language.service';
 import {BadRequest} from '../../../core/error/bad-request';
+import { StChangePasssword } from '../st-change-password/st-change-password.components';
 
 @Component({
   selector: 'login',
@@ -24,6 +25,7 @@ export class StLoginComponent implements OnInit, OnDestroy {
   isSubmited = false;
   formErrorMessage: string;
   isEnLang: boolean = false;
+  isRedirectChangePassword = false;
   returnUrl: string;
 
   constructor(private languageService: LanguageService,
@@ -40,6 +42,8 @@ export class StLoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initForm();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    const redirectParam = this.route.snapshot.queryParamMap['redirect'];
+    this.isRedirectChangePassword = redirectParam === StChangePasssword.CHANGE_PASSWORD_REDIRECT;
   }
   changeLanguage(language: string): void {
     this.languageService.changeLanguage(language).subscribe(() => {
