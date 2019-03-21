@@ -24,6 +24,7 @@
         "noMoreFiveYear": "Experience no more than 5 years."
     },
     "header": {
+        "companyHome": "Company home",
         "jobs": "All Jobs",
         "companies": "Company Reviews",
         "login": "Login",
@@ -35,6 +36,7 @@
         "dashboard": "Dashboard",
         "myJobs": "My jobs",
         "jobAlerts": "Job Alerts",
+        "myProfile": "My Profile",
         "jobseeker": "FOR CANDIDATE \n find a job now!",
         "jobseeker_mobile": "FOR CANDIDATE",
         "about": "About us",

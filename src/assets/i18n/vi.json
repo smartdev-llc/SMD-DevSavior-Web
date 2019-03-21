@@ -24,6 +24,7 @@
         "noMoreFiveYear": "Kinh nghiệm không quá 5 năm."
     },
     "header": {
+        "companyHome": "Trang tuyển dụng",
         "jobs": "Tất Cả Việc Làm",
         "companies": "Các Công Ty Hàng Đầu",
         "login": "Đăng Nhập",
@@ -34,6 +35,7 @@
         "careerCenter": "Nghề Nghiệp",
         "dashboard": "Quản Lý Hồ Sơ",
         "jobAlerts": "Thông báo việc làm",
+        "myProfile": "Thông tin của tôi",
         "myJobs": "Việc Làm Của Tôi",
         "jobseeker": "DÀNH CHO\n NGƯỜI TÌM VIỆC",
         "jobseeker_mobile": "DÀNH CHO NGƯỜI TÌM VIỆC",
