@@ -18,7 +18,7 @@
               <form name="contact_us" class="contact_us validation-form" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                   <label></label>
-                  <div *ngIf="!submitted && isRedirectChangePassword" class="text-highlight ">
+                  <div *ngIf="!isSubmited && isRedirectChangePassword" class="text-highlight ">
                      Your password is change successfully.
                   </div>
                 </div>

@@ -18,8 +18,7 @@ import { StChangePasssword } from './components/st-change-password/st-change-pas
 
 @NgModule({
   imports: [
-
-  CommonModule,
+    CommonModule,
     RouterModule.forChild(routes),
     LayoutModule,
     SharedModule,
