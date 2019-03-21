@@ -36,7 +36,7 @@ export class StChangePasssword implements OnInit {
   initForms():void{
     this.changePasswordFormGroup = this.formBuilder.group({
       oldPassword: ['', Validators.required],
-      newPassword: ['', Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)],
+      password: ['', [Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)]],
       repeatPassword: ['', Validators.required]
     },
     {
@@ -53,8 +53,8 @@ export class StChangePasssword implements OnInit {
 
     this.loading = true;
     const data = {
-      oldPassword: this.controls.oldPassword.value,
-      newPassword: this.controls.newPassword.value
+      password: this.controls.oldPassword.value,
+      newPassword: this.controls.password.value
     };
 
     this.authService.changePassword(data).subscribe(

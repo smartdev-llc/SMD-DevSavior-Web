@@ -114,9 +114,9 @@ export class AuthService {
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
-  changePassword(data: {oldPassword: string, newPassword: string}): Observable<any> {
+  changePassword(data: {password: string, newPassword: string}): Observable<any> {
     return this.http
-      .post('auth/change-password', data)
+      .post('/auth/change-password', data)
       .pipe(
         map((response:any) => response),
         catchError(this.handleError)
