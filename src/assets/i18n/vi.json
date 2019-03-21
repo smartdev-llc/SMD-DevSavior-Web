@@ -459,6 +459,7 @@
       "passwordAtLeast": "Mật khẩu ít nhất",
       "passwordNotMatch": "Mật khẩu không đúng.",
       "character": "Ký tự.",
-      "confirm": "Xác nhận"
+      "confirm": "Xác nhận",
+      "changePasswordMessage": "Yêu cầu thay đổi mật khẩu của bạn đã được xử lý, bạn có thể đăng nhập ngay bây giờ"
     }
 }

@@ -460,6 +460,7 @@
       "passwordAtLeast": "Password at least",
       "passwordNotMatch": "Password not matched.",
       "character": "Character.",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "changePasswordMessage": "Your request change password success, you can login right now"
     }
 }
