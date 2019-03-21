@@ -34,7 +34,7 @@ export class BrowseJobsComponent implements OnInit {
     { name: 'FULL TIME', id: 'FULL_TIME' },
     { name: 'PART TIME', id: 'PART_TIME' },
     { name: 'CONTRACT', id: 'CONTRACT' },
-    { name: 'INTERSHIP', id: 'INTERSHIP' },
+    { name: 'INTERNSHIP', id: 'INTERNSHIP' },
     { name: 'FREELANCE', id: 'FREELANCE' }
   ];
 
