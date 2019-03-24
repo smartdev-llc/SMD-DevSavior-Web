@@ -14,7 +14,7 @@ import { Unauthorized } from 'src/app/core/error/unauthorized';
 @Component({
   selector: 'st-change-password',
   templateUrl: './st-change-password.components.html',
-  styleUrls: ['./st-change-password.components.scss']
+  styleUrls: ['./st-change-password.components.scss'],
 })
 export class StChangePasssword implements OnInit {
   @ViewChild('changePasswordAlert') changePasswordAlert: ModalDirective;
@@ -24,6 +24,7 @@ export class StChangePasssword implements OnInit {
   loading = false;
   submitted = false;
   isSucceed = false;
+  showPassword = false;
 
   constructor(
     private toastr: ToastrService,
@@ -54,7 +55,6 @@ export class StChangePasssword implements OnInit {
     if(!this.changePasswordFormGroup.valid){
       return;
     }
-    this.showChangePasswordSuccess();
     this.loading = true;
     const data = {
       password: this.controls.oldPassword.value,
@@ -63,7 +63,7 @@ export class StChangePasssword implements OnInit {
 
     this.authService.changePassword(data).subscribe(
       (respone) => {
-
+        this.showChangePasswordSuccess();
         this.authService.removeTokens();
         this.router.navigate(['/login'], {
           queryParams: { redirect: StChangePasssword.CHANGE_PASSWORD_REDIRECT }
@@ -97,6 +97,10 @@ export class StChangePasssword implements OnInit {
       serverError: serverError
     });
 
+  }
+
+  toggle(){
+    this.showPassword = !this.showPassword;
   }
 
   get controls(){
