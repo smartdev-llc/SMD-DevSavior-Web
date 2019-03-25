@@ -136,7 +136,7 @@
         <div class="owl-wrapper-outer">
           <div class="owl-wrapper" style=" left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
             <ng-container *ngFor="let recommencedJob of recommencedJobs">
-              <a class="owl-item" [routerLink]="/jobs/{{recommencedJob.slug}}">
+              <a class="owl-item" routerLink="/jobs/{{recommencedJob.slug}}">
                 <div class="item recom-job">
                   <div class="related_jos">
                     <h4>{{recommencedJob.title}} </h4>
