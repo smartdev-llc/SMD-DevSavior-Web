@@ -40,8 +40,8 @@ export class JobService {
     );
   }
 
-  getDetailJob (jobId): Observable<any> {
-    return this.http.get('/jobs/' + jobId)
+  getDetailJob (jobSlug): Observable<any> {
+    return this.http.get('/jobs/' + jobSlug)
       .pipe(
         map( response => {
           return response;
@@ -61,8 +61,8 @@ export class JobService {
       );
   }
 
-  getRecommenedJob(jobId: string) {
-    return this.http.get('/jobs/' + jobId + '/recommended' );
+  getRecommenedJob(jobSlug: string) {
+    return this.http.get('/jobs/' + jobSlug + '/recommended' );
   }
 
   //TODO: Move handleError() in each Service class into one Class
