@@ -24,7 +24,9 @@ export class StChangePasssword implements OnInit {
   loading = false;
   submitted = false;
   isSucceed = false;
-  showPassword = false;
+  oldPasswordFlag = false;
+  newPasswordFlag = false;
+  confirmedPasswordFlag = false;
 
   constructor(
     private toastr: ToastrService,
@@ -99,8 +101,12 @@ export class StChangePasssword implements OnInit {
 
   }
 
-  toggle(){
-    this.showPassword = !this.showPassword;
+  toggle(passwordFlag: string){
+    switch (passwordFlag) {
+      case 'oldPassword': this.oldPasswordFlag = !this.oldPasswordFlag; break;
+      case 'newPassword': this.newPasswordFlag = !this.newPasswordFlag; break;
+      case 'confirmedPassword': this.confirmedPasswordFlag = !this.confirmedPasswordFlag; break;
+    }
   }
 
   get controls(){
