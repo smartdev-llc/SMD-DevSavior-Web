@@ -38,6 +38,7 @@
                 <input type="text" class="form-control" formControlName="jobTitle">
                 <div *ngIf="submittedBasic && biF.jobTitle.errors">
                   <em *ngIf="biF.jobTitle.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
+                  <em *ngIf="biF.jobTitle.errors.pattern" class="error help-block">{{ 'validation.wrongJobType' | translate }}</em>
                 </div>
               </div>
             </div>
@@ -124,7 +125,7 @@
             <input type="text" class="form-control" formControlName="phoneNumber">
             <div *ngIf="submittedPersonal && piF.phoneNumber.errors">
               <em *ngIf="piF.phoneNumber.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
-              <em *ngIf="piF.phoneNumber.errors.pattern" class="error help-block">Invalid phone number</em>
+              <em *ngIf="piF.phoneNumber.errors.pattern" class="error help-block">{{ 'validation.wrongPhoneNumber' | translate }}</em>
             </div>
           </div>
         </div>
@@ -137,7 +138,7 @@
             <input type="email" class="form-control" formControlName="displayEmail">
             <div *ngIf="submittedPersonal && piF.displayEmail.errors">
               <em *ngIf="piF.displayEmail.errors.required" class="error help-block">{{ 'validation.fieldRequired' | translate }}</em>
-              <em *ngIf="piF.displayEmail.errors.email" class="error help-block">Invalid email address</em>
+              <em *ngIf="piF.displayEmail.errors.email" class="error help-block">{{ 'validation.wrongEmail' | translate }}</em>
             </div>
           </div>
         </div>

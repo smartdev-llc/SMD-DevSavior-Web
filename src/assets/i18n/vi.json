@@ -21,7 +21,9 @@
         "wrongEmail": "Email không chính xác.",
         "birthDayInvalid": "Ngày sinh không chính xác.",
         "invalidExperience": "Năm kinh nghiệm không hợp lệ.",
-        "noMoreFiveYear": "Kinh nghiệm không quá 5 năm."
+        "noMoreFiveYear": "Kinh nghiệm không quá 5 năm.",
+        "wrongJobType": "Loại công việc không hợp lệ",
+        "wrongPhoneNumber": "Số điện thoại không đúng"
     },
     "header": {
         "companyHome": "Trang tuyển dụng",
