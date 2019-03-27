@@ -21,9 +21,12 @@
         "existedKeySkill": "The key skill already exists in the your skills.",
         "birthDayInvalid": "Day of birthday is incorrect.",
         "invalidExperience": "Invalid years of experience.",
-        "noMoreFiveYear": "Experience no more than 5 years."
+        "noMoreFiveYear": "Experience no more than 5 years.",
+        "wrongJobType": "Invalid job type",
+        "wrongPhoneNumber": "Invalid phone number"
     },
     "header": {
+        "companyHome": "Company home",
         "jobs": "All Jobs",
         "companies": "Company Reviews",
         "login": "Login",
@@ -35,6 +38,7 @@
         "dashboard": "Dashboard",
         "myJobs": "My jobs",
         "jobAlerts": "Job Alerts",
+        "myProfile": "My Profile",
         "jobseeker": "FOR CANDIDATE \n find a job now!",
         "jobseeker_mobile": "FOR CANDIDATE",
         "about": "About us",

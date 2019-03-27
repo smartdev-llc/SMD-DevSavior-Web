@@ -56,26 +56,26 @@
             <ng-container *ngIf="user.role == 'student'">
               <ul class="dropdown-menu">
                 <li>
-                  <a routerLink="/my-career-center">My Profile</a>
+                  <a routerLink="/my-career-center">{{ 'header.myProfile' | translate }}</a>
                 </li>
                 <li>
-                  <a routerLink="/my-career-center/notification-jobs">Job Alerts</a>
+                  <a routerLink="/my-career-center/notification-jobs">{{ 'header.jobAlerts' | translate }}</a>
                 </li>
                 <li>
-                  <a role="button" (click)="logout()">Logout</a>
+                  <a role="button" (click)="logout()">{{ 'header.log_out' | translate }}</a>
                 </li>
               </ul>
             </ng-container>
             <ng-container *ngIf="user.role == 'company'">
               <ul class="dropdown-menu">
                 <li>
-                  <a href="{{employerUrl}}" target="_blank">Company Home</a>
+                  <a href="{{employerUrl}}" target="_blank">{{ 'header.companyHome' | translate }}</a>
                 </li>
                 <li>
-                  <a routerLink="/employer/jobs/all">Dashboard</a>
+                  <a routerLink="/employer/jobs/all">{{ 'header.dashboard' | translate }}</a>
                 </li>
                 <li>
-                  <a role="button" (click)="logout()">Logout</a>
+                  <a role="button" (click)="logout()">{{ 'header.log_out' | translate }}</a>
                 </li>
               </ul>
             </ng-container>
@@ -128,15 +128,15 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.displayName || user.name }}</a>
                 <ng-container *ngIf="user.role == 'student'">
                   <ul class="dropdown-menu">
-                    <li>
-                      <a routerLink="/my-career-center">My Profile</a>
-                    </li>
-                    <li>
-                      <a routerLink="/notification-jobs">Job Alerts</a>
-                    </li>
-                    <li>
-                      <a role="button" (click)="logout()">Logout</a>
-                    </li>
+                      <li>
+                        <a routerLink="/my-career-center">{{ 'header.myProfile' | translate }}</a>
+                      </li>
+                      <li>
+                        <a routerLink="/my-career-center/notification-jobs">{{ 'header.jobAlerts' | translate }}</a>
+                      </li>
+                      <li>
+                        <a role="button" (click)="logout()">{{ 'header.log_out' | translate }}</a>
+                      </li>
                   </ul>
                 </ng-container>
                 <ng-container *ngIf="user.role == 'company'">

@@ -14,7 +14,7 @@ import { Unauthorized } from 'src/app/core/error/unauthorized';
 @Component({
   selector: 'st-change-password',
   templateUrl: './st-change-password.components.html',
-  styleUrls: ['./st-change-password.components.scss']
+  styleUrls: ['./st-change-password.components.scss'],
 })
 export class StChangePasssword implements OnInit {
   @ViewChild('changePasswordAlert') changePasswordAlert: ModalDirective;
@@ -24,6 +24,9 @@ export class StChangePasssword implements OnInit {
   loading = false;
   submitted = false;
   isSucceed = false;
+  oldPasswordFlag = false;
+  newPasswordFlag = false;
+  confirmedPasswordFlag = false;
 
   constructor(
     private toastr: ToastrService,
@@ -31,30 +34,29 @@ export class StChangePasssword implements OnInit {
     private authService: AuthService,
     private translate: TranslateService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.initForms();
   }
 
-  initForms():void{
+  initForms(): void {
     this.changePasswordFormGroup = this.formBuilder.group({
       oldPassword: ['', [Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)]],
       password: ['', [Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)]],
       repeatPassword: ['', Validators.required]
     },
-    {
-      validator: matchingPasswordValidator
-    })
+      {
+        validator: matchingPasswordValidator
+      })
   }
 
-  submitChangePassword(){
+  submitChangePassword() {
     this.submitted = true;
     this.isSucceed = false;
-    if(!this.changePasswordFormGroup.valid){
+    if (!this.changePasswordFormGroup.valid) {
       return;
     }
-    this.showChangePasswordSuccess();
     this.loading = true;
     const data = {
       password: this.controls.oldPassword.value,
@@ -63,7 +65,7 @@ export class StChangePasssword implements OnInit {
 
     this.authService.changePassword(data).subscribe(
       (respone) => {
-
+        this.showChangePasswordSuccess();
         this.authService.removeTokens();
         this.router.navigate(['/login'], {
           queryParams: { redirect: StChangePasssword.CHANGE_PASSWORD_REDIRECT }
@@ -73,13 +75,13 @@ export class StChangePasssword implements OnInit {
     );
   }
 
-  showChangePasswordSuccess(){
+  showChangePasswordSuccess() {
     this.toastr.success(
       this.translate.instant('changePassword.changePasswordMessage')
     )
   }
 
-  handleError(error: AppErrors){
+  handleError(error: AppErrors) {
     this.loading = false;
     let serverError = undefined;
     switch (error.constructor) {
@@ -99,7 +101,21 @@ export class StChangePasssword implements OnInit {
 
   }
 
-  get controls(){
+  toggle(passwordFlag: string) {
+    switch (passwordFlag) {
+      case 'oldPassword': 
+        this.oldPasswordFlag = !this.oldPasswordFlag; 
+        break;
+      case 'newPassword': 
+        this.newPasswordFlag = !this.newPasswordFlag; 
+        break;
+      case 'confirmedPassword': 
+        this.confirmedPasswordFlag = !this.confirmedPasswordFlag; 
+        break;
+    }
+  }
+
+  get controls() {
     return this.changePasswordFormGroup.controls;
   }
 
