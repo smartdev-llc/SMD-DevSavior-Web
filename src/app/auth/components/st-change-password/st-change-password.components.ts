@@ -34,27 +34,27 @@ export class StChangePasssword implements OnInit {
     private authService: AuthService,
     private translate: TranslateService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.initForms();
   }
 
-  initForms():void{
+  initForms(): void {
     this.changePasswordFormGroup = this.formBuilder.group({
       oldPassword: ['', [Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)]],
       password: ['', [Validators.required, Validators.minLength(StChangePasssword.MiN_LENGTH_PASSWORD)]],
       repeatPassword: ['', Validators.required]
     },
-    {
-      validator: matchingPasswordValidator
-    })
+      {
+        validator: matchingPasswordValidator
+      })
   }
 
-  submitChangePassword(){
+  submitChangePassword() {
     this.submitted = true;
     this.isSucceed = false;
-    if(!this.changePasswordFormGroup.valid){
+    if (!this.changePasswordFormGroup.valid) {
       return;
     }
     this.loading = true;
@@ -75,13 +75,13 @@ export class StChangePasssword implements OnInit {
     );
   }
 
-  showChangePasswordSuccess(){
+  showChangePasswordSuccess() {
     this.toastr.success(
       this.translate.instant('changePassword.changePasswordMessage')
     )
   }
 
-  handleError(error: AppErrors){
+  handleError(error: AppErrors) {
     this.loading = false;
     let serverError = undefined;
     switch (error.constructor) {
@@ -101,15 +101,21 @@ export class StChangePasssword implements OnInit {
 
   }
 
-  toggle(passwordFlag: string){
+  toggle(passwordFlag: string) {
     switch (passwordFlag) {
-      case 'oldPassword': this.oldPasswordFlag = !this.oldPasswordFlag; break;
-      case 'newPassword': this.newPasswordFlag = !this.newPasswordFlag; break;
-      case 'confirmedPassword': this.confirmedPasswordFlag = !this.confirmedPasswordFlag; break;
+      case 'oldPassword': 
+        this.oldPasswordFlag = !this.oldPasswordFlag; 
+        break;
+      case 'newPassword': 
+        this.newPasswordFlag = !this.newPasswordFlag; 
+        break;
+      case 'confirmedPassword': 
+        this.confirmedPasswordFlag = !this.confirmedPasswordFlag; 
+        break;
     }
   }
 
-  get controls(){
+  get controls() {
     return this.changePasswordFormGroup.controls;
   }
 
