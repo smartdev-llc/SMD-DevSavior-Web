@@ -41,6 +41,7 @@ export class JobDetailComponent implements OnInit {
   job: any;
   user: User;
   jobId: string;
+  jobSlug: string;
   isStudentRole: boolean;
   isCompanyRole: boolean;
   isLoading: boolean;
@@ -69,29 +70,26 @@ export class JobDetailComponent implements OnInit {
     private seo: SeoService ) {}
 
   ngOnInit() {
-    this.jobId = this.route.snapshot.paramMap.get('id');
+    this.jobSlug = this.route.snapshot.paramMap.get('slug');
     this.isLoading = true;
 
-    this.route.paramMap.pipe(
-      switchMap(route =>
-         this.jobService.getDetailJob(route.get('id'))
-      )
-    ).subscribe(data => {
-      this.job =  data;
-      this.company = <Company> data['company'];
-      this.isLoading = false;
-      this.getRecommendedJob(this.jobId);
+    this.jobService.getDetailJob(this.jobSlug)
+      .subscribe(data => {
+        this.job =  data;
+        this.company = <Company> data['company'];
+        this.isLoading = false;
+        this.getRecommendedJob(this.jobSlug);
 
-      const imageCompany = this.company.logoURL ? this.enviromentObj.apiEndpoint + this.company.logoURL : './assets/images/headerimage1.jpg';
-      const jobDescription = this.removeHtmlTags(this.job.description);
-      // update meta tags for Seo
-      this.seo.generateTags({
-        title: this.job.title,
-        description: jobDescription,
-        image: imageCompany,
-        slug: this.router.url
-      });
-    }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
+        const imageCompany = this.company.logoURL ? this.enviromentObj.apiEndpoint + this.company.logoURL : './assets/images/headerimage1.jpg';
+        const jobDescription = this.removeHtmlTags(this.job.description);
+        // update meta tags for Seo
+        this.seo.generateTags({
+          title: this.job.title,
+          description: jobDescription,
+          image: imageCompany,
+          slug: this.router.url
+        });
+      }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;
@@ -126,7 +124,7 @@ export class JobDetailComponent implements OnInit {
 
   applyJob() {
     this.jobService
-      .applyJobForStudent(this.jobId)
+      .applyJobForStudent(this.job.id)
       .subscribe(
         data => {
           this.job.isApplied = true;
@@ -179,8 +177,8 @@ export class JobDetailComponent implements OnInit {
     this.fixBugAutoRecreateNestedOwlCarousel();
   }
 
-  getRecommendedJob(jobId: string) {
-    this.jobService.getRecommenedJob(jobId).pipe(take(1))
+  getRecommendedJob(jobSlug: string) {
+    this.jobService.getRecommenedJob(jobSlug).pipe(take(1))
       .subscribe((data: any) => {
         this.recommencedJobs = data.list as Job[];
 

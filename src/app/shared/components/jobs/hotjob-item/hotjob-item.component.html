@@ -1,8 +1,7 @@
-<!-- <a routerLink="/jobs/:id"> -->
 <div class="container filter-result">
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <a  routerLink="/jobs/{{job.id}}" class="main-title ">
+      <a  routerLink="/jobs/{{job.slug}}" class="main-title ">
         <p>{{job.title}}</p>
       </a>
     </div>
@@ -22,10 +21,9 @@
 
   <div class="row">
     <div class="col-md-12">
-      <a routerLink="/jobs/{{job.id}}" class="job-apply">
+      <a routerLink="/jobs/{{job.slug}}" class="job-apply">
         <span class="label">More detail</span>
       </a>
     </div>
   </div>
 </div>
-<!-- </a> -->
