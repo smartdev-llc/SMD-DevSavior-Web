@@ -8,6 +8,7 @@ export class Company {
   id: number;
   email: string;
   name: string;
+  slug: string;
   address: string;
   city: string;
   contactName: string;
