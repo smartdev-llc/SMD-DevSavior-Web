@@ -4,7 +4,7 @@ import { CompanyDetailResolve } from './components/company-detail/company-detail
 
 export const CompaniesRoutes = [
   { path: 'companies', component: ListCompanyComponent },
-  { path: 'company/:id', component: DetailCompanyComponent,
+  { path: 'company/:slug', component: DetailCompanyComponent,
     resolve: {
       companyDetail: CompanyDetailResolve
     }

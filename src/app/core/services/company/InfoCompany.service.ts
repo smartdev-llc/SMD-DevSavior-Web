@@ -9,8 +9,8 @@ export class InfoCompanyService {
 
   constructor(  private http: HttpClient,) {
   }
-  getInfoCompany(id): Observable<Company> {
-    return this.http.get('/companies/'+id)
+  getInfoCompany(slug): Observable<Company> {
+    return this.http.get('/companies/' + slug)
     .pipe(
       map((response: any) => response),
     )
