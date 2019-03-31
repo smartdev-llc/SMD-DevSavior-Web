@@ -17,7 +17,7 @@ import { HotJobItemComponent } from './components/jobs/hotjob-item/hotjob-item.c
 import { JVDropDownComponent } from './components/custom-dropdown/jv-dropdown.component';
 import { MonthYearPickerComponent } from './components/month-year-picker/month-year-picker.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-
+import { RatingCompany } from './components/rating-company/rating-company.component';
 // import ngx-translate and the http loader
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -57,7 +57,8 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     SingularPluralPipe,
     CityPipe,
     JobTypePipe,
-    KeyValuePipe
+    KeyValuePipe,
+    RatingCompany
   ],
   exports: [
     CommonModule,
@@ -81,10 +82,11 @@ import { KeyValuePipe } from '../core/pipes/key-value.pipe'
     SingularPluralPipe,
     CityPipe,
     JobTypePipe,
-    KeyValuePipe
+    KeyValuePipe,
+    RatingCompany
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,

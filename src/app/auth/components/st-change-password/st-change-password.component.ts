@@ -10,11 +10,12 @@ import { AppErrors } from '../../../core/error/app-errors';
 import { InternalServer } from 'src/app/core/error/internal-server';
 import { BadRequest } from 'src/app/core/error/bad-request';
 import { Unauthorized } from 'src/app/core/error/unauthorized';
+import { RatingCompany } from '../../../shared/components/rating-company/rating-company.component';
 
 @Component({
   selector: 'st-change-password',
-  templateUrl: './st-change-password.components.html',
-  styleUrls: ['./st-change-password.components.scss'],
+  templateUrl: './st-change-password.component.html',
+  styleUrls: ['./st-change-password.component.scss'],
 })
 export class StChangePasssword implements OnInit {
   @ViewChild('changePasswordAlert') changePasswordAlert: ModalDirective;
@@ -27,6 +28,12 @@ export class StChangePasssword implements OnInit {
   oldPasswordFlag = false;
   newPasswordFlag = false;
   confirmedPasswordFlag = false;
+
+
+  //Demo rating
+  score : number = 0;
+  displayRatingScore = 4;
+
 
   constructor(
     private toastr: ToastrService,
@@ -99,6 +106,12 @@ export class StChangePasssword implements OnInit {
       serverError: serverError
     });
 
+  }
+
+
+  //Demo rating
+  onRateChange = (score) => {
+    this.score = score;
   }
 
   toggle(passwordFlag: string) {

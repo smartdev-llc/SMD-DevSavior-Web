@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  .section {
+    display: flex;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+
+    .block {
+      border: 1px solid gray;
+      border-radius: 3px;
+      margin: 16px;
+      padding: 40px;
+
+      .margin-vertical-8 {
+          margin: 8px 0;
+      }
+    }
+  }
+}
+
+.star-rating {
+  .to-rate {
+    cursor: pointer;
+    position: relative;
+    padding: 0 3px;
+    &:hover{
+        animation-name: rating-stars-blink;
+        animation-duration: .5s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .fa-star-o {
+    color: orange;
+  }
+
+  .fa-star {
+    color: orange;
+  }
+
+  .fa-star-half-o {
+    color: orange;
+  }
+
+  .to-display {
+    padding: 0 2px;
+  }
+}
+
+@keyframes rating-stars-blink {
+  0% {
+      opacity: .8;
+  }
+  100% {
+      opacity: 0;
+      transform: scale(2);
+  }
+}
