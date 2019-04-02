@@ -10,7 +10,6 @@ import { AppErrors } from '../../../core/error/app-errors';
 import { InternalServer } from 'src/app/core/error/internal-server';
 import { BadRequest } from 'src/app/core/error/bad-request';
 import { Unauthorized } from 'src/app/core/error/unauthorized';
-import { RatingCompany } from '../../../shared/components/rating-company/rating-company.component';
 
 @Component({
   selector: 'st-change-password',
@@ -28,12 +27,6 @@ export class StChangePasssword implements OnInit {
   oldPasswordFlag = false;
   newPasswordFlag = false;
   confirmedPasswordFlag = false;
-
-
-  //Demo rating
-  score : number = 0;
-  displayRatingScore = 4;
-
 
   constructor(
     private toastr: ToastrService,
@@ -105,13 +98,6 @@ export class StChangePasssword implements OnInit {
     this.changePasswordFormGroup.setErrors({
       serverError: serverError
     });
-
-  }
-
-
-  //Demo rating
-  onRateChange = (score) => {
-    this.score = score;
   }
 
   toggle(passwordFlag: string) {

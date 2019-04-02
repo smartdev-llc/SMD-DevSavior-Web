@@ -1,8 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, } from '@angular/router'
 import { Company } from '../../../core/models/company'
 import { LanguageService } from '../../../layout/services/language.service';
+import { RatingCompany } from '../../../shared/components/rating-company/rating-company.component';
 import { JobService } from '../../../core/services/job.service';
+import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
+
 declare var $: any;
 @Component({
   selector: 'app-company-detail',
@@ -10,6 +13,8 @@ declare var $: any;
   styleUrls: ['./company-detail.component.scss']
 })
 export class DetailCompanyComponent implements OnInit {
+  @ViewChild('ratingCompanyAlert') ratingCompanyAlert: ModalDirective;
+  modalRef: BsModalRef;
   /* Integrate later(next release)
   slides = [
     {
@@ -17,6 +22,10 @@ export class DetailCompanyComponent implements OnInit {
     }
   ];
   */
+  //Demo rating
+  score : number = 0;
+  displayRatingScore = 4;
+
   company: Company = new Company();
   jobs: any[];
   isLoadJob = false;
@@ -80,7 +89,19 @@ export class DetailCompanyComponent implements OnInit {
       this.jobs = this.jobs.concat(jobs);
     }
   }
+  //Demo rating
+  onRateChange = (score) => {
+    this.score = score;
+  }
 
+  openModel(){
+    this.ratingCompanyAlert.show()
+  }
+
+  decline(){
+    this.ratingCompanyAlert.hide()
+  }
+  
   ngAfterViewInit() {
     $(document).ready(function() {
       $("a").click(function(event) {
