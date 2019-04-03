@@ -73,7 +73,13 @@
           <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> {{'company.website' | translate}}: <a
               href="{{ company.website || ''}}" target="_blank">{{ company.website || ''}}</a></p>
           <div class="wrap-btn-review">
-            <button class="add-review" (click)="openModel()"><i class="	fa fa-star"></i> Add Review</button>
+            <ng-template [ngIf]="!isStudentRole && !isCompanyRole" [ngIfElse]="isBoth">
+              <button class="btn add-review" (click)="openModalRemindLogin()"><i class="fa fa-star"></i> Add Review</button>
+            </ng-template>
+            <ng-template #isBoth>
+              <button class="btn add-review" (click)="openModalAddReview()"><i class="fa fa-star"></i> Add Review</button>
+            </ng-template>
+         
           </div>
         </div>
       </div>
@@ -152,40 +158,101 @@
   </section>
 
 
-  <!-- Modal Add Education History -->
-  <div bsModal #ratingCompanyAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
+  <!-- Modal Add Review Company -->
+  <div bsModal #reviewCompanyAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
     aria-labelledby="dialog-sizes-name1">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header border-option">
           <p class="review-title">Review Company</p>
         </div>
 
         <div class="modal-body">
-          <!-- Demo rating -->
-      
-            <rating-company [maxScore]="5" [forDisplay]="false" (rateChanged)="onRateChange($event)">
-            </rating-company>
-            <div>Rating: {{score}}</div>
- 
+          <form 
+            class="validation-form" 
+            [formGroup]="reviewFormGroup" 
+            (ngSubmit)="reviewSubmit()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
+                  <div class="alert main-error-input" *ngIf="submitted">
+                    <div *ngIf="submittedReview && reviewFormGroup.errors?.serverError">
+                      {{ reviewFormGroup.errors?.serverError }}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <div class="options">
-              <h4>Options</h4>
-              <ul>
-                <li>[score]: number : rating value</li>
-                <li>[maxScore]: number : Max rating scale : default to 5</li>
-                <li>[forDisplay]: boolean : to rate or to display rating</li>
-                <li>(rateChanged): event : to capture changed value</li>
-              </ul>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <review-company
+                    [maxScore]="5"
+                    [forDisplay]="false" 
+                    (rateChanged)="onRateChange($event)">
+                  </review-company>
+                  <div class="error-rating" *ngIf="submittedReview && hasRatingError">
+                    Please rating before you add review
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group required">
+                  <label class="lbl-comment" for="comment">Comment</label>
+                  <textarea 
+                    formControlName="comment" 
+                    class="form-control" 
+                    rows="5" 
+                    id="comment"
+                    [ngClass]="{ 
+                      'has-error':
+                        submittedReview && controls.comment.errors
+                    }">
+                  </textarea>
+                  <div *ngIf="controls.comment.invalid" class="error-input">
+                    <div *ngIf="submittedReview && controls.comment.errors?.required">
+                      Comment is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="wrap-button">
+                    <button class="btn btn-close" (click)="decline()">Close</button>
+                    <button class="btn btn-save">Add Review</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          <!-- Demo rating -->
-
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <!-- Modal Add Education History -->
-
+  <!-- Modal Add Review Company -->
+  
+<!-- Modal remind login before add review -->
+  <div bsModal #remindLoginAlert="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><span style="color:red">Opps ! </span>{{ 'header.notyTitle' | translate }}</h4>
+        </div>
+        <div class="modal-body">
+          <p class="confirm-description"><i class="fa fa-exclamation-circle confirm-icon" aria-hidden="true"></i>&nbsp; {{ 'header.notLogin' | translate }}</p>
+        </div>
+        <div class="modal-footer confirm-footer">
+          <button type="button" class="btn btn-primary" (click)="redirectToLogin()">{{ 'login.signIn' | translate }}</button>
+          <button type="button" class="btn btn-default" (click)="decline()">{{ 'header.close' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal remind login before add review -->
 </div>
 
 <app-footer></app-footer>

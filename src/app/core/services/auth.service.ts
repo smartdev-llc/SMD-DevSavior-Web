@@ -290,6 +290,14 @@ export class AuthService {
     )
   }
 
+  updateReview(companyId:any, stars:any, comment:any) {
+    const params = { stars, comment };
+    return this.http.put(`/companies/${companyId}/reviews`, params)
+    .pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
+  }
   removeTokens(): void {
     localStorage.removeItem('user');
   }

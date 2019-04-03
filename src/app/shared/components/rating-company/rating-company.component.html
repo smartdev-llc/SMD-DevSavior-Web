@@ -1,7 +1,0 @@
-<span class='star-rating'>
-  <div class="container" *ngIf='!forDisplay'>
-    <p>Your Reviews: </p>
-    <i *ngFor='let n of range; let $index = index;' class="fa to-rate" (click)='mark($index)'
-      [ngClass]='isMarked($index)'></i>
-  </div>
-</span>

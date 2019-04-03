@@ -50,33 +50,6 @@
   padding-top: 0
 }
 
-.wrap-btn-review {
-  margin-top: 20px;
-  .add-review {
-    color: #6d6d6d;
-    background-color: transparent;
-    border:1px solid rgba(109, 109, 109, 0.7);
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    display: inline-block;
-    cursor: pointer;
-    font-family:Arial;
-    font-size:14px;
-    padding:12px 24px;
-    text-transform: uppercase;
-    .fa .fa-star{
-      font-size: 15px;
-    }
-    &:hover{
-      color: #27cb6e;
-      border-color: #27cb6e
-    }
-  }
-}
-
 @mixin cancel {
   background: none;
   border: none;
@@ -381,15 +354,142 @@ button.navbar-toggle.flag-mobile {
     opacity: 1;
   }
 }
-
+// review company
 .review-title {
   padding: 10px 10px 0 10px
 }
 
 .modal-header {
-  padding: 0
+  padding: 0;
+  .modal-title{
+    padding: 10px;
+  }
 }
 
+.modal-body {
+  .lbl-comment{
+    color: rgba(51, 51, 51, 0.5);
+    padding: 0 0 5px 0;
+    font-size: 15px;
+  }
+  .error-rating{
+    color: #dc3545;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding-top: 1%;
+    padding-left: 1%;
+  }
+  .wrap-button{
+    margin-top: 10px;
+    float: right;
+    .btn-save {
+      color: #ffffff;
+      background-color: #42cd6a;
+      border-radius: 7px;
+      -webkit-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      display: inline-block;
+      cursor: pointer;
+      font-family: Arial;
+      font-size:14px;
+      padding:12px 24px;
+      text-transform: uppercase;
+      &:hover{
+        background-color: #1d9752
+      }
+    }
+    .btn-close{
+      margin-right: 10px;
+      color: #ffffff;
+      background-color: #969696;
+      border-radius: 7px;
+      -webkit-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      display: inline-block;
+      cursor: pointer;
+      font-family: Arial;
+      font-size:14px;
+      padding:12px 24px;
+      text-transform: uppercase;
+      &:hover{
+        background-color: #535353
+      }
+    }
+  }  
+}
+
+.wrap-btn-review {
+  margin-top: 20px;
+  .add-review {
+    color: #6d6d6d;
+    background-color: transparent;
+    border:1px solid rgba(109, 109, 109, 0.7);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    display: inline-block;
+    cursor: pointer;
+    font-family:Arial;
+    font-size:14px;
+    padding:12px 24px;
+    text-transform: uppercase;
+    .fa .fa-star{
+      font-size: 15px;
+    }
+    &:hover{
+      color: #27cb6e;
+      border-color: #27cb6e
+    }
+  }
+}
+
+.validation-form .form-group {
+  .alert {
+    padding: 10px;
+  }
+  .main-error-input {
+    text-align: center;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius:8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    -ms-border-radius:8px;
+    -o-border-radius:8px;
+  }
+}
+.modal-footer,
+.modal-header {
+  border: none;
+}
+
+h4.modal-title {
+  text-align: center;
+}
+
+.modal-header .close:hover {
+  color: #fff;
+  background: red;
+}
+
+.modal-dialog {
+  margin-top: 25vh;
+}
+
+.modal-dialog .modal-header .modal-title > span {
+  display: contents;
+}
 @media (min-width: 770px) and (max-width: 1200px) {
   .bottom-slider {
     .info-block {

@@ -1,12 +1,12 @@
 import { Component, OnInit, NgModule, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'rating-company',
-  templateUrl: './rating-company.component.html',
-  styleUrls: ['./rating-company.component.scss'],
+  selector: 'review-company',
+  templateUrl: './review-company.component.html',
+  styleUrls: ['./review-company.component.scss'],
 })
 
-export class RatingCompany implements OnInit {
+export class ReviewCompany implements OnInit {
   @Input() score;
   @Input() maxScore = 5;
   @Input() forDisplay = false;

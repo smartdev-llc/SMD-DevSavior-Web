@@ -1,20 +1,6 @@
-.container {
-  flex-direction: row;
-  padding: 16px;
-  p{
-    display: inline-block;
-    position: relative;
-    top: -8px
-  }
-  i{
-    margin-left: 10px;
-    display: inline-block;
-  }
-
-}
-
 .star-rating {
   .to-rate {
+    margin-bottom: 20px;
     cursor: pointer;
     position: relative;
     padding: 0 3px;
@@ -26,17 +12,17 @@
   }
 
   .fa-star-o {
-    font-size: 40px;
+    font-size: 35px;
     color: orange;
   }
 
   .fa-star {
-    font-size: 40px;
+    font-size: 35px;
     color: orange;
   }
 
   .fa-star-half-o {
-    font-size: 40px;
+    font-size: 35px;
     color: orange;
   }
 
