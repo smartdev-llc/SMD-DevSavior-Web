@@ -10,7 +10,6 @@ import { AppErrors } from '../../../core/error/app-errors';
 import { InternalServer } from 'src/app/core/error/internal-server';
 import { BadRequest } from 'src/app/core/error/bad-request';
 import { Unauthorized } from 'src/app/core/error/unauthorized';
-
 import {Role, User} from '../../../core/models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -78,9 +77,8 @@ export class DetailCompanyComponent implements OnInit {
     this.route.data.subscribe(({ companyDetail }) => {
       this.company = companyDetail;
     });
-
     this.companyId = this.route.snapshot.paramMap.get('id');
-    this.getJobsOfCompany(this.companyId);
+    // this.getJobsOfCompany(this.companyId);
   }
 
   async getJobsOfCompany(id: any) {
@@ -89,22 +87,16 @@ export class DetailCompanyComponent implements OnInit {
 
   reviewSubmit(): void{
     this.submittedReview = true;
+
     if(this.reviewFormGroup.invalid){
       return;
     }
-    this.route.data.subscribe(({ companyDetail }) => {
-      this.company = companyDetail;
-    });
-
-    this.companyId = this.route.snapshot.paramMap.get('id');
-    console.log(this.companyId);
-
     const { comment } = this.reviewFormGroup.value;
     this.isSubmittedReview = true;
-    this.updateReview(this.companyId, this.score, comment);
+    this.updateReview(this.company.id, this.score, comment);
   }
 
-  updateReview(companyId: string, stars: any, comment: any): void {
+  updateReview(companyId: number, stars: any, comment: any): void {
     this.authService.updateReview(companyId, stars, comment)
     .subscribe(response => {
       this.isSubmittedReview = false;
@@ -126,7 +118,7 @@ export class DetailCompanyComponent implements OnInit {
   getJob() {
     this.isLoadJob = true;
     this.hideShowMoreButton = true;
-    this.jobService.getJobsOfCompany(this.companyId, this.size, this.page)
+    this.jobService.getJobsOfCompany(this.company.id, this.size, this.page)
       .subscribe(response => {
         this.appendJob(response.list);
         this.page++;
@@ -211,6 +203,7 @@ export class DetailCompanyComponent implements OnInit {
   openModalAddReview(){
     this.reviewFormGroup.reset();
     this.reviewCompanyAlert.show();
+    
   }
 
   decline(){

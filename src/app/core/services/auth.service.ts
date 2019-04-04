@@ -290,7 +290,7 @@ export class AuthService {
     )
   }
 
-  updateReview(companyId:any, stars:any, comment:any) {
+  updateReview(companyId:number, stars:any, comment:any) {
     const params = { stars, comment };
     return this.http.put(`/companies/${companyId}/reviews`, params)
     .pipe(
