@@ -74,10 +74,10 @@
               href="{{ company.website || ''}}" target="_blank">{{ company.website || ''}}</a></p>
           <div class="wrap-btn-review">
             <ng-template [ngIf]="!isStudentRole && !isCompanyRole" [ngIfElse]="isBoth">
-              <button class="btn add-review" (click)="openModalRemindLogin()"><i class="fa fa-star"></i> Add Review</button>
+              <button class="btn add-review" (click)="openModalRemindLogin()"><i class="fa fa-star"></i> {{ 'reviewCompany.addReview' | translate }}</button>
             </ng-template>
             <ng-template #isBoth>
-              <button class="btn add-review" (click)="openModalAddReview()"><i class="fa fa-star"></i> Add Review</button>
+              <button class="btn add-review" (click)="openModalAddReview()"><i class="fa fa-star"></i> {{ 'reviewCompany.addReview' | translate }}</button>
             </ng-template>
          
           </div>
@@ -97,7 +97,7 @@
             </h3>
             <p *ngIf="!isLoadJob && !jobs || !isLoadJob && 
             !jobs.length">
-              {{ 'company.no_jobs_found' | translate}}
+              {{ 'company.noJobsFound' | translate}}
             </p>
             <div class="col-md-12 ">
               <ng-template ngFor let-job [ngForOf]="jobs">
@@ -111,7 +111,7 @@
                 </div>
                 <button [style.visibility]="hideShowMoreButton ?  'hidden' : 'visible'" class="btn btn-default"
                   id="load_more" type="button" (click)="loadMoreJob()">
-                  {{ 'company.loadmore_jobs' | translate }}<span class="glyphicon glyphicon-menu-down"></span>
+                  {{ 'company.loadMoreJobs' | translate }}<span class="glyphicon glyphicon-menu-down"></span>
                 </button>
               </div>
             </div>
@@ -163,8 +163,8 @@
     aria-labelledby="dialog-sizes-name1">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header border-option">
-          <p class="review-title">Review Company</p>
+        <div class="modal-header">
+          <p class="review-title"> {{ 'reviewCompany.reviewTitle' | translate }}</p>
         </div>
 
         <div class="modal-body">
@@ -191,14 +191,14 @@
                     (rateChanged)="onRateChange($event)">
                   </review-company>
                   <div class="error-rating" *ngIf="submittedReview && hasRatingError">
-                    Please rating before you add review
+                    {{ 'reviewCompany.ratingRequired' | translate }}
                   </div>
                 </div>
               </div>
 
               <div class="col-md-12">
                 <div class="form-group required">
-                  <label class="lbl-comment" for="comment">Comment</label>
+                  <label class="lbl-comment" for="comment">{{ 'reviewCompany.comment' | translate }}</label>
                   <textarea 
                     formControlName="comment" 
                     class="form-control" 
@@ -211,7 +211,7 @@
                   </textarea>
                   <div *ngIf="controls.comment.invalid" class="error-input">
                     <div *ngIf="submittedReview && controls.comment.errors?.required">
-                      Comment is required
+                      {{ 'reviewCompany.commentRequired' | translate }}
                     </div>
                   </div>
                 </div>
@@ -221,8 +221,8 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <div class="wrap-button">
-                    <button class="btn btn-close" (click)="decline()">Close</button>
-                    <button class="btn btn-save">Add Review</button>
+                    <button class="btn btn-close" (click)="decline()">{{ 'reviewCompany.close' | translate }}</button>
+                    <button class="btn btn-save">{{ 'reviewCompany.addReview' | translate }}</button>
                   </div>
                 </div>
               </div>

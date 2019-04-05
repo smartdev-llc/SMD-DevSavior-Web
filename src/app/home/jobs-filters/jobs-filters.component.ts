@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Categories } from '../../core/models/job';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-jobs-filters',
   templateUrl: './jobs-filters.component.html',
@@ -23,6 +23,7 @@ export class JobsFiltersComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private translate: TranslateService,
     private formBuilder: FormBuilder) {
   }
 
@@ -30,7 +31,7 @@ export class JobsFiltersComponent implements OnInit {
     this.route.data.subscribe(({ jobCategories }) => {
       jobCategories.unshift({
         id: '',
-        name: 'All categories'
+        name: this.translate.instant('jobFilter.allCategories')
       });
       this.jobCategories = jobCategories;
     });

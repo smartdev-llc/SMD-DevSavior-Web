@@ -449,7 +449,9 @@ button.navbar-toggle.flag-mobile {
     }
   }
 }
-
+.fa-exclamation-circle{
+  color: rgb(255, 136, 0)
+}
 .validation-form .form-group {
   .alert {
     padding: 10px;
@@ -468,10 +470,6 @@ button.navbar-toggle.flag-mobile {
     -ms-border-radius:8px;
     -o-border-radius:8px;
   }
-}
-.modal-footer,
-.modal-header {
-  border: none;
 }
 
 h4.modal-title {

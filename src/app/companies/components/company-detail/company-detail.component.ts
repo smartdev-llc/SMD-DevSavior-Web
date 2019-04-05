@@ -12,6 +12,7 @@ import { BadRequest } from 'src/app/core/error/bad-request';
 import { Unauthorized } from 'src/app/core/error/unauthorized';
 import {Role, User} from '../../../core/models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
 declare var $: any;
@@ -53,7 +54,8 @@ export class DetailCompanyComponent implements OnInit {
     private languageService: LanguageService,
     private jobService: JobService,
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private translate: TranslateService
   ) {
     const lang = languageService.getCachedLanguage()
     languageService.setDefaultLang()
@@ -189,11 +191,15 @@ export class DetailCompanyComponent implements OnInit {
   }
 
   showReviewSuccess(){
-    this.toastr.success('Review success');
+    this.toastr.success(
+      this.translate.instant('reviewCompany.reviewSuccess')
+    );
   }
 
   showReviewError(error:any){
-    this.toastr.error('Review failed');
+    this.toastr.error(
+      this.translate.instant('reviewCompany.reviewFailed')
+    );
   }
   
   openModalRemindLogin(){
