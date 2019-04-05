@@ -31,19 +31,19 @@
         <ul class="nav">
           <li class="active">
             <a href="#">
-              <i class="glyphicon glyphicon-home"></i> Overview</a>
+              <i class="glyphicon glyphicon-home"></i>{{ 'dashboard.overview' | translate }}</a>
           </li>
           <li>
             <a routerLink="/my-career-center/update-profile">
-              <i class="glyphicon glyphicon-user"></i> Management profile</a>
+              <i class="glyphicon glyphicon-user"></i>{{ 'dashboard.managermentProfile' | translate }}</a>
           </li>
           <li>
               <a routerLink="/my-career-center/notification-jobs">
-                <i class="glyphicon glyphicon-bell"></i> Job Alerts</a>
+                <i class="glyphicon glyphicon-bell"></i>{{ 'dashboard.jobAlerts' | translate }}</a>
           </li>
           <li>
             <a routerLink="/st-change-password">
-              <i class="glyphicon glyphicon-refresh"></i> Change password</a>
+              <i class="glyphicon glyphicon-refresh"></i>{{ 'dashboard.changePassword' | translate }}</a>
           </li>
           <!-- <li>
             <a href="#" target="_blank">
@@ -60,7 +60,7 @@
   </div>
   <div class="col-sm-8">
     <div class="col-xs-12 page-dashboard">
-      <h3 class="title">Jobs you might be interested in</h3>
+      <h3 class="title">{{ 'dashboard.title' | translate }}</h3>
       <div class="" *ngFor="let job of jobs">
         <app-job-item [job]="job"></app-job-item>
       </div>

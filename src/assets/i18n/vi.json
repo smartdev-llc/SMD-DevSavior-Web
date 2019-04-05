@@ -466,5 +466,16 @@
   "jobFilter": {
     "allCategories" : "Tất cả các danh mục",
     "placeHolder" : "Từ khoá, tiêu đề công việc hoặc kỹ năng"
+  },
+  "dashboard": {
+    "title": "Công việc bạn có thể quan tâm",
+    "overview": "Tổng quan",
+    "managermentProfile": "Quản lý hồ sơ",
+    "jobAlerts": "Thông báo công việc",
+    "changePassword": "Thay đổi mật khẩu"
+  },
+  "updateProfileIsMissing": {
+    "hi": "Xin chào, ",
+    "title": "Thêm thông tin chi tiết và bắt đầu nhận được các cuộc phỏng vấn việc làm ngay lập tức!" 
   }
 }

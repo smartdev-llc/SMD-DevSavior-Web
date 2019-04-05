@@ -466,5 +466,16 @@
   "jobFilter": {
     "allCategories" : "All categories",
     "placeHolder" : "Keyword, job title or skill"
+  },
+  "dashboard": {
+    "title": "Jobs you might be interested in",
+    "overview": " Overview",
+    "managermentProfile": " Management profile",
+    "jobAlerts": " Job Alerts",
+    "changePassword": " Change password"
+  },
+  "updateProfileIsMissing": {
+    "hi": "Hi, ",
+    "title": "Add more details and start getting job interviews straight away!" 
   }
 }
