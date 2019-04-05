@@ -104,7 +104,7 @@ export class UpdateProfileStep1Component implements OnInit {
     });
 
     this.basicInfoFormGroup = this.formBuilder.group({
-      jobTitle: ['', Validators.required],
+      jobTitle: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
       educationalStatus: [null, Validators.required],
       yearsExperienceForm: this.yearsExperienceForm
     });

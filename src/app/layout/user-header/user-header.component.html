@@ -41,22 +41,22 @@
                 <img *ngIf="!isEnLang" class="flag-img" src="../../../assets/images/united-states-flag.png" alt="united-states" (click)="changeLanguage('en')">
               </span>
             </a>
-            <a href="#" class="dropdown-toggle user-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="label job-type partytime profile-head">
-              <i class="fa fa-user"></i>
+            <a href="#" class="dropdown-toggle margin-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="label job-type partytime profile-head user-icon">
+              <img class="icon-user-profile" src="{{ user.profileImageURL | photoURLConverter:'assets/images/profile-placeholder.png' }}">
               <span>{{ user.displayName }}</span>
               <i style="vertical-align: top;" class="fa fa-sort-desc" aria-hidden="true"></i>
             </span>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a routerLink="/my-career-center">My Profile</a>
+                <a routerLink="/my-career-center">{{ 'header.myProfile' | translate }}</a>
               </li>
               <li>
                 <a routerLink="/my-career-center/notification-jobs">{{ 'header.jobAlerts' | translate }}</a>
               </li>
               <li>
-                <a role="button" (click)="logout()">Logout</a>
+                <a role="button" (click)="logout()">{{ 'header.log_out' | translate }}</a>
               </li>
             </ul>
           </div>
@@ -108,13 +108,13 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.displayName }}</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a routerLink="/my-career-center">My Profile</a>
+                    <a routerLink="/my-career-center">{{ 'header.myProfile' | translate }}</a>
                   </li>
                   <li>
-                    <a routerLink="/notification-jobs">{{ 'header.jobAlerts' | translate }}</a>
+                    <a routerLink="/my-career-center/notification-jobs">{{ 'header.jobAlerts' | translate }}</a>
                   </li>
                   <li>
-                    <a role="button" (click)="logout()">Logout</a>
+                    <a role="button" (click)="logout()">{{ 'header.log_out' | translate }}</a>
                   </li>
                 </ul>
               </li>

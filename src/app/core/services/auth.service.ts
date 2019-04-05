@@ -48,7 +48,6 @@ export class AuthService {
     private socialAuthService: SocialAuthService
   ) { }
 
-
   /**
    *
    *
@@ -115,6 +114,15 @@ export class AuthService {
     return this.http.post('/auth/forgot-password', requestBody);
   }
 
+  changePassword(data: {password: string, newPassword: string}): Observable<any> {
+    return this.http
+      .post('/auth/change-password', data)
+      .pipe(
+        map((response:any) => response),
+        catchError(this.handleError)
+      );
+  }
+
   verifyAccount(token: string): Observable<any> {
     return this.http.post('/auth/verify', { token });
   }
@@ -159,7 +167,6 @@ export class AuthService {
    * @memberof AuthService
    */
   getTokenHeader(request: HttpRequest<any>): HttpHeaders {
-
 
     return new HttpHeaders({
       'Content-Type': request.headers.get('Content-Type') || 'application/json',

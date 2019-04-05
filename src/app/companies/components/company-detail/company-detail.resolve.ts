@@ -10,7 +10,7 @@ export class CompanyDetailResolve implements Resolve<any> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    const companyId = route.paramMap.get('id');
+    const companyId = route.paramMap.get('slug');
     return this.infoCompanyService.getInfoCompany(companyId);
   }
 }

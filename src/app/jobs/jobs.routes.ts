@@ -13,6 +13,6 @@ export const JobsRoutes = [
     }
   },
   // { path: 'browse-jobs-alternative', component: BrowseJobsAlternativeComponent },
-  { path: 'jobs/:id', component: JobDetailComponent },
+  { path: 'jobs/:slug', component: JobDetailComponent },
   { path: 'contact-us', component: ContactUsComponent},
 ];

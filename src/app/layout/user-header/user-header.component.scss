@@ -113,7 +113,7 @@
 .post_job,
 .user-profile {
   span {
-    margin-top: 12px;
+    margin-top: 11px;
     margin-left: 10px;
   }
 }
@@ -171,6 +171,13 @@
   background-color: #12cd6a;
   color: #fff;
   padding: auto 5px;
+}
+
+.margin-profile {
+  span{
+    margin-top: 7px;
+    margin-left: 10px
+  }
 }
 
 .open>.dropdown-menu {

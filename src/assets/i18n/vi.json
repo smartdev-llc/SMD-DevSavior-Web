@@ -21,9 +21,12 @@
         "wrongEmail": "Email không chính xác.",
         "birthDayInvalid": "Ngày sinh không chính xác.",
         "invalidExperience": "Năm kinh nghiệm không hợp lệ.",
-        "noMoreFiveYear": "Kinh nghiệm không quá 5 năm."
+        "noMoreFiveYear": "Kinh nghiệm không quá 5 năm.",
+        "wrongJobType": "Loại công việc không hợp lệ",
+        "wrongPhoneNumber": "Số điện thoại không đúng"
     },
     "header": {
+        "companyHome": "Trang tuyển dụng",
         "jobs": "Tất Cả Việc Làm",
         "companies": "Các Công Ty Hàng Đầu",
         "login": "Đăng Nhập",
@@ -34,6 +37,7 @@
         "careerCenter": "Nghề Nghiệp",
         "dashboard": "Quản Lý Hồ Sơ",
         "jobAlerts": "Thông báo việc làm",
+        "myProfile": "Thông tin của tôi",
         "myJobs": "Việc Làm Của Tôi",
         "jobseeker": "DÀNH CHO\n NGƯỜI TÌM VIỆC",
         "jobseeker_mobile": "DÀNH CHO NGƯỜI TÌM VIỆC",
@@ -445,5 +449,21 @@
       "showWorkingExperienceSuccess": "Thay đổi của bạn đã được lưu lại",
       "workingExperience": "Kinh nghiệm làm việc",
       "showWorkingExperienceError": "Đã xảy ra lỗi. Vui lòng thử lại sau"
+    },
+    "changePassword": {
+      "title": "Thay đổi mật khẩu",
+      "guideText": "Nhập mật khẩu mới của bạn dưới đây, chúng tôi sẽ làm mới mật khẩu cho bạn.",
+      "oldPassword": "Mật khẩu cũ",
+      "newPassword" : "Mật khẩu mới",
+      "confirmPassword": "Xác nhận lại mật khẩu mới",
+      "placeHolderOldPass": "Vui lòng điền mật khẩu cũ của bạn.",
+      "placeHolderNewPass": "Vui lòng điển mật khẩu mới của bạn.",
+      "placeHolderRepeatPass": "Vui lòng xác nhận lại mật khẩu mới của bạn.",
+      "passwordRequired": "Yêu cầu nhập mật khẩu",
+      "passwordAtLeast": "Mật khẩu ít nhất",
+      "passwordNotMatch": "Mật khẩu không đúng.",
+      "character": "Ký tự.",
+      "confirm": "Xác nhận",
+      "changePasswordMessage": "Yêu cầu thay đổi mật khẩu của bạn đã được xử lý, bạn có thể đăng nhập ngay bây giờ"
     }
 }

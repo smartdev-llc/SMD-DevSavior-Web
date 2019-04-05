@@ -16,7 +16,12 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zero-padding-left main-title">
               <p>{{ 'login.titleSt' | translate }} </p>
               <form name="contact_us" class="contact_us validation-form" [formGroup]="loginInForm" (ngSubmit)="onSubmit()">
-
+                <div class="form-group">
+                  <label></label>
+                  <div *ngIf="!isSubmited && isRedirectChangePassword" class="text-highlight ">
+                     Your password is change successfully.
+                  </div>
+                </div>
                 <!--Form Error-->
                 <div class="form-group global-error">
                   <label></label>
