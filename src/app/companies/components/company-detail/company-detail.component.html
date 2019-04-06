@@ -79,7 +79,7 @@
             <ng-template #isBoth>
               <button class="btn add-review" (click)="openModalAddReview()"><i class="fa fa-star"></i> {{ 'reviewCompany.addReview' | translate }}</button>
             </ng-template>
-         
+
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@
             <h3 class="title-company-w fs-20">
               {{'company.joblist' | translate}}
             </h3>
-            <p *ngIf="!isLoadJob && !jobs || !isLoadJob && 
+            <p *ngIf="!isLoadJob && !jobs || !isLoadJob &&
             !jobs.length">
               {{ 'company.noJobsFound' | translate}}
             </p>
@@ -168,15 +168,15 @@
         </div>
 
         <div class="modal-body">
-          <form 
-            class="validation-form" 
-            [formGroup]="reviewFormGroup" 
+          <form
+            class="validation-form"
+            [formGroup]="reviewFormGroup"
             (ngSubmit)="reviewSubmit()">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
-                  <div class="alert main-error-input" *ngIf="submitted">
-                    <div *ngIf="submittedReview && reviewFormGroup.errors?.serverError">
+                  <div class="alert main-error-input" *ngIf="submittedReview">
+                    <div *ngIf="reviewFormGroup.errors?.serverError">
                       {{ reviewFormGroup.errors?.serverError }}
                     </div>
                   </div>
@@ -187,7 +187,7 @@
                 <div class="form-group">
                   <review-company
                     [maxScore]="5"
-                    [forDisplay]="false" 
+                    [forDisplay]="false"
                     (rateChanged)="onRateChange($event)">
                   </review-company>
                   <div class="error-rating" *ngIf="submittedReview && hasRatingError">
@@ -199,12 +199,12 @@
               <div class="col-md-12">
                 <div class="form-group required">
                   <label class="lbl-comment" for="comment">{{ 'reviewCompany.comment' | translate }}</label>
-                  <textarea 
-                    formControlName="comment" 
-                    class="form-control" 
-                    rows="5" 
+                  <textarea
+                    formControlName="comment"
+                    class="form-control"
+                    rows="5"
                     id="comment"
-                    [ngClass]="{ 
+                    [ngClass]="{
                       'has-error':
                         submittedReview && controls.comment.errors
                     }">
@@ -233,7 +233,7 @@
     </div>
   </div>
   <!-- Modal Add Review Company -->
-  
+
 <!-- Modal remind login before add review -->
   <div bsModal #remindLoginAlert="bs-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
