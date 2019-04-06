@@ -12,7 +12,8 @@
 
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -47,7 +48,8 @@
 <div class="container-fluid main-container">
   <carousel>
     <slide class="carousel-fix-he">
-      <img src="{{ company.coverURL | photoURLConverter:'assets/images/company-detail.png' }}" style="display: block; width: 100%;" class="img-responsive">
+      <img src="{{ company.coverURL | photoURLConverter:'assets/images/company-detail.png' }}"
+        style="display: block; width: 100%;" class="img-responsive">
     </slide>
   </carousel>
 
@@ -63,10 +65,22 @@
         </div>
         <div class="col-md-9 col-sm-6 mt-20 ml-20">
           <h4 class="media-heading fs-20 ">{{'company.company' | translate}} {{ company.name || ''}}</h4>
-          <p class="help-block fs-16"><i class="glyphicon glyphicon-map-marker"></i> {{'company.address' | translate}}: {{ company.address || ''}}</p>
-          <p class="help-block fs-16"><i class="glyphicon glyphicon-envelope"></i> {{'company.email' | translate}}: {{ company.email || ''}}</p>
+          <p class="help-block fs-16"><i class="glyphicon glyphicon-map-marker"></i> {{'company.address' | translate}}:
+            {{ company.address || ''}}</p>
+          <p class="help-block fs-16"><i class="glyphicon glyphicon-envelope"></i> {{'company.email' | translate}}:
+            {{ company.email || ''}}</p>
           <!-- <p class="help-block fs-16"><i class="glyphicon glyphicon-earphone"></i> {{'company.phoneNumber' | translate}}: <a href="tel:+{{ company.phoneNumber || ''}}">{{ company.phoneNumber || ''}}</a></p> -->
-          <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> {{'company.website' | translate}}: <a href="{{ company.website || ''}}" target="_blank">{{ company.website || ''}}</a></p>
+          <p class="help-block fs-16"><i class="glyphicon glyphicon-globe"></i> {{'company.website' | translate}}: <a
+              href="{{ company.website || ''}}" target="_blank">{{ company.website || ''}}</a></p>
+          <div class="wrap-btn-review">
+            <ng-template [ngIf]="!isStudentRole && !isCompanyRole" [ngIfElse]="isBoth">
+              <button class="btn add-review" (click)="openModalRemindLogin()"><i class="fa fa-star"></i> {{ 'reviewCompany.addReview' | translate }}</button>
+            </ng-template>
+            <ng-template #isBoth>
+              <button class="btn add-review" (click)="openModalAddReview()"><i class="fa fa-star"></i> {{ 'reviewCompany.addReview' | translate }}</button>
+            </ng-template>
+
+          </div>
         </div>
       </div>
     </div>
@@ -81,9 +95,9 @@
             <h3 class="title-company-w fs-20">
               {{'company.joblist' | translate}}
             </h3>
-            <p *ngIf="!isLoadJob && !jobs || !isLoadJob && 
+            <p *ngIf="!isLoadJob && !jobs || !isLoadJob &&
             !jobs.length">
-              {{ 'company.no_jobs_found' | translate}}
+              {{ 'company.noJobsFound' | translate}}
             </p>
             <div class="col-md-12 ">
               <ng-template ngFor let-job [ngForOf]="jobs">
@@ -95,8 +109,9 @@
                   <div class="loader">
                   </div>
                 </div>
-                <button [style.visibility]="hideShowMoreButton ?  'hidden' : 'visible'" class="btn btn-default" id="load_more" type="button" (click)="loadMoreJob()">
-                  {{ 'company.loadmore_jobs' | translate }}<span class="glyphicon glyphicon-menu-down"></span>
+                <button [style.visibility]="hideShowMoreButton ?  'hidden' : 'visible'" class="btn btn-default"
+                  id="load_more" type="button" (click)="loadMoreJob()">
+                  {{ 'company.loadMoreJobs' | translate }}<span class="glyphicon glyphicon-menu-down"></span>
                 </button>
               </div>
             </div>
@@ -117,7 +132,7 @@
         <div class="col-md-7 fs-16" [innerHtml]="company.description || 'There is no information!'">
         </div>
         <div class="col-md-5">
-          <img src="https://brand.mywork.com.vn/img/intro/2.jpg" style="width: 100%; border-radius: 3px;">
+          <!-- <img src="https://brand.mywork.com.vn/img/intro/2.jpg" style="width: 100%; border-radius: 3px;"> -->
         </div>
 
       </div>
@@ -130,17 +145,114 @@
           <h3 class="title-company-w fs-20">{{'company.photos' | translate}}</h3>
         </div>
         <div class="mb-20 col-md-4 img-company">
-          <img src="https://brand.mywork.com.vn/img/office/14.jpg">
+          <!-- <img src="https://brand.mywork.com.vn/img/office/14.jpg"> -->
         </div>
         <div class="mb-20 col-md-4 img-company">
-          <img src="https://brand.mywork.com.vn/img/office/13.jpg">
+          <!-- <img src="https://brand.mywork.com.vn/img/office/13.jpg"> -->
         </div>
         <div class="mb-20 col-md-4 img-company">
-          <img src="https://brand.mywork.com.vn/img/office/12.jpg">
+          <!-- <img src="https://brand.mywork.com.vn/img/office/12.jpg"> -->
         </div>
       </div>
     </div>
   </section>
+
+
+  <!-- Modal Add Review Company -->
+  <div bsModal #reviewCompanyAlert="bs-modal" class="modal modal-dialog-centered fade" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="review-title"> {{ 'reviewCompany.reviewTitle' | translate }}</p>
+        </div>
+
+        <div class="modal-body">
+          <form
+            class="validation-form"
+            [formGroup]="reviewFormGroup"
+            (ngSubmit)="reviewSubmit()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group global-error" [style.display]="hasServerError ? '' : 'none'">
+                  <div class="alert main-error-input" *ngIf="submittedReview">
+                    <div *ngIf="reviewFormGroup.errors?.serverError">
+                      {{ reviewFormGroup.errors?.serverError }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <review-company
+                    [maxScore]="5"
+                    [forDisplay]="false"
+                    (rateChanged)="onRateChange($event)">
+                  </review-company>
+                  <div class="error-rating" *ngIf="submittedReview && hasRatingError">
+                    {{ 'reviewCompany.ratingRequired' | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group required">
+                  <label class="lbl-comment" for="comment">{{ 'reviewCompany.comment' | translate }}</label>
+                  <textarea
+                    formControlName="comment"
+                    class="form-control"
+                    rows="5"
+                    id="comment"
+                    [ngClass]="{
+                      'has-error':
+                        submittedReview && controls.comment.errors
+                    }">
+                  </textarea>
+                  <div *ngIf="controls.comment.invalid" class="error-input">
+                    <div *ngIf="submittedReview && controls.comment.errors?.required">
+                      {{ 'reviewCompany.commentRequired' | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="wrap-button">
+                    <button class="btn btn-close" (click)="decline()">{{ 'reviewCompany.close' | translate }}</button>
+                    <button class="btn btn-save">{{ 'reviewCompany.addReview' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Add Review Company -->
+
+<!-- Modal remind login before add review -->
+  <div bsModal #remindLoginAlert="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><span style="color:red">Opps ! </span>{{ 'header.notyTitle' | translate }}</h4>
+        </div>
+        <div class="modal-body">
+          <p class="confirm-description"><i class="fa fa-exclamation-circle confirm-icon" aria-hidden="true"></i>&nbsp; {{ 'header.notLogin' | translate }}</p>
+        </div>
+        <div class="modal-footer confirm-footer">
+          <button type="button" class="btn btn-primary" (click)="redirectToLogin()">{{ 'login.signIn' | translate }}</button>
+          <button type="button" class="btn btn-default" (click)="decline()">{{ 'header.close' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal remind login before add review -->
 </div>
 
 <app-footer></app-footer>

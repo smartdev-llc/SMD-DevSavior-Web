@@ -188,6 +188,14 @@ p.des-apply {
     margin-right: 10px;
   }
 }
+.white-heading {
+  position: relative;
+  top: 4px
+}
+.btn-getstarted.bg-red {
+  position: relative;
+  top: -2px
+}
 
 @media(max-width:481px) {
   .mx-2 {
