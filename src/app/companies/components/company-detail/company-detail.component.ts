@@ -45,7 +45,6 @@ export class DetailCompanyComponent implements OnInit {
   companyId: string;
   hideShowMoreButton = true;
   submittedReview:boolean = false;
-  isSubmittedReview:boolean = false;
 
   constructor(
     private toastr: ToastrService,
@@ -94,21 +93,18 @@ export class DetailCompanyComponent implements OnInit {
       return;
     }
     const { comment } = this.reviewFormGroup.value;
-    this.isSubmittedReview = true;
     this.updateReview(this.company.id, this.score, comment);
   }
 
   updateReview(companyId: number, stars: any, comment: any): void {
     this.authService.updateReview(companyId, stars, comment)
     .subscribe(response => {
-      this.isSubmittedReview = false;
       this.submittedReview = false;
       this.resetReviewForm();
       this.showReviewSuccess();
       this.reviewCompanyAlert.hide();
     },
     (error: AppErrors) => {
-      this.isSubmittedReview = false;
       this.showReviewError(error);
     });
   }
