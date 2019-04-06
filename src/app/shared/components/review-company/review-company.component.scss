@@ -1,0 +1,45 @@
+.star-rating {
+  .your-review{
+    font-size: 18px;
+  }
+  .to-rate {
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 3px;
+    &:hover{
+        animation-name: rating-stars-blink;
+        animation-duration: .5s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .fa-star-o {
+    font-size: 35px;
+    color: orange;
+  }
+
+  .fa-star {
+    font-size: 35px;
+    color: orange;
+  }
+
+  .fa-star-half-o {
+    font-size: 35px;
+    color: orange;
+  }
+
+  .to-display {
+    padding: 0 2px;
+  }
+}
+
+@keyframes rating-stars-blink {
+  0% {
+      opacity: .8;
+  }
+  100% {
+      opacity: 0;
+      transform: scale(2);
+  }
+}

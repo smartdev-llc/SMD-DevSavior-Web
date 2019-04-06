@@ -9,7 +9,7 @@ import {InternalServer} from '../../../core/error/internal-server';
 import {Unauthorized} from '../../../core/error/unauthorized';
 import { LanguageService } from '../../../layout/services/language.service';
 import {BadRequest} from '../../../core/error/bad-request';
-import { StChangePasssword } from '../st-change-password/st-change-password.components';
+import { StChangePasssword } from '../st-change-password/st-change-password.component';
 
 @Component({
   selector: 'login',

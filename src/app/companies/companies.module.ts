@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap';
 import { LayoutModule } from '../layout';
 import { SharedModule } from '../shared/shared.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { DetailCompanyComponent } from './components/company-detail/company-detail.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListCompanyComponent } from './components/companies/companies.component';
 import { CompaniesRoutes as routes } from './companies.routes';
 import { CompanyDetailResolve } from './components/company-detail/company-detail.resolve';
@@ -13,8 +14,12 @@ import { CompanyDetailResolve } from './components/company-detail/company-detail
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule.forChild(routes),
+    ModalModule.forRoot(),
     CarouselModule.forRoot(),
     RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     SharedModule
   ],

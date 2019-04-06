@@ -7,6 +7,7 @@ import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scrol
 import { Categories } from '../../../core/models/job';
 import { JobService } from '../../../core/services/job.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'browse-jobs',
@@ -43,14 +44,15 @@ export class BrowseJobsComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private jobService: JobService,
-    private scrollToService: ScrollToService) {
+    private scrollToService: ScrollToService,
+    private translate:TranslateService ) {
   }
 
   ngOnInit() {
     this.route.data.subscribe(({ jobCategories }) => {
       jobCategories.unshift({
         id: '',
-        name: 'All categories'
+        name: this.translate.instant('jobFilter.allCategories')
       });
       this.jobCategories = jobCategories;
     });

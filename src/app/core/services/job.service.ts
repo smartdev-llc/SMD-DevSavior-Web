@@ -85,7 +85,7 @@ export class JobService {
     return throwError(new AppErrors(error.error.message));
   }
 
-  getJobsOfCompany(companyId: string, size: number, page: number) {
+  getJobsOfCompany(companyId: number, size: number, page: number) {
     return this.http.get('/companies/'+ companyId + '/jobs', {params: {
                                                                 'size': size.toString(),
                                                                 'page': page.toString() }}

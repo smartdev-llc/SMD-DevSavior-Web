@@ -13,8 +13,8 @@ import { Unauthorized } from 'src/app/core/error/unauthorized';
 
 @Component({
   selector: 'st-change-password',
-  templateUrl: './st-change-password.components.html',
-  styleUrls: ['./st-change-password.components.scss'],
+  templateUrl: './st-change-password.component.html',
+  styleUrls: ['./st-change-password.component.scss'],
 })
 export class StChangePasssword implements OnInit {
   @ViewChild('changePasswordAlert') changePasswordAlert: ModalDirective;
@@ -98,7 +98,6 @@ export class StChangePasssword implements OnInit {
     this.changePasswordFormGroup.setErrors({
       serverError: serverError
     });
-
   }
 
   toggle(passwordFlag: string) {
