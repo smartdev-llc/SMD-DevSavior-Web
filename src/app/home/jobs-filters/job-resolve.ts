@@ -8,6 +8,6 @@ export class JobCategories implements Resolve<any> {
   constructor(private jobService: JobService) {}
 
   resolve() {
-    return this.jobService.getJobCategories();
+     return this.jobService.getJobCategories();
   }
 }

@@ -48,7 +48,7 @@ export class JobDetailComponent implements OnInit {
   company: Company;
   listSkills: any;
   enviromentObj = environment;
-  coverCompany = '/assets/images/headerimage1.jpg';
+  coverCompany = '/assets/images/banner.jpg';
   logoCompany = 'assets/images/widget1image.png';
   fbIcon = faFacebookSquare;
   pinIcon = faPinterest;
@@ -73,28 +73,23 @@ export class JobDetailComponent implements OnInit {
     this.jobSlug = this.route.snapshot.paramMap.get('slug');
     this.isLoading = true;
 
-    this.route.paramMap.pipe(
-      switchMap((route) => {
-          this.jobSlug = route.get('slug');
-          return this.jobService.getDetailJob(this.jobSlug);
-        }
-      )
-    ).subscribe(data => {
-      this.job = data;
-      this.company = <Company>data['company'];
-      this.isLoading = false;
-      this.getRecommendedJob(this.jobSlug);
+    this.jobService.getDetailJob(this.jobSlug)
+      .subscribe(data => {
+        this.job =  data;
+        this.company = <Company> data['company'];
+        this.isLoading = false;
+        this.getRecommendedJob(this.jobSlug);
 
-      const imageCompany = this.company.logoURL ? this.enviromentObj.apiEndpoint + this.company.logoURL : './assets/images/headerimage1.jpg';
-      const jobDescription = this.removeHtmlTags(this.job.description);
-      // update meta tags for Seo
-      this.seo.generateTags({
-        title: this.job.title,
-        description: jobDescription,
-        image: imageCompany,
-        slug: this.router.url
-      });
-    }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
+        const imageCompany = this.company.logoURL ? this.enviromentObj.apiEndpoint + this.company.logoURL : './assets/images/banner.jpg';
+        const jobDescription = this.removeHtmlTags(this.job.description);
+        // update meta tags for Seo
+        this.seo.generateTags({
+          title: this.job.title,
+          description: jobDescription,
+          image: imageCompany,
+          slug: this.router.url
+        });
+      }, (error: AppErrors) => this.handleErrorJobDetailComponent(error));
 
     this.user = this.authService.getCurrentUser();
     this.isStudentRole = (this.user && this.user.role) === Role.Student;

@@ -300,7 +300,7 @@ nav.navbar.home {
 /*///////////////*/
 
 .slider_items {
-    background: url(assets/images/headerimage1.jpg);
+    background: url(assets/images/banner.jpg);
     height: 668px;
     background-attachment: fixed;
     background-position: 0 83%;
@@ -1633,7 +1633,7 @@ priceing_tables .startup {
 
 .user-data .seprator {
     position: relative;
-    
+
 }
 
 .user-data .seprator:last-child {
@@ -2028,7 +2028,7 @@ ul.simple li {
     .related_jos {
         height: 245px;
     }
-   
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
