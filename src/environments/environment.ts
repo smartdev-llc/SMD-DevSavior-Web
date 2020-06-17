@@ -8,8 +8,8 @@ import { DEFAULT_CONFIG } from '../config/default';
 export const environment = {
   production: false,
   appUrl: 'http://localhost:4200',
-  apiEndpoint: 'https://uat.api.juniorviec.com',
-  employerUrl: 'https://uat.employer.juniorviec.com',
+  apiEndpoint: 'https://api.devsavior.com',
+  employerUrl: 'https://employer.devsavior.com',
   appName: DEFAULT_CONFIG.appName,
   config: DEFAULT_CONFIG
 };
