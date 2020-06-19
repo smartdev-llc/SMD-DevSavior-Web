@@ -9,11 +9,11 @@ export class SeoService {
   generateTags(config) {
     // default values
     config = {
-      title: 'JuniorViec',
+      title: 'Devsavior',
       description: '',
-      image: './assets/images/headerimage1.jpg',
+      image: './assets/images/banner.jpg',
       slug: '',
-      url: 'https://juniorviec.com',
+      url: 'https://devsavior.com',
       imageWidth: 200,
       imageHeight: 200,
       ...config
