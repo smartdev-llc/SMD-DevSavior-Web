@@ -1,6 +1,6 @@
 {
   "apps" : [{
-    "name": "juniorviec-web",
+    "name": "devsavior-web",
     "script": "node",
     "args": "server"
   }]
